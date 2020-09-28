@@ -1,0 +1,32 @@
+history-send-notification .cowContainer {
+  position: relative;
+  background-color: rgba(26, 69, 162, 0.4); }
+  history-send-notification .cowContainer grid-table {
+    display: block;
+    overflow: hidden;
+    height: 90%; }
+    history-send-notification .cowContainer grid-table .ag-blue .ag-ltr .ag-header-cell {
+      border: 0 !important; }
+    history-send-notification .cowContainer grid-table .ag-blue .ag-cell, history-send-notification .cowContainer grid-table .ag-blue .ag-header-group-cell-label {
+      text-align: left; }
+    history-send-notification .cowContainer grid-table .ag-blue .ag-header {
+      background-color: #616161;
+      font-size: 15px; }
+    history-send-notification .cowContainer grid-table .ag-blue .ag-body {
+      background-color: #fff;
+      font-size: 14px; }
+    history-send-notification .cowContainer grid-table .ag-blue .ag-root {
+      border: 0 solid #e0e0e0; }
+  history-send-notification .cowContainer .pageIcon {
+    position: absolute;
+    bottom: .8rem;
+    overflow: hidden;
+    left: 0;
+    right: 0; }
+    history-send-notification .cowContainer .pageIcon .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      history-send-notification .cowContainer .pageIcon .pagination li {
+        width: 30px;
+        line-height: 30px; }

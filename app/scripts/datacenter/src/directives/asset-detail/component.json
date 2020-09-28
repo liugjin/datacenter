@@ -1,0 +1,24 @@
+{
+  "id": "asset-detail",
+  "name": "AssetDetail控件",
+  "type": "AssetDetailDirective",
+  "desc": {
+    "author": "foam",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.1": ["资产管理基本信息的编辑与显示,初步实现端口对接功能,查阅当前设备维修记录,设备运维信息的显示"],
+        "0.0.2": ["端口信息更新，region"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": ["backList"],
+    "subs": ["equipmentid"]
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.2"
+}

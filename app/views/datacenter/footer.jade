@@ -1,0 +1,145 @@
+//-
+//-   User: Dow
+//-   Date: 11/16/13
+
+footer.page-footer.teal(ng-cloak, ng-class="mvm.flag ? 'main-2': 'main-1'", style="padding-top:0px;background-color:#e9ebec !important;")
+    .footer-copyright(style="padding-left:20px;background-color:#e9ebec !important;")
+        .grey-text.text-darken-4
+            | ©&nbsp;
+            span(ng-bind="mvm.timestamp | date:'yyyy'")
+            | &nbsp;
+            a(style="color:#00a856;", href='') huayuan-iot
+            | &nbsp;
+            span(translate='FOOTER.COPYRIGHT') 版权所有
+            | &nbsp;
+
+            a.grey-text.text-darken-4(href='http://www.miitbeian.gov.cn/')
+                span.hide-on-med-and-down(translate='FOOTER.REGISTER_ID') / Copyright
+
+            //a.grey-text.text-lighten-4.right.modal-trigger(href='', data-target='introduction-modal', title='{{"FOOTER.SYSTEM_INFO" | translate}}', ng-click='mvm.updateQRCode("qrcode", 100, 100)')
+                //span(translate='FOOTER.SYSTEM_INFO') 系统信息
+                i.material-icons change_history
+
+#statusModal.modal(md-modal)
+    .modal-content
+        .row
+            .col.s12
+                h5 数据连接状态
+            .col.s12
+                .col.s2
+                    a.btn-floating.btn-large.waves-effect.waves-light(ng-class='{red: $root.connection != 0}')
+                        i.material-icons {{$root.connection == -1 && "sync_disabled" || $root.connection > 0 && "sync_problem" || "sync"}}
+                .col.s10
+                    h5(ng-switch='$root.connection')
+                        span(ng-switch-when='-1') 数据连接中断
+                        span(ng-switch-when='0') 数据连接正常
+                        span(ng-switch-default) 数据连接异常，正在进行第 {{$root.connection || 0}} 次重连...
+                    p
+                        span {{$root.connectionTimestamp | date:'yyyy-MM-dd hh:mm:ss'}}
+                        span.right(am-time-ago='$root.connectionTimestamp')
+
+                    .progress(ng-show='$root.connection > 0')
+                        .indeterminate
+            .col.s12
+                p 数据连接异常时程序会自动重连服务器，如果数据连接不能自动恢复，则可以重试刷新浏览器页面，如果页面刷新失败，则需要检查服务器或者网络是否出现故障。
+
+    .modal-footer
+        a.waves-effect.waves-green.btn-flat.modal-action.modal-close 关闭
+
+
+#introduction-modal.modal.bottom-sheet.modal-fixed-footer(md-modal)
+    .modal-content
+        .row
+            .col.s12.m6.l3
+                .card.small
+                    .card-image.footer-card-img
+                        img.img-responsive(ng-src='{{ mvm.setting.logo && (mvm.setting.urls.uploadUrl + "/" + mvm.setting.logo) || "res/svg/logo.svg"}}', title='{{$root.myproject.user}} / {{$root.myproject.project}}')
+                        //span.card-title {{$root.myproject.user}} / {{$root.myproject.project}}
+
+                    .card-content
+                        span.card-title.truncate(title='{{mvm.setting.desc}}') {{mvm.setting.desc}}
+
+                    .card-action
+                        //a(ng-show='$root.myproject.project', ng-href='#/setting/{{$root.myproject.user}}/{{$root.myproject.project}}')
+                            | 系统设置
+                        a(href='/model/license', target='_blank')
+                            | 授权管理
+
+            .col.s12.m6.l3
+                .card.small
+                    .card-image.footer-card-img
+                        .valign-wrapper.full-height
+                            #qrcode.valign
+                                img.img-responsive
+
+                    .card-content
+                        span.card-title 移动应用
+
+                    .card-action
+                        a(href='', title='点击下载移动应用APP')
+                            | 应用下载
+
+            .col.s12.m6.l3
+                .card.small
+                    .card-image.footer-card-img
+                        //img.img-responsive(ng-src='{{$root.connection == 0 && "res/svg/footer/online.svg" || "res/svg/footer/offline.svg"}}')
+                        .valign-wrapper.full-height
+                            i.material-icons.large.valign.center-align.full-width.green-text(ng-class='{"red-text": $root.connection != 0}') swap_horiz
+
+
+                    .card-content
+                        span.card-title.activator.grey-text.text-darken-4
+                            ng-switch(on='$root.connection')
+                                span(ng-switch-when='-1') 数据连接中断
+                                span(ng-switch-when='0') 数据连接正常
+                                span(ng-switch-default) 数据连接异常
+
+                            //a.btn-floating.waves-effect.waves-light.right(ng-class='{red: $root.connection != 0}')
+                                i.material-icons {{$root.connection == -1 && "sync_disabled" || $root.connection > 0 && "sync_problem" || "sync"}}
+
+                            i.material-icons.right more_vert
+
+                    .card-reveal
+                        span.card-title.activator.grey-text.text-darken-4
+                            | 系统状态
+                            i.material-icons.right close
+
+                        //a.btn-floating.waves-effect.waves-light(ng-class='{red: $root.connection != 0}')
+                            i.material-icons {{$root.connection == -1 && "sync_disabled" || $root.connection > 0 && "sync_problem" || "sync"}}
+
+                        p(ng-switch='$root.connection')
+                            span(ng-switch-when='-1') 数据连接中断
+                            span(ng-switch-when='0') 数据连接正常
+                            span(ng-switch-default) 数据连接异常，正在进行第 {{$root.connection || 0}} 次重连...
+
+                        .progress(ng-show='$root.connection > 0')
+                            .indeterminate
+
+                        p
+                            span {{$root.connectionTimestamp | date:'yyyy-MM-dd hh:mm:ss'}}
+                            span.right(am-time-ago='$root.connectionTimestamp')
+
+
+                        p.grey-text 数据连接异常时程序会自动重连服务器，如果数据连接不能自动恢复，则可以重试刷新浏览器页面，如果页面刷新失败，则需要检查服务器或者网络是否出现故障。
+
+                    .card-action
+                        a.waves-effect.waves-light.modal-trigger(href='', data-target='statusModal', title='{{$root.connection == 0 && "数据连接正常" || ($root.connection == -1 && "数据连接中断" || "数据中断，正在自动重连...")}}')
+                            | 系统状态
+
+    .modal-footer.modal-nav
+        nav.teal.lighten-1(ng-class='mvm.setting.theme')
+            .nav-wrapper
+                ul
+
+                    li
+                        a(href='', title='© {{mvm.timestamp | date:"yyyy"}} 实时数据云平台 {{"FOOTER.COPYRIGHT" | translate}}')
+                            i.material-icons.left copyright
+                            span {{mvm.timestamp | date:"yyyy"}} 实时数据云平台 V{{mvm.setting.package.version}}&nbsp;
+                            span.hide-on-med-and-down(translate='FOOTER.HYIoT') / Copyright
+
+
+                    ul.right
+                        li
+                            a.modal-action.modal-close(href='')
+                                i.material-icons.left close
+                                span.hide-on-med-and-down(translate='FOOTER.CLOSE') 关闭

@@ -1,0 +1,92 @@
+micromodule-dashboard .bg {
+  background-image: url("~images/background.jpg~"); }
+
+micromodule-dashboard .m0 {
+  margin: 0; }
+
+micromodule-dashboard .flex {
+  display: flex; }
+
+micromodule-dashboard .space-around {
+  justify-content: space-around; }
+
+micromodule-dashboard .column {
+  flex-direction: column; }
+
+micromodule-dashboard .w100 {
+  width: 100%; }
+
+micromodule-dashboard .h100 {
+  height: 100%; }
+
+micromodule-dashboard .h33 {
+  height: 33%; }
+
+micromodule-dashboard .block {
+  display: block; }
+
+micromodule-dashboard .title-gradient {
+  background: -webkit-linear-gradient(#fff, #eee 70%, #ddd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
+
+micromodule-dashboard .little-box {
+  position: absolute;
+  background-color: transparent !important;
+  border: 1px solid #082268; }
+
+micromodule-dashboard .little-box-highlight {
+  box-shadow: inset 0 0 40px 2px #006bc8; }
+
+micromodule-dashboard .top-left {
+  width: 5px;
+  height: 5px;
+  border-left: 1px solid #0190FF;
+  border-top: 1px solid #0190FF;
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  border-radius: 1px; }
+
+micromodule-dashboard .top-right {
+  width: 5px;
+  height: 5px;
+  border-right: 1px solid #0190FF;
+  border-top: 1px solid #0190FF;
+  position: absolute;
+  right: -1px;
+  top: -1px;
+  border-radius: 1px; }
+
+micromodule-dashboard .bottom-left {
+  width: 5px;
+  height: 5px;
+  border-left: 1px solid #0190FF;
+  border-bottom: 1px solid #0190FF;
+  position: absolute;
+  left: -1px;
+  bottom: -1px;
+  border-radius: 1px; }
+
+micromodule-dashboard .bottom-right {
+  width: 5px;
+  height: 5px;
+  border-right: 1px solid #0190FF;
+  border-bottom: 1px solid #0190FF;
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  border-radius: 1px; }
+
+micromodule-dashboard .font-blue {
+  color: #2889ef; }
+
+micromodule-dashboard .dropdown-content li > a {
+  color: #039be5; }
+
+micromodule-dashboard .dropdown-content li {
+  background-color: #020b2b; }
+
+micromodule-dashboard .dropdown-content li:hover {
+  box-shadow: inset 0 0 40px 2px #006bc8;
+  background-color: #020b2b; }

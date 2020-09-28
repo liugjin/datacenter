@@ -1,0 +1,25 @@
+{
+  "id": "equipments",
+  "name": "设备管理，设备库安装卸载主件",
+  "type": "EquipmentsDirective",
+  "desc": {
+    "author": "murray",
+    "comment": "实现了设备添加删除，设备库的安装卸载",
+    "version": {
+        "0.0.1": ["实现了设备添加删除，设备库的安装卸载 @murray"],
+        "0.0.2": ["修改设备序号为设备ID"]
+    }
+  },
+  "keywords":"设备添加删除,设备库安装卸载,设备库恢复",
+  "group": "模块组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.2"
+}

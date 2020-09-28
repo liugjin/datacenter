@@ -1,0 +1,40 @@
+{
+  "id": "bar-or-line",
+  "name": "BarOrLine控件",
+  "type": "BarOrLineDirective",
+  "desc": {
+    "author": "sheen",
+    "desc": "echarts柱状图或折线图（参数value为图表数据 height设置为px时不能带分号）",
+    "version": {
+      "0.0.1": ["初始化"],
+      "0.0.2": ["修复parameters参数value的bug"],
+      "0.0.3": ["图表数据不通过parameters的value参数传递，改为订阅发布eventbus方式接收数据"],
+      "0.0.4": ["传超中所修改版本"],
+      "0.0.5": ["20190809修复bug,x轴数据不能去重"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+    {"id":"height","type":"string","value":"300px"},
+    {"id":"title","type":"string","value":"能耗柱状图"},
+    {"id":"type","type":"string","value":"LB"},
+    {"id":"xname","type":"string","value":"时间"},
+    {"id":"yname","type":"string","value":"数值"},
+    {"id":"mutilcolorflag","type":"string","value":"#ff00000"},
+    {"id":"mutillevelflag","type":"string","value":"#00ff00"},
+    {"id":"leghidflag","type":"string","value":true},
+    {"id":"hidsplitlineflag","type":"string","value":true},
+    {"id":"hidlabelshowflag","type":"string","value":true},
+    {"id":"lbbevelflag","type":"string","value":true},
+    {"id":"hidaxislabel","type":"string","value":true},
+    {"id":"hidxaxislineshow","type":"string","value":true},
+    {"id":"hidyaxislineshow","type":"string","value":true},
+    {"id":"hidtoolboxshow","type":"string","value":true}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": ["barlinevalue"]
+  },
+  "css": "",
+  "version": "0.0.5"
+}

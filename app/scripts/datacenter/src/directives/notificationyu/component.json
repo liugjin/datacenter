@@ -1,0 +1,24 @@
+{
+  "id": "notificationyu",
+  "name": "Notificationyu控件",
+  "type": "NotificationyuDirective",
+  "desc": {
+    "author": "",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.1": [
+        ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.1"
+}

@@ -1,0 +1,39 @@
+graphic-box {
+  display: block; }
+  graphic-box #graphic {
+    height: 100%; }
+  graphic-box .box-hexagon {
+    width: 100%;
+    height: 100%; }
+    graphic-box .box-hexagon .max-height {
+      height: 100%; }
+    graphic-box .box-hexagon .box-content {
+      text-align: center;
+      border-left: 1px solid #00e7ee;
+      border-right: 1px solid #00e7ee;
+      color: #ffffff;
+      padding: 0 1rem;
+      background-color: rgba(26, 69, 162, 0.4); }
+    graphic-box .box-hexagon .subtitle {
+      font-size: 0.9rem;
+      margin-left: 0.4rem; }
+    graphic-box .box-hexagon .box-content .title {
+      height: 2.4rem;
+      font-size: 1.4rem;
+      text-align: left;
+      background-repeat: no-repeat;
+      background-position-x: right;
+      background-position-y: 1.6rem; }
+  graphic-box .big-box-border-top {
+    background-image: url("~image/big.png~");
+    background-repeat: no-repeat;
+    border-right: 1px solid #00e7ee;
+    height: 20px; }
+  graphic-box .big-box-border-bottom {
+    background-image: url("~image/big.png~");
+    background-repeat: no-repeat;
+    border-right: 1px solid #00e7ee;
+    height: 20px;
+    transform: rotateY(180deg) rotateX(180deg); }
+  graphic-box #player {
+    height: 100%; }

@@ -1,0 +1,11 @@
+equipment-breadcrumbs .no-bg-color {
+  background-color: transparent; }
+
+equipment-breadcrumbs .dropdown-content {
+  width: auto !important;
+  background-color: rgba(26, 69, 162, 0.6); }
+  equipment-breadcrumbs .dropdown-content li a {
+    color: #e2edf2; }
+
+equipment-breadcrumbs .dropdown-content li:hover, equipment-breadcrumbs .dropdown-content li.active {
+  background-color: #1a45a2 !important; }

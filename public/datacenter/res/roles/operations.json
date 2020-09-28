@@ -1,0 +1,53 @@
+{
+  "id": "operations",
+  "name": "操作权限",
+  "operations": [
+    {
+      "operation": "station-manager",
+      "name": "站点管理"
+    },
+    {
+      "operation": "station-manager-add",
+      "name": "新建",
+      "parent": "station-manager"
+    },
+    {
+      "operation": "station-manager-edit",
+      "name": "编辑",
+      "parent": "station-manager"
+    },
+    {
+      "operation": "station-manager-del",
+      "name": "删除",
+      "parent": "station-manager"
+    },
+    {
+      "operation": "asset-manager",
+      "name": "资产管理"
+    },
+    {
+      "operation": "asset-manager-add",
+      "name": "新建",
+      "parent": "asset-manager"
+    },
+    {
+      "operation": "asset-manager-edit",
+      "name": "编辑",
+      "parent": "asset-manager"
+    },
+    {
+      "operation": "asset-manager-del",
+      "name": "删除",
+      "parent": "asset-manager"
+    },
+    {
+      "operation": "asset-manager-review",
+      "name": "查看",
+      "parent": "asset-manager"
+    },
+    {
+      "operation": "setting",
+      "name": "系统配置"
+    }
+  ]
+}

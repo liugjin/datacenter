@@ -1,0 +1,103 @@
+alarms-monitoring a:focus {
+  outline: none !important; }
+
+alarms-monitoring .nav-wrapper span {
+  font-size: 14px; }
+
+alarms-monitoring .chip {
+  background-color: rgba(26, 69, 162, 0.4);
+  color: white;
+  margin: 5.5px; }
+
+alarms-monitoring .chip > img {
+  height: 32px !important;
+  width: 32px !important; }
+
+alarms-monitoring .breadcrumb {
+  color: #ffffff !important; }
+
+alarms-monitoring .box-hexagon {
+  margin-top: .75rem;
+  width: 100%; }
+  alarms-monitoring .box-hexagon .box-content {
+    height: auto;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 1rem;
+    background-color: rgba(26, 69, 162, 0.4); }
+  alarms-monitoring .box-hexagon .box-border-top {
+    background-image: url("~image/big.png~");
+    background-repeat: no-repeat;
+    border-right: 1px solid #00e7ee;
+    height: 20px; }
+  alarms-monitoring .box-hexagon .box-border-bottom {
+    background-image: url("~image/big.png~");
+    background-repeat: no-repeat;
+    border-right: 1px solid #00e7ee;
+    height: 20px;
+    transform: rotateY(180deg) rotateX(180deg); }
+
+alarms-monitoring .no-box-shadow {
+  box-shadow: none; }
+
+alarms-monitoring i.right-2 {
+  float: right;
+  margin-left: 10px; }
+
+alarms-monitoring .card-panel {
+  background-color: rgba(26, 69, 162, 0.4) !important;
+  overflow: hidden;
+  margin: .75rem 0;
+  padding: 0; }
+
+alarms-monitoring .standard-span-alarms-btn:hover {
+  box-shadow: none !important; }
+
+alarms-monitoring .standard-alarms-span-btn {
+  color: #fff !important;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin: 12px 6px 0 14px;
+  border-radius: 3px;
+  font-size: 14px;
+  overflow: hidden;
+  border: none !important; }
+  alarms-monitoring .standard-alarms-span-btn span {
+    margin: 0 10px;
+    font-size: 14px;
+    font-weight: 400; }
+
+alarms-monitoring .event-list-container {
+  margin-top: 0;
+  background-color: rgba(26, 69, 162, 0.4) !important;
+  font-size: 14px;
+  height: 84.2vh;
+  border-radius: 0;
+  overflow: auto; }
+
+alarms-monitoring .event-analysis-chart {
+  height: 48.7vh;
+  width: 100%;
+  display: block; }
+
+alarms-monitoring .card-panel-container {
+  height: 17.6vh;
+  overflow: auto;
+  background-color: rgba(26, 69, 162, 0.4) !important; }
+
+@media screen and (width: 1024px) {
+  alarms-monitoring .event-analysis-chart {
+    height: 42.5vh; }
+  alarms-monitoring .event-list-container {
+    height: 80.6vh; }
+  alarms-monitoring .card-panel-container {
+    height: 17.2vh; }
+  alarms-monitoring .standard-alarms-span-btn {
+    height: 30px;
+    line-height: 30px;
+    margin: 8px 0 0 8px;
+    padding: 0 6px; }
+    alarms-monitoring .standard-alarms-span-btn span {
+      font-size: 12px;
+      margin: 0 !important; } }

@@ -1,0 +1,56 @@
+{
+  "id": "capacity-asset",
+  "name": "资产容量控件",
+  "type": "CapacityAssetDirective",
+  "desc": {
+    "author":"Billy",
+    "desc":"资产容量组件",
+    "version": {
+      "0.0.1": [
+        "[Billy]发布组件,根据不同的信号展示相关资产容量信息",
+        "content属性字段描述：",
+        "{id:'展示属性的logo的名称',name:'展示属性的名称',usedSignal:'已用容量',totalSignal:'总容量'}"
+      ],
+      "0.0.2": [
+        "[Billy]优化组件，并取消传值，切换站点时将数据置空"
+      ],
+      "0.0.3": [
+        "[Hardy]解决订阅空对象导致的性能问题"
+      ],
+      "0.0.4": [
+        "[Billy]调整样式"
+      ],
+      "0.0.5": [
+        "修复信号值不改变的问题", "增加信号测点", "增加跳转链接", "@bingo"
+      ],
+      "0.0.6": [
+        "图片修改", "@bingo"
+      ],
+      "0.0.7": [
+        "修改整体的样式", "@bingo"
+      ],
+      "0.0.8": [
+        "组件标准化，region"
+      ],
+      "0.0.9": [
+        "样式调优，region"
+      ],
+      "0.0.10": [
+        "去掉承重维度，region"
+      ],
+      "0.0.11": [
+        "增加承重维度", "@youge"
+      ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+    {"id":"stationId","type":"string","value":"host-room"}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "css": "",
+  "version": "0.0.11"
+}

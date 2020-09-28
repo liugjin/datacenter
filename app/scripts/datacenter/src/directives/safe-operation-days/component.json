@@ -1,0 +1,44 @@
+{
+  "id": "safe-operation-days",
+  "name": "安全运行天数",
+  "type": "SafeOperationDaysDirective",
+  "desc": {
+    "author": "Hardy",
+    "comment": "模块组件",
+    "version": {
+      "0.0.1": [],
+      "0.0.2": [
+        "样式优化"
+      ],
+      "0.0.3": [
+        "修复重复报错"
+      ],
+      "0.0.4": [
+        "region--值取一级站点stationmanager的属性safe-time"
+      ],
+      "0.0.5": [
+        "region--修改获取属性bug"
+      ]
+    }
+  },
+  "group": "模块组件",
+  "parameters": [
+    {
+      "id": "value",
+      "type": "string",
+      "value": "240"
+    },
+    {
+      "id": "backgroundColor",
+      "type": "string",
+      "value": "#60CA7D"
+    }
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.5"
+}

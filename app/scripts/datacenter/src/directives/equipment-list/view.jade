@@ -1,0 +1,34 @@
+.row.nav-top
+    .col.s2
+        span 设备清单
+    .col.s10
+        nav
+            .nav-wrapper
+                ul.right
+                    li(ng-click='exportReport("设备清单")')
+                        a.btn.modal-trigger.edit-btn(title="导出报表")
+                            span 导出
+    grid-table(style="width: 100%; " controller='controller' parameters="{header: headers, data: deviceData}")
+.row.content
+    .col.l12.cool-content
+        .new-table
+            table
+                thead
+                    tr
+                        th(ng-repeat='(index,equip) in header')
+                            .col-header
+                                span {{equip.headerName}}
+                tbody
+                    tr(ng-repeat='(index,equip) in equipments')
+                        td {{equip.model.equipment}}
+                        td {{equip.model.name}}
+                        td {{equip.model.typeName}}
+                        td {{equip.model.address}}
+                        td {{equip.model.newport}}
+                        td {{equip.model.parameters}}
+                        td {{equip.model.templateName}}
+                        td {{equip.model.libraryVersion}}
+                        td {{equip.model.vendorName}}
+                        td {{equip.model.user}}
+                        td {{equip.model.expiryDate}}
+                        td {{equip.model.createtime | date: 'yyyy-MM-dd'}}

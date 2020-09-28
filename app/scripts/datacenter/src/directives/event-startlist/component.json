@@ -1,0 +1,26 @@
+{
+  "id": "event-startlist",
+  "name": "EventStartlist控件",
+  "type": "EventStartlistDirective",
+  "desc": {
+    "author": "",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.1": ["初始化组件，region"],
+        "0.0.2": ["事件保持最新的未结束告警的状态", "@mackie"],
+        "0.0.3": ["解决点击确认告警、强制结束、确认机房无弹框效果的bug", "@mackie"],
+        "0.0.4": ["添加一键结束功能", "@mackie"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.4"
+}

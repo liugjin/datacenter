@@ -1,0 +1,129 @@
+
+drop-down
+  .drop
+    .margin-left-10
+      margin-left: 10px
+
+      .drop-title
+        color: #ffffff
+        font-size: 14px
+
+  .drop>li>label
+    display: inline-block
+    height: 36px
+    width: 100px
+    line-height: 35px
+    border: 1px solid #03a8ff
+    color: #ffffff
+    font-size: 14px
+    vertical-align: middle
+    overflow: hidden
+    padding: 0 6px
+
+  .drop li i.material-icons
+    font-family: 'Material Icons', serif
+    font-weight: normal
+    font-style: normal
+    font-size: 24px
+    display: inline-block
+    text-transform: none
+    letter-spacing: normal
+    word-wrap: normal
+    white-space: nowrap
+    direction: ltr
+    -webkit-font-smoothing: antialiased
+    text-rendering: optimizeLegibility
+    -moz-osx-font-smoothing: grayscale
+    font-feature-settings: 'liga'
+    width: 36px
+    height: 36px
+    line-height: 35px
+    margin-left: -1px
+    vertical-align: middle
+    border: 1px solid #03a8ff
+    padding-left: 5px
+    color: #03a8ff
+    cursor: pointer
+
+  .drop ul li a
+    width: 77px
+    height: 33px
+    line-height: 33px
+    text-align: center
+    padding: 0
+    background: #6cbe86
+    margin-top: 15px
+
+  .venting
+    position: absolute
+    background: rgba(26, 69, 162, 0.9)
+    z-index: 1024
+    border: 1px solid #b2b2b2
+    padding: 0
+    display: none
+    min-width: 132px
+
+  .venting:before
+    position: absolute
+    content: ""
+    width: 0
+    height: 0
+    left: 12px
+    top: -10px
+    border-left: 10px solid transparent
+    border-right: 10px solid transparent
+    border-bottom: 10px solid #b2b2b2
+
+  .venting:after
+    position: absolute
+    content: ""
+    width: 0
+    height: 0
+    left: 13px
+    top: -9px
+    border-left: 9px solid transparent
+    border-right: 9px solid transparent
+    border-bottom: 9px solid #fff
+
+  .venting ol li
+    list-style-type: none
+    margin: 8px 10px
+    line-height: 0
+    clear: both
+
+  .venting ol li span
+    color: #e2edf2
+    font-size: 14px
+    padding-left: 28px
+
+  [type="checkbox"].filled-in:not(:checked) + span:not(.lever):after
+    height: 20px
+    width: 20px
+    background-color: transparent
+    border: 2px solid #e2edf2
+    top: 2px
+    z-index: 0
+
+  [type="checkbox"].filled-in:checked + span:not(.lever):after
+    top: 2px
+    width: 20px
+    height: 20px
+    border: 2px solid #e2edf2
+    background-color: transparent
+    z-index: 0
+
+  [type="checkbox"].filled-in:checked + span:not(.lever):before
+    top: 2px
+    left: 1px
+    width: 8px
+    height: 13px
+    border: 2px solid transparent
+    border-right-color: #e2edf2
+    border-bottom-color: #e2edf2
+    -webkit-transform: rotateZ(37deg)
+    transform: rotateZ(37deg)
+    -webkit-transform-origin: 100% 100%
+    transform-origin: 100% 100%
+
+
+

@@ -1,0 +1,16 @@
+report-query-time {
+  color: black; }
+  report-query-time li span, report-query-time li input {
+    color: white; }
+  report-query-time .datepicker {
+    border: 1px solid #03a8ff !important;
+    height: 38px !important;
+    text-align: center !important;
+    width: 9rem !important; }
+  report-query-time .report-li span {
+    color: #ffffff;
+    font-size: .75rem; }
+
+@media screen and (width: 1024px) {
+  report-query-time .report-li {
+    margin-left: 0 !important; } }

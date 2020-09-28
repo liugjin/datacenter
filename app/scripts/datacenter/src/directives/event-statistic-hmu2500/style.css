@@ -1,0 +1,20 @@
+event-statistic-hmu2500 .box-hexagon {
+  margin-top: .75rem;
+  width: 100%; }
+  event-statistic-hmu2500 .box-hexagon .box-content {
+    height: 15.7vh;
+    color: #ffffff;
+    padding: 1rem 1rem;
+    text-align: left; }
+    event-statistic-hmu2500 .box-hexagon .box-content .box-content-title {
+      font-size: 16px;
+      font-weight: 600;
+      height: 5vh;
+      line-height: 5vh; }
+      event-statistic-hmu2500 .box-hexagon .box-content .box-content-title .icon-position {
+        position: relative;
+        top: 7px; }
+    event-statistic-hmu2500 .box-hexagon .box-content .box-content-main {
+      font-size: 20px;
+      font-weight: 600;
+      text-align: center; }

@@ -1,0 +1,75 @@
+ip-setting {
+  font-size: 14px; }
+  ip-setting .switch label .lever {
+    background-color: #1a45a2; }
+  ip-setting .switch label input[type=checkbox]:checked + .lever {
+    background-color: #1a45a2; }
+  ip-setting .switch label input[type=checkbox]:checked + .lever:after {
+    background-color: #01a6ff; }
+  ip-setting [type="checkbox"]:not(:checked):disabled + span:not(.lever):before {
+    border: 2px solid #ffffff; }
+  ip-setting [type="checkbox"] + span:not(.lever):before, ip-setting [type="checkbox"]:not(.filled-in) + span:not(.lever):after {
+    border: 2px solid #ffffff; }
+  ip-setting [type="checkbox"]:checked + span:not(.lever):before {
+    border-top: 2px solid transparent !important;
+    border-left: 2px solid transparent !important;
+    border-right: 2px solid #10a957 !important;
+    border-bottom: 2px solid #10a957 !important; }
+  ip-setting input[type=text]:not(.browser-default) {
+    font-size: 14px !important; }
+  ip-setting input.valid {
+    box-shadow: none !important; }
+  ip-setting label {
+    color: #ffffff;
+    font-size: 14px; }
+  ip-setting input:disabled {
+    color: #ffffff !important;
+    border: 1px dotted rgba(1, 166, 255, 0.65) !important;
+    padding: 0 0.75rem !important;
+    margin-bottom: 0 !important; }
+  ip-setting input {
+    color: #ffffff;
+    border: 1px solid rgba(1, 166, 255, 0.65) !important;
+    padding: 0 0.75rem !important;
+    margin-bottom: 0 !important;
+    box-shadow: none; }
+  ip-setting input:focus {
+    color: #ffffff;
+    border: 1px solid #01a6ff !important;
+    box-shadow: none !important; }
+  ip-setting .input-field {
+    width: 35rem;
+    margin: 0 !important; }
+  ip-setting .felx {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center; }
+    ip-setting .felx label {
+      line-height: 50px;
+      width: 7rem;
+      padding: 0 .75rem; }
+  ip-setting .select-wrapper .caret {
+    display: none; }
+  ip-setting .dropdown-content {
+    background: transparent !important; }
+  ip-setting .cool-content {
+    background-color: rgba(26, 69, 162, 0.4);
+    padding-top: .75rem !important;
+    height: 52vh; }
+  ip-setting .cool-content2 {
+    background-color: rgba(26, 69, 162, 0.4);
+    padding-top: .75rem !important;
+    height: calc(32.4vh - 0.75rem); }
+  ip-setting .tagName {
+    display: flex;
+    align-items: center;
+    height: calc(40px - 0.75rem); }
+  ip-setting .ping {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    height: 2.6rem;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left: 6%; }

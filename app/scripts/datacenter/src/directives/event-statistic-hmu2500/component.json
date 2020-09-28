@@ -1,0 +1,27 @@
+{
+  "id": "event-statistic-hmu2500",
+  "name": "hmu2500事件统计控件",
+  "type": "EventStatisticHmu2500Directive",
+  "desc": {
+    "author": "foam",
+    "comment": "自定义组件",
+    "desc":"显示事件统计数",
+    "version": {
+      "0.0.1": ["活动告警统计"],
+      "0.0.2": ["修复Bug"]
+    }
+  },
+  "keywords":"告警,统计,活动告警,数量",
+  "group": "站点组件",
+  "parameters": [
+    {"id":"stationId","type":"string","value":"shenzhen"},
+    {"id":"statisticValue","type":"number","value":10}
+  ],
+  "interact": {
+    "pubs": ["event-list-eventType"],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.2"
+}

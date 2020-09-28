@@ -1,0 +1,33 @@
+.row.nav-top
+    .col.s2
+        span(style="font-size: 14px") 批量配置
+.inventory(style="margin-right: 0;")
+    .row.recovery
+        .col.s12.m12.l12.restore-prompt
+            .recovery-box
+                .tagName 配置恢复
+                .tips
+                    span 配置恢复是根据历史备份配置将HMU2500的设备库、设备监控和属性配置、系统配置进行恢复、不包括系统的网络配置和账户信息
+            .upload
+                .select-file
+                    .choiceLabel
+                        span 选择配置备份文件:
+                    .choiceRoute
+                        input#upload.file(type="file" accept=".zip" style="display: none;")
+                        input(name="fileName" value="{{fileNameStr}}" readonly)
+                        #file.browseBtn(ng-click="file()") ...
+                    .confirmUpload.btn(ng-click="confirmSha()")
+                        span 配置上传 
+
+                .upload-tips
+                    span 单击"配置上传"前,请确认备份文件准确无误
+                
+    .row.backups
+        .col.s12.m12.l12.restore-prompt
+            .recovery-box
+                .tagName 配置备份
+                .tips
+                    span 配置备份将HMU2500的设备库、设备监控和属性配置、系统配置进行打包备份、以便在需要时进行配置恢复
+            .upload.cter
+                .download.btn(ng-click="download()")
+                        span 下载

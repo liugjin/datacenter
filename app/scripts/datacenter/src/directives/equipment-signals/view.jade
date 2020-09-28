@@ -1,0 +1,9 @@
+.big-box
+    .line-col
+    .line-row
+    .box
+        .title 实时数据
+        .content
+            .font(ng-repeat="signal in signals", ng-class="signals.length==1?'s12':signals.length<5?'s6':signals.length<7?'s4':'s4'")
+                span.valuecolor {{signal.data.formatValue || "-"}} {{signal.data.unitName}}
+                div {{signal.model.name}}

@@ -1,0 +1,62 @@
+link(rel='stylesheet', href='/lib/gl-datepicker/styles/glDatePicker.default.css')
+.row.nav-top(style="margin-left: 0")
+    .col.s2
+        span(style="font-size: 14px") 用电量统计
+    .col.s5
+        nav
+            .nav-wrapper
+                ul(style="display:flex;align-items:center")
+                    li
+                        span  选中站点
+                    li(style="height: 36px;")
+                        select(md-select ng-model='checkNews.station')
+                            option(ng-repeat='data in stations',value='{{data.model.station}}') {{data.model.name}}
+    .col.s5
+        nav
+            .nav-wrapper.right(style="display:flex;")
+                ul
+                    li
+                        span.hide-on-med-and-down 开始时间
+                    li
+                        .input-field1
+                            input#start-time-input.datepicker(type='text', ng-model='query.startTime')
+                    li
+                        span.hide-on-med-and-down 结束时间
+                    li
+                        .input-field1
+                            input#end-time-input.datepicker(type='text', ng-model='query.endTime')
+                ul
+                    li
+                        .btn.standard-report-btn.btn-margin-top(style="margin-right: 1rem;margin-left: 1rem" href='', ng-click='getReportData()', title='查询')
+                            span.hide-on-med-and-down 查询
+                    li
+                        .btn.standard-report-btn.btn-margin-top(href='',ng-click='exportReport("用电量统计")', title='导出')
+                            span.hide-on-med-and-down 导出
+    grid-table(style="width: 100%; " controller='controller' parameters="{header: headers, data: historicalData}")
+.row(ng-style='{"height":parameters.height || "84vh","margin-left":"0.75rem"}')
+    .col.s12.table
+        table
+            tr(style="background: rgba(1, 166, 255, 0.5)")
+                th 分区名称
+                th 设备名称
+                th 信号名称
+                th 单位
+                th 信号值
+                th 差值
+                th 最小值
+                th 最大值
+                th 采集周期
+                th 采集模式
+                th 采集时间
+            tr(ng-repeat='d in historicalData')
+                td {{d.station}}
+                td {{d.equipment}}
+                td {{d.signal}}
+                td {{d.unit}}
+                td {{d.value}}
+                td {{d.diff}}
+                td {{d.min}}
+                td {{d.max}}
+                td {{d.period}}
+                td {{d.mode}}
+                td {{d.timestamp | date:'yyyy-MM-dd HH:mm:ss'}}

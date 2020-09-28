@@ -1,0 +1,27 @@
+{
+  "id": "battery-alarm",
+  "name": "BatteryAlarm控件",
+  "type": "BatteryAlarmDirective",
+  "desc": {
+    "author": "Mackie",
+    "comment": "蓄电池告警记录组件",
+    "version": {
+        "0.0.1": [],
+        "0.0.2": ["修改值的展示"],
+        "0.0.3": ["优化为公共组件"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [
+    "device-accla-alarm"
+  ],
+  "css": "",
+  "version": "0.0.3"
+}

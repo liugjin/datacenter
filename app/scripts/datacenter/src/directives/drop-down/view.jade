@@ -1,0 +1,19 @@
+
+ul.drop
+    li.margin-left-10
+        span.drop-title {{parameters.title}}
+    li.margin-left-10
+        label(ng-click="dropDown($event);$event.stopPropagation();") {{selectedName}}
+        i.material-icons(ng-click="dropDown($event); $event.stopPropagation();") arrow_drop_down
+
+        .venting
+            ol.left.no-padding(ng-repeat="arr in itemArr")
+                li(ng-repeat="item in arr.items" ng-click="$event.stopPropagation();")
+                    label
+                        input.filled-in(type="checkbox" ng-model='item.checked' ng-change="selectOne()")
+                        span {{item.name}}
+
+script.
+    window.onclick = function (event) {
+        $('.venting').slideUp(300)
+    };

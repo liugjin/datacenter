@@ -1,0 +1,73 @@
+//-
+    User: Dow
+    Date: 12/30/2015
+    Desc:
+
+.row.nav-top
+    .col.l2
+        span(style="font-size:14px") 系统信息
+    .col.l10
+
+.row
+    .col.l6
+        .card-panel.no-margin-bottom.card-panel-left
+            .input-field
+                .title(ng-class='{active: setting.name}',style="margin-top: 0") 系统名称
+                input(type='text', ng-model='setting.name',maxlength="36")
+
+            .input-field
+                .title(ng-class='{active: setting.desc}') 系统简介
+                textarea.materialize-textarea(ng-model='setting.desc',style="background-color: transparent")
+
+            .input-field
+                .title(ng-class='{active: setting.copyright}') 版权信息
+                input(type='text', ng-model='setting.copyright')
+
+            .input-field
+                .title(ng-class='{active: parameters.version}') 版本号
+                input(type='text', ng-model='parameters.version', disabled)
+
+            .btn-group.getstarted-button.btn-save
+                a.btn.waves-effect.waves-light.green-1(ng-href='', ng-click='saveSetting()', ng-show="project.model._role.isAdmin || project.model._role.operations[0]=='_all' || project.model._role.operations.indexOf('setting')>=0")
+                    | 保存配置
+                    //i.material-icons.right save
+    .col.l3(style="padding-left: 0")
+        .card-panel.no-margin-bottom.card-panel-center
+            .card-title 系统LOGO
+            .card-content.img-box
+                .img-uploader.model-img-upload
+                    image-uploader(ng-model='setting.logo', dir='{{controller.options.uploadUrl}}')
+    .col.l3(style="padding-left: 0")
+        .card-panel.no-margin-bottom.card-panel-right
+            .card-title 功能菜单
+            .card-content.card-list
+                ul.ul-first-level(style="min-width: 260px")
+                    li(ng-repeat="menu in setting.menus" onmouseover="this.style='background:rgba(26, 69, 162, 0.2)'" onmouseleave="this.style=''")
+                        div(style="width: calc(100% - 64px); float: left;")
+                            span(ng-show="!menu.edit" ng-bind="menu.title")
+                        input.ul-input(type="text", ng-model="menu.title", ng-show="menu.edit", ng-blur="menu.edit=false")
+                        div(style="width: 64px; float: left;")
+                            ul.right(ng-show="project.model._role.isAdmin || project.model._role.operations[0]=='_all' || project.model._role.operations.indexOf('setting')>=0")
+                                li(style="display:inline-block;cursor:pointer", ng-if="$index>0" ng-click="setting.menus.splice($index-1, 2, menu, setting.menus[$index-1])" title="上移")
+                                    i.material-icons.tiny arrow_upward
+                                li(style="display:inline-block;cursor:pointer", ng-if="$index<setting.menus.length-1" ng-click="setting.menus.splice($index, 2, setting.menus[$index+1], menu)", title="下移")
+                                    i.material-icons.tiny arrow_downward
+                                li(style="display:inline-block;cursor:pointer", ng-click="menu.edit=true", title="修改名称")
+                                    i.material-icons.tiny edit
+                                li(style="display:inline-block;cursor:pointer", ng-click="setting.menus.splice($index, 1)", title="删除")
+                                    i.material-icons.tiny remove
+                        ul.ul-third-level-two(ng-if="menu.submenus.length > 0")
+                            li(ng-repeat="child in menu.submenus" onmouseover="this.style='border:solid 1px'" onmouseleave="this.style=''")
+                                div(style="width: calc(100% - 64px); float: left;")
+                                    span(ng-show="!child.edit", ng-bind="child.title")
+                                input.ul-input(type="text" ng-model="child.title", ng-show="child.edit", ng-blur="child.edit=false")
+                                div(style="width: 64px; float: left;")
+                                    ul.right(ng-show="project.model._role.isAdmin || project.model._role.operations[0]=='_all' || project.model._role.operations.indexOf('setting')>=0")
+                                        li(style="display:inline-block;cursor:pointer", ng-if="$index>0"  ng-click="menu.submenus.splice($index-1, 2, child, menu.submenus[$index-1])" title="上移")
+                                            i.material-icons.tiny arrow_upward
+                                        li(style="display:inline-block;cursor:pointer", ng-if="$index<menu.submenus.length-1"  ng-click="menu.submenus.splice($index, 2, menu.submenus[$index+1], child)", title="下移")
+                                            i.material-icons.tiny arrow_downward
+                                        li(style="display:inline-block;cursor:pointer", ng-click="child.edit=true", title="修改名称")
+                                            i.material-icons.tiny edit
+                                        li(style="display:inline-block;cursor:pointer", ng-click="menu.submenus.splice($index, 1)", title="删除")
+                                            i.material-icons.tiny remove

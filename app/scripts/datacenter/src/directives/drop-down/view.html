@@ -1,0 +1,3 @@
+<ul class="drop"><li class="margin-left-10"><span class="drop-title">{{parameters.title}}</span></li><li class="margin-left-10"><label ng-click="dropDown($event);$event.stopPropagation();">{{selectedName}}</label><i ng-click="dropDown($event); $event.stopPropagation();" class="material-icons">arrow_drop_down</i><div class="venting"><ol ng-repeat="arr in itemArr" class="left no-padding"><li ng-repeat="item in arr.items" ng-click="$event.stopPropagation();"><label><input type="checkbox" ng-model="item.checked" ng-change="selectOne()" class="filled-in"/><span>{{item.name}}</span></label></li></ol></div></li></ul><script>window.onclick = function (event) {
+    $('.venting').slideUp(300)
+};</script>

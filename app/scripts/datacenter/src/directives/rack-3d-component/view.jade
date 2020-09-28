@@ -1,0 +1,6 @@
+.rack-3d-canvas(style='width:100%;height:100%;')
+
+div(style="width:10vw;position: relative;top: -30vh;left: 10vw;",ng-show="!sceneLoadedCompleted")
+    p(style="color: white;") 3D加载:（{{preloadValue || 0}}%）
+    .progress
+        .determinate(style='width: {{preloadValue || 0}}%;')

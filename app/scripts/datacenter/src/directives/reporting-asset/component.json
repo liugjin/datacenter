@@ -1,0 +1,65 @@
+{
+  "id": "reporting-asset",
+  "name": "资产报表",
+  "type": "ReportingAssetDirective",
+  "desc": {
+    "author": "bingo",
+    "comment": "资产报表，当前项目所有的资产信息",
+    "version": {
+      "0.0.1": [
+        "初始化"
+      ],
+      "0.0.2": [
+        "去掉多余的项",
+        "修改参数获取ID"
+      ],
+      "0.0.5": [
+        "修改json文件格式",
+        "增加与drop-down组件的交互",
+        "调整样式",
+        "注释子站点的选择"
+      ],
+      "0.0.6": [
+        "修改样式@Billy"
+      ],
+      "0.0.7": [
+        "根据grid-table组件删除了无用的参数@bingo"
+      ],
+      "0.0.8": [
+        "20190507样式修改 @hardy"
+      ],
+      "0.0.9": [
+        "20190510样式修改 @billy"
+      ],
+      "0.0.10": [
+        "修改中文字段名称 @James"
+      ],
+      "0.0.11": [
+        "增加资产归属列 @James"
+      ],
+      "0.0.12": [
+        "优化资产归属列为用户名称 @region"
+      ],
+      "0.0.13": [
+        "更新页面标准化样式 @Albert"
+      ],
+      "0.0.14": [
+        "适配1024x768分辨率，将nav-wrapper的滚动条换成横轴滚动 @Albert"
+      ],
+      "0.0.15": [
+        "解决横轴滚动导致下拉框无法显示的bug @Albert"
+      ]
+    }
+  },
+  "group": "模块组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": ["export-report"],
+    "subs": ["drop-down-select"]
+  },
+  "deps": ["drop-down", "grid-table"],
+  "css": "",
+  "version": "0.0.15"
+}

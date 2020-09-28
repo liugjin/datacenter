@@ -1,0 +1,55 @@
+.box-hexagon
+    .box-content
+        div
+            .title
+                span.title-line
+                span.title-h1 环境量
+                //span.title-h2 Environmental Quantity
+            .subtitle.right.dropdown-trigger(
+            ng-show='equipments.length > 0'
+            data-target='environments'
+            data-hover='true'
+            data-alignment='right'
+            data-constrain-width='false'
+            md-dropdown)
+                span 选择设备
+                span.select-slogo
+
+            ul#environments.dropdown-content(style="overflow: overlay")
+                li(ng-repeat='equip in equipments' ng-class='{active: equip.isSelect}')
+                    a(ng-href='', ng-click='selectEquipment(equip)')
+                        span {{equip.model.name}}
+
+        .content
+            .row(style="margin-bottom:0;width: 100%;box-sizing:border-box;")
+                .environment
+                    .font.font-img-box1
+                        .img
+                            img(ng-src="{{getComponentPath('images/new-temp-normal.png')}}")
+                        span.cfont-control1(style="color:{{getSeverityColor(th.signals.getItemByIds({signal:'temperature'}).data.severity)}}") {{th.signals.getItemByIds({signal:'temperature'}).data.formatValue || "-"}}
+                        .cfont-control2 {{th.signals.getItemByIds({signal:'temperature'}).equipment.model.name.replace("温湿度","")+"温度"}} ℃
+
+
+
+                    .font.font-img-box2
+                        .img
+                            img(ng-src="{{getComponentPath('images/new-humi-normal.png')}}")
+                        span.cfont-control1(style="color:{{getSeverityColor(th.signals.getItemByIds({signal:'temperature'}).data.severity)}}") {{th.signals.getItemByIds({signal:'humidity'}).data.formatValue || "-"}}
+                        .cfont-control2 {{th.signals.getItemByIds({signal:'humidity'}).equipment.model.name.replace("温湿度","")+"湿度"}} %
+
+
+
+                    .font.font-img-box3
+                        .img
+                            img(ng-show="leak.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.value > 0" ng-src="{{getComponentPath('images/water-error.png')}}")
+                            img(ng-show="leak.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.value == 0 || !leak.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.value" ng-src="{{getComponentPath('images/water-normal.png')}}")
+                        span.cfont-control1(style="color:{{getSeverityColor(leak.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.severity)}}") {{leak.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.formatValue || "-"}}
+                        span.cfont-control2 {{leak.signals.getItemByIds({signal:'trigger-alarm-signal'}).equipment.model.name || "漏水"}}
+
+
+                    .font
+                        .img
+                            img(ng-show="smoke.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.value > 0" ng-src="{{getComponentPath('images/smoke-error.png')}}")
+                            img(ng-show="smoke.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.value == 0 || !smoke.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.value" ng-src="{{getComponentPath('images/smoke-normal.png')}}")
+                        span.cfont-control1(style="color:{{getSeverityColor(smoke.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.severity)}}") {{smoke.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.formatValue || "-"}}
+                        span.cfont-control2 {{smoke.signals.getItemByIds({signal:'trigger-alarm-signal'}).equipment.model.name || "烟感"}}

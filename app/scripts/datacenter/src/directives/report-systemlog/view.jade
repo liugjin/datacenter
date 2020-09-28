@@ -1,0 +1,31 @@
+link(rel='stylesheet', href='/lib/gl-datepicker/styles/glDatePicker.default.css')
+.row.nav-top
+    .col.l2
+        span 系统日志
+    nav
+        .right(style="display:flex;")
+            report-query-time(controller='vm',parameters='{}')
+            ul
+                li
+                    .btn(ng-click='getReportData()', title='查询')
+                        span.hide-on-med-and-down 查询
+                li
+                    .btn(ng-click='exportReport(header,"系统日志")', title='导出')
+                        span.hide-on-med-and-down 导出
+
+.row(ng-style='{"height":parameters.height || "60vh"}')
+    .col.l12(style="height: 80vh;" )
+        grid-table.grid-table( controller='controller',parameters='{header:header,data:garddatas}')
+    .col.l12
+        ul.pagination.right(ng-show='pagination.pageCount > 1')
+            li(ng-class='{disabled: pagination.page <= 1, "waves-effect": pagination.page > 1}', ng-click='queryPage("previous")')
+                a(href='')
+                    i.material-icons.white-text chevron_left
+
+            li(ng-class='{active: page == pagination.page, "waves-effect": page != pagination.page}', ng-repeat='page in pagination.pages', ng-click='queryPage(page)')
+                a(href='')
+                    | {{(($index == 1 && pagination.page > 4)||($index == pagination.pages.length-2 && vm.pagination.page < pagination.pageCount-3)) ? "..":page}}
+
+            li(ng-class='{disabled: pagination.page >= pagination.pageCount, "waves-effect": pagination.page < pagination.pageCount}', ng-click='queryPage("next")')
+                a(href='')
+                    i.material-icons.white-text chevron_right

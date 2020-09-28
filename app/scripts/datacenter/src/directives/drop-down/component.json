@@ -1,0 +1,39 @@
+{
+  "id": "drop-down",
+  "name": "下拉多选框",
+  "type": "DropDownDirective",
+  "desc": {
+    "author": "bingo",
+    "comment": "下拉多选框",
+    "version": {
+      "0.0.1": [
+        "初始化"
+      ],
+      "0.0.2": [
+        "修改component.json文件"
+      ],
+      "0.0.4": [
+        "增加参数origin，表示下拉框选择的项，用于选择之后的交互",
+        "解决选择之后的数据未变问题，现在改为直接传值，不依赖于数据绑定",
+        "修改样式"
+      ],
+      "0.0.5": [
+        "修改样式"
+      ]
+    }
+  },
+  "group": "框架组件",
+  "parameters": [
+    {"id": "title", "type": "string", "value": ""},
+    {"id": "all", "type": "", "value": ""},
+    {"id": "selected", "type": "", "value": ""},
+    {"id": "origin", "type": "string", "value": ""}
+  ],
+  "interact": {
+    "pubs": ["drop-down-select"],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.5"
+}

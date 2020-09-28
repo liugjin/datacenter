@@ -1,0 +1,99 @@
+equipment-property {
+  font-size: 14px !important;
+  height: 76vh; }
+  equipment-property .cool-card {
+    max-height: 72vh;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto; }
+  equipment-property .cool-card-header {
+    background-color: rgba(1, 166, 255, 0.5); }
+    equipment-property .cool-card-header span {
+      font-size: 14px; }
+  equipment-property .select-wrapper input.select-dropdown {
+    width: 80%; }
+  equipment-property .select-wrapper input.select-dropdown:disabled {
+    border: 0px !important;
+    padding-left: 15px;
+    height: 40px !important;
+    background-color: rgba(2, 68, 168, 0.4) !important; }
+  equipment-property input:not([type]),
+  equipment-property input[type=text]:not(.browser-default),
+  equipment-property input[type=password]:not(.browser-default),
+  equipment-property input[type=email]:not(.browser-default),
+  equipment-property input[type=url]:not(.browser-default),
+  equipment-property input[type=time]:not(.browser-default),
+  equipment-property input[type=date]:not(.browser-default),
+  equipment-property input[type=datetime]:not(.browser-default),
+  equipment-property input[type=datetime-local]:not(.browser-default),
+  equipment-property input[type=tel]:not(.browser-default),
+  equipment-property input[type=number]:not(.browser-default),
+  equipment-property input[type=search]:not(.browser-default),
+  equipment-property textarea.materialize-textarea {
+    width: 80%;
+    font-size: 14px; }
+  equipment-property .input-new-css {
+    height: 40px !important;
+    padding-left: 15px !important;
+    background-color: rgba(26, 69, 162, 0.5) !important;
+    border: 0px !important;
+    overflow: auto !important; }
+  equipment-property label {
+    font-size: 14px; }
+  equipment-property .label-text {
+    text-align: left !important;
+    padding-left: 1rem !important; }
+  equipment-property span {
+    font-size: 14px; }
+  equipment-property .equipment-img img {
+    width: 80%;
+    font-size: 14px; }
+  equipment-property .standard-span-btn {
+    background-color: rgba(2, 68, 168, 0.4) !important;
+    border-radius: 0;
+    width: 155px;
+    font-size: 14px;
+    height: 40px;
+    text-align: left;
+    line-height: 38px;
+    padding-left: 5px;
+    overflow: hidden;
+    border: 0px !important; }
+  equipment-property .equipment-details {
+    background-color: transparent; }
+  equipment-property .text-center {
+    padding: 0 2rem;
+    margin-left: 5rem;
+    margin-top: 2.5rem; }
+
+@media screen and (width: 1024px) {
+  equipment-property .cool-card {
+    overflow-x: auto; }
+  equipment-property label {
+    display: inline-block;
+    font-size: 12px;
+    width: 30px;
+    line-height: 14px; }
+  equipment-property .label-text {
+    padding-left: 0 !important; }
+  equipment-property input:not([type]),
+  equipment-property input[type=text]:not(.browser-default),
+  equipment-property input[type=password]:not(.browser-default),
+  equipment-property input[type=email]:not(.browser-default),
+  equipment-property input[type=url]:not(.browser-default),
+  equipment-property input[type=time]:not(.browser-default),
+  equipment-property input[type=date]:not(.browser-default),
+  equipment-property input[type=datetime]:not(.browser-default),
+  equipment-property input[type=datetime-local]:not(.browser-default),
+  equipment-property input[type=tel]:not(.browser-default),
+  equipment-property input[type=number]:not(.browser-default),
+  equipment-property input[type=search]:not(.browser-default),
+  equipment-property textarea.materialize-textarea {
+    width: 100%;
+    font-size: 12px; }
+  equipment-property .input-new-css {
+    height: 30px !important;
+    padding-left: 5px !important; }
+  equipment-property .text-center {
+    padding: 0 5px;
+    margin: 2.5rem  0 1rem 2rem; } }

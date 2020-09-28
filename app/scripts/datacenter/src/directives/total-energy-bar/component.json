@@ -1,0 +1,39 @@
+{
+  "id": "total-energy-bar",
+  "name": "TotalEnergyBar控件",
+  "type": "TotalEnergyBarDirective",
+  "desc": {
+    "author": "Billy",
+    "desc": "总能耗趋势",
+    "version": {
+      "0.0.1": [
+      ],
+      "0.0.2": [
+        "增加选择器"
+      ],
+      "0.0.3": [
+        "修改样式",
+        "数据保留两位小数",
+        "@bingo"
+      ],
+      "0.0.4": [
+        "修改tooltip",
+        "修复问题",
+        "@bingo"
+      ],
+      "0.0.5": [
+        "更新页面标准化样式",
+        "@Albert"
+      ]
+    }
+  },
+  "group": "信号点组件",
+  "parameters": [
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "css": "",
+  "version": "0.0.5"
+}

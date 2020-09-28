@@ -1,0 +1,31 @@
+{
+  "id": "alarms-monitoring",
+  "name": "告警管理监控页面组件",
+  "type": "AlarmsMonitoringDirective",
+  "desc": {
+    "author": "david",
+    "comment": "呈现各站点告警情况，能对告警进行处理的功能页面组件",
+    "version": {
+      "0.0.1": [],
+      "0.0.2": ["修复项目有3级及以上站点时站点告警数重复计算的bug"],
+      "0.0.3": ["更新页面标准化样式","@Albert"],
+      "0.0.4": ["适配1024x768分辨率","@Albert"],
+      "0.0.5": ["将event-list组件替换成event-startlish组件","@Albert"],
+      "0.0.6": ["修改component.json，将依赖的新组件名放到依赖信息里"],
+      "0.0.7": ["数据中心-过滤事件的结束时间不为空的数据，只显示活动告警数", "@mackie"],
+      "0.0.8": ["数据中心-解决echarts告警等级数据重复问题", "@mackie"],
+      "0.0.9": ["数据中心-调整左下角无法正确显示告警设备名称的问题", "@mackie"]
+    }
+  },
+  "group": "模块组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": ["search-input","event-statistic","event-analysis-chart","event-startlist"],
+  "css": "",
+  "version": "0.0.9"
+}

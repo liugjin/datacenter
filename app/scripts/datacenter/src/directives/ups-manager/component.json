@@ -1,0 +1,97 @@
+{
+  "id": "ups-manager",
+  "name": "UPS管理",
+  "type": "UpsManagerDirective",
+  "desc": {
+    "author": "bingo",
+    "comment": "UPS管理",
+    "version": {
+      "0.0.1": [
+        "初始化"
+      ],
+      "0.0.2": [
+        "更改引入的组件",
+        "@bingo"
+      ],
+      "0.0.3": [
+        "修复问题",
+        "@bingo"
+      ],
+      "0.0.4": [
+        "根据传入的模板ID查找设备模板为该模板或者基类为该模板的设备",
+        "修复了设备选择的问题",
+        "@bingo"
+      ],
+      "0.0.5": [
+        "修复问题",
+        "@bingo"
+      ],
+      "0.0.6": [
+        "修改弹出框的背景颜色",
+        "@bingo"
+      ],
+      "0.0.7": [
+        "修复切换站点选择设备没有选中的问题",
+        "@bingo"
+      ],
+      "0.0.8": [
+        "更新页面标准化样式",
+        "@Albert"
+      ],
+      "0.0.9": [
+        "更新适配1024x768分辨率",
+        "@Albert"
+      ],
+      "0.0.10": [
+        "修复鼠标移入下拉框后组件会移动的Bug"
+      ],
+      "0.0.11": [
+        "修改英文", "@foam"
+      ],
+      "0.0.12": ["修改样式", "@foam"],
+      "0.0.13": ["修改多个UPs模板下的ups设备不显示的问题@murray"],
+      "0.0.14": ["修改只有个ups的时候，不显示图标"]
+    }
+  },
+  "group": "设备组件",
+  "parameters": [
+    {
+      "id": "station",
+      "type": "string",
+      "value": "",
+      "desc": "站点的ID"
+    },
+    {
+      "id": "title",
+      "type": "string",
+      "value": "UPS管理",
+      "desc": "组件的标题"
+    },
+    {
+      "id": "type",
+      "type": "string",
+      "value": "",
+      "desc": "设备类型ID"
+    },
+    {
+      "id": "template",
+      "type": "string",
+      "value": "",
+      "desc": "设备模板ID"
+    },
+    {
+      "id": "group",
+      "type": "string",
+      "value": [],
+      "desc": "需要查看的分组信号，只能识别两组，形式为：['3d-detail', 'output-load-percentage']"
+    }
+  ],
+  "keywords": "饼图,UPS,选择框,电压",
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": ["percent-pie"],
+  "css": "",
+  "version": "0.0.14"
+}

@@ -1,0 +1,81 @@
+//-
+//-   User: Dow
+//-   Date: 2014/10/25
+
+.row
+    .slider(md-slider)
+        ul.slides
+            li
+                img(src='res/img/slide/datacenter.png')
+                .caption.left-align
+                    h5.white-text 实时数据云平台
+                    p.light.white-text.text-lighten-1 基于实时数据驱动的物联网云平台
+            li
+                img(src='res/img/slide/market.png')
+                .caption.left-align
+                    h5.white-text 行业应用
+                    p.light.white-text.text-lighten-1 从工业控制到智能硬件的全行业覆盖
+            li
+                img(src='res/img/slide/transformation.png')
+                .caption.left-align
+                    h5.white-text 开放平台+
+                    p.light.white-text.text-lighten-1 开放平台+行业需求=行业应用
+            li
+                img(src='res/img/slide/platform.png')
+                .caption.left-align
+                    h5.white-text 系统架构
+                    p.light.white-text.text-lighten-1 可水平扩展的分布式计算架构
+            li
+                img(src='res/img/slide/saas.png')
+                .caption.left-align
+                    h5.white-text 软件即服务
+                    p.light.white-text.text-lighten-1 按需加载和按服务收费的软件即服务平台
+            li
+                img(src='res/img/slide/hybrid.png')
+                .caption.left-align
+                    h5.white-text 混合云架构
+                    p.light.white-text.text-lighten-1 满足企业服务、公有云服务和个人应用的混合云
+
+.row
+    .btn-group.getstarted-button.center-align
+        a.btn-large.waves-effect.waves-light.materialize-red.lighten-2(ng-href='#/project/{{vm.myproject.user}}/{{vm.myproject.project}}', ng-show='vm.myproject', title='打开最后一次访问的关注项目')
+            | 访问项目 {{vm.myproject.user}} / {{vm.myproject.name}}
+            i.material-icons.right arrow_forward
+        a.btn-large.waves-effect.waves-light(ng-href='#/projects')
+            | 项目管理
+            i.material-icons.right folder_open
+
+.row
+    .col.s12.m4.l3(ng-repeat='item in vm.items | orderBy:vm.predicate:vm.reverse | limitTo: vm.pageItems * vm.page | limitTo: -vm.pageItems')
+        .card.hoverable(ng-class='{"z-depth-4": item.project == vm.project.project}')
+            .card-image
+                a(ng-href='#/project/{{item.user}}/{{item.project}}', title='项目管理')
+                    .card-img-placeholder
+                        img.responsive-img(ng-if='item.image', ng-src='{{vm.options.uploadUrl}}/{{item.image}}')
+            .card-content
+                span.card-title.grey-text.text-darken-4.truncate(title='{{item.name}}')
+                    | {{item.user}} / {{item.name}}
+            .card-action
+                a(href='', ng-click='vm.star(item, true)', title='关注项目', ng-show='!vm.isStared(item)')
+                    i.material-icons favorite_outline
+                    span &nbsp;{{item.stars || 0}}
+                a(href='', ng-click='vm.star(item, false)', title='取消关注', ng-show='vm.isStared(item)')
+                    i.material-icons favorite
+                    span &nbsp;{{item.stars || 0}}
+
+
+                a.right(ng-href='#/project/{{item.user}}/{{item.project}}', title='管理项目')
+                    | 管理
+                    //-i.material-icons arrow_forward
+
+    .col.s12
+        ul.pagination(ng-show='vm.pages.length > 1')
+            li(ng-class='{disabled: vm.page <= 1, "waves-effect": vm.page > 1}', ng-click='vm.previousPage()')
+                a(href='')
+                    i.material-icons chevron_left
+            li(ng-class='{active: page == vm.page, "waves-effect": page != vm.page}', ng-repeat='page in vm.pages', ng-click='vm.setPage(page)')
+                a(href='')
+                    | {{page}}
+            li(ng-class='{disabled: vm.page >= vm.pageCount, "waves-effect": vm.page < vm.pageCount}', ng-click='vm.nextPage()')
+                a(href='')
+                    i.material-icons chevron_right

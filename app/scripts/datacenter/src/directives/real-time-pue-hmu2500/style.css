@@ -1,0 +1,52 @@
+real-time-pue-hmu2500 .cool-card-title {
+  padding: .75rem .75rem 0 .75rem;
+  font-weight: 400;
+  margin-left: 1.2rem;
+  color: white; }
+  real-time-pue-hmu2500 .cool-card-title .icon-edit {
+    cursor: pointer;
+    height: 24px;
+    width: 18px; }
+
+real-time-pue-hmu2500 #energy-score-modal .modal-header {
+  padding: 0.75rem 0.75rem 0.3rem 24px;
+  display: flex;
+  justify-content: space-between; }
+
+real-time-pue-hmu2500 #energy-score-modal .modal-content-title {
+  font-size: 20px; }
+
+real-time-pue-hmu2500 #energy-score-modal .energy-title {
+  color: #39DFF9;
+  font-size: 16px; }
+
+real-time-pue-hmu2500 #energy-score-modal .text-position {
+  position: relative;
+  bottom: 4px; }
+
+real-time-pue-hmu2500 #energy-score-modal .energy-table {
+  margin: 1.5vh 0; }
+
+real-time-pue-hmu2500 #energy-score-modal table.energy-table thead tr {
+  background-color: rgba(42, 107, 190, 0.5); }
+  real-time-pue-hmu2500 #energy-score-modal table.energy-table thead tr th {
+    text-align: center; }
+
+real-time-pue-hmu2500 #energy-score-modal table.energy-table tbody tr:nth-child(2n + 1) {
+  background-color: transparent; }
+
+real-time-pue-hmu2500 #energy-score-modal table.energy-table tbody tr:nth-child(2n) {
+  background-color: rgba(26, 69, 162, 0.4); }
+
+real-time-pue-hmu2500 #energy-score-modal table.energy-table tbody tr:hover {
+  background-color: rgba(75, 165, 248, 0.4) !important; }
+
+real-time-pue-hmu2500 #energy-score-modal table.energy-table tbody tr .select-dropdown {
+  margin: 0;
+  text-indent: 0.75rem; }
+
+real-time-pue-hmu2500 #energy-score-modal .energy-btn {
+  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto; }

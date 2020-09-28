@@ -1,0 +1,10 @@
+.row.nav-top
+  .col.s12
+    station-breadcrumbs(controller="vm" parameters="{}")   
+.row
+  heat-stag-3d(controller="vm" parameters="{ stationId: station.model.station, lowest }")
+
+ul.color-desc
+  li.color-item(ng-repeat="(index, item) in colorList" title="{{item.desc}}") 
+    div(ng-style="{'background-color': item.color}" style="width: 100%; height: 20px; border-radius: 5px; margin: 0 calc(50% - 23px);width:44px;border: 1px solid white")
+    div(style="font-size: 14px; text-align: center; height: 36px; padding: 6px;") {{item.title}}

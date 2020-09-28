@@ -1,0 +1,30 @@
+{
+  "id": "log-system",
+  "name": "LogSystem控件",
+  "type": "LogSystemDirective",
+  "desc": {
+    "author": "sheen",
+    "comment": "系统日志组件",
+    "version": {
+        "0.0.1": ["包括用户登录、增删改设备的记录(此组件需要配合项目里增加的后端查询数据库方法使用)@sheen"],
+        "0.0.2": ["admin可查看所有用户登录信息及设备增删改记录普通用户查看当前用户登录记录及有权限站点设备的增删改记录@sheen"],
+        "0.0.3": ["修复查询时间上的bug,查询时初始化表格置空,表格点击效果显示优化@sheen"],
+        "0.0.4": ["查询中的时候加loading的动态效果@sheen"],
+        "0.0.5": ["修复查询时数据置为空的一个bug@sheen"],
+        "0.0.6": ["在130行添加scope.controller.role.stations的判断,否则日志不出现"],
+        "0.0.7": ["改写为用rpc接口得到configurations表的数据，需要项目里加getConfigurationInfo的rpc接口@sheen"]
+    }
+  },
+  "keywords": "系统日志,登录日志,设备增删改日志,configurations表,页面组件",
+  "group": "模块组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": ["report-query-time"],
+  "css": "",
+  "version": "0.0.7"
+}

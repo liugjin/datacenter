@@ -1,0 +1,95 @@
+child-stations-environment
+  display: block
+
+  .big-box
+    position: relative
+    height: 52vh
+    .line-col
+      position: absolute
+      width: calc(100% - 1px)
+      margin-top: 20px
+      height: calc(100% - 40px)
+
+    .line-row
+      position: absolute
+      height: 100%
+      margin-left: 20px
+      width: calc(100% - 40px)
+
+    .box
+      padding: 1rem 2rem 1rem 1rem
+      position: absolute
+      top: 0
+      margin-top: 2.2vh
+      height: 100%
+      width: 100%
+      color: #e2edf2
+      //background: url("~images/left-on.png~") 0 0 no-repeat,url("~images/left-under.png~") 0 100% no-repeat,url("~images/right-on.png~") calc(100% - 1px) 0 no-repeat,url("~images/right-under.png~") calc(100% - 1px) 100% no-repeat
+
+      .title
+        color: #ffffff
+        .title-line
+          width: 4px
+          height: 20px
+          background: rgba(1,166,255,1)
+          float: left
+          margin-top: 0.35rem
+        .title-h1
+          font-size: 20px
+          font-weight: 600
+          margin-left: 0.5rem
+        .title-h2
+          font-size: 12px
+          font-weight: 400
+          margin-left: 0.5rem
+      .content
+        max-height: 48vh
+        overflow: auto
+        padding-top: .5vh
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        .col-text-align
+          text-align: left
+          padding-left: 8px
+        table tr
+          font-size: 15px
+
+        table tr:first-child
+          border-top: none
+
+        table tr th
+          background-color: transparent
+          padding: 5px 5px 10px 5px
+          color: rgba(111,231,241,1)
+          font-size: 14px
+          font-weight: 600
+        table tr td
+          padding: 0.6rem 0
+        table.striped>tbody>tr>td
+          font-size: 14px
+          font-weight: 600
+        table.striped>tbody>tr:nth-child(odd)
+          background-color: rgba(26,69,162,0.4)
+@media screen and (width: 1024px)
+  child-stations-environment
+    .big-box
+      .box
+        padding: 1rem 1rem 0 0
+        .title
+          .title-line
+            height: 16px
+          .title-h1
+            font-size: 16px
+          .title-h2
+            font-size: 0px
+        .content
+          padding-top: .5vh
+          .col-text-align
+            padding-left: 2px
+          table tr th
+            font-size: 12px
+          table.striped>tbody>tr>td
+            font-size: 12px
+            padding: 0.4rem 0
+

@@ -1,0 +1,27 @@
+{
+  "id": "video-listbetter",
+  "name": "VideoListbetter控件",
+  "type": "VideoListbetterDirective",
+  "desc": {
+    "author": "",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.1": ["初始化组件，region"],
+        "0.0.2": ["逻辑代码优化，region"],
+        "0.0.3": ["解决异步不同步的问题，region"],
+        "0.0.4": ["兼容rtsp属性为空的bug，region"],
+        "0.0.5": ["解决全部播放，全部停止导致的bug，region"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": ["single-video"],
+  "css": "",
+  "version": "0.0.5"
+}

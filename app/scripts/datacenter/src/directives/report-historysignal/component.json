@@ -1,0 +1,116 @@
+{
+  "id": "report-historysignal",
+  "name": "ReportHistorysignal控件",
+  "type": "ReportHistorysignalDirective",
+  "desc": {
+    "author": "sheen",
+    "desc": " 自定义控件",
+    "version": {
+      "0.0.1": [
+        "初始化",
+        "@sheen"
+      ],
+      "0.0.2": [
+        "修改样式，增加交互",
+        "@Billy"
+      ],
+      "0.0.3": [
+        "组件树单选加载设备属性_signals中信号",
+        "@Sheen"
+      ],
+      "0.0.4": [
+        "组件树单选加载设备属性_signals中信号",
+        "@Sheen"
+      ],
+      "0.0.5": [
+        "组件树单选加载设备属性_signals中信号",
+        "@Sheen"
+      ],
+      "0.0.6": [
+        "20190508样式修改",
+        "@hardy"
+      ],
+      "0.0.8": [
+        "20190509样式修改",
+        "@hardy"
+      ],
+      "0.0.9": [
+        "20190509样式修改",
+        "@billy"
+      ],
+      "0.0.10": [
+        "20190524加载所有信号，不再取属性里配置的信号",
+        "@Sheen"
+      ],
+      "0.0.11": [
+        "20190524修复报错因设备load信号有时候信号有重复，现在得到的信号里做了去重解决",
+        "@Sheen"
+      ],
+      "0.0.13": [
+        "20190819应leon要求信号报表不展示状态和告警信号，在signals里根据信号配置里的visible判断过滤掉visible为false的信号, 查询报表过滤掉filter.mode为communication、event的信号记录",
+        "@Sheen"
+      ],
+      "0.0.14": [
+        "更新页面标准化样式",
+        "@Albert"
+      ],
+      "0.0.15": [
+        "适配1024x768分辨率",
+        "@Albert"
+      ],
+      "0.0.16": [
+        "调整1024x768分辨下设备树宽度",
+        "@Albert"
+      ],
+      "0.0.17": [
+        "修复sass缩进问题",
+        "@sheen"
+      ],
+      "0.0.18": ["调试样式布局","@mackie"],
+      "0.0.19": ["调整样式", "@mackie"],
+      "0.0.20": ["调整样式", "@mackie"],
+      "0.0.21": ["开始、结束时间添加空格", "@mackie"],
+      "0.0.22": ["数据中心-修改分页失败情况", "@mackie"],
+      "0.0.23": ["数据中心-调整table页面数据间隔", "@mackie"],
+      "0.0.24": ["增加数据类型判断，只展示int及float数据信号", "@sheen"],
+      "0.0.25": ["只信号model勾选visible为true的并且信号值类型为int或float的信号，默认不分页。如果需要分页解除170行的注释", "@sheen"],
+      "0.0.26": ["去掉部分注释", "@sheen"],
+      "0.0.27": ["可以查询int、float、enum的信号数据", "@sheen"],
+      "0.0.28": ["去除查询的限制条件", "@foam"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+    {
+      "id": "type",
+      "type": "string",
+      "value": "signal"
+    },
+    {
+      "id": "pageItems",
+      "type": "int",
+      "value": 50
+    },
+    {
+      "id": "chartType",
+      "type": "string",
+      "value": "line"
+    }
+  ],
+  "interact": {
+    "pubs": [
+      "time"
+    ],
+    "subs": [
+      "checkEquips"
+    ]
+  },
+  "css": "",
+  "deps": [
+    "device-tree",
+    "report-query-time",
+    "bar-or-line",
+    "grid-table"
+  ],
+  "version": "0.0.28"
+}

@@ -1,0 +1,25 @@
+report-systemlog .ag-blue .ag-ltr .ag-header-cell {
+  border-right: 0 !important; }
+
+report-systemlog .ag-blue .ag-cell, report-systemlog .ag-blue .ag-header-group-cell-label {
+  text-align: center; }
+
+report-systemlog .ag-blue .ag-header {
+  background-color: #616161;
+  font-size: 15px; }
+
+report-systemlog .ag-blue .ag-body {
+  background-color: white;
+  font-size: 14px; }
+
+report-systemlog .ag-blue .ag-root {
+  border: 0px solid #e0e0e0; }
+
+report-systemlog .ag-blue .ag-row-odd {
+  background-color: transparent !important; }
+
+report-systemlog .ag-blue .ag-header-cell-label > span {
+  margin: 0 auto; }
+
+report-systemlog ul > li {
+  margin-right: .75rem; }

@@ -1,0 +1,27 @@
+{
+  "id": "device-accla-alarm",
+  "name": "DeviceAcclaAlarm控件",
+  "type": "DeviceAcclaAlarmDirective",
+  "desc": {
+    "author": "Mackie",
+    "comment": "类型为蓄电池的左侧列表",
+    "version": {
+        "0.0.1": [],
+        "0.0.2": ["调试"],
+        "0.0.3": ["修改多站点时设备重复问题"],
+        "0.0.4": ["调试代码"],
+        "0.0.5": ["测试代码"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.5"
+}

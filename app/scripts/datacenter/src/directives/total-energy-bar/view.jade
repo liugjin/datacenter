@@ -1,0 +1,6 @@
+.cool-card(style="height: 100%")
+    .date1
+        .title 总能耗趋势
+        .picker
+            .date-value1(ng-repeat="mode in picker" ng-click="selectMode($event,mode)") {{mode.name}}
+    .signal-line(style="height: 100%")

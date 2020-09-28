@@ -1,0 +1,101 @@
+component-devicemonitor-hmu2500 graphicparamter-box .max-height {
+  height: 71vh !important; }
+
+component-devicemonitor-hmu2500 .graphic-height-equipment .box-content {
+  height: 66vh; }
+
+component-devicemonitor-hmu2500 .tabs .tab {
+  display: flex; }
+  component-devicemonitor-hmu2500 .tabs .tab i {
+    vertical-align: middle;
+    margin-right: .75rem; }
+
+component-devicemonitor-hmu2500 .search-box {
+  position: relative; }
+  component-devicemonitor-hmu2500 .search-box input {
+    padding: 0 2.75rem !important;
+    width: calc(100% - 5.5rem - 2px) !important; }
+  component-devicemonitor-hmu2500 .search-box .search-i {
+    position: absolute;
+    padding-left: .75rem;
+    font-size: 1.2rem;
+    color: #b4d8f5 !important; }
+  component-devicemonitor-hmu2500 .search-box .search-c {
+    position: absolute;
+    padding-right: .75rem;
+    top: 0;
+    right: 0; }
+
+component-devicemonitor-hmu2500 .fullscreen {
+  cursor: pointer;
+  position: absolute;
+  bottom: 1.35rem;
+  right: 0.6rem;
+  width: 3rem;
+  height: 3rem;
+  text-align: center;
+  border-radius: 50%;
+  background-color: rgba(26, 69, 162, 0.9); }
+
+component-devicemonitor-hmu2500 .standard-span-btn {
+  margin-left: 0.75rem;
+  width: 208px;
+  height: 40px;
+  line-height: 38px;
+  text-align: center;
+  overflow: hidden;
+  border: 0px !important; }
+
+component-devicemonitor-hmu2500 .standard-span-btn:hover {
+  background-color: rgba(3, 166, 255, 0.5) !important; }
+
+component-devicemonitor-hmu2500 .search-box input::-webkit-input-placeholder {
+  color: #97cbfc !important; }
+
+component-devicemonitor-hmu2500 .search-signal-input {
+  height: 40px !important;
+  font-size: 14px !important;
+  border: 1px solid #0050a6 !important; }
+
+component-devicemonitor-hmu2500 .signal-list {
+  max-height: 64vh;
+  overflow-y: auto; }
+  component-devicemonitor-hmu2500 .signal-list table thead tr {
+    background-color: rgba(3, 166, 255, 0.5) !important;
+    font-size: 16px;
+    font-weight: 400; }
+    component-devicemonitor-hmu2500 .signal-list table thead tr th {
+      border-radius: 0 !important; }
+  component-devicemonitor-hmu2500 .signal-list table tbody tr {
+    font-size: 14px;
+    font-weight: 400;
+    border-bottom: 1px solid #0050a6; }
+    component-devicemonitor-hmu2500 .signal-list table tbody tr td {
+      border-radius: 0 !important; }
+  component-devicemonitor-hmu2500 .signal-list .text-align-left {
+    text-align: left !important;
+    padding-left: 16px; }
+
+component-devicemonitor-hmu2500 .progress {
+  margin: 0.2rem 0 !important; }
+
+@media screen and (max-width: 1400px) {
+  component-devicemonitor-hmu2500 .graphic-height-equipment .box-content {
+    height: 54vh; }
+  component-devicemonitor-hmu2500 .signal-list {
+    max-height: 51vh; }
+  component-devicemonitor-hmu2500 .signal-list table thead tr th {
+    font-size: 12px;
+    padding: 6px 0; }
+  component-devicemonitor-hmu2500 .signal-list table tbody tr {
+    font-size: 12px; }
+  component-devicemonitor-hmu2500 .signal-list table tbody tr td {
+    padding: 10px 0; }
+  component-devicemonitor-hmu2500 .tab-menu {
+    padding-right: 10px; }
+  component-devicemonitor-hmu2500 .standard-span-btn {
+    width: 98px;
+    height: 30px;
+    line-height: 30px; }
+  component-devicemonitor-hmu2500 graphicparamter-box .max-height {
+    height: 66vh !important; } }

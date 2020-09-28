@@ -1,0 +1,25 @@
+{
+  "id": "equipment-list",
+  "name": "HMU2500设备清单组件",
+  "type": "EquipmentListDirective",
+  "desc": {
+    "author": "murray",
+    "comment": "清楚展示所有设备的列表，并支持导出",
+    "version": {
+      "0.0.1": ["清楚展示所有设备的列表，并支持导出@murray"],
+      "0.0.3":["修改序号改为，设备ID的bug"]
+    }
+  },
+  "keywords":"设备清单,设备报表,设备属性详情",
+  "group": "模块组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.3"
+}

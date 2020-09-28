@@ -1,0 +1,55 @@
+capacity-management .big-box {
+  position: relative;
+  height: 24vh; }
+  capacity-management .big-box .line-col {
+    position: absolute;
+    width: calc(100% - 1px);
+    margin-top: 20px;
+    height: calc(100% - 40px);
+    border: 1px solid #082268;
+    border-top: none;
+    border-bottom: none; }
+  capacity-management .big-box .line-row {
+    position: absolute;
+    height: 100%;
+    margin-left: 20px;
+    width: calc(100% - 40px);
+    border: 1px solid #082268;
+    border-left: none;
+    border-right: none; }
+  capacity-management .big-box .box {
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    color: #ffffff;
+    background: url("~images/left-on.png~") 0 0 no-repeat, url("~images/left-under.png~") 0 100% no-repeat, url("~images/right-on.png~") calc(100% - 1px) 0 no-repeat, url("~images/right-under.png~") calc(100% - 1px) 100% no-repeat; }
+    capacity-management .big-box .box .title {
+      background: url("~images/title-img.png~") center no-repeat;
+      text-align: center;
+      color: #2a89ee;
+      font-size: 1.2rem; }
+    capacity-management .big-box .box .content {
+      height: 18vh;
+      justify-content: space-evenly; }
+      capacity-management .big-box .box .content .flex-left, capacity-management .big-box .box .content .flex-right {
+        flex-direction: column;
+        justify-content: space-around; }
+      capacity-management .big-box .box .content .flex-mid {
+        flex-direction: column;
+        justify-content: center; }
+    capacity-management .big-box .box .box-circle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      font-size: .75rem;
+      background-image: url("~images/circle.png~");
+      background-size: 100%;
+      width: 5rem;
+      height: 5rem; }
+      capacity-management .big-box .box .box-circle .circle-name {
+        color: #2a89ee; }
+    capacity-management .big-box .box .flex {
+      display: flex; }

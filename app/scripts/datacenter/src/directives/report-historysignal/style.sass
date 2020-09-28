@@ -1,0 +1,73 @@
+report-historysignal
+  device-tree
+    .tree
+      height: 78.7vh
+  .nav-top
+    height: auto
+    span
+      font-size: 14px
+
+    report-query-time
+      .report-time
+        li.report-li:nth-of-type(2)
+          margin: 0 4px
+
+  .nav-wrapper
+    ul
+      li
+        margin-right: 4px
+    .right-wrapper-box
+      float: right
+      display: flex
+  .input-field1
+    margin-right: 1rem
+  .standard-report-btn
+    width: 94px !important
+    height: 30px !important
+    float: right
+    margin-top: 18px
+    line-height: 30px!important
+  .report-query-time
+    margin: 0 10px
+  .grid-table
+    width: calc( 100% - 0.75rem )
+    height: 84.9vh
+    display: block
+    background-color: rgba(26, 69, 162, 0.4) !important
+    .ag-header
+      height: 50px !important
+    .ag-blue
+      .ag-ltr .ag-header-cell
+        border-right: 0 !important
+      .ag-cell
+        padding-left: 1.2rem
+
+    .no-box-shadow
+      box-shadow: none
+
+  .paging-select-box
+    margin-left: 20%
+    background-color: rgba(26, 69, 162, 0.4) !important
+    height: 5.9vh
+    width: calc( 80% - 0.75rem )
+  .page-button
+    border: 1px solid rgba(0, 102, 255, 1)
+    border-radius: 0
+  .device-tree
+    width: 20%
+    height: 85%
+  .grid-table-contaner
+    width: 80%
+    overflow: auto
+
+  ul.fancytree-container
+    ul
+      padding-left: 10px  
+
+    
+  @media screen and (max-width: 1300px)
+    .device-tree
+      width: 200px!important
+    .grid-table-contaner
+      width: calc(100% - 200px)!important
+        

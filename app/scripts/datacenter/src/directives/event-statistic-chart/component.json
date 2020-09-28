@@ -1,0 +1,48 @@
+{
+  "id": "event-statistic-chart",
+  "name": "事件告警统计chart控件",
+  "type": "EventStatisticChartDirective",
+  "desc": {
+    "author":"hardy",
+    "desc":"告警管理页面专用的显示事件告警页面的chart图，参数statistic由event-manager页面控件生成的对象。",
+    "version":{
+      "0.0.1":[
+        "显示事件统计数"
+      ],
+      "0.0.3":[
+        "修改样式，增加交互","@Billy"
+      ],
+      "0.0.4":[
+        "修改样式","@Billy"
+      ],
+      "0.0.5":[
+        "20190506管理页面 样式调整","@Hardy"
+      ],
+      "0.0.6": [
+        "提交该组件","@mackie"
+      ],
+      "0.0.7": [
+        "增加 所有类型切换时的点击颜色:: event-manager|event-statistic|event-statistic-chart ","@mackie"
+      ],
+      "0.0.8": [
+        "更新chart标准化样式，适配1024x768分辨率","@Albert"
+      ],
+      "0.0.9": [
+        "更新chart标准化样式，修改开始，结束，确认 图列的颜色","@murray"
+      ],
+      "0.0.10": [
+        "更新chart将饼图leged改成适应屏幕宽度","@region"
+      ]
+    }
+  },
+  "group": "站点组件",
+  "parameters": [
+    {"id":"statistic","type":"object","value":null}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "css": "height:50vh;width:100%;display:block;",
+  "version": "0.0.10"
+}

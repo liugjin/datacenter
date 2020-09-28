@@ -1,0 +1,39 @@
+{
+  "id": "yingmai-environment",
+  "name": "YingmaiEnvironment控件",
+  "type": "YingmaiEnvironmentDirective",
+  "desc": {
+    "author":"Sheen",
+    "desc":"关键设备关键信号",
+    "version":{
+      "0.0.1":[
+        "初始化"
+      ],
+      "0.0.8":[
+        "重构，动态获取温湿度设备","@Billy"
+      ],
+      "0.0.9":[
+        "释放订阅","@Billy"
+      ],
+      "0.1.0":[
+        "释放订阅","@Billy"
+      ],
+      "0.1.1":[
+        "James---增加支持多个模板"
+      ],
+      "0.1.2":[
+        "James---解决水浸bug，和站点初始加载问题"
+      ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+    {"id":"station","type":"string","value":"stationId"}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "css": "",
+  "version": "0.1.2"
+}

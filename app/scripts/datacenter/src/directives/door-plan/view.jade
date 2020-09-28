@@ -1,0 +1,220 @@
+
+.row.nav-top
+    .col.l12
+        nav.no-bg-color
+            .nav-wrapper
+                .col.s12.truncate
+                    a.breadcrumb(ng-repeat="parent in parents", href="", data-hover='true', title='{{parent.model.name}}', ng-click="selectParent(parent)" ng-if="parents")
+                        | {{parent.model.name}}
+                    a.breadcrumb.dropdown-trigger(href="", data-target='stations', data-hover='true',  md-dropdown, title='{{station.model.name}}')
+                        | {{station.model.name}}
+                    a.breadcrumb.dropdown-trigger(href='', data-target='childrens', data-hover='true', md-dropdown, ng-if="station.stations.length>0")
+                        span.active-menu 查看下级
+                    a.breadcrumb.dropdown-trigger(href='', data-target='equipments', data-hover='true', md-dropdown title='{{currentDoor.model.name}}')
+                        | {{currentDoor.model.name || '-'}}
+                    .nav-flex-grow.right
+                        a.waves-effect.waves-light.btn(title='返回' ng-href='#/door-manager/{{equipment.model.user}}/{{equipment.model.project}}')
+                            .left
+                            span 返回
+                        a.waves-effect.waves-light.btn.modal-trigger(href='' title='门禁卡授权' data-target='door-plan-modal' ng-click='addDoorCardAuthorize()')
+                            .left
+                                img(ng-src="{{doorImg}}")
+                            span 门禁卡授权
+
+ul#stations.dropdown-content
+    li(ng-repeat='sta in stations | filter:{key: "!="+station.key}', ng-class='{active: sta.key == station.key}')
+        a(ng-href='', ng-click='selectStation(sta)')
+            span {{sta.model.name}}
+
+ul#childrens.dropdown-content(ng-if="station.stations.length>0")
+    li(ng-repeat='sta in station.stations')
+        a(ng-href='', ng-click='selectChild(sta)')
+            span {{sta.model.name}}
+
+ul#equipments.dropdown-content
+    li(ng-repeat='door in doorEquips' ng-class='{active: door.key == currentDoor.key}')
+        a(ng-href='', ng-click='selectDoor(door)')
+            span {{door.model.name}}
+
+.row
+    .col.l4.no-padding-right
+        .door-image
+            .equip-image
+                img(ng-if="currentDoor.model.image || currentDoor.equipmentTemplate.model.image" ng-src="{{setting.urls.uploadUrl}}/{{currentDoor.model.image || currentDoor.equipmentTemplate.model.image}}")
+                img(ng-if="!currentDoor.model.image && !currentDoor.equipmentTemplate.model.image" ng-src="{{noEquipImg}}")
+                h6 {{currentDoor.model.name}}
+
+            .door-command-button
+                a.waves-effect.waves-light.btn(href='' title='时间同步' ng-click='executeCommand("door-time")')
+                    span 时间同步
+                h6 门禁时间: {{currentDoorSignals['access-control-date'].value? (currentDoorSignals['access-control-date'].value | date: 'yyyy-MM-dd HH:mm:ss') : '未同步时间'}}
+
+            .door-command-button
+                a.waves-effect.waves-light.btn(href='' title='远程开门' ng-click='executeCommand("remote-open")' ng-disabled="currentDoorSignals['door-switch-status'].value == 1")
+                    span 远程开门
+                h6 当前门状态: {{currentDoorSignals['door-switch-status'].value == 1? "门开" : "门关" }}
+
+
+    .col.l8.no-padding-right
+        .door-list
+            h6 已授权卡列表
+            .card-content
+                table.card-table
+                    thead
+                        tr.border-bottom
+                            td &nbsp;
+                            //td
+                                .head-block
+                                    label
+                                        input(type="checkbox" class="filled-in" ng-model="select" ng-change="selectAll()")
+                                        span &nbsp;
+                            td 卡号
+                            td 卡类型
+                            td 卡状态
+                            td 持卡人
+
+                            td 到期时间
+
+                    tbody
+                        tr.border-bottom(ng-repeat="card in cardsData | filter: filterCard() | limitTo: pageItemsAuthorize * pageIndexAuthorize | limitTo: limitToAuthorize()")
+                            td &nbsp;
+                            //td
+                                .head-block
+                                    label
+                                        input(type="checkbox" class="filled-in" ng-model="card.checked" ng-change="selectOne()")
+                                        span &nbsp;
+                            td {{card.cardNo || ''}}
+                            td {{getcardtype(card.cardType)}}
+                            td {{getcardstatus(card.byCardValid)}}
+                            td {{getUserNameByCard(card.cardNo) || ''}}
+                          
+                            td {{card.expireDate || ''}}
+
+                .col.s12.m12.l12.eventpagination(style="margin-top: 1rem;")
+                    div(style="flex:1;")
+                    .valign-wrapper(style='flex:2;')
+                        div(style="margin: 0 auto;")
+                            ul.pagination(ng-show='filterAuthorizeItem().pageCount > 1' ng-cloak)
+                                li(ng-class='{disabled: pageIndexAuthorize <= 1, "waves-effect": pageIndexAuthorize > 1}' ng-click='pageIndexAuthorize>1?(pageIndexAuthorize = pageIndexAuthorize - 1):0')
+                                    a(href='', ng-class="{'choose-text': pageIndexAuthorize > 1}")
+                                        i.material-icons chevron_left
+
+                                li(ng-class='{active: page == pageIndexAuthorize, "waves-effect": page != pageIndexAuthorize}' ng-repeat='page in filterAuthorizeItem().pages' ng-click='selectPageAuthorize(page)' ng-if="(page>(pageIndexAuthorize-4)&&page<(pageIndexAuthorize+4)) || page==1 || page==filterAuthorizeItem().pageCount")
+                                    a(href='')
+                                        | {{( (page>(pageIndexAuthorize-3)&&page<(pageIndexAuthorize+3)) || page==1 || page==filterAuthorizeItem().pageCount ) ? page : ".."}}
+
+                                li.last(ng-class='{disabled: pageIndexAuthorize >= filterAuthorizeItem().pageCount, "waves-effect": pageIndexAuthorize < filterAuthorizeItem().pageCount}' ng-click='pageIndexAuthorize<filterAuthorizeItem().pageCount?(pageIndexAuthorize = pageIndexAuthorize + 1):0')
+                                    a(href='', ng-class="{'choose-text': pageIndexAuthorize < filterAuthorizeItem().pageCount}")
+                                        i.material-icons chevron_right
+                    div(style='flex:1;')
+
+#door-plan-modal.modal(md-modal)
+    .modal-content
+        .row.no-margin.door-plan
+            .col.l12.nav-top
+                nav
+                    .nav-flex-grow.left
+                        a.waves-effect.waves-light.btn(href='' ng-click='closeModal()' title='收起')
+                            .left
+                                img(ng-src="{{closeImg}}")
+                            span 收起
+            .col.s12.card-list
+                .card-content
+                    table.card-table
+                        thead
+                            tr.border-bottom
+                                td &nbsp;
+                                //td
+                                    .head-block
+                                        label
+                                            input(type="checkbox" class="filled-in" ng-model="select" ng-change="selectAll()")
+                                            span &nbsp;
+                                td 卡ID
+                                td 卡名称
+                                td 卡种类
+                                td 持卡人
+                                td 卡状态
+                                td 卡有效开始时间
+                                td 卡有效结束时间
+                                //td 注册时间
+
+                        tbody
+                            tr.border-bottom(ng-repeat="card in cardEquips | filter: filterCard() | limitTo: pageItemsCard * pageIndexCard | limitTo: limitToCardEquip()" ng-class="{active: card.model.equipment == currentCard.model.equipment}" ng-click="selectCardEquip(card)")
+                                td &nbsp;
+                                //td
+                                    .head-block
+                                        label
+                                            input(type="checkbox" class="filled-in" ng-model="card.checked" ng-change="selectOne()")
+                                            span &nbsp;
+                                td {{card.getPropertyValue('card-id')}}
+                                td {{card.getPropertyValue('card-name')}}
+                                td {{formatValue('card-type', card.getPropertyValue('card-type'))}}
+                                td {{getOweName(card.getPropertyValue('card-owner'))}}
+                                //td {{formatValue('card-status', card.getPropertyValue('card-status'))}}
+                                td
+                                    .credit-info-span
+                                        span.result-block {{formatValue('card-status', card.getPropertyValue('card-status'))}}
+                                td {{card.getPropertyValue('card-active-start-time')| date:'yyyy-MM-dd HH:mm:ss'}}
+                                td {{card.getPropertyValue('card-active-end-time')| date:'yyyy-MM-dd HH:mm:ss'}}
+                                //td {{card.getPropertyValue('registration-time')| date:'yyyy-MM-dd HH:mm:ss'}}
+
+                    .col.s12.m12.l12.eventpagination
+                        div(style="flex:1;")
+                        .valign-wrapper(style='flex:2;')
+                            div(style="margin: 0 auto;")
+                                ul.pagination(ng-show='filterCardEquipItem().pageCount > 1' ng-cloak)
+                                    li(ng-class='{disabled: pageIndexCard <= 1, "waves-effect": pageIndexCard > 1}' ng-click='pageIndexCard>1?(pageIndexCard = pageIndexCard - 1):0')
+                                        a(href='', ng-class="{'choose-text': pageIndexCard > 1}")
+                                            i.material-icons chevron_left
+
+                                    li(ng-class='{active: page == pageIndexCard, "waves-effect": page != pageIndexCard}' ng-repeat='page in filterCardEquipItem().pages' ng-click='selectPageCard(page)' ng-if="(page>(pageIndexCard-4)&&page<(pageIndexCard+4)) || page==1 || page==filterCardEquipItem().pageCount")
+                                        a(href='')
+                                            | {{( (page>(pageIndexCard-3)&&page<(pageIndexCard+3)) || page==1 || page==filterCardEquipItem().pageCount ) ? page : ".."}}
+
+                                    li.last(ng-class='{disabled: pageIndexCard >= filterCardEquipItem().pageCount, "waves-effect": pageIndexCard < filterCardEquipItem().pageCount}' ng-click='pageIndexCard<filterCardEquipItem().pageCount?(pageIndexCard = pageIndexCard + 1):0')
+                                        a(href='', ng-class="{'choose-text': pageIndexCard < filterCardEquipItem().pageCount}")
+                                            i.material-icons chevron_right
+                        div(style='flex:1;')
+
+            .col.s12.card-select
+                h6 门禁编辑
+                .col.l12.nav-item
+                    .col.l6(style="margin-top: .75rem;")
+                        label 卡种类
+                        .input-field
+                            input.validate.disabled(type='text' ng-model='doorCardAuthorize.cardTypeName' disabled)
+                    .col.l6(style="margin-top: .75rem;")
+                        label 卡ID
+                        .input-field
+                            input.validate.disabled(type='text' ng-model='doorCardAuthorize.cardId' disabled)
+                    .col.l6(style="margin-top: .75rem;")
+                        label 用户ID
+                        .input-field
+                            input.validate.disabled(type='text' ng-model='doorCardAuthorize.userId' disabled)
+                    //.col.l6(style="margin-top: .75rem;")
+                    //    label 用户密码
+                    //    .input-field
+                    //        input.validate(type='text' ng-model='doorCardAuthorize.userPassword' placeholder="输入用户密码")
+                    .col.l6(style="margin-top: .75rem;")
+                        label 到期日期
+                        .input-field
+                            input.validate(type='date' input-format ng-model='doorCardAuthorize.expireDate' disabled)
+                .col.s12.nav-btn
+                    .nav-flex-grow.left
+                        a.waves-effect.waves-light.btn(href='' ng-click='confirmDoorCardAuthorize()' title='保存')
+                            .left
+                                img(ng-src="{{saveImg}}")
+                            span 保存
+                    .nav-flex-grow.left
+                        a.waves-effect.waves-light.btn(href='' ng-click='closeModal()' title='取消' style="margin-right: 0;")
+                            .left
+                                img(ng-src="{{cancelImg}}")
+                            span 取消
+
+
+
+
+
+
+
+

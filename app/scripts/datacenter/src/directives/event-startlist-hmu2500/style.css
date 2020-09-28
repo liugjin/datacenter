@@ -1,0 +1,133 @@
+event-startlist-hmu2500 table:hover {
+  box-shadow: none !important;
+  outline: none !important; }
+
+event-startlist-hmu2500 table {
+  margin-top: 0.75rem;
+  overflow: auto; }
+  event-startlist-hmu2500 table thead th {
+    padding: 0 !important; }
+  event-startlist-hmu2500 table tbody tr {
+    line-height: 20px !important; }
+    event-startlist-hmu2500 table tbody tr td {
+      padding: 1px !important; }
+
+event-startlist-hmu2500 .progress {
+  margin: 0 0 0.2rem 0 !important; }
+
+event-startlist-hmu2500 .page-button {
+  border: 1px solid #3A85E4;
+  border-radius: 0; }
+  event-startlist-hmu2500 .page-button i {
+    margin-top: 1px; }
+
+event-startlist-hmu2500 .pagination {
+  position: relative;
+  bottom: 1rem;
+  top: 1vh; }
+  event-startlist-hmu2500 .pagination li {
+    height: 32px; }
+    event-startlist-hmu2500 .pagination li a {
+      line-height: 36px; }
+
+event-startlist-hmu2500 .text-align-left {
+  text-align: left !important; }
+
+event-startlist-hmu2500 #event-details-modal {
+  border-top: 1px solid #3573B6; }
+  event-startlist-hmu2500 #event-details-modal .control-list {
+    width: 650px;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0; }
+
+event-startlist-hmu2500 .modal-content {
+  background-color: #061239; }
+  event-startlist-hmu2500 .modal-content table tr:nth-child(odd) {
+    background-color: rgba(26, 69, 162, 0.4); }
+  event-startlist-hmu2500 .modal-content table tr {
+    height: 36px;
+    line-height: 36px; }
+  event-startlist-hmu2500 .modal-content table thead tr {
+    background-color: rgba(42, 107, 190, 0.4); }
+  event-startlist-hmu2500 .modal-content table tbody tr:hover {
+    background-color: rgba(75, 165, 248, 0.4) !important; }
+  event-startlist-hmu2500 .modal-content .equipment-item-title {
+    padding-left: 0.75rem;
+    border-left-width: 4px;
+    border-left-style: solid;
+    color: #39DFF9;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 10px; }
+  event-startlist-hmu2500 .modal-content .alarm-info {
+    margin-right: 2rem; }
+    event-startlist-hmu2500 .modal-content .alarm-info label {
+      color: #7CBFF9; }
+  event-startlist-hmu2500 .modal-content .alarm-history {
+    position: relative;
+    height: 34px;
+    line-height: 34px;
+    bottom: 10px; }
+  event-startlist-hmu2500 .modal-content .alarm-history-tips-box {
+    padding: 1px;
+    border: 2px solid #39DFF9; }
+    event-startlist-hmu2500 .modal-content .alarm-history-tips-box .alarm-history-tips {
+      text-align: center;
+      height: 28px;
+      width: 91px;
+      line-height: 28px;
+      border: 1px solid #268ACA; }
+
+event-startlist-hmu2500 .btn-hover:hover {
+  background-color: rgba(75, 165, 248, 0.5); }
+
+event-startlist-hmu2500 .modal-footer {
+  background-color: #0D2564; }
+
+event-startlist-hmu2500 #event-startlist-prompt-modal {
+  border-radius: 5px;
+  border: 1px solid #3573b6; }
+  event-startlist-hmu2500 #event-startlist-prompt-modal .modal-title {
+    font-size: 20px; }
+  event-startlist-hmu2500 #event-startlist-prompt-modal .modal-info {
+    font-size: 20px;
+    color: #39DFF9; }
+  event-startlist-hmu2500 #event-startlist-prompt-modal .modal-remark {
+    font-size: 16px;
+    color: #AAC6DF; }
+  event-startlist-hmu2500 #event-startlist-prompt-modal .modal-content {
+    background-color: #061239; }
+    event-startlist-hmu2500 #event-startlist-prompt-modal .modal-content input {
+      text-indent: 15px; }
+  event-startlist-hmu2500 #event-startlist-prompt-modal .modal-footer {
+    background-color: #0D2564;
+    font-size: 14px; }
+    event-startlist-hmu2500 #event-startlist-prompt-modal .modal-footer .modal-CANCEL, event-startlist-hmu2500 #event-startlist-prompt-modal .modal-footer .modal-CONTRIM {
+      width: 116px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      event-startlist-hmu2500 #event-startlist-prompt-modal .modal-footer .modal-CANCEL .material-icons, event-startlist-hmu2500 #event-startlist-prompt-modal .modal-footer .modal-CONTRIM .material-icons {
+        margin-right: 5px; }
+    event-startlist-hmu2500 #event-startlist-prompt-modal .modal-footer .modal-CONTRIM {
+      background-color: rgba(75, 165, 248, 0.4); }
+
+@media screen and (width: 1024px) {
+  event-list table.new-table {
+    width: 150% !important; }
+    event-list table.new-table thead tr th {
+      font-size: 12px; }
+    event-list table.new-table tbody tr td {
+      line-height: 15px;
+      font-size: 12px; }
+  event-list .pagination {
+    position: static  !important;
+    bottom: 1rem;
+    margin-left: 15%; }
+  event-list .page-button i {
+    margin-top: 4px; } }

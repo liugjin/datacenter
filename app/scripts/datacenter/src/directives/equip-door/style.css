@@ -1,0 +1,62 @@
+equip-door .equip-list {
+  background: transparent;
+  padding: 1.2rem 1rem 1.5rem;
+  height: 84.2vh; }
+  equip-door .equip-list .pad-left {
+    padding-left: 0 !important; }
+  equip-door .equip-list .bg-color {
+    background: #04384f; }
+  equip-door .equip-list .item {
+    padding: 0 0 0 .75rem;
+    margin-bottom: .75rem; }
+    equip-door .equip-list .item .list {
+      border: 1px solid #0050a0;
+      height: 21rem;
+      text-align: center; }
+      equip-door .equip-list .item .list a {
+        color: #ffffff !important;
+        font-size: 14px !important; }
+      equip-door .equip-list .item .list .equip-img {
+        width: 60%;
+        margin: 1rem auto;
+        height: 13rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center; }
+      equip-door .equip-list .item .list .command-btn {
+        width: 50%;
+        margin: 1rem auto;
+        padding: 3px;
+        background-color: rgba(26, 69, 162, 0.4);
+        color: #fff;
+        font-size: 14px !important;
+        border: 1px solid #10ebf4;
+        border-radius: 15px;
+        cursor: pointer; }
+      equip-door .equip-list .item .list .command-btn:hover {
+        background: rgba(16, 235, 244, 0.5); }
+      equip-door .equip-list .item .list h6 {
+        font-size: 16px; }
+        equip-door .equip-list .item .list h6 a {
+          color: #aebdd3; }
+
+equip-door .eventpagination {
+  position: absolute;
+  bottom: 1rem;
+  width: 42% !important; }
+  equip-door .eventpagination i {
+    margin-top: 1px; }
+
+@media screen and (width: 1024px) {
+  equip-door .equip-list {
+    height: 81vh; }
+  equip-door .equip-list .item .list {
+    height: 18rem; }
+  equip-door .equip-list .item .list .equip-img {
+    height: 11rem; }
+  equip-door .equip-list .item .list .command-btn {
+    width: 60%; }
+  equip-door .eventpagination {
+    position: relative;
+    width: 100% !important;
+    bottom: -1rem; } }

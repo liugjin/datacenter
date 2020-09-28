@@ -1,0 +1,4 @@
+div(ng-if="equip")
+    img.small(src="{{getComponentPath('images/alarm-off.png')}}", ng-show="!equip.signals.getItemByIds({signal:'alarm-status'}).data.value" title="声光正常")
+    a(ng-show="equip.signals.getItemByIds({signal:'alarm-status'}).data.value", ng-click="offAlarm()" title="关闭声光告警")
+        img(src="{{getComponentPath('images/alarm-on.gif')}}")

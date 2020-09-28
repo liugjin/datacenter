@@ -1,0 +1,78 @@
+distribution-manager {
+  display: block;
+  margin-top: -2.8rem;
+  margin-left: 22px; }
+  distribution-manager .line-col {
+    position: absolute;
+    width: calc(100% - 1px);
+    margin-top: 20px;
+    height: calc(100% - 40px); }
+  distribution-manager .line-row {
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 40px); }
+  distribution-manager .box-hexagon {
+    position: relative;
+    width: 102.5%;
+    overflow: hidden; }
+  distribution-manager .height-43 {
+    height: 42vh; }
+  distribution-manager .height-32 {
+    height: 32vh; }
+  distribution-manager .box-border-top {
+    height: 20px; }
+  distribution-manager .box-content {
+    padding: 1rem 0 1rem 1rem;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    color: #e2edf2; }
+    distribution-manager .box-content .title {
+      color: #ffffff; }
+      distribution-manager .box-content .title .title-line {
+        width: 4px;
+        height: 20px;
+        background: #01a6ff;
+        float: left;
+        margin-top: 0.3rem; }
+      distribution-manager .box-content .title .title-h1 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-left: 0.5rem; }
+      distribution-manager .box-content .title .title-h2 {
+        font-size: 12px;
+        font-weight: 400;
+        margin-left: 0.5rem; }
+    distribution-manager .box-content .subtitle {
+      position: absolute;
+      color: #2a89ee;
+      font-size: .5rem;
+      right: 25px;
+      top: 8px; }
+    distribution-manager .box-content .content {
+      padding-top: .5vh;
+      flex-direction: row;
+      justify-content: space-evenly;
+      position: relative;
+      left: -7px; }
+      distribution-manager .box-content .content .standard-pie-loc {
+        margin-top: 5px; }
+
+@media screen and (width: 1024px) {
+  distribution-manager {
+    margin-left: 0;
+    margin-top: -2.8rem; }
+    distribution-manager .box-content .title .title-line {
+      height: 16px; }
+    distribution-manager .box-content .title .title-h1 {
+      font-size: 16px; }
+    distribution-manager .box-content .title .title-h2 {
+      font-size: 0px; }
+    distribution-manager .box-content .content {
+      left: 0px; }
+      distribution-manager .box-content .content .standard-pie-loc {
+        margin-top: 0px;
+        padding: 0 !important; }
+        distribution-manager .box-content .content .standard-pie-loc signal-pie .signal {
+          padding-bottom: 0px; } }

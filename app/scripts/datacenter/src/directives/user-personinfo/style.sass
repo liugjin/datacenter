@@ -1,0 +1,155 @@
+user-personinfo
+  font-size: 14px 
+  .switch label .lever
+    background-color: rgba(26, 69, 162, 1)
+  .switch label input[type=checkbox]:checked+.lever
+    background-color: rgba(26, 69, 162, 1)
+  .switch label input[type=checkbox]:checked+.lever:after
+    background-color: rgba(1, 166, 255, 1)
+  [type="checkbox"]:not(:checked):disabled+span:not(.lever):before
+    border: 2px solid #ffffff
+  [type="checkbox"]+span:not(.lever):before, [type="checkbox"]:not(.filled-in)+span:not(.lever):after
+    border: 2px solid #ffffff
+  [type="checkbox"]:checked+span:not(.lever):before
+    border-top: 2px solid transparent !important
+    border-left: 2px solid transparent !important
+    border-right: 2px solid #10a957 !important
+    border-bottom: 2px solid #10a957 !important
+  input[type=text]:not(.browser-default)
+    font-size: 14px !important
+  input.valid
+    box-shadow: none !important
+
+  label
+    color: #ffffff
+    font-size: 14px
+  input:disabled
+    color: #ffffff !important
+    border: 1px dotted rgba(1, 166, 255, 0.65) !important
+    padding: 0 0.75rem !important
+    margin-bottom: 0!important
+  input
+    color: #ffffff
+    border: 1px solid rgba(1, 166, 255, 0.65) !important
+    padding: 0 0.75rem !important
+    margin-bottom: 0!important
+    box-shadow: none
+  input:focus
+    color: #ffffff
+    border: 1px solid #01a6ff !important
+    box-shadow: none !important
+  .input-field
+    width: 35rem
+    margin: 0 !important
+  .felx
+    margin-top: 1.5rem
+    display: flex
+    justify-content: center
+    position: relative
+    label
+      position: absolute
+      left: 9rem
+      line-height: 50px
+      width: 7rem
+      padding: 0 .75rem
+
+  .card
+    border: 1px solid #ffffff
+  .cool-title
+    background-color: rgba(1,166,255,0.65)
+    color: #ffffff
+    padding: 10px
+    margin-top: 10px
+    overflow-y: auto
+    margin-top: 10px
+    padding: .75rem !important
+    border: 1px solid #00d5ff
+    box-shadow: 0 0 10px #00d5ff inset , 0 0 10px #00d5ff
+  .cool-content
+    background-color: rgba(26, 69, 162, 0.4)
+    padding-top: .75rem !important
+    height: calc(100vh - 9.5rem)
+
+  .btn, .btn-large, .btn-small
+    margin-left: .75rem
+    font-size: 14px
+    height: 34px
+    line-height: 34px
+    border: 1px solid #02E7EE
+    border-radius: 0px
+    background: rgba(2,68,168,0.4) !important
+    color: #ffffff
+  .btn-frame
+    border: 1px solid #02E7EE 
+    border-radius: 0px 
+    color: #ffffff 
+  .btn:hover
+    background-color: rgba(1, 166, 255, 1)
+
+  .img-uploader
+    position: relative
+    color: #ffffff
+    margin-bottom: 5px
+    display: inline-block
+    background: rgba(26,69,162,0.4)
+    border: none
+    .pic-name
+      position: absolute
+      top: 1rem
+      left: 0
+      width: 100%
+    .img-preview
+      a i
+        margin-top: 5rem
+  .btn-group
+    padding: .75rem
+    margin: 0 !important
+    margin-top: .75rem
+    text-align: center
+    .btn
+      background-color: rgba(1, 166, 255, 0.65) !important
+  li
+    white-space: nowrap
+
+  .change
+    padding: 0 32px !important
+
+  .customer-type
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 220px
+    height: 24px
+  .customer-type .type-box
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 50%
+    height: 100%
+    color: #FFFFFF
+    font-size: 14px
+    cursor: pointer
+  
+  .customer-type .type-icon-box
+    display: flex
+    justify-content: center
+    align-items: center
+    align-items:center
+    width: 18px
+    height: 18px
+    border: 1px solid #01A6FF
+    border-radius: 50%
+    margin-right: 10px
+  .customer-type .type-icon
+    width: 6px
+    height: 6px
+    border-radius: 50%
+    background: #00D5FF
+
+@media screen and (width: 1024px)
+  user-personinfo
+    .felx
+      label
+        left: -4rem
+
+

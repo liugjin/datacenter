@@ -1,0 +1,25 @@
+{
+  "id": "single-video-core",
+  "name": "SingleVideoCore控件",
+  "type": "SingleVideoCoreDirective",
+  "desc": {
+    "author": "david",
+    "comment": "单视频设备播放组件",
+    "version": {
+      "0.0.1": [],
+      "0.0.2": ["增加摄像头选择交互功能", "增加对演示视频的支持"],
+      "0.0.3": ["增加对多个演示视频的支持", "修复之前多窗口无法播放同一设备视频的bug"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.3"
+}

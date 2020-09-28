@@ -1,0 +1,63 @@
+yingmai-environment {
+  display: block;
+  background-color: rgba(7, 27, 85, 0.5); }
+  yingmai-environment .line-col {
+    position: absolute;
+    width: calc(100% - 1px);
+    margin-top: 20px;
+    height: calc(100% - 40px);
+    border: 1px solid #082268;
+    border-top: none;
+    border-bottom: none; }
+  yingmai-environment .line-row {
+    position: absolute;
+    height: calc(100% + 3px);
+    margin-left: 20px;
+    width: calc(100% - 40px);
+    border: 1px solid #082268;
+    border-left: none;
+    border-right: none; }
+  yingmai-environment .box-hexagon {
+    position: relative;
+    height: 24vh;
+    width: 100%; }
+  yingmai-environment .box-border-top {
+    height: 20px; }
+  yingmai-environment .box-content {
+    color: #ffffff;
+    padding: 1rem;
+    background: url("~images/left-on.png~") 0 0 no-repeat, url("~images/left-under.png~") 0 100% no-repeat, url("~images/right-on.png~") calc(100% - 1px) 0 no-repeat, url("~images/right-under.png~") calc(100% - 1px) 100% no-repeat; }
+    yingmai-environment .box-content .title {
+      background: url("~images/title-img.png~") center no-repeat;
+      text-align: center;
+      color: #2a89ee;
+      font-size: 1.2rem; }
+    yingmai-environment .box-content .subtitle {
+      position: absolute;
+      color: #2a89ee;
+      font-size: .5rem;
+      right: 25px;
+      top: 8px; }
+    yingmai-environment .box-content .content {
+      padding-top: .5vh;
+      height: 18vh;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly; }
+      yingmai-environment .box-content .content .environment {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap; }
+        yingmai-environment .box-content .content .environment .font {
+          width: 50%;
+          text-align: center;
+          height: 9vh;
+          display: flex;
+          flex-direction: column;
+          padding-top: 1vh; }
+        yingmai-environment .box-content .content .environment .img img {
+          height: 3vh; }
+  yingmai-environment .box-border-bottom {
+    height: 20px;
+    transform: rotateY(180deg) rotateX(180deg); }

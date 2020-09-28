@@ -1,0 +1,84 @@
+{
+  "id": "event-manager",
+  "name": "告警管理页面控件",
+  "type": "EventManagerDirective",
+  "desc": {
+    "author": "hardy",
+    "desc": "菜单栏隐藏显示控制组件",
+    "version": {
+      "0.0.1": [
+        "告警管理页面，依赖search-input、event-statistic、event-statistic-chart、event-list组件。"
+      ],
+      "0.0.3": [
+        "将underscore改为lodash。",
+        "@Billy"
+      ],
+      "0.0.4": [
+        "不再需要传入stationId，自动选择站点。",
+        "@Billy"
+      ],
+      "0.0.6": [
+        "修复领航栏统计异常问题",
+        "@Billy"
+      ],
+      "0.0.7": [
+        "修复错误注释导致数据异常",
+        "@Billy"
+      ],
+      "0.0.9": [
+        "调整样式",
+        "@Billy"
+      ],
+      "0.0.10": [
+        "修复菜单栏异常",
+        "@Hardy"
+      ],
+      "0.1.1": [
+        "修复左侧统计异常",
+        "@Hardy"
+      ],
+      "0.1.2": [
+        "修复数值为0时显示异常",
+        "@Hardy"
+      ],
+      "0.1.3": [
+        "再次修复左侧统计异常",
+        "@Hardy"
+      ],
+      "0.1.5": [
+        "修复无法显示根站点统计数据的问题",
+        "@Hardy"
+      ],
+      "0.1.6": [
+        "调整样式",
+        "@Hardy"
+      ],
+      "0.1.7": [
+        "20190506管理页面 样式调整",
+        "@Hardy"
+      ],
+      "0.1.8": [
+        "20190510管理页面 样式调整",
+        "@Billy"
+      ],
+      "0.1.9": [
+        "修复单站点显示异常",
+        "@Hardy"
+      ]
+    }
+  },
+  "group": "模块组件",
+  "parameters": [],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [
+    "search-input",
+    "event-statistic",
+    "event-statistic-chart",
+    "event-list"
+  ],
+  "css": "",
+  "version": "0.1.9"
+}

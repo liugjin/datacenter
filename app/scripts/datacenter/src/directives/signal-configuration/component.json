@@ -1,0 +1,24 @@
+{
+  "id": "signal-configuration",
+  "name": "事件告警配置页面",
+  "type": "SignalConfigurationDirective",
+  "desc": {
+    "author": "foam",
+    "comment": "可以对事件(配置了分组为status,alarm或者sample,不设置分组则不显示)进行配置",
+    "version": {
+      "0.0.1": ["首次提交"]
+    }
+  },
+  "keywords":"配置,事件,告警",
+  "group": "模块组件",
+  "parameters": [
+    {"id": "headerName", "type": "string", "value": "信号配置", "desc": "左上角标题的名字,可以自行修改"}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": ["selectEquip"]
+  },
+  "deps": ["device-tree-single"],
+  "css": "",
+  "version": "0.0.1"
+}

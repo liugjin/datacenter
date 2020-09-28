@@ -1,0 +1,41 @@
+graphicparamter-box .box-hexagon {
+  margin-top: .75rem;
+  width: 100%; }
+  graphicparamter-box .box-hexagon .box-content {
+    height: 68vh;
+    text-align: center;
+    border-left: 1px solid #00e7ee;
+    border-right: 1px solid #00e7ee;
+    color: #ffffff;
+    padding: 0 1rem;
+    background-color: rgba(26, 69, 162, 0.4); }
+  graphicparamter-box .box-hexagon .subtitle {
+    font-size: 0.9rem;
+    margin-left: 0.4rem; }
+  graphicparamter-box .box-hexagon .box-content .title {
+    height: 2.4rem;
+    font-size: 1.4rem;
+    text-align: left;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: 1.6rem; }
+
+graphicparamter-box .big-box-border-top {
+  background-image: url("~image/big.png~");
+  background-repeat: no-repeat;
+  border-right: 1px solid #00e7ee;
+  height: 20px; }
+
+graphicparamter-box .big-box-border-bottom {
+  background-image: url("~image/big.png~");
+  background-repeat: no-repeat;
+  border-right: 1px solid #00e7ee;
+  height: 20px;
+  transform: rotateY(180deg) rotateX(180deg); }
+
+graphicparamter-box #player {
+  height: 100%; }
+
+@media screen and (max-width: 1400px) {
+  graphicparamter-box .box-hexagon .box-content {
+    height: 68vh; } }

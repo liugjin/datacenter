@@ -1,0 +1,24 @@
+{
+  "id": "equip-lineorbar-hmu2500",
+  "name": "EquipLineorbarHmu2500控件",
+  "type": "EquipLineorbarHmu2500Directive",
+  "desc": {
+    "author": "foam",
+    "comment": "自定义组件",
+    "version": {
+      "0.0.1": []
+    }
+  },
+  "keywords":"图表,实时,信号",
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": ["equipment-timefilter", "component-line-hmu2500"],
+  "css": "",
+  "version": "0.0.1"
+}

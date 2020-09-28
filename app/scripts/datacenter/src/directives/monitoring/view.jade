@@ -1,0 +1,189 @@
+.row.nav-top
+    .col.s2
+        div 设备监控
+    .col.s10
+        div
+            .nav-wrapper.equips-btn-container(ng-show="equipTypeLists.length > 0")
+                div.one(style="font-size: 14px") 设备类型：
+                div.two(ng-repeat= '(index, type) in equipTypeLists')
+                    .btn.tabs-btn.standard-span-btn(
+                    ng-style='{"color": currentType.type==type.type?"#ffffff":"#7DBFFA !important","border": currentType.type==type.type?"1px solid rgb(16,235,244)":"1px solid #0652a2"}'
+                    ng-click='selectEquipType(type)'
+                    title='{{type.name}}'
+                    ng-show="{{index < 7}}"
+                    )
+                        //.type-img
+                        //    .img-bing(style="background:url('{{setting.urls.uploadUrl}}/{{type.image}}');background-repeat: no-repeat;background-position: -183px -22px;")
+                        span {{type.name}} ({{type.count}})
+                div.three.dropdown-trigger.tabs-btn(data-target='equipemttypes' data-hover='true'
+                data-constrain-width='false' data-cover-trigger="false"
+                md-dropdown title='更多类型' ng-show="equipTypeLists.length > 7") 更多 ▼
+                ul#equipemttypes.dropdown-content
+                    li(ng-repeat = '(index, type) in equipTypeLists'
+                    ng-class='{true:"equips-list2",false:"equips-list"}[currentType.type==type.type]'
+                    ng-show="{{index > 6}}")
+                        a(ng-href='' ng-click="selectEquipType(type)" style="padding-left: 8px;")
+                            .type-img
+                                .img-bing(style="top: -5px;position: relative;background:url('{{setting.urls.uploadUrl}}/{{type.image}}');background-repeat: no-repeat;background-position: -183px -22px;")
+                            span {{type.name}} ({{type.count}})
+.row.inventory(style="margin-right: 0px;")
+    .col.s2.m2.l2.invent-type
+        station-tree-with-count(controller='vm',parameters='{"checkbox":false,"filter":true,"filterType":filterType}')
+
+    .col.s10.m10.l10.invent-list.invent-list-container(ng-show="!edit&&!detail" style="padding-left: 0px;")
+        .inventory-lists(ng-show="!detail")
+            .inventory-nav
+                a.btn(ng-click='switchView()' title='切换表格/视图' style="margin-left: .75rem;color:#fff;")
+                    .left
+                        img(ng-src="{{viewImg}}")
+                        i.material-icons.medium format_list_bulleted
+                    span(style="font-size: 14px;margin-left: 15px;") {{viewName}}
+
+                div.search-classify
+                    a.equip-classify.dropdown-trigger(data-target='groups' data-hover='true' data-constrain-width='false' data-cover-trigger="false" md-dropdown title='设备分组' ng-show="groups.length > 0", style="")
+                        span.left-equip-box {{group=='all'?"分类":group}}
+                        span.right-equip-box ▼
+                    ul#groups.dropdown-content
+                        li
+                            a(ng-href="" ng-click="selectGroup('all')" style="padding-left: 8px")
+                                span 所有分类
+                        li(ng-repeat = 'group in groups')
+                            a(ng-href='' ng-click="selectGroup(group)" style="padding-left: 8px;")
+                                span {{group}}
+                    .search-wrapper
+                        i.material-icons search
+                        input.search-input(type="password" style="display:none" placeholder="搜索" ng-model="searchLisggggts" required)
+                        input.search-input(type="text" placeholder="请输入设备名称" ng-model="searchLists" required)
+                        i.material-icons(style="left: 175px;top: 0;cursor:pointer" ng-click="searchLists = ''; pageIndex = 1;" ng-show='searchLists') close
+
+
+            .silver-line(ng-show="view")
+
+            // 列表视图
+            .list-view.listView(ng-show="view")
+                table.responsive-table.centered.highlight.new-table
+                    thead
+                        tr.col-top-header
+                            th
+                                .col-header.col-text-align(ng-click='station.equipments.sortBy("model.name")')
+                                    span 名称
+                                    span.right(ng-show='station.equipments.predicate == "model.name"') {{station.equipments.reverse && "▽" || "△"}}
+                            th
+                                .col-header.col-text-align()
+                                    span 资产编号
+                                    span.right(ng-show='station.equipments.predicate == "model.tag"') {{station.equipments.reverse && "▽" || "△"}}
+                            th
+                                .col-header(ng-click='station.equipments.sortBy("model.typeName")')
+                                    span 类型
+                                    span.right(ng-show='station.equipments.predicate == "model.typeName"') {{station.equipments.reverse && "▽" || "△"}}
+                            th
+                                .col-header.col-text-align(ng-click='station.equipments.sortBy("model.templateName")')
+                                    span 型号
+                                    span.right(ng-show='station.equipments.predicate == "model.templateName"') {{station.equipments.reverse && "▽" || "△"}}
+                            th
+                                .col-header.col-text-align(ng-click='station.equipments.sortBy("model.vendorName")')
+                                    span 厂商
+                                    span.right(ng-show='station.equipments.predicate == "model.vendorName"') {{station.equipments.reverse && "▽" || "△"}}
+                            th
+                                .col-header.col-text-align(ng-click='station.equipments.sortBy("model.stationName")')
+                                    span 站点区域
+                                    span.right(ng-show='station.equipments.predicate == "model.stationName"') {{station.equipments.reverse && "▽" || "△"}}
+                            th
+                                .col-header(ng-click='station.equipments.sortBy("model.createtime")')
+                                    span 登记时间
+                                    span.right(ng-show='station.equipments.predicate == "model.createtime"') {{station.equipments.reverse && "▽" || "△"}}
+                            th
+                                .col-header(ng-click='station.equipments.sortBy("model.owner")')
+                                    span 责任人
+                                    span.right(ng-show='station.equipments.predicate == "model.owner"') {{station.equipments.reverse && "▽" || "△"}}
+
+                    tbody
+                        tr(ng-repeat='equip in equipments | filter: filterEquipment() | orderBy: station.equipments.predicate:station.equipments.reverse | limitTo: pageItems * pageIndex | limitTo: limitToEquipment()' ng-class="{active: equipment.key == equip.key}" ng-click="showEquipment(equip);")
+                            td.col-text-align {{equip.model.name}}
+                            td.col-text-align {{equip.model.tag || '-'}}
+                            td {{equip.model.typeName}}
+                            td.col-text-align {{equip.model.templateName}}
+                            td.col-text-align {{equip.model.vendorName}}
+                            td.col-text-align {{equip.model.stationName}}
+                            td {{equip.model.createtime | date: 'yyyy-MM-dd'}}
+                            td {{equip.model.owner}}
+
+                .eventpagination
+                    div(style="flex:1;")
+                    .valign-wrapper(style='flex:2;')
+                        div(style="margin: 0 auto;")
+
+                            ul.pagination.center(ng-show='filterEquipmentItem().pageCount > 1' ng-cloak)
+                                li.page-button(ng-class='{disabled: pageIndex <= 1, "waves-effect": pageIndex > 1}', ng-click='pageIndex>1?(pageIndex = pageIndex - 1):0',)
+                                    a(href='')
+                                        i.material-icons.white-text chevron_left
+                                li.page-button(ng-class='{active: page == pageIndex , "waves-effect": page != pageIndex}', ng-repeat='page in filterEquipmentItem().pages', ng-click='selectPage(page)' ng-if="(page>(pageIndex-4)&&page<(pageIndex+4))||page==1||page==filterEquipmentItem().pageCount")
+                                    a(href='')
+                                        | {{((page>(pageIndex-3)&&page<(pageIndex+3))||page==1||page==filterEquipmentItem().pageCount) ? page:".."}}
+
+                                li.last.page-button(ng-class='{disabled: pageIndex >= filterEquipmentItem().pageCount , "waves-effect": pageIndex < filterEquipmentItem().pageCount}', ng-click='pageIndex<filterEquipmentItem().pageCount?(pageIndex = pageIndex + 1):0')
+                                    a(href='')
+                                        i.material-icons.white-text chevron_right
+                    div(style='flex:1;')
+
+
+            // 卡片视图
+            .list-card(ng-show="!view")
+                .col.s12.m4.l3.card-self(
+                ng-repeat='(index, equip) in equipments | filter: filterEquipment() | orderBy: station.equipments.predicate:station.equipments.reverse | limitTo: pageItems * pageIndex | limitTo: limitToEquipment()'
+                ng-click="showEquipment(equip);" style="padding-right: 0;")
+                    .card.hoverable.card-view
+                        .card-image
+                            a(ng-href='', title='访问设备')
+                                .card-img-placeholder
+                                    img.responsive-img(style="cursor:pointer" ng-if='getEquipmentImage(equip)', ng-src='{{setting.urls.uploadUrl}}/{{getEquipmentImage(equip)}}')
+                        .card-content.card-span-text
+                            span(title='{{equip.model.name}}' style="font-weight:bold; color: #1d2123;text-align: center;font-size: 14px;")
+                                .truncate(style="margin-top: 5px;") {{equip.model.name}}
+                            span(title='{{equip.model.vendorName}} / {{equip.model.templateName}} / {{equip.station.model.name}} / {{equip.model.name}}' style="color: #a2aab6;font-size: 12px;")
+                                .truncate(style="margin-top: 5px;") {{equip.model.vendorName}} / {{equip.model.templateName}} / {{equip.station.model.name}} / {{equip.model.name}}
+                            span.equip-status
+                                .truncate.equip-status-loc
+                                    a.right(
+                                        ng-show="status[equip.model.station+'.'+equip.model.equipment] == 0"
+                                        ng-class="{'state-offalarm': !alarms[equip.model.station+'.'+equip.model.equipment], 'state-onalarm': alarms[equip.model.station+'.'+equip.model.equipment]}"
+                                        title="告警状态" style="margin-right: 10px;")
+                                        label
+                                            //input.with-gap(type="radio" checked)
+                                            span {{alarms[equip.model.station+'.'+equip.model.equipment] ? "告警" : "正常"}}
+                                    a.right(
+                                        ng-class="{'state-offline': status[equip.model.station+'.'+equip.model.equipment] != 0, 'state-online': status[equip.model.station+'.'+equip.model.equipment] == 0}"
+                                        title="通讯状态" style="margin-right: 10px;")
+                                        label
+                                            //input.with-gap(type="radio" checked)
+                                            span {{status[equip.model.station+'.'+equip.model.equipment] == 0 ? '在线': '离线'}}
+
+                .col.l12.eventpagination
+                    div(style="flex:1;")
+                    .valign-wrapper(style='flex:2;')
+                        div(style="margin: 0 auto;")
+                            ul.pagination.center(ng-show='filterEquipmentItem().pageCount > 1' ng-cloak)
+                                li.page-button(ng-class='{disabled: pageIndex <= 1, "waves-effect": pageIndex > 1}', ng-click='pageIndex>1?(pageIndex = pageIndex - 1):0',)
+                                    a(href='')
+                                        i.material-icons.white-text chevron_left
+                                li.page-button(ng-class='{active: page == pageIndex , "waves-effect": page != pageIndex}', ng-repeat='page in filterEquipmentItem().pages', ng-click='selectPage(page)' ng-if="(page>(pageIndex-4)&&page<(pageIndex+4))||page==1||page==filterEquipmentItem().pageCount")
+                                    a(href='')
+                                        | {{((page>(pageIndex-3)&&page<(pageIndex+3))||page==1||page==filterEquipmentItem().pageCount) ? page:".."}}
+                                li.last.page-button(ng-class='{disabled: pageIndex >= filterEquipmentItem().pageCount , "waves-effect": pageIndex < filterEquipmentItem().pageCount}', ng-click='pageIndex<filterEquipmentItem().pageCount?(pageIndex = pageIndex + 1):0')
+                                    a(href='')
+                                        i.material-icons.white-text chevron_right
+                    div(style='flex:1;')
+
+
+
+    .col.s10.invent-list.no-background-color.detial-list(ng-show="detail&&!edit")
+        .inventory-left-box.left-box-container.left.col
+            .nav-flex-grow
+                .header-style
+                    a.btn.btn-back(href='' title='返回' ng-click='goBack()')
+                        //img(style="height: 1rem;vertical-align: text-top;margin-right: .75rem;" ng-src="{{backImg}}")
+                        span 返回
+                component-devicemonitor.s12.l9(controller='controller',parameters='{}')
+        .invent-detail.col.row.right-box-container
+            equipment-property.col.s12.no-padding(controller='controller',parameters='{}')
+

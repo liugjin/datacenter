@@ -1,0 +1,35 @@
+query-report ul li {
+  margin-right: .75rem; }
+
+query-report .ag-blue .ag-ltr .ag-header-cell {
+  border-right: 0 !important; }
+
+query-report .ag-blue .ag-cell, query-report .ag-blue .ag-header-group-cell-label {
+  text-align: center; }
+
+query-report .ag-blue .ag-header {
+  background-color: #616161;
+  font-size: 15px; }
+
+query-report .ag-blue .ag-body {
+  background-color: white;
+  font-size: 14px; }
+
+query-report .ag-blue .ag-root {
+  border: 0px solid #e0e0e0; }
+
+query-report .ag-blue .ag-header-cell-label > span {
+  margin: 0 auto; }
+
+query-report .no-box-shadow {
+  box-shadow: none; }
+
+query-report .grey-text-5 {
+  color: #101010; }
+
+query-report .grey-6 {
+  background-color: #fbfbfb; }
+
+query-report .gldp-default {
+  position: absolute;
+  font-family: 'helvetica'; }

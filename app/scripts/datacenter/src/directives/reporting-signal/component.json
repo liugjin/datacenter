@@ -1,0 +1,25 @@
+{
+  "id": "reporting-signal",
+  "name": "ReportingSignal控件",
+  "type": "ReportingSignalDirective",
+  "desc": {
+    "author": "",
+    "comment": "设备信号告警记录",
+    "version": {
+      "0.0.1": [
+        "设备信号告警记录","@murray"
+      ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": ["checkEquips"]
+  },
+  "deps": ["device-tree","grid-table"],
+  "css": "",
+  "version": "0.0.1"
+}

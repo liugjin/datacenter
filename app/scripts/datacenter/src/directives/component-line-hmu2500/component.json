@@ -1,0 +1,24 @@
+{
+  "id": "component-line-hmu2500",
+  "name": "ComponentLineHmu2500控件",
+  "type": "ComponentLineHmu2500Directive",
+  "desc": {
+    "author": "foam",
+    "comment": "自定义组件",
+    "version": {
+      "0.0.1": []
+    }
+  },
+  "keywords":"图表,折线图,渐变",
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.1"
+}

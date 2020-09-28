@@ -1,0 +1,24 @@
+{
+  "id": "monitoring-leon-hmu2500",
+  "name": "监控管理hmu2500",
+  "type": "MonitoringLeonHmu2500Directive",
+  "desc": {
+    "author": "foam",
+    "comment": "自定义组件",
+    "version": {
+      "0.0.1": []
+    }
+  },
+  "keywords":"设备,监控,实时,事件,命令,图表",
+  "group": "模块组件",
+  "parameters": [
+    {"id":"filterType", "type":"bool", "value": false, "desc": "用来设置是否过滤掉设备类型的visible为false的设备"}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": ["device-tree-leon", "component-devicemonitor-hmu2500","equipment-property"],
+  "css": "",
+  "version": "0.0.1"
+}

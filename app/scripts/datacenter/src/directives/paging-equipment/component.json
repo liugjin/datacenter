@@ -1,0 +1,25 @@
+{
+  "id": "paging-equipment",
+  "name": "PagingEquipment控件",
+  "type": "PagingEquipmentDirective",
+  "desc": {
+    "author": "Mackie",
+    "comment": "配合表格使用的自动分页组件",
+    "version": {
+        "0.0.1": ["提交自动分页组件"],
+        "0.0.2": ["修改超过8页无法切换隐藏页数问题"],
+        "0.0.3": ["去除打印"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.3"
+}

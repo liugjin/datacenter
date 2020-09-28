@@ -1,0 +1,45 @@
+event-manager .chip {
+  background-color: rgba(26, 69, 162, 0.4);
+  color: white;
+  margin: 5.5px; }
+
+event-manager .chip > img {
+  height: 24px !important;
+  width: 24px !important; }
+
+event-manager .box-hexagon {
+  margin-top: .75rem;
+  width: 100%; }
+  event-manager .box-hexagon .box-content {
+    height: auto;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 1rem;
+    background-color: rgba(26, 69, 162, 0.4); }
+  event-manager .box-hexagon .box-border-top {
+    background-image: url("~image/big.png~");
+    background-repeat: no-repeat;
+    border-right: 1px solid #00e7ee;
+    height: 20px; }
+  event-manager .box-hexagon .box-border-bottom {
+    background-image: url("~image/big.png~");
+    background-repeat: no-repeat;
+    border-right: 1px solid #00e7ee;
+    height: 20px;
+    transform: rotateY(180deg) rotateX(180deg); }
+
+event-manager .no-box-shadow {
+  box-shadow: none; }
+
+event-manager i.right-2 {
+  float: right;
+  margin-left: 10px; }
+
+event-manager .card-panel {
+  background-color: rgba(26, 69, 162, 0.4) !important;
+  overflow: hidden;
+  margin: .75rem 0;
+  padding: 0; }
+
+event-manager event-statistic-chart canvas {
+  margin: 14px 0 0 10px !important; }

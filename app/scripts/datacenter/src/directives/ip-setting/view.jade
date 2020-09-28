@@ -1,0 +1,52 @@
+.row.nav-top
+    .col.s2
+        span 网络管理
+    .col.s10
+        nav
+            .nav-wrapper
+                ul.right
+                    li(ng-show="project.model._role.isAdmin || project.model._role.operations[0]=='_all' || project.model._role.operations.indexOf('setting')>=0" )
+                        .btn(ng-click='saveSetting()', title='保存设置')
+                            span 保存
+
+.content
+    .col.l12.cool-content(style="margin-bottom:0.75rem")
+        .tagName 网络设置
+        .col.s8.offset-l2.felx
+            label 主机名
+            .input-field
+                input#hostname.validate(type='text', ng-model='setting.hostName')
+        .col.s8.offset-l2.felx
+            label 网络类型
+            .input-field
+                select(ng-model='setting.type', md-select, data='setting')
+                    //- option(value='dhcp' ng-selected='setting.type == "dhcp"') DHCP获取
+                    option(value='static' disabled  ng-selected='setting.type == "static"') 静态IP
+        .col.s8.offset-l2.felx(ng-show="setting.type=='static'")
+            label IP地址
+            .input-field
+                input#ip.validate(type='text', ng-model='setting.ip')
+        .col.s8.offset-l2.felx(ng-show="setting.type=='static'")
+            label 子网掩码
+            .input-field
+                input#mask.validate(type='text', ng-model='setting.mask')
+        .col.s8.offset-l2.felx(ng-show="setting.type=='static'")
+            label 网关地址
+            .input-field
+                input#gateway.validate(type='text', ng-model='setting.gateway')
+
+        .col.s8.offset-l2.felx
+            label DNS服务器
+            .input-field
+                input#dns.validate(type='text', ng-model='setting.dns')
+    .col.l12.cool-content2
+        .tagName 网络测试
+        .col.s6.felx(style="margin: 0.5rem 0")
+            label(style="width:10rem;height:2.6rem;font-size: 18px") 输入测试目标IP
+            input(type='text', ng-model='strURL',style="width:50%;height:2.6rem;border-radius: 4px")
+            .ping.btn(ng-click="pingClick(true)")
+                span ping
+            .ping.btn(ng-click="pingClick(false)")
+                span 停止
+        .col.s12(style="width: 100%;height: 66%;background: #000;border-radius:4px;display: flex;flex-direction: column;justify-content: flex-start;overflow: auto")
+           span(ng-repeat='(index,equip) in pingDatas') {{equip.pingData}}

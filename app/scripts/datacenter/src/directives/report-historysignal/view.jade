@@ -1,0 +1,56 @@
+.row.nav-top
+    .col.l2
+        span(style="color:#fff") 历史数据
+    .col.l10
+        nav
+            .col.nav-wrapper.nav-wrap-container
+                ul.left
+                    li(ng-show='signals.length')
+                        a.dropdown-trigger(data-target='mysigs' data-hover='true' md-dropdown title='切换信号' style="")
+                            i.material-icons.left view_list
+                            | {{selectSignals[0].model.name}}
+                    li(ng-hide="signals.length")
+                        a(title='选设备切换数据点' style="font-size: 14px")
+                            i.material-icons.left view_list
+                            | 数据列表
+                    ul#mysigs.dropdown-content(style="height:300px;")
+                        li(ng-repeat='sig in signals')
+                            a(ng-href="" ng-click="selectSignal(sig)")
+                                span {{sig.model.name}}
+            .col.right
+              report-query-time.report-query-time.left(controller='controller',parameters='{}')            
+              .right-wrapper-box.left
+                  ul
+                      li(style="margin-right:10px;")
+                          .btn.standard-report-btn(ng-click='queryReport()', title='查询')
+                              span.hide-on-med-and-down 查询
+                      li(ng-show='selectedEquips.length == 1',style="margin-right:10px;")
+                          .btn.standard-report-btn(ng-click='switchView()', title='切换图表/报表' ng-hide="multiflag")
+                              span.hide-on-med-and-down 切换视图
+                      li
+                          .btn.standard-report-btn(ng-click='exportReport(headers,garddatas,reportName)', title='导出')
+                              span.hide-on-med-and-down 导出
+
+.row
+    device-tree.col.tree-style.device-tree(controller='controller',parameters='{"checkbox":false,"filter":true,"reportName":"历史数据"}')
+    .col.grid-table-contaner
+        .row(ng-show='view' style="min-width:900px")
+            bar-or-line.bar(controller='controller', parameters='{barlinevalue:barlinevalue,"height":"78.8vh","title":"","type":"barLB","xname":"（时间轴）","yname":yname,"mutilcolorflag":false,"hidxaxislineshow":true,"hidyaxislineshow":true,"hidxaxislabel":false,"hidyaxislabel":false,"leghidflag":true,"graphcolor":"#fff"}')
+        .row(ng-show='!view' style="min-width:900px")
+            grid-table.grid-table( controller='controller',parameters='{header:headers,data:garddatas}')
+            .col.l12.eventpagination
+                div(style="flex:1;")
+                .valign-wrapper(style='flex:2;')
+                    div(style="margin: 0 auto;")
+                        ul.pagination.center(ng-show='pagination.pageCount > 1')
+                            li.page-button(ng-class='{disabled: pagination.page <= 1, "waves-effect": pagination.page > 1}', ng-click='queryPage("previous")')
+                                a(href='')
+                                    i.material-icons(style="margin-top:4px;") chevron_left
+                            li.page-button(ng-class='{active: page == pagination.page, "waves-effect": page != pagination.page}', ng-repeat='page in pagination.pages', ng-click='queryPage(page)')
+                                a(href='')
+                                    | {{(($index == 1 && pagination.page > 4)||($index == pagination.pages.length-2 && pagination.page < pagination.pageCount-3)) ? "..":page}}
+                            li.last.page-button(ng-class='{disabled: pagination.page >= pagination.pageCount, "waves-effect": pagination.page < pagination.pageCount}', ng-click='queryPage("next")')
+                                a(href='')
+                                    i.material-icons(style="margin-top:4px;") chevron_right
+                div(style='flex:1;')
+

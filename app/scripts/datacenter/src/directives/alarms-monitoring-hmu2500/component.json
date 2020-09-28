@@ -1,0 +1,24 @@
+{
+  "id": "alarms-monitoring-hmu2500",
+  "name": "hmu2500告警管理监控页面组件",
+  "type": "AlarmsMonitoringHmu2500Directive",
+  "desc": {
+    "author": "foam",
+    "comment": "自定义组件",
+    "version": {
+      "0.0.1": ["hmu2500告警管理监控页面组件"]
+    }
+  },
+  "keywords":"告警,事件,活动告警",
+  "group": "模块组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": ["search-input","event-statistic-hmu2500","event-analysis-chart","event-startlist-hmu2500"],
+  "css": "",
+  "version": "0.0.1"
+}

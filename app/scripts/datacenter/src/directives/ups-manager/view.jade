@@ -1,0 +1,51 @@
+
+.box-hexagon
+    .line-col
+    .line-row
+    .box-content
+        div
+            .title
+                span.title-line
+                span.title-h1 {{parameters.title}}
+                span.title-h2 UPS monitoring
+
+            ul#ups-equips.dropdown-content
+                li(ng-repeat='equip in equipments' ng-class='{active: equip.isSelect}')
+                    a(ng-href='', ng-click='selectEquipment(equip)')
+                        span(title="{{equip.model.name}}") {{equip.model.name}}
+
+        .content
+            .group-one
+                .group-one-equip-list
+                    .equip-list(ng-repeat="equip in selectEquips")
+                        .equip-name(title="{{equip.model.name}}") {{equip.model.name}}
+                        .equip-color(ng-class="{'blue-color': $index%2 == 0, 'green-color': $index%2 == 1}",ng-show="selectEquips.length >1")
+                .subtitle.right.dropdown-trigger(
+                    ng-show='equipments.length > 0'
+                    data-target='ups-equips'
+                    data-hover='true'
+                    data-alignment='right'
+                    data-constrain-width='false'
+                    md-dropdown)
+                    span 选择设备
+                    span.select-slogo
+
+                .group-one-signal-list
+                    table.signal-table(ng-repeat="signal in selectGroup[parameters.group[0]]" ng-show="selectEquips.length > 0")
+                        tbody
+                            tr.no-border(ng-repeat="equip in selectEquips")
+                                td.signal-text.the-active-signal
+                                    .td-name(title="signal.model.name") {{signal.model.name}}
+                                td.td-signal.signal-text
+                                    .signal-value
+                                        .signal-color(ng-class="{'blue-color': $index%2 == 0, 'green-color': $index%2 == 1}" ng-style="{width: ((equip.signals.getItemByIds({signal: signal.model.signal}).data.value/(signal.model.max || 250)) * 80).toFixed(0) + '%'}")
+                                td.td-value.signal-text
+                                    .signal-data {{equip.signals.getItemByIds({signal: signal.model.signal}).data.value.toFixed(0) || "-"}} {{equip.signals.getItemByIds({signal: signal.model.signal}).data.unitName || ""}}
+            .group-two
+                .group-one-equip-list
+                    .date-value(ng-repeat="equip in selectEquips" ng-class='{active: equip.key == equipment.key}' title="{{equip.model.name}}" ng-click="selectEquip(equip)") {{equip.model.name}}
+                .group-one-signal-list
+                    .content-box(ng-repeat="signal in selectGroup[parameters.group[1]]" ng-if="selectEquips.length > 0")
+                        percent-pie(controller="controller" parameters="{station: equipment.model.station, equipment: equipment.model.equipment, signal: signal.model.signal, color: colorGroup[$index]}")
+
+

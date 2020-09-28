@@ -1,0 +1,57 @@
+//-
+   User: Dow
+   Date: 4/17/2015
+
+.container
+    .row
+        .col.s12.m6.l4
+            .card.hoverable
+                .card-image
+                    a(ng-href='#/dashboard/{{vm.project.user}}/{{vm.project.project}}', title='')
+                        .card-img-placeholder
+                            img.img-responsive(ng-if='vm.project.image', ng-src='{{vm.options.uploadUrl}}/{{vm.project.image}}')
+
+                .card-content
+                    span.card-title.grey-text.text-darken-4.truncate(title='{{vm.project.name}}')
+                        | {{vm.project.userName || vm.project.user}} / {{vm.project.name}}
+                    p(btf-markdown='vm.project.desc')
+
+                .card-action
+                    a.right(ng-href='#/projects?project={{vm.project.project}}')
+                        | 列表
+                        //i.material-icons.icon-center arrow_back
+
+                    a.right(ng-href='{{vm.setting.services.model}}/#/projects/{{vm.project.user}}/{{vm.project.project}}', target='_blank')
+                        | 配置
+                        //i.material-icons.icon-center settings
+
+                    a.right(ng-href='#/dashboard/{{vm.project.user}}/{{vm.project.project}}', title='')
+                        | datacenter
+                        //i.material-icons.icon-center arrow_forward
+
+                    a(href='', ng-click='vm.star(vm.project, true)', title='关注项目', ng-show='!vm.isStared(vm.project)')
+                        i.material-icons.icon-center favorite_outline
+                        span &nbsp;{{vm.project.stars || 0}}
+
+                    a(href='', ng-click='vm.star(vm.project, false)', title='取消关注', ng-show='vm.isStared(vm.project)')
+                        i.material-icons.icon-center favorite
+                        span &nbsp;{{vm.project.stars || 0}}
+
+        .col.s12.m6.l8
+            .col.s12.m6.l6
+                .card.hoverable
+                    .card-image
+                        a(ng-href='#/dashboard/{{$root.project.user}}/{{$root.project.project}}')
+                            .icon-placeholder.valign-wrapper
+                                .full-width.valign
+                                    i.material-icons.medium extensions
+                    .card-content
+                        span.card-title datacenter
+                        p datacenter
+                    .card-action
+                        a(ng-href='#/dashboard/{{$root.project.user}}/{{$root.project.project}}')
+                            span datacenter
+
+
+
+

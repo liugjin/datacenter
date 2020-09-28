@@ -1,0 +1,5 @@
+.box
+    .content
+        .row(style="margin-bottom:0;height:100%")
+            .col.s12(ng-repeat="video in nums" ng-class="{'m12': nums.length==1, 'm6': nums.length>1}")
+                single-video-core(controller="controller" parameters="{station:video.model.station,equipment:video.model.equipment}")

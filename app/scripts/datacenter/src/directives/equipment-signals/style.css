@@ -1,0 +1,47 @@
+equipment-signals {
+  display: block;
+  background-color: rgba(7, 27, 85, 0.5); }
+  equipment-signals .big-box {
+    position: relative;
+    height: 30vh; }
+    equipment-signals .big-box .line-col {
+      position: absolute;
+      width: calc(100% - 1px);
+      margin-top: 20px;
+      height: calc(100% - 40px);
+      border: 1px solid #082268;
+      border-top: none;
+      border-bottom: none; }
+    equipment-signals .big-box .line-row {
+      position: absolute;
+      height: 100%;
+      margin-left: 20px;
+      width: calc(100% - 40px);
+      border: 1px solid #082268;
+      border-left: none;
+      border-right: none; }
+    equipment-signals .big-box .box {
+      padding: 1rem;
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      color: #e2edf2;
+      background: url("~images/left-on.png~") 0 0 no-repeat, url("~images/left-under.png~") 0 100% no-repeat, url("~images/right-on.png~") calc(100% - 1px) 0 no-repeat, url("~images/right-under.png~") calc(100% - 1px) 100% no-repeat; }
+      equipment-signals .big-box .box .title {
+        background: url("~images/title-img.png~") center no-repeat;
+        text-align: center;
+        color: #2a89ee;
+        font-size: 1.2rem; }
+      equipment-signals .big-box .box .content {
+        padding-top: .5vh;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap; }
+        equipment-signals .big-box .box .content .font {
+          width: 50%;
+          text-align: center;
+          height: 10vh;
+          display: flex;
+          flex-direction: column;
+          padding-top: 1vh; }

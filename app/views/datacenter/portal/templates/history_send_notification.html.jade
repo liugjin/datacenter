@@ -1,0 +1,20 @@
+//.row
+//    history-send-notification.col.l12(controller='vm' parameters="{name:'通知发送记录报表'}")
+
+style.
+    grid-table .ag-blue {
+        background-color: rgba(26, 69, 162, 0.4);
+    }
+    drop-down .drop > li > label{
+        height: 40px !important;
+    }
+    drop-down .drop li i.material-icons{
+        height: 40px !important;
+    }
+
+    drop-down .drop .margin-left-10 {
+        padding-top: 2px;
+    }
+
+.row
+    report-notifications.col.l12(controller='vm', parameters='{pageItems:14}')

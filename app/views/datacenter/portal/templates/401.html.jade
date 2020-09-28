@@ -1,0 +1,24 @@
+//-
+    User: Dow
+    Date: 7/31/2017
+    Desc: 
+    
+.row
+    .col.s12.m6.l4.offset-l4
+        .card-panel.center
+            .row
+                h5
+                    i.material-icons.red-text.left warning
+                    span(translate='401.TITLE') 401未授权错误
+
+                hr
+                img.img-responsive(src='res/img/error.gif')
+                hr
+
+            .row
+                p(translate='401.DESC') 只允许系统管理员(admin)、项目创建者或项目角色授权用户访问！
+
+                p
+                    a.btn-large.waves-effect.waves-light(href='', ng-click='vm.logout()')
+                        span(translate='401.LOGOUT') 项目管理员登录
+                        i.material-icons.right verified_user

@@ -1,0 +1,44 @@
+{
+  "id": "graphic-box",
+  "name": "组态控件",
+  "type": "GraphicBoxDirective",
+  "desc": {
+    "author":"hardy",
+    "desc":"组态控件",
+    "version":{
+      "0.0.3":[
+        "修改templateId后注意要$applyAsync()","@Billy"
+      ],
+      "0.0.4":[
+        "修改样式@Billy"
+      ],
+      "0.0.7":[
+        "修复组态中无法显示tooltip的bug", "@david"
+      ],
+      "0.0.8":[
+        "通过传入参数控制是否需要外框样式", "@david"
+      ],
+      "0.0.9":[
+        "增加jquery.ui引入项，修复脚本报错问题", "@david"
+      ],
+      "0.0.10":[
+        "修复页面不显示得bug", "@region"
+      ],
+      "0.0.11":[
+        "修复页面切换参数不同模板相同数据不更新bug", "@David"
+      ]
+    }
+  },
+  "group": "其它组件",
+  "parameters": [
+    {"id":"templateId","type":"string","value":"datacenter"},
+    {"id":"templateParameters","type":"json","value":null},
+    {"id":"noBorderStyle","type":"bool","value":false}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "css": "style='width:56%;'",
+  "version": "0.0.11"
+}

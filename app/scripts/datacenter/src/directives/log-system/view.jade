@@ -1,0 +1,60 @@
+link(rel='stylesheet', href='/lib/gl-datepicker/styles/glDatePicker.default.css')
+.row.nav-top
+    .col.l2.nav-left-container
+        span(style="color:#fff;font-size: 14px") 系统日志
+    nav
+        .right(style="display:flex;")
+            report-query-time(controller='vm',parameters='{}')
+            //a.dropdown-trigger.middle-select-box(data-target='groups' data-hover='true' data-constrain-width='false' data-cover-trigger="false" md-dropdown title='操作类型' ng-show="actions.length > 0") {{currentAction.action=='all'?"所有操作 ▼":currentAction.actionName}}
+            //ul#groups.dropdown-content
+            //    li
+            //        a(ng-href="" ng-click="selectAction('all')" style="padding-left: 8px")
+            //            span 所有操作
+            //    li(ng-repeat = 'item in actions')
+            //        a(ng-href='' ng-click="selectAction(item)" style="padding-left: 8px;")
+            //            span {{item.actionName}}
+            ul
+                li
+                    .btn.standard-report-btn(ng-click='queryLog(currentAction)', title='查询')
+                        span.hide-on-med-and-down 查询
+                li
+                    .btn.standard-report-btn(ng-click='exportReport(header,"系统日志")', title='导出')
+                        span.hide-on-med-and-down 导出
+
+.row(ng-style='{"height":parameters.height || "60vh"}')
+    .col.l12
+        .report-container
+            grid-table.grid-table( controller='controller',parameters='{header:header,data:garddatas2}')
+            .paging-select-box
+                .col.l12
+                    ul.pagination.center(ng-show='filterEquipmentItem().pageCount > 1')
+                        li.page-button(ng-class='{disabled: pageIndex <= 1, "waves-effect": pageIndex > 1}', ng-click='pageIndex>1?(pageIndex = pageIndex - 1):0')
+                            a(href='' ng-class="{'black-text': pageIndex > 1}")
+                                i.material-icons.white-text chevron_left
+
+                        li.page-button(ng-class='{active: page == pageIndex, "waves-effect": page != pageIndex}', ng-repeat='page in filterEquipmentItem().pages', ng-click='selectPage(page)' ng-if="(page>(pageIndex-4)&&page<(pageIndex+4))||page==1||page==filterEquipmentItem().pageCount")
+                            a(href='')
+                                | {{((page>(pageIndex-3)&&page<(pageIndex+3))||page==1||page==filterEquipmentItem().pageCount) ? page:".."}}
+
+                        li.page-button.last(ng-class='{disabled: pageIndex >= filterEquipmentItem().pageCount, "waves-effect": pageIndex < filterEquipmentItem().pageCount}', ng-click='pageIndex<filterEquipmentItem().pageCount?(pageIndex = pageIndex + 1):0')
+                            a(href='', ng-class="{'black-text':pageIndex < filterEquipmentItem().pageCount}")
+                                i.material-icons.white-text chevron_right
+
+            //.paging-select-box
+            //    .col.l12.eventpagination
+            //        div(style="flex:1;")
+            //        .valign-wrapper(style='flex:2;')
+            //            div(style="margin: 0 auto;")
+            //                ul.pagination.center(ng-cloak)
+            //                    li.page-button(ng-class='{disabled: pageIndex <= 1, "waves-effect": pageIndex > 1}', ng-click='pageIndex>1?(pageIndex = pageIndex - 1):0')
+            //                        a(href='', ng-class="{'black-text': pageIndex > 1}")
+            //                            i.material-icons(style="line-height:36px;") chevron_left
+            //
+            //                    li.page-button(ng-class='{active: page == pageIndex, "waves-effect": page != pageIndex}' ng-repeat='page in filterEquipmentItem().pages' ng-click='selectPage(page)' ng-if="(page>(pageIndex-4)&&page<(pageIndex+4))||page==1||page==filterEquipmentItem().pageCount")
+            //                        a(href='')
+            //                            | {{((page>(pageIndex-3)&&page<(pageIndex+3))||page==1||page==filterEquipmentItem().pageCount) ? page:".."}}
+            //
+            //                    li.page-button.last(ng-class='{disabled: pageIndex >= filterEquipmentItem().pageCount, "waves-effect": pageIndex < filterEquipmentItem().pageCount}', ng-click='pageIndex<filterEquipmentItem().pageCount?(pageIndex = pageIndex + 1):0')
+            //                        a(href='', ng-class="{'black-text':pageIndex < filterEquipmentItem().pageCount}")
+            //                            i.material-icons(style="line-height:36px;") chevron_right
+            //        div(style='flex:1;')

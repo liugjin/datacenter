@@ -1,0 +1,26 @@
+{
+  "id": "percent-gauge",
+  "name": "PercentGauge控件",
+  "type": "PercentGaugeDirective",
+  "desc": {
+    "author": "",
+    "comment": "信号百分比值环形仪表板显示",
+    "version": {
+        "0.0.1": [
+        ]
+    }
+  },
+  "group": "数据点组件",
+  "parameters": [
+    {"id":"equipment", "type": "string", "value":""},
+    {"id":"signal", "type": "string", "value":""},
+    {"id":"color", "type": "string", "value":""}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "style='height:200px'",
+  "version": "0.0.1"
+}

@@ -1,0 +1,28 @@
+pue-hmu2500 .cool-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; }
+
+pue-hmu2500 .set-height {
+  height: 41.5vh; }
+
+pue-hmu2500 .date-option {
+  display: flex;
+  justify-content: flex-end; }
+  pue-hmu2500 .date-option .date {
+    border: 1px solid rgba(16, 235, 244, 0.8);
+    padding: 0 .75rem;
+    margin-right: -1px; }
+
+pue-hmu2500 .pue-value {
+  display: flex;
+  justify-content: space-evenly; }
+  pue-hmu2500 .pue-value .value {
+    text-align: center; }
+
+pue-hmu2500 .date-active, pue-hmu2500 .date-active1 {
+  background-color: rgba(16, 235, 244, 0.4); }
+
+@media screen and (width: 1024px) {
+  pue-hmu2500 .set-height {
+    height: 40vh; } }

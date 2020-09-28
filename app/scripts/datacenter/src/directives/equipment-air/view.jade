@@ -1,0 +1,21 @@
+.big-box
+    .line-col
+    .line-row
+    .box
+        .box-top
+            .title 空调
+            .subtitle.right.dropdown-trigger(
+                ng-show='equipments.length > 0'
+                data-target='equipments'
+                data-hover='true'
+                data-alignment='right'
+                data-constrain-width='false'
+                md-dropdown) 选择设备
+            ul#equipments.dropdown-content(style="overflow: overlay;max-height:7rem")
+                li(ng-repeat='equip in equipments',ng-class='{active: equip.isSelect}')
+                    a(ng-href='', ng-click='selectEquipment(equip)')
+                        span {{equip.model.name}}
+        .box-content
+            span.air-name {{theAirStatu.equipName}}
+            .air-status(ng-class='{"warmColor": colorChange,"normalColor": !colorChange}')
+                .status-des {{theAirStatu.equipStatu}}

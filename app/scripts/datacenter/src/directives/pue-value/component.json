@@ -1,0 +1,37 @@
+{
+  "id": "pue-value",
+  "name": "PUE值",
+  "type": "PueValueDirective",
+  "desc": {
+    "author": "Hardy",
+    "comment": "PUE值",
+    "version": {
+      "0.0.1": [
+        "初步完成"
+      ],
+      "0.0.2": [
+        "修复重复报错"
+      ]
+    }
+  },
+  "group": "模块组件",
+  "parameters": [
+    {
+      "id": "value",
+      "type": "string",
+      "value": "1.5"
+    },
+    {
+      "id": "backgroundColor",
+      "type": "string",
+      "value": "#4294F7"
+    }
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.2"
+}

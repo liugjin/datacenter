@@ -1,0 +1,26 @@
+{
+  "id": "login-hmu2500",
+  "name": "hmu2500登录页面",
+  "type": "LoginHmu2500Directive",
+  "desc": {
+    "author": "foam",
+    "comment": "改组件依赖于后端getVersion-service.coffee,可以在datacenter的hmu2500分支找到这个服务,再通过get方法调用这个服务的getVersion方法",
+    "version": {
+      "0.0.1": ["点击重置密码就可以直接修改密码,并且把新,密码发送到对应用户的手机号上,记得配置clc.notification-client,clc.notification"],
+      "0.0.2": ["忘记密码重置密码发的通知里的phone显示的为用户id改为显示电话号码@sheen"],
+      "0.0.3": ["修复bug增加弹窗提示: 忘记密码重置密码如果客户无法收到短信，则返回登录无法登录即使想起来了老的密码@sheen"]
+    }
+  },
+  "keywords":"登录,登录页面,重置密码,短信,忘记密码,hmu2500",
+  "group": "框架组件",
+  "parameters": [
+    {"id":"token", "type":"string", "value": "fa5d09d0-af61-11e8-acd7-937b5970daac", "desc": "万能token,默认为value上的值"}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": ".row.no-margin",
+  "version": "0.0.3"
+}

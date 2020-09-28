@@ -1,0 +1,25 @@
+link(rel='stylesheet', href='/lib/gl-datepicker/styles/glDatePicker.default.css')
+
+.row.nav-top
+    .col.l2
+        span {{ componentName }}
+    .col.l10
+        nav
+            .nav-wrapper.right(style="display:flex;")
+                report-query-time(controller="controller" parameters='{}')
+                ul(style="margin-left:0.75rem;")
+                    li(style="margin-right:10px;")
+                        .btn(ng-click='queryReport()', title='查询')
+                            span.hide-on-med-and-down 查询
+                    li
+                        .btn(ng-click='exportReport( componentName )', title='导出')
+                            span.hide-on-med-and-down 导出
+.row
+    device-accla-alarm.col.tree-style(controller='controller', parameters='{"checkbox":"false","filter":"true","reportName": componentName, template: templateType }',style="width: 20%;")
+    .col(style="width:80%")
+        .row.cowContainer(style="height: 84vh;")
+            grid-table.grid-table( controller='controller',parameters='{header:headers,data:gardData}')
+            .pageIcon
+                paging-equipment(controller="controller" parameters="{ count:pageContainerChange }")
+
+

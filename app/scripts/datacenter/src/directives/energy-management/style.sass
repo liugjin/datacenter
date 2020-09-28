@@ -1,0 +1,66 @@
+energy-management
+  display: block
+  .big-box
+    position: relative
+    height: 30vh
+    .line-col
+      position: absolute
+      width: calc(100% - 1px)
+      margin-top: 20px
+      height: calc(100% - 40px)
+      border-top: none
+      border-bottom: none
+
+    .line-row
+      position: absolute
+      height: 100%
+      margin-left: 20px
+      width: calc(100% - 40px)
+      border-left: none
+      border-right: none
+
+    .box
+      padding: 1rem
+      position: absolute
+      top: 0
+      height: 100%
+      width: 100%
+      color: #e2edf2
+
+      .title
+        display: inline
+        text-align: left
+        margin-left: 0.5rem
+        color: white
+        font-size: 20px
+        font-weight: 600
+      .title-h2
+        color: white
+        font-size: 12px
+        font-weight: 400
+        margin-left: 0.5rem
+
+      .content
+        padding-top: 2.5vh
+        height: 24vh
+        display: flex
+        flex-direction: column
+        justify-content: space-evenly
+        .ratio-pie div
+          margin: auto !important
+        .content-num
+          display: flex
+          width: 105%
+          flex-direction: row
+          justify-content: space-evenly
+          .signal
+            text-align: center
+            color: #e2edf2
+            font-size: 1.25rem
+            .signal-value
+              margin-bottom: -1rem
+          .signal-name
+            color: #2a89ee
+            font-size: .75rem
+            text-align: center
+

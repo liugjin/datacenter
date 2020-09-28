@@ -1,0 +1,32 @@
+{
+  "id": "three-quarter-pie",
+  "name": "ThreeQuarterPie控件",
+  "type": "ThreeQuarterPieDirective",
+  "desc": {
+    "author": "foam",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.1": ["四分之三扇形图"],
+        "0.0.2": ["添加百分号时候的显示方式"],
+        "0.0.3": ["完善功能"],
+        "0.0.4": ["修复总单数为0时图表显示错误的Bug"],
+        "0.0.5": ["完善样式"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+    {"id": "total", "type": "number", "value": 0},
+    {"id": "value", "type": "number", "value": 0},
+    {"id": "startColor", "type": "string", "value": "#3f3"},
+    {"id": "endColor", "type": "string", "value": "f33"},
+    {"id": "name", "type": "string", "value": "没有设置"},
+    {"id": "showMode", "type": "string", "value": "不填或者填percent"}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.5"
+}

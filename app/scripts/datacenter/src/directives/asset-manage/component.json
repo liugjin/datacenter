@@ -1,0 +1,24 @@
+{
+  "id": "asset-manage",
+  "name": "AssetManage控件",
+  "type": "AssetManageDirective",
+  "desc": {
+    "author": "foam",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.1": ["初步重构资产管理,听说复制功能有bug,所以先把此功能屏蔽,添加了通过excel导入资产的功能"],
+        "0.0.2": ["根据设计图实现页面标准化", "@mackie"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": ["equipmentid"],
+    "subs": ["backList", "stationId"]
+  },
+  "deps": ["station-breadcrumbs", "asset-detail", "import-assets"],
+  "css": "",
+  "version": "0.0.1"
+}

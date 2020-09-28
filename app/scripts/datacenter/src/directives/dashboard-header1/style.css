@@ -1,0 +1,91 @@
+dashboard-header1 .flex {
+  display: flex; }
+
+dashboard-header1 .space-around {
+  justify-content: space-around; }
+
+dashboard-header1 .title-gradient {
+  background: -webkit-linear-gradient(#fff, #eee 70%, #ddd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; }
+
+dashboard-header1 .little-box {
+  position: absolute;
+  background-color: transparent !important;
+  border: 1px solid transparent; }
+
+dashboard-header1 .little-box-highlight {
+  box-shadow: inset 0 0 40px 2px #006bc8; }
+
+dashboard-header1 .dropdown-content li > a {
+  color: #039be5; }
+
+dashboard-header1 .dropdown-content li {
+  background-color: #020b2b; }
+
+dashboard-header1 .dropdown-content li:hover {
+  box-shadow: inset 0 0 40px 2px #006bc8;
+  background-color: #020b2b; }
+
+dashboard-header1 .left-p-box {
+  font-size: 16px;
+  display: flex; }
+  dashboard-header1 .left-p-box .left-p-content {
+    margin: 0;
+    position: relative;
+    right: 5vw;
+    margin-top: 1.5vh; }
+
+dashboard-header1 .center-p-box {
+  text-align: center;
+  z-index: 10; }
+  dashboard-header1 .center-p-box .center-p-content {
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 2vh;
+    margin-left: -2vw; }
+
+dashboard-header1 #station-select {
+  font-size: 18px;
+  margin: 0;
+  width: 10vw;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1.5vh; }
+
+dashboard-header1 .right-img-box {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  color: #fff;
+  z-index: 2; }
+
+dashboard-header1 .right-img-content {
+  margin: 0;
+  color: white;
+  z-index: 2; }
+
+dashboard-header1 .right-logo-box {
+  top: 1vh;
+  right: -1vw; }
+
+@media screen and (width: 1024px) {
+  dashboard-header1 .left-p-box {
+    font-size: 14px !important; }
+    dashboard-header1 .left-p-box .left-p-content {
+      right: 6vw !important;
+      margin-top: 1.2vh !important; }
+  dashboard-header1 .center-p-box .center-p-content {
+    font-size: 24px;
+    margin-left: -10vw; }
+  dashboard-header1 #station-select {
+    font-size: 14px;
+    margin-top: 1vh; }
+  dashboard-header1 .right-img-box {
+    width: 20px;
+    height: 20px;
+    z-index: 20; }
+  dashboard-header1 .right-img-content {
+    z-index: 20; }
+  dashboard-header1 .right-logo-box {
+    top: 0 !important; } }

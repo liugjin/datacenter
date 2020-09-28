@@ -1,0 +1,115 @@
+style.
+    body {
+        overflow-y: hidden;
+    }
+
+.row.nav-top
+    .col.s2
+        span 角色管理
+    .col.l10
+        .right
+            a.btn(href="#/authority/{{project.model.user}}/{{project.model.project}}") 返回
+.row
+    .col.s12.m6.l3
+        .cool-title(style="height: calc(1.5rem + 21px); display: flex;")
+            div(style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: calc(100% - 72px - 1.5rem); float: left;") 角色信息列表
+            .right(style="width: 72px; float: left;")
+                a.modal-trigger(ng-click="addRole()",data-target='roles-modal',href="",title="新增",style="vertical-align: bottom;color: #ffffff;")
+                    i.material-icons add
+                a(ng-click="delRole()",title="删除",href="",style="vertical-align: bottom;color: #ffffff;")
+                    i.material-icons remove
+                a(ng-click="saveRole(1)",title="保存",href="",style="vertical-align: bottom;color: #ffffff;")
+                    i.material-icons save
+                    
+        .cool-content(style="padding: 0;")
+            ul.collection(id="roleLists")
+                li.collection-item.roles-active(
+                    ng-repeat="(key,roleItem) in roles" 
+                    ng-click="roleDetails(roleItem,key)"
+                    style="display: flex; cursor: pointer"
+                    id="roles{{key}}")
+                    div(style="width: calc(50% - 10px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="{{roleItem.role}}") {{roleItem.role}}
+                    div(style="width: calc(50% - 10px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="{{roleItem.name}}") {{roleItem.name}}
+                    a.right.modal-trigger(data-target='roles-modal')
+                        i.material-icons(style="vertical-align: bottom;color:#ffffff") send
+
+    .col.s12.m12.l3.pad-left-0
+
+        .cool-title 站点
+        .cool-content
+            md-switch(ng-model='allStationFlag', label-off='定制', label-on='全部',style="margin-left:.75rem;" )
+            .station-panel(style="padding-left:.75rem;" id="recurestationid" )
+
+    .col.s12.m12.l3.pad-left-0
+        .cool-title 设备类型
+        .cool-content(style="position: relative;")
+            md-switch(ng-model='allEquipTypeFlag', label-off='定制', label-on='全部')
+            .station-panel(style="padding-left:.75rem;")
+                .repeat-label(ng-repeat="equipmentTypeItem in equipmentTypes")
+                    md-checkbox(ng-model='allEquipTypeCheckFlags[equipmentTypeItem.model.type]', id='station-{{equipmentTypeItem.model.type}}',ng-change="", ng-disabled='allEquipTypeFlag', with-gap=false, filled-in=false label='{{equipmentTypeItem.model.name}}')
+
+    .col.s12.m12.l3.pad-left-0.spare1
+        .cool-title 模块
+        .cool-content(style="position: relative;")
+            md-switch(ng-model='allModuleFlag', label-off='定制', label-on='全部',style="margin-left:.75rem;" )
+            .station-panel(style="padding-left:.75rem;")
+                .repeat-label(ng-repeat="moduleItem in modules")
+                    md-checkbox.repeat-label(ng-model='allModuleCheckFlags[moduleItem.module]', id='module-{{moduleItem.module}}',ng-change="changeModule(moduleItem)", ng-disabled='allModuleFlag', with-gap=false, filled-in=false label='{{moduleItem.name}}')
+                    .repeat-label(ng-repeat="child in moduleItem.submodules" style="margin-left: 30px;margin-top: .5rem;")
+                        md-checkbox(ng-model='allModuleCheckFlags[child.module]', id='module-{{child.module}}', ng-change="changeModule(child)", ng-disabled='allModuleFlag', with-gap=false, filled-in=false label='{{child.name}} ')
+
+    .col.s12.m12.l3.spare2
+        .cool-title 操作
+        .cool-content(style="position: relative;")
+            md-switch(ng-model='allOperatorFlag', label-off='定制', label-on='全部')
+            .station-panel(style="padding-left:.75rem;")
+                .repeat-label(ng-repeat="operatorItem in operators")
+                    md-checkbox.repeat-label(ng-model='allOperatorCheckFlags[operatorItem.operation]', id='operator-{{operatorItem.operation}}',ng-change="changeOperator(operatorItem)", ng-disabled='allOperatorFlag', with-gap=false, filled-in=false label='{{operatorItem.name}}')
+                    .repeat-label( ng-repeat="child in operatorItem.suboperators" style="margin-left: 30px")
+                        md-checkbox(ng-model='allOperatorCheckFlags[child.operation]', id='operator-{{child.operation}}', ng-change="changeOperator(child)", ng-disabled='allOperatorFlag', with-gap=false, filled-in=false label='{{child.name}} ')
+
+
+#roles-modal.modal.bottom-sheet.modal-fixed-footer(md-modal)
+    .modal-content
+        form.col.s12
+            .row
+                .col.s12.m12
+                    .input-field.col.s6
+                        input#role.validate(type='text', ng-model='current.role', ng-disabled='current._id', ng-blur='normalizeKey("role")', required)
+                        label(for='role', ng-class='{active: current.role}') 角色ID
+                            span.required *
+
+                    .input-field.col.s6
+                        input#name.validate(type='text', ng-model='current.name', required)
+                        label(for='name', ng-class='{active: current.name}') 名称
+                            span.required *
+                    .input-field.col.s6
+                        input#group.validate(type='text', ng-model='current.group')
+                        label(for='group', ng-class='{active: current.group}') 分组
+                    .input-field.col.s6
+                        input#index.validate(type='number', ng-model='current.index')
+                        label(for='index', ng-class='{active:current.index != null}') 显示索引
+                    .input-field.col.s12
+                        textarea#desc.materialize-textarea.validate(ng-model='current.desc' style="color: white")
+                        label(for='desc', ng-class='{active: current.desc}') 描述
+                    .input-field.col.s10
+                        input.validate(type='text', ng-model='current.portal')
+
+                        label(ng-class='{active: current.portal}')
+                            | 入口URL
+                    .col.s2
+                        i.material-icons.help-cursor.right(title='登录成功后自动进入的入口页面') help
+
+    .modal-footer.modal-nav
+        nav(ng-class='mvm.setting.theme')
+            .nav-wrapper
+                ul
+                    li
+                        a(href='', ng-click='saveRole()', title='保存')
+                            i.material-icons.left save
+                            span.hide-on-med-and-down 保存
+                    ul.right
+                        li
+                            a.modal-action.modal-close(href='')
+                                i.material-icons.right close
+                                span 关闭

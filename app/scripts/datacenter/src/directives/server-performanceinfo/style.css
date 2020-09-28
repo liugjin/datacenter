@@ -1,0 +1,9 @@
+server-performanceinfo tr th, server-performanceinfo tr td {
+  text-align: center;
+  font-size: 14px; }
+
+server-performanceinfo label.active {
+  color: #e2edf2 !important; }
+
+server-performanceinfo .info-title2 {
+  cursor: pointer; }

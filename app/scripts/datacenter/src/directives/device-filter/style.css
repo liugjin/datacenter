@@ -1,0 +1,150 @@
+device-filter .type-img {
+  float: left;
+  margin-right: 8px; }
+  device-filter .type-img .img-bing {
+    width: 25px;
+    height: 35px;
+    background-repeat: no-repeat; }
+  device-filter .type-img .img-type {
+    background-position: -123px -16px; }
+  device-filter .type-img .img-type-active {
+    background-position: -183px -16px; }
+
+device-filter .tabs-btn {
+  margin-left: .75rem;
+  border-color: #0652a2;
+  border-radius: 5px;
+  padding: 0 8px; }
+
+device-filter .list-icon {
+  float: left;
+  width: 25px;
+  height: 46px;
+  background-repeat: no-repeat; }
+
+device-filter .equips-list2 {
+  background-color: rgba(0, 188, 212, 0.77); }
+
+device-filter .equips-list2:hover {
+  background-color: #173c8c; }
+
+device-filter .equips-list {
+  background-color: #112e69; }
+
+device-filter .equips-list:hover {
+  background-color: #173c8c; }
+
+device-filter .card-img-placeholder {
+  background-color: transparent; }
+
+device-filter .card-content {
+  background-color: rgba(26, 69, 162, 0.6); }
+
+device-filter .col-header {
+  text-align: center; }
+
+device-filter .card {
+  margin: 0 0 .75rem 0; }
+
+device-filter .inventory-nav {
+  margin: .75rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  device-filter .inventory-nav .btn {
+    vertical-align: bottom; }
+
+device-filter .invent-list {
+  background-color: rgba(26, 69, 162, 0.4);
+  height: 84vh;
+  position: relative; }
+
+device-filter .eventpagination {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%; }
+
+device-filter .inventory .invent-type {
+  padding: 0 0.75rem; }
+  device-filter .inventory .invent-type .type {
+    margin-bottom: .75rem;
+    height: 46px; }
+    device-filter .inventory .invent-type .type a {
+      color: #a2aab6;
+      line-height: 46px;
+      text-align: left; }
+      device-filter .inventory .invent-type .type a .type-count .right {
+        color: #10ebf4; }
+  device-filter .inventory .invent-type .current-type {
+    background-color: rgba(16, 235, 244, 0.4);
+    border: 1px solid #10ebf4;
+    transition: .6s; }
+    device-filter .inventory .invent-type .current-type .type-count {
+      color: #e2edf2 !important; }
+      device-filter .inventory .invent-type .current-type .type-count .right {
+        color: #e2edf2 !important; }
+
+device-filter .inventory .search-wrapper {
+  display: inline-block;
+  position: relative; }
+  device-filter .inventory .search-wrapper i {
+    position: absolute;
+    font-size: 24px;
+    left: 4px;
+    line-height: 36px;
+    color: #e2edf2; }
+  device-filter .inventory .search-wrapper .search-input {
+    display: block;
+    margin: 0;
+    padding: 0 0 0 32px;
+    width: 80%;
+    height: 34px;
+    border-radius: 3px;
+    line-height: 34px; }
+
+device-filter .state-status {
+  position: absolute;
+  right: 5px;
+  bottom: 7px; }
+  device-filter .state-status .state-dot {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border-radius: 50%;
+    vertical-align: middle;
+    position: relative;
+    background-color: #d9d9d9;
+    margin-right: 8px; }
+  device-filter .state-status .state-online {
+    background-color: #52c41a; }
+  device-filter .state-status .state-alarm {
+    background-color: #f44336; }
+
+device-filter [type="radio"]:not(:checked) + span, device-filter [type="radio"]:checked + span {
+  padding-left: 25px;
+  font-size: 14px;
+  color: #ffffff; }
+
+device-filter .state-offline [type="radio"]:checked + span:after, device-filter .state-offline [type="radio"].with-gap:checked + span:before, device-filter .state-offline [type="radio"].with-gap:checked + span:after {
+  border: 2px solid #b0c9f0; }
+
+device-filter .state-offline [type="radio"]:checked + span:after, device-filter .state-offline [type="radio"].with-gap:checked + span:after {
+  background-color: #b0c9f0; }
+
+device-filter .state-online [type="radio"]:checked + span:after, device-filter .state-online [type="radio"].with-gap:checked + span:before, device-filter .state-online [type="radio"].with-gap:checked + span:after {
+  border: 2px solid #4ca7f8; }
+
+device-filter .state-online [type="radio"]:checked + span:after, device-filter .state-online [type="radio"].with-gap:checked + span:after {
+  background-color: #4ca7f8; }
+
+device-filter .state-offalarm [type="radio"]:checked + span:after, device-filter .state-offalarm [type="radio"].with-gap:checked + span:before, device-filter .state-offalarm [type="radio"].with-gap:checked + span:after {
+  border: 2px solid #6ce4ec; }
+
+device-filter .state-offalarm [type="radio"]:checked + span:after, device-filter .state-offalarm [type="radio"].with-gap:checked + span:after {
+  background-color: #6ce4ec; }
+
+device-filter .state-onalarm [type="radio"]:checked + span:after, device-filter .state-onalarm [type="radio"].with-gap:checked + span:before, device-filter .state-onalarm [type="radio"].with-gap:checked + span:after {
+  border: 2px solid #dc7978; }
+
+device-filter .state-onalarm [type="radio"]:checked + span:after, device-filter .state-onalarm [type="radio"].with-gap:checked + span:after {
+  background-color: #dc7978; }

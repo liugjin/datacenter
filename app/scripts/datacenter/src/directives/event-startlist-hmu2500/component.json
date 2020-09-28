@@ -1,0 +1,24 @@
+{
+  "id": "event-startlist-hmu2500",
+  "name": "hmu2500告警列表",
+  "type": "EventStartlistHmu2500Directive",
+  "desc": {
+    "author": "foam",
+    "comment": "hmu2500告警列表",
+    "version": {
+      "0.0.1": []
+    }
+  },
+  "keywords":"表格,弹框,告警",
+  "group": "功能组件",
+  "parameters": [
+    {"id": "pageItem", "type":"number", "value": 10, "desc":"一页显示多少条"}
+  ],
+  "interact": {
+    "pubs": ["event-list-eventType"],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.1"
+}

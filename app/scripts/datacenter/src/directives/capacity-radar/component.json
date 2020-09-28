@@ -1,0 +1,24 @@
+{
+  "id": "capacity-radar",
+  "name": "站点容量雷达图组件",
+  "type": "CapacityRadarDirective",
+  "desc": {
+    "author": "david",
+    "comment": "站点容量雷达图显示组件",
+    "version": {
+        "0.0.1": [
+        ]
+    }
+  },
+  "group": "站点组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.1"
+}

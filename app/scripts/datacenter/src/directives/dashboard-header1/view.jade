@@ -1,0 +1,19 @@
+div.flex.space-around.font-blue(style="height:10%;position:relative;")
+    img(ng-src="{{getComponentPath('images/dashboard-header.png')}}",style="width:100%;position: absolute;pointer-events: none;")
+    div.left-p-box
+        p.left-p-content {{day}}&emsp;{{time}}&emsp;{{date}}
+    div.center-p-box
+        p.title-gradient.center-p-content {{title || "数据中心监测平台"}}
+    div#station-select.flex.dropdown-trigger(href='', data-target='dropdown-station')
+        img.right-img-box(ng-src="{{getComponentPath('images/home.svg')}}")
+        a.right-img-content(href='') {{station.model.name}}
+    a.btn.little-box.z-depth-0.right-logo-box(ng-click="fullscreen()")
+        i.material-icons.left zoom_out_map
+        .top-left
+        .top-right
+        .bottom-left
+        .bottom-right
+
+ul#dropdown-station.dropdown-content
+    li(ng-repeat="station in project.stations.nitems | orderBy: 'model.index': true")
+        a(href='',ng-click="selectStation(station)",style="color:white;") {{station.model.name}}

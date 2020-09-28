@@ -1,0 +1,20 @@
+.big-box
+    .line-col
+    .line-row
+    .box
+        .title
+            span.title-line
+            span.title-h1 {{parameters.title || "节点机房环境"}}
+            span.title-h2 Node room management
+        .content
+            table.centered.striped
+                thead
+                    tr
+                        th.col-text-align(style="width:40%") 名称
+                        th.col-text-align 温度
+                        th 漏水
+                tbody
+                    tr(ng-repeat="(key, item) in stations")
+                        td.col-text-align.truncate(title="{{item.name}}") {{item.name}}
+                        td.col-text-align(style="color:{{item.temperature.color}}") {{item.temperature.value}}
+                        td(style="color:{{item['trigger-alarm-signal'].color}}") {{item["trigger-alarm-signal"].value}}

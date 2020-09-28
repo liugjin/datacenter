@@ -1,0 +1,45 @@
+reporting-signal device-tree .tree {
+  height: 77.78vh; }
+
+reporting-signal .select-wrapper input.select-dropdown {
+  height: 38px;
+  line-height: 38px;
+  width: 135px;
+  text-align: center;
+  border: 1px solid #4ba5f8 !important; }
+
+reporting-signal .device-tree {
+  width: 20% !important;
+  padding-right: 0 !important; }
+
+reporting-signal .tree-style {
+  width: 100% !important; }
+
+reporting-signal .table {
+  width: 80% !important;
+  height: 94.6%;
+  background-color: rgba(26, 69, 162, 0.4);
+  padding: 0 !important;
+  display: block;
+  overflow-y: auto; }
+
+reporting-signal tr th, reporting-signal tr td {
+  text-align: center; }
+
+reporting-signal .datepicker {
+  width: 135px !important;
+  height: 38px !important;
+  border: 1px solid #4ba5f8 !important; }
+
+reporting-signal .input-field1 {
+  margin-right: 1rem; }
+
+reporting-signal .btn-margin-top {
+  margin-top: 0.7rem !important; }
+
+reporting-signal .paging-select-box {
+  margin-left: 20%;
+  height: 8%;
+  width: calc( 80% - 0.75rem); }
+  reporting-signal .paging-select-box i {
+    margin-top: 0px; }

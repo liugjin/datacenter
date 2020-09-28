@@ -1,0 +1,45 @@
+@import url(/lib/jquery.fancytree/dist/skin-win8/ui.fancytree.css);
+visualization-tree span.fancytree-title {
+  background-color: transparent !important; }
+
+visualization-tree input:not([type]):focus:not([readonly]) {
+  box-shadow: none; }
+
+visualization-tree .filter {
+  margin: 0;
+  background-color: rgba(26, 69, 162, 0.4);
+  margin-bottom: .75rem;
+  position: relative; }
+  visualization-tree .filter input {
+    width: calc(100% - 38px);
+    margin: 0 !important;
+    padding-left: 36px; }
+  visualization-tree .filter i {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1.2rem;
+    height: 48px;
+    line-height: 50px;
+    padding-left: 10px; }
+  visualization-tree .filter .delete {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    padding: 0;
+    width: 40px;
+    font-size: 18px;
+    height: 46px;
+    line-height: 46px;
+    color: #ef5350;
+    font-size: 24px; }
+
+visualization-tree .tree-style {
+  margin-bottom: .75rem; }
+
+visualization-tree .fancytree-plain span.fancytree-active span.fancytree-title, visualization-tree .fancytree-plain span.fancytree-selected span.fancytree-title {
+  background-color: rgba(1, 166, 255, 0.65) !important; }
+
+visualization-tree .fancytree-plain span.fancytree-node:hover span.fancytree-title {
+  background-color: rgba(1, 166, 255, 0.65) !important; }

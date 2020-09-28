@@ -1,0 +1,24 @@
+{
+  "id": "plugin-uploader",
+  "name": "PluginUploader控件",
+  "type": "PluginUploaderDirective",
+  "desc": {
+    "author": "David",
+    "comment": "上传组件zip包的功能组件",
+    "version": {
+        "0.0.1": [
+        ]
+    }
+  },
+  "group": "其它组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.1"
+}

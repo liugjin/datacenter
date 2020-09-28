@@ -1,0 +1,28 @@
+{
+  "id": "electricity-consumption",
+  "name": "ElectricityConsumption控件",
+  "type": "ElectricityConsumptionDirective",
+  "desc": {
+    "author": "",
+    "comment": "自定义组件",
+    "version": {
+      "0.0.1": [
+        "用电量统计报表组件新增","@murray"
+      ],
+      "0.0.2": [
+        "修改json文件的deps","@murray"
+      ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": ["grid-table"],
+  "css": "",
+  "version": "0.0.2"
+}

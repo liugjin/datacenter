@@ -1,0 +1,98 @@
+//-
+    User: Dow
+    Date: 6/29/2016
+    Desc:
+.col.row.s12
+    nav.equiplannav.z-depth-0
+        .nav-wrapper
+            .search-box
+                i.search-i.material-icons search
+                input.search-signal-input(type='search', ng-model='searchCommand', placeholder='输入控制ID或名称', required)
+                i.search-c.material-icons(ng-click='searchCommand = ""', ng-show='searchCommand') close
+
+    .signal-list
+        table.hoverable.highlight.responsive-table
+            thead
+                tr
+                    th
+                        .col-header(ng-click='currEquipment.commands.sortBy("data.phase")')
+                            span 状态
+                            span.pull-right(ng-show='currEquipment.commands.predicate == "data.phase"') {{currEquipment.commands.reverse && "▽" || "△"}}
+                    th
+                        .col-header.text-align-left(ng-click='currEquipment.commands.sortBy("name")')
+                            span 操作设置
+                            span.pull-right(ng-show='currEquipment.commands.predicate == "name"') {{currEquipment.commands.reverse && "▽" || "△"}}
+                    th
+                        .col-header.text-align-left(ng-click='currEquipment.commands.sortBy("data.parameters")')
+                            span 当前目标状态
+                            span.pull-right(ng-show='currEquipment.commands.predicate == "data.parameters"') {{currEquipment.commands.reverse && "▽" || "△"}}
+                    //- th
+                    //-     .col-header.text-align-left(ng-click='currEquipment.commands.sortBy("priority")')
+                    //-         span 优先级
+                    //-         span.pull-right(ng-show='currEquipment.commands.predicate == "priority"') {{currEquipment.commands.reverse && "▽" || "△"}}
+                    //- th
+                    //-     .col-header.text-align-left(ng-click='currEquipment.commands.sortBy("data.parameters")')
+                    //-         span 执行参数
+                    //-         span.pull-right(ng-show='currEquipment.commands.predicate == "data.parameters"') {{currEquipment.commands.reverse && "▽" || "△"}}
+                    th
+                        .text-align-left
+                            span 目标状态
+                    //- th
+                    //-     .col-header.text-align-left(ng-click='currEquipment.commands.sortBy("data.parameters")')
+                    //-         span 目标状态
+                    //-         span.pull-right(ng-show='currEquipment.commands.predicate == "data.parameters"') {{currEquipment.commands.reverse && "▽" || "△"}}
+                    th
+                        .col-header.text-align-left(ng-click='currEquipment.commands.sortBy("data.startTime")')
+                            span 控制时间
+                            span.pull-right(ng-show='currEquipment.commands.predicate == "data.startTime"') {{currEquipment.commands.reverse && "▽" || "△"}}
+                    //- th
+                    //-     .col-header.text-align-left(ng-click='currEquipment.commands.sortBy("data.endTime")')
+                    //-         span 完成时间
+                    //-         span.pull-right(ng-show='currEquipment.commands.predicate == "data.endTime"') {{currEquipment.commands.reverse && "▽" || "△"}}
+                    //- th
+                    //-     .col-header.text-align-left(ng-click='currEquipment.commands.sortBy("data.triggerName")')
+                    //-         span 操作员
+                    //-         span.pull-right(ng-show='currEquipment.commands.predicate == "data.triggerName"') {{currEquipment.commands.reverse && "▽" || "△"}}
+                    th
+
+
+            tbody
+                tr(ng-repeat='command in filterCommands = (currEquipment.commands.items | filter: currEquipment.commands.filter(searchCommand, ["command", "name"], true))', ng-class='{"active": command == command}')
+                    //- 状态
+                    td.center(title='{{command.data.phase}}')
+                        a.waves-effect.waves-light.modal-trigger(href='', data-target='command-modal', ng-click='selectCommand(command)')
+                            i.material-icons.small(title="查看细节") {{!command.data && "share" || command.data.phase == "executing" && "send" || command.data.phase == "timeout" && "access_time" || command.data.phase == "complete" && "done" || command.data.phase == "cancel" && "not_interested" || command.data.phase == "error" && "error" || "send"}}
+                        .progress(ng-show='command.data.phase == "executing"')
+                            .indeterminate(title="查看细节")
+                    //- 操作设置
+                    td.text-align-left {{command.instance.name}}
+                    //- td.text-align-left {{command.data.priority}}
+                    //- 当前目标状态
+                    td.text-align-left {{command.data.parameters3.slice(6)}}
+                    //- 目标状态
+                    td.text-align-left
+                        div(ng-repeat='parameter in command.model.parameters', ng-switch='parameter.type')
+                            .input-field.col.s12(ng-switch-when='int')
+                                input.validate(type='number', step='1', ng-model='parameter.value', placeholder="输入设置值")
+                            .input-field.col.s12(ng-switch-when='float')
+                                input.validate(type='number', step='any', ng-model='parameter.value', placeholder="输入设置值")
+                            .input-field.col.s12(ng-switch-when='bool')
+                                p
+                                    input(type='checkbox', id='p-{{parameter.key}}', ng-model='parameter.value')
+                                    label(for='p-{{parameter.key}}')
+                            .input-field.col.s12(ng-switch-when='enum')
+                                select(ng-model='parameter.value', md-select, data='parameter')
+                                    option(ng-repeat='kv in parameter.enums', value='{{kv.value}}', ng-selected='parameter.value == kv.value') {{kv.key}}
+                            .input-field.col.s12(ng-switch-when='content', placeholder="输入设置值")
+                                textarea.validate(ng-model='parameter.value')
+                            .input-field.col.s12(ng-switch-when='command')
+                                input.validate(type='text', ng-model='parameter.value', placeholder="输入设置值")
+                            .input-field.col.s12(ng-switch-default)
+                                input.validate(type='text', ng-model='parameter.value', placeholder="输入设置值")
+                    //- td.text-align-left {{command.data.startTime | date: 'yyyy-MM-dd HH:mm:ss'}}
+                    //- 控制时间
+                    td.text-align-left {{command.data.endTime | date: 'yyyy-MM-dd HH:mm:ss'}}
+                    //- td.text-align-left {{command.data.operator}}
+                    td
+                        a.btn.waves-effect.waves-light.modal-trigger(data-target='command-execution-modal', ng-click='selectCommand(command)', title='{{command.data.phase}}')
+                            span.hide-on-med-and-down {{command.data.phase == "executing" && "取消控制" || "执行控制"}}

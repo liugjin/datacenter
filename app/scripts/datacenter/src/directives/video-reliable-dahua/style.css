@@ -1,0 +1,244 @@
+menu {
+  display: none !important; }
+
+.main-1 {
+  padding-left: 0px !important; }
+
+video-reliable-dahua {
+  /* top: -27; */ }
+  video-reliable-dahua .right-2 {
+    float: right;
+    margin-left: 10px; }
+  video-reliable-dahua .no-padding {
+    padding: 0 !important; }
+  video-reliable-dahua .search-box {
+    position: relative; }
+    video-reliable-dahua .search-box input {
+      padding-left: 36px !important;
+      width: calc(100% - 38px) !important;
+      margin-bottom: 0 !important; }
+    video-reliable-dahua .search-box i {
+      position: absolute;
+      height: 48px;
+      line-height: 48px; }
+    video-reliable-dahua .search-box .search-icon {
+      left: 18px; }
+    video-reliable-dahua .search-box .close-icon {
+      right: 1vw;
+      cursor: pointer; }
+  video-reliable-dahua .timeline-cover {
+    padding: 0px 45px 40px 165px;
+    background-color: rgba(26, 69, 162, 0.4); }
+  video-reliable-dahua .timeline-bar {
+    height: 2px;
+    width: 100%;
+    background: #1D96DB;
+    position: relative;
+    color: #1D96DB; }
+  video-reliable-dahua .steps-bar {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+    display: table; }
+  video-reliable-dahua .step {
+    /* float: left;  */
+    /* width: 1.996%; */
+    /* margin-top: 29px; */
+    text-align: center;
+    position: relative;
+    display: table-cell; }
+  video-reliable-dahua .step:last-child {
+    width: 2px !important; }
+  video-reliable-dahua .step:first-child .step-border {
+    height: 20px;
+    width: 2px;
+    background: #1D96DB;
+    margin-top: -10px; }
+  video-reliable-dahua .step:nth-child(10n+1) .step-border {
+    height: 20px;
+    width: 2px;
+    background: #1D96DB;
+    margin-top: -10px; }
+  video-reliable-dahua .step-mark {
+    height: 20px;
+    width: 2px;
+    background: #1D96DB;
+    margin-top: -10px; }
+  video-reliable-dahua .step-border {
+    height: 10px;
+    width: 2px;
+    background: #1D96DB;
+    margin-left: 1.5%;
+    display: block; }
+  video-reliable-dahua .time-instant {
+    position: absolute;
+    top: -30px;
+    left: -17px; }
+  video-reliable-dahua .pointer {
+    position: absolute;
+    top: 10px;
+    margin-left: -1%;
+    /* left:-10px; */
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #666666 transparent;
+    cursor: pointer;
+    transition: 100ms all linear;
+    -webkit-transition: 100ms all linear;
+    -moz-transition: 100ms all linear; }
+  video-reliable-dahua .pointerSelected {
+    border-color: transparent transparent #D04640 transparent !important; }
+  video-reliable-dahua .selection-line {
+    position: absolute;
+    top: -10px;
+    left: 0px;
+    height: 50px;
+    width: 2px;
+    background: #ff0000; }
+  video-reliable-dahua #draggable {
+    height: 50px;
+    width: 2px;
+    background: #ff0000;
+    top: 24px;
+    cursor: pointer;
+    z-index: 1000;
+    position: relative; }
+  video-reliable-dahua .MB10 {
+    margin-bottom: 10px; }
+  video-reliable-dahua #embedJWPlayerTarget {
+    width: 100% !important; }
+  video-reliable-dahua #boxdiv {
+    display: none; }
+  video-reliable-dahua .cuepoint-btn {
+    text-align: right;
+    margin-right: 14%; }
+  video-reliable-dahua #imgpaly i.pauseing {
+    color: #009042; }
+  video-reliable-dahua .btnsome {
+    width: 36px;
+    height: 36px;
+    margin-top: 5px;
+    margin: 0 4px;
+    cursor: pointer;
+    border: 1px solid #BECDE0;
+    color: #BECDE0;
+    background-color: transparent !important; }
+  video-reliable-dahua .video-list.active {
+    color: #0bbdca !important; }
+  video-reliable-dahua .video-list:hover {
+    color: #0bbdca !important; }
+  video-reliable-dahua .unselected {
+    border: 1px solid black; }
+  video-reliable-dahua .selected {
+    border: 1px solid yellow; }
+  video-reliable-dahua .ptz .ptz-ctrl {
+    height: 130px; }
+  video-reliable-dahua .ptz .ptz-ctrl-l {
+    float: left;
+    margin-top: 10px;
+    width: 115px; }
+  video-reliable-dahua .ptz .ptz-ctrl-r {
+    float: left;
+    margin-top: 10px;
+    text-align: right;
+    width: 75px; }
+  video-reliable-dahua .ptz-ctrl-l .direction {
+    float: left;
+    width: 32px;
+    height: 32px;
+    margin: 0 4px 4px 0;
+    cursor: pointer;
+    background-image: url("~image/video/ptz-icons.png~");
+    background-color: #FFFFFF;
+    background-position: 0 -90px; }
+  video-reliable-dahua .ptz-ctrl-l i {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 1px 1px;
+    background: url("~image/video/ptz-icons.png~") no-repeat; }
+  video-reliable-dahua .ptz-ctrl-l i:hover {
+    background-image: url("~image/video/ptz-icons-on.png~"); }
+  video-reliable-dahua .ptz i.icon-ptz-left-up {
+    background-position: 0 0; }
+  video-reliable-dahua .ptz i.icon-ptz-up {
+    background-position: -30px 0px; }
+  video-reliable-dahua .ptz i.icon-ptz-right-up {
+    background-position: -60px 0px; }
+  video-reliable-dahua .ptz i.icon-ptz-left {
+    background-position: 0 -30px; }
+  video-reliable-dahua .ptz i.icon-ptz-auto {
+    background-position: -30px -30px; }
+  video-reliable-dahua .ptz i.icon-ptz-auto-sel {
+    background-position: -126px -90px; }
+  video-reliable-dahua .ptz i.icon-ptz-right {
+    background-position: -60px -30px; }
+  video-reliable-dahua .ptz i.icon-ptz-left-down {
+    background-position: 0px -60px; }
+  video-reliable-dahua .ptz i.icon-ptz-down {
+    background-position: -30px -60px; }
+  video-reliable-dahua .ptz i.icon-ptz-right-down {
+    background-position: -60px -60px; }
+  video-reliable-dahua .ptz-ctrl-r .operation {
+    float: left;
+    width: 75px;
+    height: 32px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    background-image: url("~image/video/ptz-icons.png~");
+    background-color: #FFFFFF;
+    background-position: -32px -90px; }
+  video-reliable-dahua .ptz-ctrl-r i {
+    float: left;
+    width: 36px;
+    height: 30px;
+    margin: 1px 0 1px 1px;
+    background: url("~image/video/ptz-icons.png~") no-repeat; }
+  video-reliable-dahua .ptz-ctrl-r i:hover {
+    float: left;
+    width: 36px;
+    height: 30px;
+    margin: 1px 0 1px 1px;
+    background: url("~image/video/ptz-icons-on.png~") no-repeat; }
+  video-reliable-dahua .ptz-ctrl-r i.icon-ptz-zoomout {
+    background-position: -90px 0; }
+  video-reliable-dahua .ptz-ctrl-r i.icon-ptz-zoomin {
+    background-position: -126px 0; }
+  video-reliable-dahua .ptz-ctrl-r i.icon-ptz-focusout {
+    background-position: -90px -30px; }
+  video-reliable-dahua .ptz-ctrl-r i.icon-ptz-focusin {
+    background-position: -126px -30px; }
+  video-reliable-dahua .ptz-ctrl-r i.icon-ptz-irisout {
+    background-position: -90px -60px; }
+  video-reliable-dahua .ptz-ctrl-r i.icon-ptz-irisin {
+    background-position: -126px -60px; }
+  video-reliable-dahua .btn-menu .button {
+    padding: 5px 3px 0px 3px;
+    border: 1px solid transparent; }
+  video-reliable-dahua .btn-menu .button.active {
+    border: 1px solid green;
+    border-radius: 4px; }
+  video-reliable-dahua .btn-menu .button:hover {
+    border: 1px solid grey;
+    border-radius: 4px; }
+  video-reliable-dahua .btn-menu .button i {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url("~image/video/tool-icons.png~") no-repeat; }
+  video-reliable-dahua .btn-menu i.icon-wnd-1 {
+    background-position: -6px -5px; }
+  video-reliable-dahua .btn-menu i.icon-wnd-2 {
+    background-position: -33px -5px; }
+  video-reliable-dahua .btn-menu i.icon-wnd-3 {
+    background-position: -61px -5px; }
+  video-reliable-dahua .btn-menu i.icon-wnd-4 {
+    background-position: -88px -5px; }
+  video-reliable-dahua .btn-menu i.icon-playall {
+    background-position: -5px -147px; }
+  video-reliable-dahua .btn-menu i.icon-stopall {
+    background-position: -34px -147px; }
+  video-reliable-dahua .btn-menu a.disabled {
+    opacity: 0.5; }

@@ -1,0 +1,55 @@
+{
+  "id": "report-historysignal-single",
+  "name": "ReportHistorysignalSingle控件",
+  "type": "ReportHistorysignalSingleDirective",
+  "desc": {
+    "author": "foam",
+    "comment": "单设备云项目历史数据组件",
+    "version": {
+        "0.0.1": [],
+        "0.0.2": ["解决图表显示问题"],
+        "0.0.3": ["修复切换到其他页面,checkedbox状态不对的问题"],
+        "0.0.4": ["修改样式"],
+        "0.0.6": ["去除历史数据的判断条件"],
+        "0.0.7": ["修复切换设备后出现的缓存问题"],
+        "0.0.8": ["兼容hmu2500", "添加页码"],
+        "0.0.9": ["兼容hmu2500", "修改导出报表的bug"]
+    }
+  },
+  "keywords": "数据,表格,信号,历史",
+  "group": "模块组件",
+  "parameters": [
+    {
+      "id": "type",
+      "type": "string",
+      "value": "signal"
+    },
+    {
+      "id": "pageItems",
+      "type": "int",
+      "value": 50,
+      "desc": "一页显示多少条数据,默认为50"
+    },
+    {
+      "id": "chartType",
+      "type": "string",
+      "value": "line"
+    }
+  ],
+  "interact": {
+    "pubs": [
+      "time"
+    ],
+    "subs": [
+      "checkEquips"
+    ]
+  },
+  "deps": [
+    "device-tree-single",
+    "report-query-time-single",
+    "bar-or-line-single",
+    "grid-table"
+  ],
+  "css": ".col.s12",
+  "version": "0.0.9"
+}

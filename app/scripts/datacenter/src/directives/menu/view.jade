@@ -1,0 +1,50 @@
+//.sidenav.sidenav-fixed
+//    ul.collapsible.menu.menu-lock(id="collaps", md-accordion  ng-mouseenter="enterMenu()"  ng-mouseleave="leaveMenu()" data-collapsible="accordion")
+//        li(ng-show="project.model._role.isAdmin || project.model._role.modules[0]=='_all' || project.model._role.modules.indexOf(menu.moduleid)>=0" ng-repeat="menu in menus" ng-init="rootIndex=$index" ng-class="{'no-arrow':menu.submenus.length == 0}")
+//            a(id="collapsible-{{$index}}" ng-class="{'collapsible-header':menu.submenus, 'item':menu.url}" ng-href="{{menu.url?(menu.url+'/'+myproject.user+'/'+myproject.project):''}}")
+//                i.material-icons(ng-if="menu.icon.indexOf('.')<0") {{menu.icon}}
+//                .left.menu-header-logo(ng-if="menu.icon.indexOf('.')>0")
+//                    img(ng-src="{{menu.icon}}")
+//                span {{menu.title}}
+//            .collapsible-body.no-padding(ng-class="{'no-margin-bottom':menu.submenus.length == 0}")
+//                ul.collapsible.menu.menu-lock(data-collapsible="accordion" id="collaps{{$index}}" md-accordion)
+//                    li(ng-show='controller.accessModule(submenu.moduleid)' ng-repeat="submenu in menu.submenus" ng-init="subIndex=$index")
+//                        a(id="collapsible-{{$parent.$index}}-{{$index}}" ng-click='selectSubmenu(submenu.url)' ng-class="{'collapsible-header has-sub-menus':submenu.submenus, 'item':!submenu.submenus}" ng-href="{{submenu.submenus?'':(submenu.url+'/'+myproject.user+'/'+myproject.project)}}")
+//                            i.material-icons(ng-if="!submenu.icon || submenu.icon.indexOf('.')<0") {{submenu.icon ? submenu.icon: 'remove'}}
+//                            .left.menu-header-logo(ng-if="submenu.icon.indexOf('.')>0")
+//                                img(ng-src="{{submenu.icon}}")
+//                            span {{submenu.title}}
+//                        .collapsible-body.no-padding(ng-if="submenu.submenus")
+//                            ul
+//                                li(ng-show='controller.accessModule(childmenu.moduleid)' ng-repeat="childmenu in submenu.submenus")
+//                                    a.item(id="collapsible-{{rootIndex}}-{{subIndex}}-{{$index}}" ng-click='selectSubmenu(childmenu.url)' ng-href="{{childmenu.url+'/'+myproject.user+'/'+myproject.project}}")
+//                                        i.material-icons(ng-if="!childmenu.icon || childmenu.icon.indexOf('.')<0") {{childmenu.icon ? childmenu.icon: 'remove'}}
+//                                        .left(ng-if="childmenu.icon.indexOf('.')>0" style="margin-left: 46px;")
+//                                            img(ng-src="{{childmenu.icon}}" style="width:1.2rem;text-align:center;margin-right:1rem")
+//                                        span {{childmenu.title}}
+.sidenav.sidenav-fixed
+    ul.main-ul-menu.collapsible.menu.menu-lock(id="collaps", md-accordion  ng-mouseenter="enterMenu()"  ng-mouseleave="leaveMenu()" data-collapsible="accordion")
+        li(ng-show="project.model._role.isAdmin || project.model._role.modules[0]=='_all' || project.model._role.modules.indexOf(menu.moduleid)>=0" ng-repeat="menu in menus" ng-init="rootIndex=$index" ng-class="{'no-arrow':menu.submenus.length == 0}")
+            a(id="collapsible-{{$index}}" ng-class="{'collapsible-header':menu.submenus, 'item':menu.url}" ng-href="{{menu.url?(menu.url+'/'+myproject.user+'/'+myproject.project):''}}")
+                i.material-icons(ng-if="menu.icon.indexOf('.')<0") {{menu.icon}}
+                .left.menu-header-logo(ng-if="menu.icon.indexOf('.')>0")
+                    img(ng-src="{{menu.icon}}")
+                span {{menu.title}}
+            .sub-ul-menu.collapsible-body.no-padding(ng-if="menu.submenus.length>0" ng-class="{'no-margin-bottom':menu.submenus.length == 0}")
+                ul.collapsible.menu.menu-lock(data-collapsible="accordion" id="collaps{{$index}}" md-accordion)
+                    li(ng-show='controller.accessModule(submenu.moduleid)' ng-repeat="submenu in menu.submenus" ng-init="subIndex=$index")
+                        a(id="collapsible-{{$parent.$index}}-{{$index}}" ng-click='selectSubmenu(submenu.url)' ng-class="{'collapsible-header has-sub-menus':submenu.submenus, 'item':!submenu.submenus}" ng-href="{{submenu.submenus?'':(submenu.url+'/'+myproject.user+'/'+myproject.project)}}")
+                            i.material-icons(ng-if="!submenu.icon || submenu.icon.indexOf('.')<0") {{submenu.icon ? submenu.icon: 'remove'}}
+                            .left.menu-header-logo(ng-if="submenu.icon.indexOf('.')>0")
+                                img(ng-src="{{submenu.icon}}")
+                            span {{submenu.title}}
+                        .collapsible-body.no-padding(ng-if="submenu.submenus")
+                            ul
+                                li(ng-show='controller.accessModule(childmenu.moduleid)' ng-repeat="childmenu in submenu.submenus")
+                                    a.item(id="collapsible-{{rootIndex}}-{{subIndex}}-{{$index}}" ng-click='selectSubmenu(childmenu.url)' ng-href="{{childmenu.url+'/'+myproject.user+'/'+myproject.project}}")
+                                        i.material-icons(ng-if="!childmenu.icon || childmenu.icon.indexOf('.')<0") {{childmenu.icon ? childmenu.icon: 'remove'}}
+                                        .left.img-container(ng-if="childmenu.icon.indexOf('.')>0")
+                                            img.img-menu-style(ng-src="{{childmenu.icon}}")
+                                        span {{childmenu.title}}
+
+

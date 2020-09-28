@@ -1,0 +1,28 @@
+equipment-info .info-title {
+  font-size: 16px;
+  color: #48cfff;
+  border-left: 3px solid #00ffbc;
+  padding-left: 5px;
+  line-height: 14px; }
+
+equipment-info .info-text {
+  font-size: 14px;
+  color: #48cfff;
+  font-weight: 900;
+  margin: 0; }
+
+equipment-info .zero-margin-padding {
+  margin: 0 !important;
+  padding: 0 !important; }
+
+equipment-info .info-content {
+  color: white;
+  margin: 0;
+  padding: 0 0 0 1vw; }
+
+equipment-info .mt10-mb0 {
+  margin-bottom: 0 !important;
+  margin-top: 10px !important; }
+
+equipment-info .nowrap {
+  white-space: nowrap; }

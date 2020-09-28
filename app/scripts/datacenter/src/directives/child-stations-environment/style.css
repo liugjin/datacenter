@@ -1,0 +1,85 @@
+child-stations-environment {
+  display: block; }
+  child-stations-environment .big-box {
+    position: relative;
+    height: 52vh; }
+    child-stations-environment .big-box .line-col {
+      position: absolute;
+      width: calc(100% - 1px);
+      margin-top: 20px;
+      height: calc(100% - 40px); }
+    child-stations-environment .big-box .line-row {
+      position: absolute;
+      height: 100%;
+      margin-left: 20px;
+      width: calc(100% - 40px); }
+    child-stations-environment .big-box .box {
+      padding: 1rem 2rem 1rem 1rem;
+      position: absolute;
+      top: 0;
+      margin-top: 2.2vh;
+      height: 100%;
+      width: 100%;
+      color: #e2edf2; }
+      child-stations-environment .big-box .box .title {
+        color: #ffffff; }
+        child-stations-environment .big-box .box .title .title-line {
+          width: 4px;
+          height: 20px;
+          background: #01a6ff;
+          float: left;
+          margin-top: 0.35rem; }
+        child-stations-environment .big-box .box .title .title-h1 {
+          font-size: 20px;
+          font-weight: 600;
+          margin-left: 0.5rem; }
+        child-stations-environment .big-box .box .title .title-h2 {
+          font-size: 12px;
+          font-weight: 400;
+          margin-left: 0.5rem; }
+      child-stations-environment .big-box .box .content {
+        max-height: 48vh;
+        overflow: auto;
+        padding-top: .5vh;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap; }
+        child-stations-environment .big-box .box .content .col-text-align {
+          text-align: left;
+          padding-left: 8px; }
+        child-stations-environment .big-box .box .content table tr {
+          font-size: 15px; }
+        child-stations-environment .big-box .box .content table tr:first-child {
+          border-top: none; }
+        child-stations-environment .big-box .box .content table tr th {
+          background-color: transparent;
+          padding: 5px 5px 10px 5px;
+          color: #6fe7f1;
+          font-size: 14px;
+          font-weight: 600; }
+        child-stations-environment .big-box .box .content table tr td {
+          padding: 0.6rem 0; }
+        child-stations-environment .big-box .box .content table.striped > tbody > tr > td {
+          font-size: 14px;
+          font-weight: 600; }
+        child-stations-environment .big-box .box .content table.striped > tbody > tr:nth-child(odd) {
+          background-color: rgba(26, 69, 162, 0.4); }
+
+@media screen and (width: 1024px) {
+  child-stations-environment .big-box .box {
+    padding: 1rem 1rem 0 0; }
+    child-stations-environment .big-box .box .title .title-line {
+      height: 16px; }
+    child-stations-environment .big-box .box .title .title-h1 {
+      font-size: 16px; }
+    child-stations-environment .big-box .box .title .title-h2 {
+      font-size: 0px; }
+    child-stations-environment .big-box .box .content {
+      padding-top: .5vh; }
+      child-stations-environment .big-box .box .content .col-text-align {
+        padding-left: 2px; }
+      child-stations-environment .big-box .box .content table tr th {
+        font-size: 12px; }
+      child-stations-environment .big-box .box .content table.striped > tbody > tr > td {
+        font-size: 12px;
+        padding: 0.4rem 0; } }

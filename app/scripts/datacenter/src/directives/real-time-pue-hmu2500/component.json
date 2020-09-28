@@ -1,0 +1,25 @@
+{
+  "id": "real-time-pue-hmu2500",
+  "name": "实时趋势pue图表Hmu2500版",
+  "type": "RealTimePueHmu2500Directive",
+  "desc": {
+    "author": "foam",
+    "comment": "PUE实时趋势",
+    "version": {
+      "0.0.1": [],
+      "0.0.2": ["bug修改"]
+    }
+  },
+  "keywords":"pue,实时,配置,折线图",
+  "group": "数据点组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.2"
+}

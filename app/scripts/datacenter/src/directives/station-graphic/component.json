@@ -1,0 +1,34 @@
+{
+  "id": "station-graphic",
+  "name": "站点组态组件",
+  "type": "StationGraphicDirective",
+  "desc": {
+    "author": "david",
+    "comment": "通过导航条切换显示站点组态图",
+    "version": {
+        "0.0.1": [
+          "当站点配置有组态时，能显示出站点的组态内容"
+        ],
+        "0.0.2": [
+          "更新页面标准化样式","@Albert"
+        ],
+        "0.0.3": [
+          "适配1400分辨率以下,组态图适配问题","@vera"
+        ],
+        "0.0.4": [
+          "修vera的bug","@vera"
+        ]
+    }
+  },
+  "group": "模块组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": ["station-breadcrumbs", "graphic-box"],
+  "css": "",
+  "version": "0.0.4"
+}

@@ -1,0 +1,187 @@
+style.
+    .modal.image-path {
+        width: 40%;
+    }
+link(type='text/css', rel='stylesheet', href='/lib/vxgplayer/vxgplayer-1.8.54.min.css')
+
+//  站点选择 + 搜索模块
+.row.nav-top
+    .col.s12(style="padding-right:0")
+        nav
+            .nav-wrapper
+                ul
+                    li
+                        a.dropdown-trigger(href='', data-target='datacenters', data-cover-trigger='false', data-hover='true', data-constrain-width='false', md-dropdown, title='{{datacenter.model.name}}')
+                            span {{datacenter.model.name}}
+                            i.material-icons.right-2 arrow_drop_down
+                    li
+                        span /
+                    li
+                        a.dropdown-trigger(href='', data-target='stations', data-cover-trigger='false', data-hover='true', data-constrain-width='false', md-dropdown, title='{{station.model.name}}')
+                            i.material-icons.right-2 arrow_drop_down
+                            | {{station.model.name}}
+
+        ul#datacenters.dropdown-content
+            li(ng-repeat='station in datacenters', ng-class='{active: station.key == station.key}')
+                a(ng-href='', ng-click='selectDatacenter(station)')
+                    span {{station.model.name}}
+        ul#stations.dropdown-content
+            li
+                a(ng-href='', ng-click='selectStation(datacenter)')
+                    span {{datacenter.model.name}}
+            li(ng-repeat='station in datacenter.stations')
+                a(ng-href='', ng-click='selectStation(station)')
+                    span {{station.model.name}}
+
+.row
+    // 摄像头列表 摄像头控制
+    .col.l2.box-width-control1
+        .cool-card
+            .search-box(title='搜索摄像头' style="padding: .75rem")
+                input(type='search', ng-model='search', placeholder='摄像头名称', required)
+                i.material-icons.search-icon search
+                i.material-icons.close-icon(ng-click='search = ""', ng-show='search') close
+            .ptz.name-list-box
+                .valign-wrapper(style="margin-top:10px;")
+                    img.modal-trigger(ng-src="{{videospng}}", style="width:20px;margin-right:10px;")
+                    span(style="font-size:0.875rem;flex-grow:3") 摄像头列表
+                    i.material-icons.modal-trigger.add-video-head(href="#video-modal", ng-click="createVideo()", title="新增摄像头", style="cursor:pointer") add
+                    i.add-video-head.material-icons.modal-trigger(ng-show="nums[flag].model", href="#video-modal", ng-click="editVideo()", title="编辑摄像头", style="cursor:pointer") edit
+
+                p.p
+                .list(style="height:92%;overflow:auto")
+                    div.video-list(ng-repeat='video in videos|filter:filterVideo', ng-click="playVideo(video)", style="cursor:pointer;height:30px;line-height:30px;", ng-class="{'active':nums[flag]==video}")
+                        .valign-wrapper
+                            img(src="{{videopngselect}}", style="width:20px;margin-right:10px;" ng-show="nums[flag]==video")
+                            img(src="{{videopng}}", style="width:20px;margin-right:10px;" ng-show="nums[flag]!==video")
+                            span(style="font-size:0.875rem; font-style:inherit;flex-grow:3;",ng-style="{color: !video.onlineflag ? '#e2edf2':'gray'}") {{video.model.name}}
+                            label(style="margin-left:20px;color:rgb(11,189,202);" ng-if="nums.indexOf(video)>=0") 播放中
+
+    // 视频区块  播放、停止、截图、下载控件、布局 及视频播放块
+    .col.l10.box-width-control2.videos(style="height:100%;")
+        .row(style="margin-bottom:0;background-color:rgba(26, 69, 162, 0.4);")
+            .col.s12
+                .row
+                    .col.s12(style="margin-top:6px;margin-bottom:6px;")
+                        .video-body-container
+                            .btn-menu.left(style="display:inline-flex")
+                                .btn.waves-effect.waves-light(ng-click="screenShot()" title="截图" ng-class="{'disabled': !playing}")
+                                    i.material-icons.left whatshot
+                                    | 截图
+                                .btn(href="#image-path" title="查看截图" ng-show="imagePath")
+                                    i.material-icons.left whatshot
+                                    | 查看截图
+                                .btn(ng-click="stopAll()" title="全部停止播放", ng-class="{'disabled': !playing}")
+                                    i.material-icons.left pause
+                                    | 全部停止
+                                .btn(ng-click="playAll()" title="全部开始播放", ng-class="{'disabled': playing}")
+                                    i.material-icons.left play_arrow
+                                    | 全部播放
+                                a.btn(href="{{vxgplayerpath}}",title="下载视频播放控件")
+                                    i.material-icons.left cloud_download
+                                    | 下载视频播放控件
+                                .btn(href="",title="查看历史视频",ng-click="openIE()")
+                                    i.material-icons.left search
+                                    | 查看历史视频
+                                .btn(href="",title="查看高可靠视频",ng-click="openHighReliable()")
+                                    i.material-icons.left visibility
+                                    | 查看高可靠视频
+
+                            .right.btn-menu(style="display:inline-flex")
+                                .button.btn(ng-click="changeLayout(1)" title="1X1" ng-class="{'active': number==1}")
+                                    i.icon-wnd-1
+                                .button.btn(ng-click="changeLayout(2)" title="2X2" ng-class="{'active': number==2}" )
+                                    i.icon-wnd-2
+                                .button.btn(ng-click="changeLayout(3)" title="3X3" ng-class="{'active': number==3}")
+                                    i.icon-wnd-3
+                                .button.btn(ng-click="changeLayout(4)" title="4X4" ng-class="{'active': number==4}")
+                                    i.icon-wnd-4
+
+                .row
+                    .col.s12(style="height:100%;")
+                        .col.s12.black(ng-repeat="n in nums" ng-class="{'m12':number==1, 'm6':number==2, 'm4':number==3, 'm3':number==4, 'selected':flag==$index, 'unselected':flag!=$index}" ng-mousedown="setWindow($index)" style="padding:2px;background-color:transparent !important;")
+                            single-video(controller='controller',parameters='{station:n.model.station,equipment:n.model.equipment}' ng-style="{display:'block'}" ng-class='{"video-height-1":number ==1,"video-height-2": number == 2,"video-height-3":number==3,"video-height-4":number==4}')
+
+
+
+
+
+#video-modal.modal.modal-fixed-footer(md-modal)
+    .modal-content.black-text
+        .row.no-margin
+            .col.s12.m8
+                .input-field.col.s12
+                    input(placeholder="" id="equip_id" type="text" class="validate" ng-model='video.model.equipment',ng-disabled='video.model._id')
+                    label.active(for="equip_id") 设备ID
+                .input-field.col.s12
+                    input(placeholder="" id="equip_name" type="text" class="validate" ng-model='video.model.name')
+                    label.active(for="equip_name") 设备名称
+                //.input-field.col.s12
+                //    input#equipment.validate(type='text', ng-model='video.model.equipment', ng-disabled='video.model._id')
+                //    label(for='equipment', ng-class='{active: video.model.equipment}') 设备ID
+                //.input-field.col.s12
+                //    input#name.validate(type='text', ng-model='video.model.name')
+                //    label(for='name', ng-class='{active: video.model.name}') 设备名称
+
+                .input-field.col.s12
+                    label.active 摄像头类型
+                    //select(ng-model='video.model.template', md-select, ng-change='selectTemplate()')
+                    //    //option(value='') 未知设备型号
+                    //    option(value="video_template") 普通摄像头
+                    //    option(value="ckvideo_template") 海康萤石摄像头
+                    //    option(value="ipvideo_template") 云摄像头
+                    select(ng-model='video.model.template' md-select data='video.model' ng-change='selectTemplate()')
+                        option(ng-repeat='item in videotemplates' value='{{item.id}}' ng-selected='video.model.template == item.id') {{item.name}}
+                        //option(ng-repeat='station in project.stations.items' value='{{station.model.station}}' ng-selected='equipment.model.station == station.model.station') {{station.model.name}}
+                .input-field.col.s16(ng-show="video.model.template=='video_template'")
+                    input#videoid.validate(type='text',  value='admin' disabled)
+                    label(for='videoid', ng-class='{active: video.model.address}') 摄像头用户名
+                .input-field.col.s16(ng-show="video.model.template=='video_template'")
+                    input#videopassword.validate(type='text',value='admin123' disabled)
+                    label(for='videopassword', ng-class='{active: video.model.address}') 摄像头密码
+                .input-field.col.s12(ng-show="video.model.template=='video_template'")
+                    input#videoip.validate(type='text', ng-model='video.model.rtspip')
+                    label(for='videoip',ng-class='{active:video.model.address}') 摄像头ip
+                .input-field.col.s12(ng-hide="video.model.template=='video_template'")
+                    input#address.validate(type='text', ng-model='video.model.address')
+                    label(for='address', ng-class='{active: video.model.address}') 视频地址
+
+
+            .col.s12.m4
+                .row
+                    label 上载图片
+                    .img-uploader.model-img-upload
+                        image-uploader(ng-model='video.model.image', dir='{{controller.options.uploadUrl}}')
+
+    .modal-footer.modal-nav
+        nav(style="background-color:rgba(26,69,162)")
+            .nav-wrapper
+                ul
+                    li
+                        a(href='', ng-click='saveVideo()', title='保存设备')
+                            i.material-icons.left save
+                            span.hide-on-med-and-down 保存
+                    li(ng-show='video.model._id')
+                        a(href='', ng-click='removeVideo()', title='删除设备')
+                            i.material-icons.left delete
+                            span.hide-on-med-and-down 删除
+
+                    ul.right
+                        li
+                            a.modal-action.modal-close(href='')
+                                i.material-icons.right close
+                                span.hide-on-med-and-down 关闭
+
+#image-path.modal.image-path(md-modal)
+    .row.no-margin
+        .img-uploader(style="margin-bottom: 0;width: 100%; height: 450px;")
+            div(style="width: 100%; height: 100%;")
+                .img-preview(style="cursor: pointer; width: 100%; height: 100%; position: relative; display: table; text-align: center;")
+                    img(style="position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto" ng-src="{{controller.options.uploadUrl + '/' + imagePath}}")
+                div(style="position: absolute; right: 48%; bottom: 15px;")
+                    a(ng-href="{{controller.options.uploadUrl + '/' + imagePath}}" download="{{imagePath}}" title='下载' onMouseOver='this.style.color="orange"' onMouseOut='this.style.color="grey"')
+                        .left
+                            img(style="width: 2.4rem;" ng-src="{{downgif}}")
+
+
+prompt-modal(options='promptModel')

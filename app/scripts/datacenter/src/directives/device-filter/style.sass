@@ -1,0 +1,177 @@
+device-filter
+  .type-img
+    float: left
+    margin-right: 8px
+
+    .img-bing
+      width: 25px
+      height: 35px
+      background-repeat: no-repeat
+
+    .img-type
+      background-position: -123px -16px
+
+    .img-type-active
+      background-position: -183px -16px
+
+  .tabs-btn
+    margin-left: .75rem
+    border-color: #0652a2
+    border-radius: 5px
+    padding: 0 8px
+
+  .list-icon
+    float: left
+    width: 25px
+    height: 46px
+    background-repeat: no-repeat
+
+  .equips-list2
+    background-color: rgba(0, 188, 212, 0.77)
+
+  .equips-list2:hover
+    background-color: #173c8c
+
+  .equips-list
+    background-color: #112e69
+
+  .equips-list:hover
+    background-color: #173c8c
+
+  .card-img-placeholder
+    background-color: transparent
+
+  .card-content
+    background-color: rgba(26, 69, 162, 0.6)
+
+  .col-header
+    text-align: center
+
+  .card
+    margin: 0 0 .75rem 0
+
+  .inventory-nav
+    margin: .75rem 0
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+
+    .btn
+      vertical-align: bottom
+
+  .invent-list
+    background-color: rgba(26, 69, 162, 0.4)
+    height: 84vh
+    position: relative
+
+  .eventpagination
+    position: absolute
+    bottom: 1rem
+    width: 100%
+
+  .inventory
+    .invent-type
+      padding: 0 0.75rem
+
+      .type
+        margin-bottom: .75rem
+        height: 46px
+
+        a
+          color: #a2aab6
+          line-height: 46px
+          text-align: left
+
+          .type-count
+            .right
+              color: rgb(16, 235, 244)
+
+      .current-type
+        background-color: rgba(16, 235, 244, .4)
+        border: 1px solid rgb(16, 235, 244)
+        transition: .6s
+
+        .type-count
+          color: #e2edf2 !important
+
+          .right
+            color: #e2edf2 !important
+
+    .search-wrapper
+      display: inline-block
+      position: relative
+
+      i
+        position: absolute
+        font-size: 24px
+        left: 4px
+        line-height: 36px
+        color: #e2edf2
+
+      .search-input
+        display: block
+        margin: 0
+        padding: 0 0 0 32px
+        width: 80%
+        height: 34px
+        border-radius: 3px
+        line-height: 34px
+
+  .state-status
+    position: absolute
+    right: 5px
+    bottom: 7px
+
+    .state-dot
+      width: 12px
+      height: 12px
+      display: inline-block
+      border-radius: 50%
+      vertical-align: middle
+      position: relative
+      background-color: #d9d9d9
+      margin-right: 8px
+
+    .state-online
+      background-color: #52c41a
+
+    .state-alarm
+      background-color: #f44336
+
+  [type="radio"]:not(:checked) + span, [type="radio"]:checked + span
+    padding-left: 25px
+    font-size: 14px
+    color: #ffffff
+
+  .state-offline
+
+    [type="radio"]:checked + span:after, [type="radio"].with-gap:checked + span:before, [type="radio"].with-gap:checked + span:after
+      border: 2px solid rgba(176, 201, 240, 1)
+
+    [type="radio"]:checked + span:after, [type="radio"].with-gap:checked + span:after
+      background-color: rgba(176, 201, 240, 1)
+
+  .state-online
+
+    [type="radio"]:checked + span:after, [type="radio"].with-gap:checked + span:before, [type="radio"].with-gap:checked + span:after
+      border: 2px solid rgba(76, 167, 248, 1)
+
+    [type="radio"]:checked + span:after, [type="radio"].with-gap:checked + span:after
+      background-color: rgba(76, 167, 248, 1)
+
+  .state-offalarm
+
+    [type="radio"]:checked + span:after, [type="radio"].with-gap:checked + span:before, [type="radio"].with-gap:checked + span:after
+      border: 2px solid rgba(108, 228, 236, 1)
+
+    [type="radio"]:checked + span:after, [type="radio"].with-gap:checked + span:after
+      background-color: rgba(108, 228, 236, 1)
+
+  .state-onalarm
+
+    [type="radio"]:checked + span:after, [type="radio"].with-gap:checked + span:before, [type="radio"].with-gap:checked + span:after
+      border: 2px solid rgba(220, 121, 120, 1)
+
+    [type="radio"]:checked + span:after, [type="radio"].with-gap:checked + span:after
+      background-color: rgba(220, 121, 120, 1)
+

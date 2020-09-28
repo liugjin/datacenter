@@ -1,0 +1,87 @@
+div.w100.h100.bg
+    div.flex.space-around.font-blue(style="height:10%;position:relative;")
+        img(ng-src="{{getComponentPath('images/dashboard-top.svg')}}",style="width:100%;position: absolute;pointer-events: none;")
+        div(style="font-size: 16px;display:flex;")
+            p(style="margin:0;position: relative;right: 5vw;margin-top: 1.5vh;") {{day}}&emsp;{{time}}&emsp;{{date}}
+        div
+            p.title-gradient(style="font-size:32px;font-weight: 700;margin-top: 1vh;") {{title || "数据中心监测平台"}}
+        div#station-select.flex.dropdown-trigger(href='', data-target='dropdown-station',style="font-size: 18px;margin:0;width: 10vw;display: flex;justify-content: flex-start;margin-top: 1.5vh;")
+            img(ng-src="{{getComponentPath('images/home.svg')}}",style="width:24px;height:24px;cursor:pointer;")
+            a(href='',style="margin:0;color:white;") {{station.model.name}}
+        a.btn.little-box(style="top: 1vh;right: 2vw;",ng-click="fullscreen()") {{document.fullscreenElement?'退出全屏':'全屏'}}
+            i.material-icons.left zoom_out_map
+            .top-left
+            .top-right
+            .bottom-left
+            .bottom-right
+
+
+
+    div.row(style="height:90%;")
+        .col.l3.m3.s12
+            div.flex.column(style="justify-content: space-between;",ng-style="{height:fullScreenFlag?'88vh':'80vh'}")
+                div
+                    .h100.w100
+                        capacity-asset(controller="vm",parameters="{station:station.model.station}")
+                div
+                    .h100.w100
+                        energy-management(controller="vm",parameters="{station:station.model.station}")
+                //div
+                    .h100.w100(style="background: -webkit-linear-gradient(rgba(2,11,43,0.5),rgba(7,27,85,0.5));")
+                        capacity-management(controller="vm",parameters="{stationId:station.model.station}")
+        .col.l6.m6.s12
+            .h100.w100(style="position:relative;")
+                div(style="position:absolute;left:0px;width:10%;height:100%;")
+                    img(ng-src="{{getComponentPath('images/border-corner.svg')}}",style="height:30%;position:absolute;top:0;left:0;max-height:32px;")
+                    div(style="height:95%;border-left:1px solid rgba(6,31,96,1);margin:auto;position:absolute;top:3%;")
+                    img(ng-src="{{getComponentPath('images/border-corner.svg')}}",style="height:30%;transform: scaleY(-1);position:absolute;bottom:0;left:0;max-height:32px;")
+
+                div(style="position:absolute;right:0px;width:10%;height:100%;")
+                    img(ng-src="{{getComponentPath('images/border-corner.svg')}}",style="height:30%;position:absolute;top:0;right:0;transform: scaleX(-1);max-height:32px;")
+                    div(style="height:95%;border-right:1px solid rgba(6,31,96,1);margin:auto;position:absolute;top:3%;right:0;")
+                    img(ng-src="{{getComponentPath('images/border-corner.svg')}}",style="height:30%;transform: scale(-1,-1);position:absolute;bottom:0;right:0;max-height:32px;")
+
+                div.w100(style="position:relative;border-top: 1px solid rgba(6,31,96,1);border-bottom: 1px solid rgba(6,31,96,1);",ng-style="{height:fullScreenFlag?'88vh':'80vh'}")
+                    div(style="position:relative;overflow: hidden;",ng-show="scene!=''",ng-style="{height:fullScreenFlag?'69vh':'61vh'}")
+                        
+                       room-3d-component2(controller="vm",parameters="{}") //room-3d-component(controller="vm",parameters="{stationId:station.model.station,scene:scene,options:{'hideDataBoxName':true}}") 
+                    div(style="margin: 0; padding: 0;display:flex;text-align: center;",ng-show="scene==''",ng-style="{height:fullScreenFlag?'69vh':'61vh'}")
+                        div(style="margin:auto;")
+                            img(src="{{getComponentPath('images/3d-default.png')}}")
+                            p(style="color:white;") 该站点未配置3D模型
+
+                div.w100.flex(style="position:absolute;top:2vh;justify-content: space-around;pointer-events: none;")
+                    safe-operation-days(controller="vm",parameters="{backgroundColor:'#60CA7D',value:'244'}")
+                    pue-value(controller="vm",parameters="{value:pue,backgroundColor:'#4294F7'}")
+
+                //div(style="position:absolute;bottom:18vh;width:90%;",ng-show="station.model.d3")
+                    rotate-showing-model(controller="vm",parameters="{}")
+
+                div.w100(style="position:absolute;bottom:4vh;")
+                    div.flex(style="justify-content: space-around;position:relative;")
+                        div(style="width:10vw;height:10vh;")
+                            alarm-number-box(controller="vm",parameters="{text:'紧急告警',number:severityMap['3'],color:'#ec2c4c'}")
+                        div(style="width:10vw;height:10vh;")
+                            alarm-number-box(controller="vm",parameters="{text:'重要告警',number:severityMap['2'],color:'#f1b917'}")
+                        div(style="width:10vw;height:10vh;")
+                            alarm-number-box(controller="vm",parameters="{text:'一般告警',number:severityMap['1'],color:'#25ce72'}")
+        .col.l3.m3.s12
+            div.flex.column(style="justify-content: space-between;",ng-style="{height:fullScreenFlag?'88vh':'80vh'}")
+                div
+                    .h100.w100
+                        equipment-quantity(controller="vm",parameters="{station:station.model.station}")
+                div
+                    .h100.w100
+                        yingmai-video(controller="vm",parameters="{station:station.model.station}")
+                div
+                    .h100.w100
+                        signal-extreme(controller="vm", parameters="{ station: station.model.station, type: 'environmental', template: 'temperature_humidity_template', signals: ['temperature', 'humidity'] }")
+                        //yingmai-environment(controller="vm",parameters="{station:station.model.station}")
+
+ul#dropdown-station.dropdown-content
+    li(ng-repeat="station in project.stations.nitems")
+        a(href='',ng-click="selectStation(station)",style="color:white;") {{station.model.name}}
+
+div#video(style="position: absolute;top: 20vh;left: 30vw;width:60vw;height:60vh;z-index:99999;",ng-repeat="video in videos")
+    div(ng-click="showVideo(false);",style="text-align: right;cursor: pointer;") 关闭
+    single-video(controller='controller',parameters="{station:station.model.station,equipment:video.model.equipment}",style="width:100%;height:90%;")

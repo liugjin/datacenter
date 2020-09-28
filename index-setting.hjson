@@ -1,0 +1,129 @@
+{
+    # service id
+    id: "datacenter"
+
+    # mongodb connection
+    mongodb: {
+        id: "mongodb-model"
+        env: "development"
+        urls: {
+            default: "mongodb://localhost:27017/clc-dev?authSource=admin"
+            development: "mongodb://localhost:27017/clc-dev?authSource=admin"
+            production: "mongodb://localhost:27017/clc-dev?authSource=admin"
+        }
+        options: {
+            user: "clc"
+            pass: "Clcdata8803"
+
+            autoReconnect: true
+            # retry to connection forever (100 years)
+            reconnectTries: 3153600000
+            reconnectInterval: 1000
+
+            auth: {
+                authdb: "admin"
+            }
+
+            useNewUrlParser: true
+            useCreateIndex: true
+            useFindAndModify: false
+        }
+        connectRetryTimeout: 5000
+    }
+
+    # mqtt connection
+    mqtt: {
+        url: "mqtt://localhost:1883"
+#        url: "mqtt://clcdata.com:1883"
+
+        options: {
+          qos: 0,
+          retain: true,
+          # offline message cache in nedb
+#          store: "nedb"
+        }
+
+    }
+
+    # web
+    web: {
+        address: "0.0.0.0"
+        port: 9655
+
+        env: "development"
+
+        # allow cross domain access, move to nginx setting
+        crossdomain: false
+
+        # body parser limit size
+        limit: '500mb'
+        # session secret
+        secret: 'pu'
+        # 7 * 24 * 60 * 60 * 1000
+        maxAge: 604800000
+
+        # express static urls
+        urls: {
+            views: "./app/views"
+            favicon: "./public/favicon.ico"
+            static: "./public"
+            style: "./app/styles"
+            scripts: "./app/scripts"
+            lib: "../clc.share/lib"
+            upload: "../clc.share/upload"
+            userImage: "../clc.share/upload/img/users"
+        }
+
+        # http schema should be http or https
+        httpSchema: "http"
+    }
+
+    # urls
+    routes: {
+        login: "http://localhost:7200/login"
+
+        # this may change sub-project namespace
+        #    namespace: "datacenter"
+        api: "clc/api/v1"
+    }
+
+    # daemon service
+    daemon: {
+        id: "daemon-datacenter"
+        # 15 minutes
+        heartbeat: 900000
+        domain: "sample-values"
+        monitoringUnit: "daemon-unit"
+        sampleUnit: "datacenter-services"
+        channel: "datacenter"
+        value: {
+            url: "http://localhost/datacenter"
+        }
+    }
+
+    # options
+    options: {
+        logFile: "/log/datacenter.log"
+
+        # encrypt password or not, required by default. this is used for system running on embedded
+        simplePassword: false
+    }
+
+    # register
+    register: {
+        topic: "gateway/register"
+        throttle: 1000
+
+        datacenter: {
+            id: "register-datacenter"
+            filename: "./app/scripts/datacenter/setting.json"
+        }
+    }
+
+    services: {
+        auth: {
+          # should sync to clc.model config
+          token: "fa5d09d0-af61-11e8-acd7-937b5970daac"
+        }
+    }
+}

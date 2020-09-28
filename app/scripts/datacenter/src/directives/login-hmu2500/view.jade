@@ -1,0 +1,53 @@
+//-
+//-   User: Dow
+//-   Date: 2015/02/28
+
+.container(style="height: calc(100vh - 64px); position: relative")
+    .row.bg-circle
+        .col.s12.l12.side-title 基础设施采集管理网关平台登录
+        .col.s12.m12.l6.offset-l3
+            .row.no-margin-bottom
+                .col.s12.flex
+                    .name-logo
+                    input#user.cool-input(type='text', ng-model='user.username', placeholder='用户名')
+                .col.s12.flex
+                    .psw-logo
+                    input#password.cool-input(type='password', ng-model='user.password', ng-keyup='onKeyUp($event)', placeholder='密码', autocomplete="new-password")
+                .col.s12
+                    .login-button(ng-click='login()')
+                        span 登录
+                .col.s12
+                    a.right.modal-trigger(style="color: #9ddfff;" href='#tip-reset-password-modal')
+                        span 忘记密码
+    footer.row.container-footer
+        .col.s3.center 硬件版本： {{hardwareVersion}}
+        .col.s3.center 系统版本： {{systemVersion}}
+        .col.s3.center 应用版本： {{appVersion}}
+        .col.s3.center 序列号： {{tag}}
+
+
+
+#forget-password-modal.modal(md-modal)
+    .input-user
+        .user-text 用户名
+        input.cool-input(type='text' ng-model='resetUser')
+        .user-tips 请输入用户名，并单击重置密码，您的密码将发送到您设置的手机
+    .modal-footer
+        .right.modal-confirm(ng-click='resetPassword()')
+            i.icon-resetPassword
+            span 重置密码
+        .modal-action.modal-close.right.modal-cancel
+            i.icon-return
+            span 返回登录
+
+#tip-reset-password-modal.modal(md-modal style='width:40%;position:fixed;top: 30% !important;background-color:rgba(4,18,57,0.9);border:1px solid #3573b6;border-radius:5px;padding-top:35px;')
+    .card-panel.z-depth-0(style='background-color:transparent;')
+        h5 提示信息：
+        p 请确认是否插入SIM卡，确保手机能正常接收短信，一旦确认，将无法使用原密码进行登录，请慎重操作！
+    .modal-footer(style='margin-top:40px;')
+        a.right.modal-confirm.modal-trigger.modal-close(style="color: #9ddfff;" href='#forget-password-modal')
+                span 确认
+        .modal-action.modal-close.right.modal-cancel
+            i.icon-return
+            span 返回登录
+

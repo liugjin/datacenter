@@ -1,0 +1,14 @@
+.big-box
+    .line-col
+    .line-row
+    .box
+        span.title-line
+        .title {{parameters.title || "动环设备"}}
+        .content
+            .content-num(ng-repeat="(key,val) in types")
+                a(ng-href="{{getLink(val)}}")
+                    .img-box
+                        img(ng-src="{{val.img}}")
+                    .equipment-name {{key}}
+                    .equipment-length {{val.count}}
+                    img(ng-src="{{getComponentPath('images/bg.png')}}")

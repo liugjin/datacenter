@@ -1,0 +1,9 @@
+nav.no-box-shadow
+    .nav-wrapper
+        ul.nav-flex(style="height: 100%;")
+            li.nav-flex-grow
+                .input-field(title='告警搜索')
+                    input(type='search', ng-model='search', placeholder='{{parameters.placeholder}}', required)
+                    label.label-icon
+                        i.material-icons(style="color:#e2edf2") search
+                    i.material-icons(ng-click='search = ""', ng-show='search') close

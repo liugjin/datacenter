@@ -1,0 +1,107 @@
+menu .menu-header-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 36%;
+  height: 48px;
+  text-align: center; }
+  menu .menu-header-logo img {
+    width: 1.2rem; }
+
+menu .no-arrow .collapsible-header:after {
+  content: "" !important; }
+
+menu .menu .collapsible-header:after {
+  font-family: 'Material Icons';
+  content: "keyboard_arrow_left";
+  color: #e2edf2;
+  font-size: 18px;
+  position: absolute;
+  right: 44px;
+  transition: .3s; }
+
+menu .menu .active .collapsible-header:after {
+  content: "keyboard_arrow_down";
+  transition: .3s; }
+
+menu .img-container {
+  margin-left: 46px; }
+
+menu .img-menu-style {
+  width: 1.2rem;
+  text-align: center;
+  margin-right: 1rem; }
+
+menu span {
+  color: #e2edf2; }
+
+menu .img-menu-style {
+  width: 1.2rem;
+  text-align: center;
+  margin-right: 1rem; }
+
+menu .img-container {
+  margin-left: 46px; }
+
+menu .no-margin-bottom {
+  margin-bottom: 0 !important; }
+
+menu .sidenav {
+  top: 64px;
+  width: 240px;
+  background-color: rgba(26, 69, 162, 0.4);
+  height: calc(100% - 32px); }
+  menu .sidenav .collapsible-header, menu .sidenav .fixed .collapsible-header {
+    background: url("~images/menu-no-select.png~") no-repeat center;
+    background-size: 94%;
+    background-position-y: -2px;
+    margin-top: 15px;
+    transition: .3s; }
+  menu .sidenav li.active .collapsible-header {
+    background: url("~images/menu-selected.png~") no-repeat center;
+    background-size: 94%;
+    background-position-y: -2px;
+    transition: .3s; }
+  menu .sidenav .collapsible-body, menu .sidenav .fixed .collapsible-body {
+    background-color: transparent;
+    width: 75%;
+    margin: 0 auto;
+    margin-bottom: -15px; }
+  menu .sidenav .collapsible-body li a, menu .sidenav .fixed .collapsible-body li a {
+    background-color: rgba(1, 166, 255, 0.4);
+    padding: 0; }
+  menu .sidenav .collapsible-body li a:hover, menu .sidenav .fixed .collapsible-body li a:hover {
+    background-color: rgba(1, 166, 255, 0.6);
+    transition: .3s; }
+  menu .sidenav .collapsible-body li .active, menu .sidenav .fixed .collapsible-body li .active {
+    background-color: rgba(1, 166, 255, 0.7) !important;
+    transition: .3s; }
+
+@media screen and (max-width: 1024px) {
+  menu .sidenav {
+    width: 180px; }
+    menu .sidenav ul.main-ul-menu {
+      margin-top: 10px; }
+      menu .sidenav ul.main-ul-menu li a {
+        margin-top: 5px !important;
+        line-height: 40px; }
+        menu .sidenav ul.main-ul-menu li a .menu-header-logo {
+          height: 38px; }
+          menu .sidenav ul.main-ul-menu li a .menu-header-logo img {
+            width: 1rem;
+            height: 40px; }
+      menu .sidenav ul.main-ul-menu .sub-ul-menu ul {
+        margin-top: -2px; }
+        menu .sidenav ul.main-ul-menu .sub-ul-menu ul li a {
+          height: 40px;
+          margin-top: 0px !important; }
+          menu .sidenav ul.main-ul-menu .sub-ul-menu ul li a .menu-header-logo {
+            height: 37px !important; }
+  menu .collapsible-header, menu .fixed .collapsible-header {
+    background-position-y: 0 !important; }
+  menu li.active .collapsible-header {
+    background-position-y: 0 !important; }
+  menu .collapsible-header:after {
+    right: 20px !important; }
+  menu .collapsible-body {
+    margin-bottom: -5px !important; } }

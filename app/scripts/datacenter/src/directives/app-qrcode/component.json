@@ -1,0 +1,30 @@
+{
+  "id": "app-qrcode",
+  "name": "AppQrcode控件",
+  "type": "AppQrcodeDirective",
+  "desc": {
+    "author": "",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.1": [
+        ],
+        "0.0.2": [
+           "页面标准化样式","@Albert"
+        ],
+        "0.0.3": [
+          "更新适配1024x768分辨率","@Albert"
+        ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.3"
+}

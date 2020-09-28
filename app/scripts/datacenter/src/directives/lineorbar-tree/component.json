@@ -1,0 +1,24 @@
+{
+  "id": "lineorbar-tree",
+  "name": "LineorbarTree控件",
+  "type": "LineorbarTreeDirective",
+  "desc": {
+    "author": "Mackie",
+    "comment": "历史曲线时间切换组件",
+    "version": {
+        "0.0.1": ["提交组件"],
+        "0.0.2": ["测试组件"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": ["lineorbar-echart"],
+  "css": "",
+  "version": "0.0.2"
+}

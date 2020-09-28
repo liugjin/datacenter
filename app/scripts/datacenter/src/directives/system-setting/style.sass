@@ -1,0 +1,118 @@
+system-setting
+  font-size: 14px
+  .card-panel-left,.card-panel-right,.card-panel-center
+    height: 84vh
+
+  .card-panel-left
+    padding: 1.5rem !important
+    .btn-save
+      text-align: center
+      margin-top: 1.25rem
+  .card-panel-center
+    padding: 0.75rem 0
+    .img-box
+      height: 40vh
+      font-size: 14px
+
+  .card-panel-right
+    padding: 0.75rem 0
+    .card-list
+      max-height: 77vh
+      overflow: auto
+      .ul-first-level
+        padding-inline-start: 40px
+        margin: 0px
+        .ul-third-level-two
+          padding-inline-start: 40px
+        .ul-input
+          height: 21px
+          margin: 0px
+          width: calc(100% - 100px)
+  input[type=text]:not(.browser-default), textarea.materialize-textarea
+    font-size: 14px !important
+  .input-field
+    margin: 0
+    textarea
+      padding: .75rem 0 .75rem .75rem !important
+      border: 1px solid rgba(0,80,166,1) !important
+      margin-bottom: 0 !important
+      height: 43.59px !important
+      min-height: 40px
+      color: #ffffff
+    input
+      width: calc(100% - .75rem) !important
+      padding: 0 0 0 .75rem !important
+      height: 2.6rem !important
+      color: #ffffff
+      font-size: 14px
+      border: 1px solid rgba(0,80,166,1) !important
+      margin-bottom: 0 !important
+    input:focus,textarea:focus
+      //border: 1px solid rgba(1, 166, 255, 1) !important
+      box-shadow: none !important
+
+
+    .title
+      font-family: "Microsoft Yahei"
+      font-weight: bold
+      margin: 1.25rem 0 1rem 0
+      color: #ffffff
+      font-size: 14px
+  .card-title
+    font-family: "Microsoft Yahei"
+    color: #ffffff
+    font-weight: bold
+    font-size: 14px
+    border-bottom: 1px solid rgba(1,166,255,1)
+    margin-top: 0.75rem
+    padding: 0 .75rem 1rem .75rem
+  .card-content
+    padding: .75rem
+  .card-panel
+    margin-top: 0
+    background-color: rgba(26, 69, 162, 0.4)
+    padding: .75rem
+
+    input,label
+      color: #e2edf2 !important
+
+  .no-margin-bottom
+    margin-bottom: 0
+
+  .btn-large, .btn-small
+    height: 40px
+    line-height: 40px
+    margin: 0 !important
+    background-color: rgba(1, 166, 255, 0.65)
+
+  .btn
+    height: 40px
+    line-height: 40px
+    color: #ffffff
+  .img-uploader
+    margin: 0 auto
+    height: 100%
+    width: 100%
+    border: 1px dotted rgba(1, 166, 255, 0.65)
+
+
+
+@media screen and (width: 1024px)
+  system-setting
+    .card-panel-left,.card-panel-right,.card-panel-center
+      height: 81vh
+    .card-panel-center
+      .img-box
+        height: 25vh
+    .card-panel-right
+      .card-list
+        max-height: 73vh
+        .ul-first-level
+          padding-inline-start: 0
+          font-size: 12px
+          .ul-third-level-two
+            padding-inline-start: 20px
+          .ul-input
+            width: calc(100% - 61px)
+    input[type=text]:not(.browser-default), textarea.materialize-textarea
+      font-size: 12px !important

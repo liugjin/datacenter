@@ -1,0 +1,25 @@
+{
+  "id": "user-manage",
+  "name": "用户管理组件",
+  "type": "UserManageDirective",
+  "desc": {
+    "desc": "admin可以看到所有用户的信息,其他用户只能看到自己的信息,也可以对信息和密码进行修改,admin可以新增用户",
+    "author": "foam",
+    "comment": "模块组件",
+    "version": {
+      "0.0.1": []
+    }
+  },
+  "keywords":"用户,注册,信息",
+  "group": "模块组件",
+  "parameters": [
+    {"id":"headerName", "type": "string", "value": "用户管理", "desc": "页面标题,默认为用户管理"}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.1"
+}

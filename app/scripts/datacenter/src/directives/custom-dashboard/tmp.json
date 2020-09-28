@@ -1,0 +1,102 @@
+[
+  {
+    "class": "row",
+    "style": "",
+    "children": [
+      {
+        "class": "col s12",
+        "children": [
+          {
+            "component": "dashboard-header1",
+            "parameters": {},
+            "class": "",
+            "style": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "class": "row",
+    "children": [
+      {
+        "class": "col m3 s12",
+        "children": [
+          {
+            "component": "distribution-manager",
+            "parameters": {}
+          },
+          {
+            "component": "ups-manager",
+            "parameters": {
+              "title": "'UPS监控'",
+              "type": "'UPS'",
+              "template": "'ups-qilian-um'",
+              "group": [
+                "'3d-detail'",
+                "'ratio'"
+              ]
+            },
+            "style": "margin-top:3vh"
+          }
+        ]
+      },
+      {
+        "class": "col m6 s12",
+        "children": [
+          {
+            "class": "box-border",
+            "style": "height:80vh;position:relative",
+            "children": [
+              {
+                "component": "signal-real-value",
+                "parameters": {
+                  "equipment": "'_station_management'",
+                  "signal": "'pue'"
+                },
+                "style": "top:10px; right:200px; display:block; position:absolute"
+              },
+              {
+                "component": "room-3d-component",
+                "parameters": {
+                  "scene": "station.model.d3"
+                },
+                "style": "height: 62vh; display:block; position:relative"
+              },
+              {
+                "component": "rotate-showing-model",
+                "parameters": {},
+                "style": "position:absolute;bottom:18vh;width:90%;"
+              },
+              {
+                "component": "alarm-severity-boxes",
+                "parameters": {}
+              },
+              {
+                "component": "acousto-optic-control",
+                "parameters": {},
+                "style": "top:10px; left:50px; display:block; position:absolute"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "class": "col m3 s12",
+        "children": [
+          {
+            "component": "child-stations-environment",
+            "parameters": {
+              "_mode": "'fixed'"
+            }
+          },
+          {
+            "component": "station-environment",
+            "parameters": {},
+            "style": "margin-top:3vh"
+          }
+        ]
+      }
+    ]
+  }
+]

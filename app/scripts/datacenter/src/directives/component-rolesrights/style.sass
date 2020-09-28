@@ -1,0 +1,151 @@
+component-rolesrights
+    .station-panel
+        overflow-y: hidden
+    .switch
+        margin-bottom: .5rem
+
+    .repeat-label
+        margin-bottom: .5rem
+
+    label
+        color: #ffffff !important
+        font-size: 14px
+
+    .switch label .lever
+        background-color: rgba(26, 69, 162, 1)
+
+    .switch label input[type=checkbox]:checked+.lever
+        background-color: rgba(26, 69, 162, 1)
+
+    .switch label input[type=checkbox]:checked+.lever:after
+        background-color: rgba(1, 166, 255, 1)
+
+    //[type="checkbox"]:checked+span:not(.lever):before
+        border-top: 2px solid transparent !important
+        border-left: 2px solid transparent !important
+        border-right: 2px solid #03a8ff !important
+        border-bottom: 2px solid #03a8ff !important
+
+    .modal
+        background-color: transparent !important
+
+        .modal-footer.modal-nav
+            background-color: transparent !important
+        .modal-content
+            overflow-y: hidden !important
+            height: calc(100% - 64px) !important
+            background-color: rgba(17, 50, 122, 0.9) !important
+            //background-color: rgba(16, 47, 115, 0.65) !important
+            label
+                color: #ffffff !important
+            input
+                color: #ffffff !important
+                border-bottom: 1px solid #ffffff
+            input:disabled
+                border-bottom: 1px dotted #ffffff
+            input:focus
+                border-bottom: 1px solid #00e7ee
+    span
+        color: #ffffff !important
+
+    .no-margin-bottom
+        margin-bottom: 0
+
+    //[type="checkbox"]+span:not(.lever):before, [type="checkbox"]:not(.filled-in)+span:not(.lever):after
+        border: 2px solid #00d5ff !important
+
+    //[type="checkbox"]:checked+span:not(.lever):before
+        border-top: 2px solid transparent !important
+        border-left: 2px solid transparent !important
+        border-right: 2px solid #03a8ff !important
+        border-bottom: 2px solid #03a8ff !important
+
+    .btn
+        font-size: 14px
+
+    [type="checkbox"]+span:not(.lever)
+        font-size: 14px
+
+    [type="checkbox"]:not(:checked):disabled+span:not(.lever):before
+        border: 2px solid rgba(205,210,212,1)
+
+    [type="checkbox"]+span:not(.lever):before, [type="checkbox"]:not(.filled-in)+span:not(.lever):after
+        border: 2px solid rgba(205,210,212,1)
+
+    [type="checkbox"].filled-in:not(:checked)+span:not(.lever):after
+        border: 2px solid rgba(205,210,212,1)
+        top: 2px
+
+    [type="checkbox"].filled-in:checked+span:not(.lever):after
+        background: rgba(0,172,76,1)
+        border: 2px solid rgba(0,172,76,1)
+        top: 2px
+
+    [type="checkbox"].filled-in:checked+span:not(.lever):before
+        top: 2px
+
+    [type="checkbox"].filled-in:disabled:not(:checked)+span:not(.lever):after
+        border-color: transparent
+        background-color: rgba(26, 69, 162, 0.4)
+
+    .pad-left-0
+        padding-left: 0 !important
+
+    .cool-title
+        background-color: rgba(1,166,255,0.65)
+        color: #ffffff
+        padding: .75rem
+    .cool-content
+        background-color: rgba(26, 69, 162, 0.4)
+        height: 230px
+        overflow-y: auto
+        margin: .75rem 0
+        padding: .75rem
+        border: 1px solid #00d5ff
+        box-shadow: 0 0 10px #00d5ff inset , 0 0 10px #00d5ff
+        p
+            margin: 15px 10px
+
+        p label span
+            color: #ffffff !important
+
+    .cool-content-inside
+        background-color: rgba(26, 69, 162, 0.4)
+    .collection
+        margin: 0
+        border: none
+        border-radius: 2px
+        overflow: hidden
+        position: relative
+        li
+            color: #ffffff !important
+
+        .collection-item
+            border-bottom: none
+            color: #ffffff !important
+            background-color: transparent
+        .collection-item.active
+            background-color: rgba(1, 166, 255, 0.65) !important
+
+        .collection-item:not(.active):hover
+            background-color: rgba(26, 69, 162, 0.4) !important
+
+    .circle
+        border-radius: 50%
+
+    .secondary-content
+        position: absolute
+        top: 16px
+        right: 16px
+    .collection-item.active
+        background-color: #26a69a
+        color: #eafaf9
+@media screen and (width: 1024px)
+    component-rolesrights
+        @media only screen and (min-width: 993px)
+            .row .col.l3
+                width: 33% !important
+            .spare1
+                padding-left: 0.75rem !important
+            .spare2
+                padding-left: 0 !important

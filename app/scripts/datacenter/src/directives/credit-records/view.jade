@@ -1,0 +1,50 @@
+
+.credit-record
+    .record-content
+        table.record-table.new-table
+            thead
+                tr.border-bottom.thead-border-bottom
+                    th
+                        span 刷卡时间
+                    th
+                        span 模块门
+                    th
+                        span 卡号
+                    th
+                        span 持卡人
+                    th
+                        span 结果
+
+            tbody
+
+                tr.border-bottom(ng-repeat="record in creditRecords | filter: filterRecord() | limitTo: pageItems * pageIndex | limitTo: limitToEquipment()")
+                    td
+                        .credit-info-span {{record.timestamp || '无数据'}}
+                    td
+                        .credit-info-span {{record.equipmentName || '无数据'}}
+                    td
+                        .credit-info-span {{record.cardNo || '无数据'}}
+                    td
+                        .credit-info-span {{record.cardOwner|| '无数据'}}
+                    td(style="padding: 8px 5px;")
+                        .credit-info-span
+                            span.result-block {{record.result}}
+
+        .col.s12.m3.l3.eventpagination(style="margin-top: 1rem;")
+            //div(style="flex:1;")
+            .valign-wrapper(style='flex:1;')
+                div(style="margin: 0 auto;")
+                    ul.pagination.center(ng-show='filterEquipmentItem().pageCount > 1' ng-cloak)
+                        li.page-button(ng-class='{disabled: pageIndex <= 1, "waves-effect": pageIndex > 1}' ng-click='pageIndex>1?(pageIndex = pageIndex - 1):0')
+                            a(href='' ng-class="{'choose-text': pageIndex > 1}")
+                                i.material-icons chevron_left
+
+                        li.page-button(ng-class='{active: page == pageIndex, "waves-effect": page != pageIndex}' ng-repeat='page in filterEquipmentItem().pages' ng-click='selectPage(page)' ng-if="(page>(pageIndex-4)&&page<(pageIndex+4)) || page==1 || page==filterEquipmentItem().pageCount")
+                            a(href='')
+                                | {{( (page>(pageIndex-3)&&page<(pageIndex+3)) || page==1 || page==filterEquipmentItem().pageCount ) ? page : ".."}}
+
+                        li.page-button.last(ng-class='{disabled: pageIndex >= filterEquipmentItem().pageCount, "waves-effect": pageIndex < filterEquipmentItem().pageCount}' ng-click='pageIndex<filterEquipmentItem().pageCount?(pageIndex = pageIndex + 1):0')
+                            a(href='' ng-class="{'choose-text': pageIndex < filterEquipmentItem().pageCount}")
+                                i.material-icons chevron_right
+            div(style='flex:1;')
+

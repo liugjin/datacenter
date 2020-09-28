@@ -1,0 +1,121 @@
+style.
+    .equipment-details table tr td {
+        padding: 0;
+    }
+    .equipment-details input {
+        margin: 0 !important;
+    }
+    .equipment-details table tr {
+        border-bottom: none;
+        margin-bottom: .75rem;
+    }
+    .equipment-details table tr .label-text {
+        text-align: center;
+    }
+    .inputbottomborder {
+        border-top: 0px !important;
+        border-left: 0px !important;
+        border-right: 0px !important;
+        /*border-bottom: 0px !important;*/
+    }
+
+    /*.select-wrapper.disabled .caret{*/
+    /*    fill:rgba(247, 243, 243, 0.42);*/
+    /*}*/
+
+.cool-card.cool-card-header(style="display: flex;justify-content: space-between;padding: 0.5rem;height: 40px")
+    div(style="line-height: 26px;")
+        i.material-icons format_list_bulleted
+        span 设备属性
+
+.cool-card.equipment-details
+    table(class='highlight responsive-table' style="border-collapse:separate; border-spacing:0 .375rem;")
+        tr
+            td(class='label-text')
+                label 设备名称
+            td
+                input.input-new-css(disabled class='validate' type='text' ng-model='currEquipment.model.name' ng-focus='saveValue(currEquipment.model.name)' ng-blur='checkValue(currEquipment.model.name)')
+
+        tr
+            td( class='label-text')
+                label 设备类型
+            td
+                input.input-new-css(class='validate' type='text' ng-model='currEquipment.model.typeName' disabled)
+        tr
+            td( class='label-text')
+                label 设备厂商
+            td
+                input.input-new-css(disabled class='validate' type='text' ng-model='currEquipment.model.vendorName' ng-focus='saveValue(currEquipment.model.vendorName)' ng-blur='checkValue(currEquipment.model.vendorName)')
+
+        tr
+            td( class='label-text')
+                label 设备模板
+            td
+                input.input-new-css(class='validate' type='text' ng-model='currEquipment.equipmentTemplate.model.name'  disabled)
+        //tr
+        //    td( class='label-text')
+        //        label 设备管理
+        //    td
+        //        input.input-new-css(disabled class='validate' type='text' ng-model='currEquipment.model.owner' ng-focus='saveValue(currEquipment.model.owner)' ng-blur='checkValue(currEquipment.model.owner)')
+
+        tr(ng-repeat='item in currEquipment.properties.items| filter: filterItems() | orderBy: currEquipment.properties.predicate:currEquipment.properties.reverse')
+            td( class='label-text' style='width: 35%;')
+                label {{item.model.name}}
+            td(ng-switch='item.model.dataType' title='{{item.value}}')
+                div(ng-switch-default)
+                    input.input-new-css(disabled class='validate' type='text' ng-model="item.value" ng-focus='saveValue(item.value)' ng-blur='checkValue(item.value)')
+                div(ng-switch-when='date')
+                    input.input-new-css(disabled type='date' ng-model="item.value" ng-focus='saveValue(item.value)' ng-blur='checkValue(item.value)')
+                div(ng-switch-when='time')
+                    input.input-new-css(disabled type='time' ng-model="item.value" ng-focus='saveValue(item.value)' ng-blur='checkValue(item.value)')
+                div(ng-switch-when='datetime')
+                    input.input-new-css(disabled type='datetime-local' ng-model="item.value" ng-focus='saveValue(item.value)' ng-blur='checkValue(item.value)')
+                .equipment-img.hoverable(ng-switch-when='image' )
+                    img.input-new-css(class='responsive-img materialboxed' md-material-box data-caption='{{property.model.name}}' ng-if='property.value' ng-src='{{options.uploadUrl}}/{{property.value}}' ng-blur = "saveEquipment()")
+                div(ng-switch-when='enum')
+                    select.input-new-css(disabled ng-model='item.value' md-select data='item.dataType' ng-change='saveEquipment()')
+                        option(ng-repeat="map in item.model.format.split(',')" value="{{map.split(':')[0]}}" ng-selected="item.value==map.split(':')[0]") {{map.split(':')[1]}}
+                div(ng-switch-when='color' )
+                    input.input-new-css(disabled type='color' ng-model="item.value" ng-focus='saveValue(item.value)' ng-blur='checkValue(item.value)')
+                div(ng-switch-when='password' )
+                    input.input-new-css(disabled type='password' ng-model="item.value" ng-focus='saveValue(item.value)' ng-blur='checkValue(item.value)')
+                div(ng-switch-when='bool' )
+                    input.input-new-css(disabled type='checkbox' ng-model="item.value" ng-focus='saveValue(item.value)' ng-blur='checkValue(item.value)' id='cbv-{{property.model.property}}')
+                    label( for='cbv-{{property.model.property}}') 有效
+                div(ng-switch-when='int' )
+                    input.input-new-css(disabled type='number' ng-model="item.value" ng-focus='saveValue(item.value)' ng-blur='checkValue(item.value)' min='{{item.model._format.min}}' max='{{item.model._format.max}}' step='any')
+                div(ng-switch-when='float' )
+                    input.input-new-css(disabled type='number' ng-model="item.value" ng-focus='saveValue(item.value)' ng-blur='checkValue(item.value)' min='{{item.model._format.min}}' max='{{item.model._format.max}}' step='any')
+        tr(ng-repeat='item in currEquipment.properties.items| filter: filterItems2() | orderBy: currEquipment.properties.predicate:currEquipment.properties.reverse' ng-show='isMore')
+            td(class='label-text' style='width: 30%;')
+                label {{item.model.name}}
+            td(ng-switch='item.model.dataType' title='{{item.value}}')
+                div(ng-switch-default)
+                    input.input-new-css(disabled class='validate' type='text' ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item.value)')
+                div(ng-switch-when='date' )
+                    input.input-new-css(disabled type='date' ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item.value)')
+                div(ng-switch-when='time' )
+                    input.input-new-css(disabled type='time' ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item.value)')
+                div(ng-switch-when='datetime' )
+                    input.input-new-css(disabled type='datetime-local' ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item.value)')
+                div(ng-switch-when='image' class='equipment-img hoverable' )
+                    img.input-new-css( class='responsive-img materialboxed' md-material-box data-caption='{{property.model.name}}' ng-if='property.value' ng-src='{{options.uploadUrl}}/{{property.value}}' ng-blur = "saveEquipment()")
+                div(ng-switch-when='enum')
+                    select.input-new-css(disabled ng-model='item.value' md-select data='item.dataType' ng-change='saveEquipment()')
+                        option(ng-repeat="map in item.model.format.split(',')" value="{{map.split(':')[0]}}" ng-selected="item.value==map.split(':')[0]") {{map.split(':')[1]}}
+                div(ng-switch-when='color' )
+                    input.input-new-css(disabled type='color' ng-model="item.value" ng-focus='saveValue(item.value)' ng-blur='checkValue(item.value)')
+                div(ng-switch-when='password' )
+                    input.input-new-css(disabled type='password' ng-model="item.value" ng-focus='saveValue(item.value)' ng-blur='checkValue(item.value)')
+                div(ng-switch-when='bool' )
+                    input.input-new-css(disabled type='checkbox' ng-model="item.value" ng-focus='saveValue(item.value)' ng-blur='checkValue(item.value)' id='cbv1-{{property.model.property}}')
+                    label(for='cbv-{{property.model.property}}') 有效
+                div(ng-switch-when='int' )
+                    input.input-new-css(disabled type='number' ng-model="item.value" ng-focus='saveValue(item.value)' ng-blur='checkValue(item.value)' min='{{item.model._format.min}}' max='{{item.model._format.max}}' step='any')
+                div(ng-switch-when='float' )
+                    input.input-new-css(disabled type='number' ng-model="item.value" ng-focus='saveValue(item.value)' ng-blur='checkValue(item.value)' min='{{item.model._format.min}}' max='{{item.model._format.max}}' step='any')
+
+
+
+    .btn.text-center(ng-click='moreMessage()')
+        span {{info}}

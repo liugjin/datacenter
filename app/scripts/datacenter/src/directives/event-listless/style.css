@@ -1,0 +1,72 @@
+event-list table:hover {
+  box-shadow: none !important;
+  outline: none !important;
+  height: 18px; }
+
+event-list table {
+  margin-top: 0.75rem;
+  overflow: auto; }
+  event-list table thead th {
+    padding: 0 !important; }
+  event-list table tbody tr {
+    line-height: 20px !important; }
+    event-list table tbody tr td {
+      padding: 1px !important; }
+
+event-list .progress {
+  margin: 0 0 0.2rem 0 !important; }
+
+event-list .page-button {
+  border: 1px solid #3A85E4;
+  border-radius: 0; }
+  event-list .page-button i {
+    margin-top: 1px; }
+
+event-list .pagination {
+  position: relative;
+  bottom: 1rem;
+  top: 1vh; }
+  event-list .pagination li {
+    height: 32px; }
+    event-list .pagination li a {
+      line-height: 36px; }
+
+event-list .text-align-left {
+  text-align: left !important; }
+
+event-list .new-table thead tr {
+  border: none !important;
+  background-color: rgba(1, 166, 255, 0.5) !important;
+  height: 50px !important;
+  line-height: 50px !important; }
+
+event-list .new-table tbody tr {
+  padding: 0 !important;
+  height: 50px !important;
+  line-height: 50px !important;
+  border: none; }
+
+event-list .new-table tbody tr:nth-child(even) {
+  background-color: rgba(26, 69, 162, 0.4) !important; }
+
+event-list table.striped > tbody > tr:nth-child(odd) {
+  background: none; }
+
+event-list .modal-content table tr td:first-of-type {
+  box-sizing: border-box;
+  padding: .75rem 0 .75rem .4rem !important; }
+
+@media screen and (width: 1024px) {
+  event-list table.new-table {
+    width: 150% !important; }
+    event-list table.new-table thead tr th {
+      font-size: 12px; }
+    event-list table.new-table tbody tr td {
+      line-height: 15px;
+      font-size: 12px; }
+  event-list .pagination {
+    position: static  !important;
+    bottom: 1rem;
+    margin-left: 15%; }
+  event-list .page-button i {
+    margin-top: 4px; } }

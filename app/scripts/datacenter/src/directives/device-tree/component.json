@@ -1,0 +1,66 @@
+{
+  "id": "device-tree",
+  "name": "设备树控件",
+  "type": "DeviceTreeDirective",
+  "desc": {
+    "author": "David",
+    "desc": "站点树",
+    "version": {
+      "0.0.1": [
+        "设备树组件，可根据参数单点或多选，也可根据参数确定是否需要过滤功能"
+      ],
+      "0.0.2": [
+        "[Billy]增加了对站点管理设备的过滤"
+      ],
+      "0.0.5": [
+        "调整样式@Billy"
+      ],
+      "0.0.6": [
+        "James---增加hmu设备类型图标"
+      ],
+      "0.0.7": [
+        "根据设备类型选择图标@Billy"
+      ],
+      "0.0.8": [
+        "样式修改@hardy"
+      ],
+      "0.0.9": [
+        "根据跳转过来的内容自动打钩@foam"
+      ],
+      "0.0.10": [
+        "加入设备tree的小图标", "@foam"
+      ],
+      "0.0.11": [
+        "增加类型图标、选择站点同时选择设备以及过滤_横线站点", "@James"
+      ],
+      "0.0.12": [
+        "增加索引排序", "@youge"
+      ],
+      "0.0.13": [
+        "更新页面标准化样式", "@Albert"
+      ]
+    }
+  },
+  "group": "项目组件",
+  "parameters": [
+    {
+      "id": "checkbox",
+      "type": "bool",
+      "value": "false"
+    },
+    {
+      "id": "filter",
+      "type": "bool",
+      "value": "true"
+    }
+  ],
+  "interact": {
+    "pubs": [
+      "selectEquip",
+      "checkEquips"
+    ],
+    "subs": []
+  },
+  "css": ".col.s6",
+  "version": "0.0.13"
+}

@@ -1,0 +1,422 @@
+
+asset-manage
+
+  .bgColo
+    background-color: rgba(26, 69, 162, 0.4) !important
+
+  .nav-top
+    display: block
+
+    .nav-li
+      list-style: none
+      font-size: 1rem
+
+      a
+        font-size: 1rem
+
+    .no-bg-color
+      background-color: transparent
+
+    .breadcrumb:before
+      color: #bdbdbd
+
+    .active-menu
+      border-bottom: 0 solid white
+
+  .eventpagination
+    position: absolute
+    bottom: 3rem
+    width: 100%
+
+    .pagination
+
+      li
+        height: 36px
+        border: 1px solid #0066ff
+        border-radius: 0
+
+      li.active
+        background-color: rgba(0, 102, 255, 0.4)
+        border: 1px solid #00d5ff
+
+      li a
+        color: white
+
+      i.material-icons
+        color: #00d5ff
+
+  .asset-type
+    font-size: 14px
+    margin-right: 10px
+
+    .card
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.14)
+
+    .btn
+      font-size: 14px
+
+    .material-icons
+      font-family: "Material Icons", serif
+      font-weight: normal
+      font-style: normal
+      font-size: 24px
+      display: inline-block
+      line-height: 1
+      text-transform: none
+      letter-spacing: normal
+      word-wrap: normal
+      white-space: nowrap
+      direction: ltr
+      -webkit-font-smoothing: antialiased
+      text-rendering: optimizeLegibility
+      -moz-osx-font-smoothing: grayscale
+      font-feature-settings: "liga"
+
+    .nav-flex-grow
+      flex-grow: 1
+
+      a
+        box-shadow: none
+        padding: 0 1.5rem
+        margin-right: .75rem
+
+      img
+        width: 1.2rem
+        margin: 0 1rem .27rem 0
+        vertical-align: middle
+
+    .search-wrapper
+      display: inline-block
+      position: relative
+      width: 20%
+
+    .search-wrapper > i
+      position: absolute
+      font-size: 24px
+      top: 6px
+      left: 4px
+      //color: #757575
+      color: #BBD7F2
+
+    .search-wrapper .search-input
+      display: block
+      margin: 0
+      padding: 0 0 0 32px
+      width: 80%
+      height: 34px
+      border-radius: 3px
+      line-height: 34px
+      font-size: 14px
+      border: 1px solid #0050a0 !important
+      color: #A2CAF8 !important
+
+    .search-wrapper input
+      border: 1px solid #0652a2
+      height: 18px
+
+    //.search-input:hover
+      border: 1px solid #10ebf4 !important
+      border-bottom: 1px solid #10ebf4 !important
+      background: transparent
+
+    .search-input:focus
+      border: 1px solid #10ebf4
+      box-shadow: none
+
+    //table tr th
+      // font-size: 14px
+
+    //table tr.detail td
+      // font-weight: bold
+
+    td
+      //color: #e2edf2
+      color: #ffffff
+
+    th input, td input
+      height: 2rem !important
+      margin: 0 !important
+      //border-bottom: 0 !important
+      text-align: center
+
+    th span
+      color: #e2edf2
+      font-weight: bold !important
+
+    .select-wrapper input.select-dropdown
+      margin: 0 auto
+      border-bottom: 0 solid #9e9e9e
+      text-align: center
+      height: 2rem
+      font-size: 14px
+
+    .select-wrapper .caret
+      fill: rgba(256, 256, 256, 1)
+
+    table.striped > tbody > tr:nth-child(odd)
+      background-color: rgba(26, 69, 162, 0.6) !important
+
+    .select-dropdown.dropdown-content li.selected
+      background-color: rgba(1, 166, 255, 0.65)
+
+    .invent-type
+      padding: 0 0.75rem
+
+      .type
+        margin-bottom: .625rem
+        background-color: rgba(26, 69, 162, .4)
+        height: 46px
+        border: none
+        width: 100%
+        overflow: hidden
+        padding: 0 1.125rem 0 1.1875rem 
+        display: flex
+
+        .type-img
+          margin-right: .75rem
+          .img-bing
+            width: 24px
+            height: 46px
+            background-repeat: no-repeat
+
+          .img-type
+            background-position: -183px -16px
+
+          .img-type-active
+            background-position: -183px -16px
+
+        .type-count
+          flex: 1
+          height: 46px
+          line-height: 46px
+          div
+            font-size: .875rem
+            font-family: PingFang SC
+            font-weight: 400
+            color: #fff
+
+      .current-type
+        background-color: rgba(75, 166, 248, 0.5)
+        transition: .6s
+        border-radius: 0
+
+        .type-count
+          color: #e2edf2 !important
+
+          .right
+            color: #e2edf2 !important
+
+    .asset-nav
+      padding: .75rem 0
+
+    .silver-line
+      height: 1px
+      background: #dbdee0
+
+    .invent-box
+      background-color: rgba(26, 69, 162, 0.4)
+      height: 85vh
+      position: relative
+      padding-right: 0px
+      overflow: hidden
+
+      .list-view
+        img
+          width: 1rem
+          text-align: center
+          margin: 0 0.5rem
+
+      .list-card
+        //padding: 0 8px 0 0
+        position: relative
+
+        .pad-left
+          padding-left: 0 !important
+
+        .pad-right
+          padding-right: 0 !important
+
+        .card
+          margin: 0
+
+          .card-image
+
+            .card-img-placeholder
+              height: 200px
+
+              .responsive-img
+                width: auto
+                margin: 0 auto
+
+              .default-img
+                width: auto
+                height: 100%
+                margin: 0 auto
+                background-position: center
+                background-repeat: no-repeat
+
+          .card-content
+            background-color: rgba(26, 69, 162, 0.4)
+            padding: 14px 20px 10px
+
+            .font-bold
+              font-weight: bold
+
+            .font-12
+              font-size: 12px
+
+            img
+              width: 1rem
+              text-align: center
+              margin: 0 0.5rem
+
+            span
+              text-align: center
+              font-size: 14px
+
+          .card-img-placeholder
+            background-color: transparent
+
+          .no-margin
+            margin: 0 !important
+
+          .card-padding
+            padding: 0 0 .75rem .75rem !important
+
+    // .asset
+    //   height: 675px
+    //   max-height: 675px
+    //   overflow: auto
+    //   padding: 1rem 10rem 0
+
+      .reference-img
+        border: 0
+        max-height: 260px
+        width: auto
+        margin: 0 auto
+
+      .other-text
+        margin-left: 5px
+        //font-size: 1.1rem
+        font-size: 14px
+
+    // .asset-edit-add
+    //   padding: 0 .75rem
+    //   background: rgba(26, 69, 162, 0.4)
+    //   height: 84vh
+
+      label
+        color: #e2edf2
+        font-size: 14px
+
+      .asset-left
+        padding: 0 .5rem 0 0
+        margin: 1rem 0 0 0
+
+        .asset-img
+          height: 180px
+
+          .img-uploader
+            height: 135px !important
+            width: 100% !important
+            border: 0
+            margin-top: 0.75rem
+
+            .nav-img
+              //padding: 0 25px
+
+              .img-title
+                line-height: 18px
+                margin-bottom: 10px
+
+              .img-uploader
+                display: block
+                width: 100%
+                height: 150px
+                border: 1px solid #0652a2
+                margin: 0
+                padding: 15px 0 15px 15px
+
+                .img-image
+                  display: inline-block
+                  width: 35%
+                  height: 100%
+                  border-right: 1px solid #0652a2
+                  text-align: center
+
+                  .img-none
+                    margin: 28px auto
+                    cursor: pointer
+
+                    img
+                      display: block
+                      width: 3rem
+                      height: 3rem
+                      margin: auto
+
+                .img-text-area
+                  display: inline-block
+                  width: 35%
+                  height: 100%
+                  border: 1px solid #0652a2
+                  color: #e2edf2
+                  resize: none
+
+                .img-btn
+                  display: inline-block
+                  width: 65%
+                  height: 100%
+                  vertical-align: top
+
+                  .btn-flex
+                    margin: 33px auto
+                    text-align: center
+
+                    .nav-flex-grow
+                      display: inline-block
+
+                      a.btn
+                        margin: 0 .5rem
+                        padding: 0 0.5rem
+
+                        img
+                          margin: 0 0.5rem 0.27rem 0
+
+                      a.btn:focus
+                        background: rgba(8, 34, 104, 0.6)
+
+        .critical-model
+          height: 480px
+          margin: 1rem 0 0 0
+
+          .input-field
+            //border: 1px solid #e0e0e0
+            //border-radius: 5px
+            margin-top: 5px
+
+            .validate
+              height: 2rem
+              width: 100%
+              border-bottom: 0
+              text-align: center
+              margin: 0
+              font-size: 14px
+
+            .desc
+              background-color: transparent
+              border: none
+              outline: none
+              height: 34px
+
+      .asset-right
+        padding: 0 0 0 .5rem
+        margin: 1rem 0 0 0
+
+        .asset-right-pro
+          height: 675px
+          width: 100%
+
+          .asset-right-table
+            height: 650px
+            overflow: auto
+            margin-top: 10px

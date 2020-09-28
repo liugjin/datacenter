@@ -1,0 +1,31 @@
+{
+  "id": "discovery-station-management",
+  "name": "自动发现站点设备管理组件",
+  "type": "DiscoveryStationManagementDirective",
+  "desc": {
+    "author": "david",
+    "comment": "根据采集器上送的_state信息，寻找其中的特征码并自动发现新增站点及站点下挂所有设备,可通过列表对其进行管理,并可通过filter参数限定要发现的站点类型",
+    "version": {
+      "0.0.1": [
+        "首先在项目的配置中特征值里增加要自动发现的站点特征信息，其中特征描述的格式参考key:name,key是自动发现时该站点的特征码，name为自动发现的站点中文名称，在图片一栏里上传包含该站点标准配置的项目zip文件"
+      ],
+      "0.0.2": [
+        "新增站点时把站点配置的组态、3D等配置同步到新系统"
+      ],
+      "0.0.3": [
+        "增加站点过滤时的条件"
+      ]
+    }
+  },
+  "group": "模块组件",
+  "parameters": [
+    {"id":"filter", "type":"string", "value":""}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.3"
+}

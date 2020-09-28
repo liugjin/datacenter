@@ -1,0 +1,26 @@
+single-video .vxgplayer {
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0px;
+  border: 0px;
+  background: rgba(26, 69, 162, 0.4);
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+single-video .back {
+  width: 63px;
+  height: 53px;
+  background-image: url("~img/icon.png~"); }
+
+single-video .title {
+  height: 24px;
+  line-height: 24px;
+  font-size: 0.87rem;
+  color: #A2CAF8; }
+
+single-video .single-vxgplayer {
+  margin-top: 20%;
+  margin-left: 45%; }

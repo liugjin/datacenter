@@ -1,0 +1,30 @@
+{
+  "id": "station-video",
+  "name": "StationVideo控件",
+  "type": "StationVideoDirective",
+  "desc": {
+    "author": "",
+    "comment": "自定义组件",
+    "version": {
+      "0.0.1": ["初始化"],
+      "0.0.2": ["增加对象是否为空的判断，region"],
+      "0.0.3": ["组件标准化，region"],
+      "0.0.4": ["校对英文翻译，region"],
+      "0.0.5": ["样式优化，region"],
+      "0.0.6": ["如果本地计算机没有安装vxgplayer控件，则播放默认视频，region"],
+      "0.0.8": ["加入断线自动重播，region"]
+
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.8"
+}

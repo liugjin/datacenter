@@ -1,0 +1,28 @@
+{
+  "id": "room-3d-component2",
+  "name": "Room3dComponent2控件",
+  "type": "Room3dComponent2Directive",
+  "desc": {
+    "author": "",
+    "comment": "自定义组件",
+    "version": {
+      "0.0.1": ["占坑，3d组件的新分支", "@youge"],
+      "0.0.2": ["占坑，3d组件的新分支", "@youge"],
+      "0.0.3": ["3d组件具备展示和灯控功能", "@youge"],
+      "0.0.4": ["3d组件具备展示和灯控功能", "@youge"],
+      "0.0.5": ["大改版", "@youge"],
+      "0.0.6": ["修复切换页面不显示的bug", "@youge"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.6"
+}

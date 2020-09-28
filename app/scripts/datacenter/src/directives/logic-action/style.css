@@ -1,0 +1,88 @@
+logic-action .select-wrapper ul {
+  top: 0 !important;
+  height: 240px !important; }
+
+logic-action .cool-content {
+  background-color: rgba(26, 69, 162, 0.4);
+  padding-top: .75rem !important;
+  height: calc(100vh - 9.5rem);
+  font-size: 14px; }
+
+logic-action .click-btn {
+  width: 70px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+logic-action .cool-table thead tr {
+  border: none !important;
+  background-color: rgba(1, 166, 255, 0.5) !important;
+  height: 50px !important;
+  line-height: 50px !important; }
+  logic-action .cool-table thead tr th {
+    font-size: 16px;
+    color: #e2edf2;
+    padding: 0;
+    border-radius: 0 !important; }
+
+logic-action .cool-table > tbody {
+  overflow: auto; }
+  logic-action .cool-table > tbody tr {
+    padding: 0 !important;
+    height: 100px !important;
+    line-height: 100px !important;
+    border: none; }
+    logic-action .cool-table > tbody tr td {
+      font-size: 16px;
+      text-align: left;
+      padding: 0 0.5rem 0 0.5rem;
+      border-radius: 0 !important;
+      text-align: center; }
+      logic-action .cool-table > tbody tr td .title, logic-action .cool-table > tbody tr td .value {
+        display: block;
+        line-height: 110%; }
+      logic-action .cool-table > tbody tr td .title {
+        color: grey;
+        margin: 0.8rem 0; }
+  logic-action .cool-table > tbody tr.main:hover {
+    background-color: rgba(16, 235, 244, 0.2) !important; }
+  logic-action .cool-table > tbody > tr:nth-child(even) {
+    background-color: rgba(26, 69, 162, 0.4) !important; }
+
+logic-action input {
+  padding: 0 0 0 5px !important; }
+
+logic-action .select-wrapper .caret {
+  fill: rgba(255, 255, 255, 0.7); }
+
+logic-action .modal.open {
+  border-radius: 5px;
+  border: 1px solid #3573b6; }
+
+logic-action .modal-content input {
+  text-indent: 15px; }
+
+logic-action .modal-footer {
+  background-color: #0D2564 !important;
+  font-size: 14px; }
+
+logic-action .modal-content {
+  background-color: #061239; }
+
+logic-action .modal-content .p-color {
+  color: #AAC6DF; }
+
+logic-action .modal-footer .modal-cancel .material-icons, logic-action .modal-footer .modal-confirm .material-icons {
+  margin-right: 5px; }
+
+logic-action .modal-footer .modal-confirm, logic-action .modal-footer .modal-cancel {
+  width: 116px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+logic-action .modal-footer .modal-confirm {
+  background-color: rgba(75, 165, 248, 0.4); }

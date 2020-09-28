@@ -1,0 +1,50 @@
+
+.row.nav-top
+    .col.l2
+        span(style="color:#fff;font-size: 14px") 用户信息表
+    nav.col.l4.offset-l6
+        .right(style="display:flex;padding-right:6px;")
+            ul
+                //li(style='margin-left:8px;')
+                //    .btn.standard-report-btn(ng-click='queryUsers()', title='查询')
+                //        span.hide-on-med-and-down 查询
+                li(style='margin-left:8px;')
+                    .btn.standard-report-btn(ng-click='exportReport(header,"用户记录表")', title='导出')
+                        span.hide-on-med-and-down 导出
+        search-input(controller='vm',parameters='{placeholder:"搜索用户或用户名"}')
+
+
+.row(ng-style='{"height":parameters.height || "60vh"}')
+    .col.l12
+        .report-container(style="height: 84vh" )
+            grid-table.grid-table( controller='controller',parameters='{header:header,data:garddatas2}')
+            //.paging-select-box
+            //    .col.l12
+            //        ul.pagination.center(ng-show='pagination.pageCount > 1')
+            //            li.page-button(ng-class='{disabled: pagination.page <= 1, "waves-effect": pagination.page > 1}', ng-click='queryPage("previous")')
+            //                a(href='')
+            //                    i.material-icons.white-text chevron_left
+            //
+            //            li.page-button(ng-class='{active: page == pagination.page, "waves-effect": page != pagination.page}', ng-repeat='page in pagination.pages', ng-click='queryPage(page)')
+            //                a(href='')
+            //                    | {{(($index == 1 && pagination.page > 4)||($index == pagination.pages.length-2 && vm.pagination.page < pagination.pageCount-3)) ? "..":page}}
+            //
+            //            li.page-button(ng-class='{disabled: pagination.page >= pagination.pageCount, "waves-effect": pagination.page < pagination.pageCount}', ng-click='queryPage("next")')
+            //                a(href='')
+            //                    i.material-icons.white-text chevron_right
+            .paging-select-box(ng-show='!searchFlag')
+                .col.l12
+                    //ul.pagination(ng-show='filterEquipmentItem().pageCount > 1', ng-cloak style="background-color:'green'")
+                    ul.pagination.center(ng-cloak style="background-color:'green'" ng-show='filterEquipmentItem().pageCount > 1')
+                        li(ng-class='{disabled: pageIndex <= 1, "waves-effect": pageIndex > 1}', ng-click='pageIndex>1?(pageIndex = pageIndex - 1):0')
+                            a(href='', ng-class="{'black-text': pageIndex > 1}")
+                                i.material-icons chevron_left
+
+                        li(ng-class='{active: page == pageIndex, "waves-effect": page != pageIndex}' ng-repeat='page in filterEquipmentItem().pages' ng-click='selectPage(page)' ng-if="(page>(pageIndex-4)&&page<(pageIndex+4))||page==1||page==filterEquipmentItem().pageCount")
+                            a(href='')
+                                | {{((page>(pageIndex-3)&&page<(pageIndex+3))||page==1||page==filterEquipmentItem().pageCount) ? page:".."}}
+
+                        li.last(ng-class='{disabled: pageIndex >= filterEquipmentItem().pageCount, "waves-effect": pageIndex < filterEquipmentItem().pageCount}', ng-click='pageIndex<filterEquipmentItem().pageCount?(pageIndex = pageIndex + 1):0')
+                            a(href='', ng-class="{'black-text':pageIndex < filterEquipmentItem().pageCount}")
+                                i.material-icons chevron_right
+

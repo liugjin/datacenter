@@ -1,0 +1,5 @@
+paging-equipment .page-list {
+  padding-right: 24px; }
+  paging-equipment .page-list .page-item {
+    float: right;
+    margin-left: 10px; }

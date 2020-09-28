@@ -1,0 +1,21 @@
+
+.box-hexagon.height-43
+    .line-col
+    .line-row
+    .box-content
+        div
+            .title
+                span.title-line
+                span.title-h1 配电管理
+                span.title-h2 Power distribution management
+            ul#selectEquip.dropdown-content(style="width: auto;")
+                li(ng-repeat='equip in equipments' ng-class='{active: equip.key == equipment.key}')
+                    a(ng-href='', ng-click='selectEquipment(equip)')
+                        span {{equip.model.name}}
+
+        .content
+            .col.l4.standard-pie-loc(ng-repeat="signal in selectSignals" ng-class="{'pad-left': $index%3==0}" ng-show="selectSignals.length > 0")
+                signal-pie(controller="controller" parameters="{station: equipment.model.station, equipment: equipment.model.equipment, signal: signal}")
+
+
+

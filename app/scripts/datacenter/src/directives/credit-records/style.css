@@ -1,0 +1,39 @@
+credit-records {
+  height: 52.7vh; }
+  credit-records .font-16 {
+    font-size: 16px; }
+  credit-records .text-light {
+    color: #e2edf2; }
+  credit-records .new-table tbody tr {
+    line-height: 35px !important; }
+  credit-records .page-button i {
+    margin-top: 2px !important; }
+  credit-records .credit-record {
+    background: transparent;
+    padding: 10px; }
+    credit-records .credit-record .record-content {
+      height: 50.5vh; }
+      credit-records .credit-record .record-content .record-table {
+        font-size: 14px; }
+      credit-records .credit-record .record-content .result-block {
+        display: inline-block;
+        color: #e2edf2;
+        background: #1d94ff;
+        padding: 2px 10px; }
+  credit-records .eventpagination {
+    position: absolute;
+    bottom: 1rem;
+    width: 85% !important; }
+
+@media screen and (width: 1024px) {
+  credit-records {
+    height: 44vh; }
+    credit-records .credit-record .record-content {
+      height: 42vh; }
+    credit-records .border-bottom.thead-border-bottom {
+      height: 35px !important;
+      line-height: 35px !important; }
+      credit-records .border-bottom.thead-border-bottom th {
+        font-size: 14px; }
+    credit-records .eventpagination {
+      position: relative !important; } }

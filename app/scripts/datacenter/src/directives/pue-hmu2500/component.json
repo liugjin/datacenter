@@ -1,0 +1,26 @@
+{
+  "id": "pue-hmu2500",
+  "name": "能源效率-hmu2500版本",
+  "type": "PueHmu2500Directive",
+  "desc": {
+    "author": "foam",
+    "desc":"能源效率，主要显示pue值,可以自己配置PUE",
+    "comment": "自定义组件",
+    "version": {
+      "0.0.1": [],
+      "0.0.2": ["bug修改@murray"]
+    }
+  },
+  "keywords":"能耗,配置,pue",
+  "group": "模块组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": ["stationId"],
+    "subs": []
+  },
+  "deps": ["station-breadcrumbs", "signal-gauge-picker", "energy-year-pie", "real-time-pue-hmu2500", "total-energy-bar"],
+  "css": ".col.l12",
+  "version": "0.0.2"
+}

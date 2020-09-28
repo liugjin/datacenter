@@ -1,0 +1,14 @@
+{
+  "id": "search-input",
+  "name": "搜索输入栏",
+  "type": "SearchInputDirective",
+  "desc": " [hardy]搜索输入栏，当输入文字时抛出文字信息，输入栏清空时值为undefine。",
+  "group": "其它组件",
+  "parameters": [{"id":"placeholder","type":"string","value":"告警搜索"}],
+  "interact": {
+    "pubs": ["search"],
+    "subs": []
+  },
+  "css": "",
+  "version": "0.0.3"
+}

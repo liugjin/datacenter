@@ -1,0 +1,30 @@
+{
+  "id": "event-listless",
+  "name": "EventListless控件",
+  "type": "EventListlessDirective",
+  "desc": {
+    "author": "",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.1": [
+        ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": [
+      "event-statistic-phase-severity",
+      "event-list-eventType",
+      "event-list-equipmentTypes",
+      "search",
+      "stationId"
+    ]
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.1"
+}

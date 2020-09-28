@@ -1,0 +1,166 @@
+
+.row.nav-top
+    .col.s12.bottom
+        station-breadcrumbs.inline-left(controller="vm" parameters="{}")
+        nav.inline-right
+            .nav-flex-grow.right
+                a.waves-effect.waves-light.btn.modal-trigger(href='' title='增加卡' data-target='door-card-modal' ng-click='addEquip()' ng-show="project.model._role.operations[0]=='_all' || project.model._role.operations.indexOf('setting')>=0")
+                    .left
+                        img(ng-src="{{addImg}}")
+                    span 增加卡
+            .search-wrapper.right
+                i.material-icons search
+                input.search-input(type="text" placeholder="搜索" ng-model="search" required)
+                i.material-icons(style="left: 185px;" ng-click="search = ''; pageIndex = 1;" ng-show='search') close
+
+.row
+    .col.s12(style="margin-top: -5px")
+        .card-list
+            .card-content
+                table.card-table.new-table
+                    thead
+                        tr.border-bottom
+                            th &nbsp;
+                            //td
+                                .head-block
+                                    label
+                                        input(type="checkbox" class="filled-in" ng-model="select" ng-change="selectAll()")
+                                        span &nbsp;
+                            th 卡ID
+                            th 卡名称
+                            th 卡种类
+                            th 持卡人
+                            th 卡状态
+                            th 卡有效开始时间
+                            th 卡有效结束时间
+                            th 注册时间
+                            th(ng-show="project.model._role.operations[0]=='_all' || project.model._role.operations.indexOf('setting')>=0") 操作
+
+                    tbody
+                        tr.border-bottom(ng-repeat="card in cardEquips | filter: filterCard() | limitTo: pageItems * pageIndex | limitTo: limitToEquipment()")
+                            td &nbsp;
+                            //td
+                                .head-block
+                                    label
+                                        input(type="checkbox" class="filled-in" ng-model="card.checked" ng-change="selectOne()")
+                                        span &nbsp;
+                            td {{card.getPropertyValue('card-id')}}
+                            td {{card.getPropertyValue('card-name')}}
+                            td {{formatValue('card-type', card.getPropertyValue('card-type'))}}
+                            td {{getOweName(card.getPropertyValue('card-owner'))}}
+                            td {{formatValue('card-status', card.getPropertyValue('card-status'))}}
+                            td {{card.getPropertyValue('card-active-start-time')| date:'yyyy-MM-dd HH:mm:ss'}}
+                            td {{card.getPropertyValue('card-active-end-time')| date:'yyyy-MM-dd HH:mm:ss'}}
+                            td {{card.getPropertyValue('registration-time')| date:'yyyy-MM-dd HH:mm:ss'}}
+                            td(ng-show="project.model._role.operations[0]=='_all' || project.model._role.operations.indexOf('setting')>=0")
+                                a.waves-effect.waves-light.modal-trigger(title='编辑设备' href='' data-target='door-card-modal' ng-click="selectEquip(card)")
+                                    img(ng-src="{{editImg}}")
+                                a.waves-effect.waves-light(title='删除设备' href='' ng-click='deleteEquip(card); $event.stopPropagation();')
+                                    img(ng-src="{{deleteImg}}")
+
+                .col.s12.m12.l12.eventpagination(style="margin-top: 1rem;")
+                    div(style="flex:1;")
+                    .valign-wrapper(style='flex:2;')
+                        div(style="margin: 0 auto;")
+                            ul.pagination.center(ng-show='filterEquipmentItem().pageCount > 1' ng-cloak)
+                                li.page-button(ng-class='{disabled: pageIndex <= 1, "waves-effect": pageIndex > 1}' ng-click='pageIndex>1?(pageIndex = pageIndex - 1):0')
+                                    a(href='', ng-class="{'choose-text': pageIndex > 1}")
+                                        i.material-icons chevron_left
+
+                                li.page-button(ng-class='{active: page == pageIndex, "waves-effect": page != pageIndex}' ng-repeat='page in filterEquipmentItem().pages' ng-click='selectPage(page)' ng-if="(page>(pageIndex-4)&&page<(pageIndex+4)) || page==1 || page==filterEquipmentItem().pageCount")
+                                    a(href='')
+                                        | {{( (page>(pageIndex-3)&&page<(pageIndex+3)) || page==1 || page==filterEquipmentItem().pageCount ) ? page : ".."}}
+
+                                li.page-button.last(ng-class='{disabled: pageIndex >= filterEquipmentItem().pageCount, "waves-effect": pageIndex < filterEquipmentItem().pageCount}' ng-click='pageIndex<filterEquipmentItem().pageCount?(pageIndex = pageIndex + 1):0')
+                                    a(href='', ng-class="{'choose-text': pageIndex < filterEquipmentItem().pageCount}")
+                                        i.material-icons chevron_right
+                    div(style='flex:1;')
+
+
+#door-card-modal.modal(md-modal)
+    .modal-content.setSelectBgcolor
+        .row.no-margin.door-card
+            .col.l12.nav-top
+                nav
+                    .nav-flex-grow.left
+                        a.waves-effect.waves-light.btn(href='' ng-click='closeModal()' title='收起')
+                            .left
+                                img(ng-src="{{closeImg}}")
+                            span 收起
+                    .nav-flex-grow.right
+                        a.waves-effect.waves-light.btn(href='' ng-click='refreshData()' title='重置' style="margin-right: 0;")
+                            .left
+                                img(ng-src="{{refreshImg}}")
+                            span 重置
+                    .nav-flex-grow.right
+                        a.waves-effect.waves-light.btn(href='' ng-click='saveEquipment()' title='保存')
+                            .left
+                                img(ng-src="{{saveImg}}")
+                            span 保存
+
+            .col.l12.nav-item
+                .col.l6(style="margin-top: .75rem;")
+                    label 卡种类
+                    .input-field
+                        select(ng-model='currentCard.cardType' md-select)
+                            option(ng-repeat="map in findProperty('card-type').model.format.split(',')" value="{{map.split(':')[0]}}" ng-selected="property.value==map.split(':')[0]") {{map.split(':')[1]}}
+                .col.l6(style="margin-top: .75rem;" ng-show="!currentCard.add")
+                    label 卡ID
+                    .input-field
+                        input.validate.disabled(type='text' ng-model='currentCard.cardId' disabled)
+                .col.l3(style="margin-top: .75rem;" ng-show="currentCard.add")
+                    label 卡ID
+                    .input-field
+                        input.validate(type='text' ng-model='currentCard.cardId' ,maxlength="13")
+                .col.l3(style="margin-top: .75rem;" ng-show="currentCard.add")
+                    label 发卡器
+                    .input-field
+                        select(ng-model='currentCard.sendCard' md-select ng-change="selectSendCard()")
+                            option(value='0') 请选择
+                            option(ng-repeat="send in sendCards" value="{{send.model.equipment}}" ng-selected="currentCard.sendCard == send.model.equipment") {{send.model.name}}
+                //.col.l2(style="margin-top: 2.45rem;" ng-show="currentCard.add")
+                    a.waves-effect.waves-light.btn(href='' ng-click='getCardNumber()') 获取卡号
+                .col.l6(style="margin-top: .75rem;")
+                    label 卡名称
+                    .input-field
+                        input.validate(type='text' ng-model='currentCard.cardName')
+                .col.l6(style="margin-top: .75rem;")
+                    label 持卡人
+                    .input-field
+                        select(ng-model='currentCard.cardOwner' md-select)
+                            option(value='0') 请选择
+                            option(ng-repeat="people in peopleEquips" value="{{people.model.equipment}}" ng-selected="currentCard.cardOwner == people.model.equipment") {{people.model.name}}
+                .col.l6(style="margin-top: .75rem;")
+                    label 卡状态
+                    .input-field
+                        select(ng-model='currentCard.cardStatus' md-select)
+                            option(ng-repeat="map in findProperty('card-status').model.format.split(',')" value="{{map.split(':')[0]}}" ng-selected="property.value==map.split(':')[0]") {{map.split(':')[1]}}
+                .col.l6(style="margin-top: .75rem;")
+                    label 注册时间
+                    .input-field
+                        input.validate.disabled(type='date' input-format ng-model='currentCard.registrationTime' disabled)
+                .col.l6(style="margin-top: .75rem;")
+                    label 有效开始时间
+                    .input-field
+                        input.validate(type='date' input-format ng-model='currentCard.cardActiveStartTime')
+                .col.l6(style="margin-top: .75rem;")
+                    label 有效结束时间
+                    .input-field
+                        input.validate(type='date' input-format ng-model='currentCard.cardActiveEndTime')
+                        
+                .col.l6(style="margin-top: .75rem;")
+                    label 设备厂商
+                    .input-field
+                        select(ng-model='currentCard.vendor' md-select)
+                            option(value='0') 请选择
+                            option(ng-repeat="man in manufactorArr" value="{{man.vendor}}" ng-selected="currentCard.vendor == man.vendor") {{man.name}}
+                .col.l6(style="margin-top: .75rem;")
+                    label 备注
+                    .input-field
+                        input.validate(type='text' ng-model='currentCard.cardDescribe')
+                .col.l6(style="margin-top: .75rem;")
+                    label 所属站点
+                    .input-field
+                        select(ng-model='currentCard.station' md-select)
+                            option(value='0') 请选择
+                            option(ng-repeat="station in stations" value="{{station.model.station}}" ng-selected="currentCard.station == station.model.station") {{station.model.name}}

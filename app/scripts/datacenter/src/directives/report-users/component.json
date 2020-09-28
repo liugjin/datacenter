@@ -1,0 +1,32 @@
+{
+  "id": "report-users",
+  "name": "ReportUsers控件",
+  "type": "ReportUsersDirective",
+  "desc": {
+    "author": "",
+    "comment": "自定义组件",
+    "version": {
+      "0.0.1": ["用户报表","sheen"
+      ],
+      "0.0.2": ["增加按用户或用户名搜索","sheen"
+      ],
+      "0.0.3": ["修改服务器地址","James"
+      ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+    {
+      "id": "type",
+      "type": "int",
+      "value": "pageItems"
+    }
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.3"
+}

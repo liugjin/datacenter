@@ -1,0 +1,25 @@
+{
+  "id": "video-history-dahua",
+  "name": "VideoHistoryDahua控件",
+  "type": "VideoHistoryDahuaDirective",
+  "desc": {
+    "author": "",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.1": ["region--初始化"],
+        "0.0.2": ["region--重构播放逻辑模块"],
+        "0.0.3": ["region--站点下来列表bug处理"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": ["somedayplayback"]
+  },
+  "deps":["glvideo-datepicker"],
+  "css": "",
+  "version": "0.0.3"
+}

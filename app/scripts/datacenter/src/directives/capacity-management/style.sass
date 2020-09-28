@@ -1,0 +1,63 @@
+capacity-management
+  .big-box
+    position: relative
+    height: 24vh
+    .line-col
+      position: absolute
+      width: calc(100% - 1px)
+      margin-top: 20px
+      height: calc(100% - 40px)
+      border: 1px solid #082268
+      border-top: none
+      border-bottom: none
+
+    .line-row
+      position: absolute
+      height: 100%
+      margin-left: 20px
+      width: calc(100% - 40px)
+      border: 1px solid #082268
+      border-left: none
+      border-right: none
+
+    .box
+      padding: 1rem
+      position: absolute
+      top: 0
+      height: 100%
+      width: 100%
+      color: #ffffff
+      background: url("~images/left-on.png~") 0 0 no-repeat,url("~images/left-under.png~") 0 100% no-repeat,url("~images/right-on.png~") calc(100% - 1px) 0 no-repeat,url("~images/right-under.png~") calc(100% - 1px) 100% no-repeat
+      .title
+        background: url("~images/title-img.png~") center no-repeat
+        text-align: center
+        color: #2a89ee
+        font-size: 1.2rem
+      .content
+        height: 18vh
+        justify-content: space-evenly
+        .flex-left,.flex-right
+          flex-direction: column
+          justify-content: space-around
+        .flex-mid
+          flex-direction: column
+          justify-content: center
+
+      .box-circle
+        display: flex
+        flex-direction: column
+        justify-content: center
+        text-align: center
+        font-size: .75rem
+        background-image: url("~images/circle.png~")
+        background-size: 100%
+        width: 5rem
+        height: 5rem
+        .circle-name
+          color: #2a89ee
+
+      .flex
+        display: flex
+
+
+

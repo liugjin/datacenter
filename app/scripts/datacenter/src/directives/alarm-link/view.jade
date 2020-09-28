@@ -1,0 +1,110 @@
+.row.nav-top
+    .col.s2
+        nav 联动规则
+    .col.s10
+        nav
+            .nav-wrapper
+                ul.right
+                    li
+                        a.modal-trigger(title="新增",data-target="add-rule", ng-click="add()", href="#add-rule")
+                            i.material-icons.left add
+                            | 新增
+                    li
+                        a.modal-trigger(title="修改",data-target="add-rule", ng-click="modify()", href="",ng-show="re.notification")
+                            i.material-icons.left edit
+                            | 修改
+                    li
+                        a.modal-trigger(title="删除", data-target="prompt-modal" ng-click="delete()",ng-show="re.notification")
+                            i.material-icons.left delete
+                            | 删除
+.row
+    .col.l12
+        table
+            thead
+                tr
+                    th 源设备
+                    th 源告警
+                    th 源告警状态
+                    th 联动设备
+                    th 联动动作
+                    //th 联动值
+            tbody
+                tr(ng-repeat="rule in rules" ng-click="select(rule)" ng-class='{active: re==rule,"back-control": re==rule}')
+                    td {{rule.triggerEquip.station.model.name}}-{{rule.triggerEquip.model.name}}
+                    td {{rule.triggerEquip.events.getItemByIds({"event":rule.triggerAlarm}).model.name}}
+                    td {{project.dictionary.eventphases.getItemByIds({"phase":rule.triggerState}).model.name || "任意状态"}}
+                    td {{rule.linkEquip.station.model.name}}-{{rule.linkEquip.model.name}}
+                    td {{rule.linkEquip.commands.getItem(rule.linkAction).model.name}}
+                //td {{displayValue(rule)}}
+
+#add-rule.modal.modal-fixed-footer(md-modal)
+    .modal-content
+        .col.s5.card.no-box-shadow.no-margin(style="height: 100%;")
+            .card-title.center 告警源
+            .card-content
+                .input-field.col.s12
+                    i.material-icons(style="position:absolute;top:23%;left:6%",ng-show="!re.sourceEquipmentName",ng-click="listSourceEquipments()") search
+                    input#source-equipment.autocomplete(type='search', ng-model='re.sourceEquipmentName', placeholder='        设备名称',ng-change="changeSourceEquipments()")
+                    i.material-icons(style="position:absolute;top:23%;",ng-click="listSourceEquipments()") arrow_drop_down
+                //.input-field.col.s12
+                //    label.active 源设备
+                //    select(ng-model='re.triggerDevice' md-select data='equipments')
+                //        option(ng-repeat='equip in equipments' value='{{equip.key}}' ng-selected='re.triggerDevice == equip.key') {{equip.station.model.name}}-{{equip.model.name}}
+                .input-field.col.s12
+                    label.active 源告警
+                    select(ng-model='re.triggerAlarm2' data='triggerAlarms2')
+                        option(ng-repeat='alarm in triggerAlarms' value='{{alarm.model.event}}' ng-selected='re.triggerAlarm2 == alarm.model.event') {{alarm.model.name}}
+                .input-field.col.s12
+                    label.active 源告警状态
+                    select(ng-model='re.triggerState2' data='triggerStates')
+                        option(value="all") 任意状态
+                        option(ng-repeat='state in triggerStates' value='{{state.model.phase}}' ng-selected='re.triggerState2 == state.model.phase') {{state.model.name}}
+        .col.s2.center
+            i.material-icons.white-text forward
+        .col.s5.card.no-box-shadow.no-margin(style="height: 100%;")
+            .card-title.center 联动响应
+            .card-content
+                .input-field.col.s12
+                    i.material-icons(style="position:absolute;top:23%;left:6%",ng-show="!re.linkEquipmentName",ng-click="listLinkEquipments()") search
+                    input#link-equipment.autocomplete(type='search', ng-model='re.linkEquipmentName', placeholder='         设备名称',ng-change="changeLinkEquipments()")
+                    i.material-icons(style="position:absolute;top:23%;",ng-click="listLinkEquipments()") arrow_drop_down
+
+                .input-field.col.s12
+                    label.active 联动动作
+                    select(ng-model='re.linkAction2' md-select data='linkActions')
+                        option(ng-repeat='action in linkActions' value='{{action.key}}' ng-selected='re.linkAction2 == action.key') {{action.model.name}}
+
+                .input-field.col.s12(ng-repeat="parameter in re.cmdModelParameters")
+                    label.active 命令参数： {{parameter.name || parameter.key}} (参数类型：{{parameter.type}})
+                    input.validate(type="number" ng-model="parameter.value" ng-if="parameter.type=='int'" onkeydown="if(event.keyCode== 110 || event.keyCode== 190){return false;}")
+                    input.validate(type="number" step="0.01" ng-model="parameter.value" ng-if="parameter.type=='float'")
+                    input(type="checkbox" ng-model="parameter.value" ng-if="parameter.type=='bool'")
+                    textarea.validate(ng-model="parameter.value" ng-if="parameter.type=='constant'")
+                    input.validate(type="text" ng-model="parameter.value" ng-if="parameter.type=='string'")
+                    select(ng-model="parameter.value",ng-if="parameter.type=='enum'")
+                        option(ng-repeat="kv in parameter.enums",value="{{kv.value}}",ng-selected="parameter.value==kv.value") {{kv.key}}
+
+
+    .modal-footer
+        nav
+            .nav-wrapper
+                ul
+                    li
+                        a.modal-action.modal-close(ng-click="save()",ng-mouseenter="checkContent()")
+                            i.material-icons.left save
+                            span.hide-on-med-and-down 保存
+                    li.right
+                        a.modal-action.modal-close
+                            i.material-icons.left close
+                            span.hide-on-med-and-down 关闭
+
+
+#prompt-modal.modal.bottom-sheet2.modal-fixed-footer2(md-modal)
+    .modal-content
+        h5 {{promptModel.title}}
+        p {{promptModel.message}}
+        input(type='text', ng-model='promptModel.comment', ng-show='promptModel.enableComment')
+
+    .modal-footer
+        a.modal-action.modal-close.waves-effect.waves-green.btn-flat(style="color: #fff" ng-click='promptModel.confirm(false)') 取消
+        a.modal-action.modal-close.waves-effect.waves-green.btn.red(ng-click='promptModel.confirm(true)') 确认

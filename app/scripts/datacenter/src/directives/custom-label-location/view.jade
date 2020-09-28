@@ -1,0 +1,14 @@
+.content
+    img(ng-src='{{setting.urls.uploadUrl}}/{{station.model.image}}' width="100%" height="100%")
+    ul.humiture-box(ng-mousemove="mousemove($event)")
+        li.humiture-label(ng-repeat="(index, item) in equips",ng-mousedown="mouseDown($event,index,item)",ng-mouseup="mouseup(index,item)",style= "{{item.model.position}};cursor: pointer")
+            .titleName
+                span {{item.model.name}}
+            .temperature
+                span 温度：
+                span {{item.model.temperature?item.model.temperature : "--"}} ℃
+            .humidity
+                span 湿度：
+                span {{item.model.humidity?item.model.humidity: "--"}} %RH
+    .edit(ng-click="edit()")
+        span {{editName}}

@@ -1,0 +1,68 @@
+{
+  "id": "energy-management",
+  "name": "能耗管理控件",
+  "type": "EnergyManagementDirective",
+  "desc": {
+    "author":"Billy",
+    "desc":"能耗管理控件",
+    "version": {
+      "0.0.1": [
+        "[Billy]发布组件,根据不同的信号展示相关资产容量信息",
+        "content属性字段描述：",
+        "{id:'展示属性的logo的名称',name:'展示属性的名称',usedSignal:'已用容量',totalSignal:'总容量'}"
+      ],
+      "0.0.2": [
+        "[Billy]新增饼图，显示不同能耗信息"
+      ],
+      "0.0.3": [
+        "[Hardy]解决订阅空对象导致的性能问题"
+      ],
+      "0.0.4": [
+        "[Billy]样式调整"
+      ],
+      "0.0.5": [
+        "[Billy]计算其他能耗"
+      ],
+      "0.0.6": [
+        "echarts更新数据","@Billy"
+      ],
+      "0.0.7": [
+        "修复运算bug","@Billy"
+      ],
+      "0.0.8": [
+        "修复显示bug","@Billy"
+      ],
+      "0.0.9": [
+        "增加链接跳转到能效管理", "适应mvp项目适当调整了组件的高度", "@bingo"
+      ],
+      "0.0.10": [
+        "修改控件描述", "@region"
+      ],
+      "0.0.11": [
+        "修改控件tooltip显示样式", "@region"
+      ],
+      "0.0.12": [
+        "组件标准化", "@region"
+      ],
+      "0.0.13": [
+        "样式优化", "@region"
+      ],
+      "0.0.14": [
+        "样式优化", "@region"
+      ],
+      "0.0.15": [
+        "样式优化", "@region"
+      ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+    {"id":"stationId","type":"string","value":"host-room"}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "css": "",
+  "version": "0.0.15"
+}

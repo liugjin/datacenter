@@ -1,0 +1,26 @@
+{
+  "id": "equipment-breadcrumbs",
+  "name": "设备面包屑导航组件",
+  "type": "EquipmentBreadcrumbsDirective",
+  "desc": {
+    "author": "david",
+    "comment": "设备面包屑导航组件",
+    "version": {
+        "0.0.1": [
+        ]
+    }
+  },
+  "group": "项目组件",
+  "parameters": [
+    {"id":"station", "type":"string", "value":""},
+    {"id":"equipment", "type":"string", "value":""},
+    {"id":"type", "type":"string", "value":""}
+  ],
+  "interact": {
+    "pubs": ["equipmentId"],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.1"
+}

@@ -1,0 +1,57 @@
+reporting-asset .nav-top span {
+  font-size: 14px !important; }
+
+reporting-asset span:focus {
+  outline: none; }
+
+reporting-asset .btn {
+  float: right;
+  margin-right: 4px;
+  margin-top: 0.8rem;
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+  width: 100px;
+  background: rgba(37, 70, 157, 0.4);
+  border: 1px solid #62d2fa;
+  color: #ffffff; }
+
+reporting-asset .btn-margin-style {
+  margin-right: 0.9rem; }
+
+reporting-asset .grid-table {
+  background-color: rgba(26, 69, 162, 0.4);
+  width: 100%;
+  height: 84vh;
+  display: block; }
+
+reporting-asset .ag-header {
+  height: 50px !important;
+  border: 0 !important; }
+
+reporting-asset .collection {
+  border: 0;
+  margin: 0; }
+
+reporting-asset .ag-header-cell {
+  border: 0 !important; }
+
+reporting-asset .ag-cell-no-focus {
+  border: 0 !important; }
+
+reporting-asset .ag-row-odd {
+  background: transparent !important; }
+
+@media screen and (width: 1024px) {
+  reporting-asset .main-title {
+    padding-right: 0 !important; }
+  reporting-asset .btn {
+    margin-top: 0.9rem !important; }
+  reporting-asset .grid-table {
+    height: 81vh !important;
+    overflow: auto; }
+    reporting-asset .grid-table #grid {
+      width: 100%; }
+  reporting-asset .asset-nav-bar {
+    overflow: auto;
+    position: static !important; } }

@@ -1,0 +1,40 @@
+{
+  "id": "door-manager",
+  "name": "门管理",
+  "type": "DoorManagerDirective",
+  "desc": {
+    "author": "bingo",
+    "comment": "门管理",
+    "version": {
+      "0.0.1": [
+        "门管理"
+      ],
+      "0.0.2": [
+        "更新样式@billy"
+      ],
+      "0.0.3": [
+        "增加门禁默认站点@James"
+      ],
+      "0.0.4": [
+        "href传参@youge"
+      ],
+      "0.0.5": [
+        "更新页面标准化样式","@Albert"
+      ],
+      "0.0.6": [
+        "适配1024*768分辨率","@vera"
+      ]
+    }
+  },
+  "group": "模块组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": ["stationId"]
+  },
+  "deps": ["station-breadcrumbs", "credit-record-last", "credit-records", "equip-door"],
+  "css": "",
+  "version": "0.0.6"
+}

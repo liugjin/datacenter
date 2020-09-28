@@ -1,0 +1,101 @@
+nav.cool-header(ng-if="$root.user",ng-class='$parent.mvm.setting.theme', ng-cloak, style="box-shadow:none;")
+    .nav-wrapper
+        .col.s12
+            menu-control(controller="vm", parameters="{}")
+            .brand-logo.header-logo
+                a(href='#/', title='{{$parent.mvm.setting.desc}}')
+                    i
+                        img.logo-img2(ng-if="logo", ng-src="{{logo.indexOf('/')<0?(setting.urls.uploadUrl+'/'+logo):logo}}")
+                    span(ng-show='!$root.project.project', ng-class="{'menu-selected': $root.path == '/'}")
+                        | {{$root.project.model.name}}
+
+                a(ng-href='#/project/{{$root.project.user}}/{{$root.project.project}}', ng-show='$root.project.project')
+                    span.hide-on-small-only(ng-class="{'menu-selected': $root.path.indexOf('/project') >= 0}")
+                        | {{$root.project.name}}
+
+            a.sidenav-trigger(href='', data-target='mobile-nav')
+                i.material-icons menu
+
+            ul.right.hide-on-med-and-down
+                //li(ng-repeat='menu in $parent.mvm.setting.menus')
+                    a(ng-show='menu.project && $root.project.project', ng-href='#/{{menu.menu}}/{{$root.project.user}}/{{$root.project.project}}')
+                        span(ng-class="{'menu-selected': $root.path.indexOf('/' + menu.menu) >= 0}") {{menu.name}}
+                    a(ng-show='!menu.project && !$root.project.project', ng-href='#/{{menu.menu}}')
+                        span(ng-class="{'menu-selected': $root.path.indexOf('/' + menu.menu) >= 0}") {{menu.name}}
+
+                //- {{page-register}}
+
+                //li
+                //    a(ng-show='!$root.project.project', href='#/projects')
+                //        span(ng-class="{'menu-selected': $root.path.indexOf('/projects') >= 0}", translate='MENU.PROJECT') 项目浏览
+
+                //li
+                    a.dropdown-trigger(href='', data-target='languages', data-hover='true', data-cover-trigger="false", md-dropdown, title='{{$parent.mvm.language.title}}')
+                        span {{$parent.mvm.language.name}}
+                        i.material-icons.left language
+
+                li(ng-show='$root.user')
+                    //-a.dropdown-trigger.fix-menu-item2(href='', data-target='user', data-cover-trigger="false", md-dropdown)
+                    a.dropdown-trigger(ng-href='#/users/{{$root.user.user}}', data-target='user-menu', data-hover='true', data-cover-trigger="false", md-dropdown)
+                        span(ng-bind='$root.user.name', ng-class="{'menu-selected': $root.path.indexOf('/users') >= 0}")
+                        i.material-icons.left account_box
+                li(ng-show='!$root.user')
+                    a(href='#/login')
+                        span(translate='MENU.LOGIN') 用户登录
+
+            ul.right.hide-on-med-and-down(ng-if="$root.user",ng-cloak)
+                li
+                    a#allalarms(title='活动/总告警：{{eventStatistic.activeEvents}}/{{eventStatistic.totalEvents}}'
+                        ng-href='#/event-manager/{{$root.myproject.user}}/{{$root.myproject.project}}?station={{mvm.rootStation.model.station}}')
+                        span(style="margin: 0;border-radius: 20px;position: relative;top: -8px;right: 23px;font-size: 16px;padding: 5px;"
+                            ng-style='{"background-color": getEventColor(eventStatistic.severity)}')  {{eventStatistic.activeEvents}}
+                        i.material-icons.left(style="font-size: 33px;") notifications
+
+ul#mobile-nav.sidenav(md-side-nav)
+    li(ng-repeat='menu in $parent.mvm.setting.menus')
+        a(ng-show='menu.project && $root.project.project', ng-href='#/{{menu.menu}}/{{$root.project.user}}/{{$root.project.project}}')
+            span(ng-class="{'menu-selected': $root.path.indexOf('/' + menu.menu) >= 0}") {{menu.name}}
+        a(ng-show='!menu.project && !$root.project.project', ng-href='#/{{menu.menu}}')
+            span(ng-class="{'menu-selected': $root.path.indexOf('/' + menu.menu) >= 0}") {{menu.name}}
+
+    //- {{page-register}}
+
+    li
+        a(ng-show='!$root.project.project', href='#/projects')
+            span(ng-class="{'menu-selected': $root.path.indexOf('/projects') >= 0}", translate='MENU.PROJECT') 项目浏览
+
+    //li
+        a.dropdown-trigger(href='', data-target='languages2', data-hover='true', data-cover-trigger="false", md-dropdown, title='{{$parent.mvm.language.title}}')
+            span {{$parent.mvm.language.name}}
+            i.material-icons.left language
+
+    li(ng-show='$root.user')
+        a.dropdown-trigger.fix-menu-item(data-target='user-menu2', md-dropdown)
+            span(ng-bind='$root.user.name', ng-class="{'menu-selected': $root.path.indexOf('/users') >= 0}")
+            i.material-icons.left account_box
+    li(ng-show='!$root.user')
+        a(href='#/login')
+            span(translate='MENU.LOGIN') 用户登录
+
+ul#user-menu.dropdown-content
+    //li
+        a(ng-href="{{serviceAuth}}/#/users/{{rootUser}}", target='_blank', translate='MENU.USER_INFO') 用户信息
+    li
+        a(href='', ng-click='logout()', translate='MENU.LOGOUT') 注销登录
+
+ul#user-menu2.dropdown-content
+    //li
+        a(ng-href='{{serviceAuth}}/#/users/{{rootUser}}', target='_blank', translate='MENU.USER_INFO') 用户信息
+    li
+        a(href='', ng-click='logout()', translate='MENU.LOGOUT') 注销登录
+
+ul.notify(style="display: none;")
+    li.list-item(style="width: 25px;cursor:pointer;")
+        .text-icon(ng-click="setvoice()")
+            img(style="width: 25px;" ng-src="{{ismute ? muteimg:voiceimg}}")
+    li#abc.title
+        .text-content 告警通知
+        .text-icon(ng-click="close(message[0])" style="cursor:pointer;")
+            span(title="关闭告警通知")
+                i.material-icons trending_flat
+    li.list-item(ng-repeat="(key, val) in message" ng-if="key != 0") {{val}}

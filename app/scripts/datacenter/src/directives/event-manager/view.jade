@@ -1,0 +1,75 @@
+.row.nav-top
+    .col.s12.m6.l8
+        span
+            .nav-wrapper
+                a.breadcrumb.dropdown-trigger.grey-text-5(ng-repeat="parent in parents",href="" data-hover='true' data-constrain-width='false' data-cover-trigger="false"  md-dropdown title='{{parent.model.name}}' ng-click="selectParent(parent)" ng-if="station !== parent")
+                    span {{parent.model.name}} （{{statistic2[parent.model.station].count || '0'}}）
+                a.breadcrumb.dropdown-trigger.grey-text-5(href="" data-target='stations' data-hover='true' data-constrain-width='false' data-cover-trigger="false"  md-dropdown title='{{station.model.name}}')
+                    span {{station.model.name}} （{{statistic2[station.model.station].count || '0'}}）
+                a.breadcrumb.dropdown-trigger(href='' data-target='children' data-hover='true' data-constrain-width='false' data-cover-trigger="false" md-dropdown ng-if="station.stations.length>0")
+                    span.active-menu 查看下级
+
+        //nav.grey-6.no-box-shadow.grey-text-5
+        //    .nav-wrapper
+        //        ul
+        //            li
+        //                a.dropdown-trigger.grey-text-5(href='', data-target='datacenters', data-cover-trigger='false', data-hover='true', data-constrain-width='false', md-dropdown, title='{{datacenter.model.name}}')
+        //                    span {{datacenter.model.name}}（{{statistic2[datacenter.model.station].count || '0'}}）
+        //                    i.material-icons.right-2 arrow_drop_down
+        //            li
+        //                span.grey-text-8 /
+        //            li
+        //                a.dropdown-trigger.grey-text-5(href='', data-target='stations', data-cover-trigger='false', data-hover='true', data-constrain-width='false', md-dropdown, title='{{station.model.name}}')
+        //                    i.material-icons.right-2 arrow_drop_down
+        //                    | {{station.model.name}}（{{statistic2[station.model.station].count || '0'}}）
+        //
+        //ul#datacenters.dropdown-content
+        //    li(ng-repeat='station in datacenters', ng-class='{active: station.key == station.key}')
+        //        a(ng-href='', ng-click='selectDatacenter(station)')
+        //            span {{station.model.name}}
+        //            span.badge.right.new(data-badge-caption=" ", ng-style='{"background-color": getEventColor(station.statistic.severity) || "#0faa57"}') {{statistic2[datacenter.model.station].count || '0'}}
+        //
+        //ul#stations.dropdown-content
+        //    li
+        //        a(ng-href='', ng-click='selectStation(datacenter)')
+        //            span {{datacenter.model.name}}
+        //            span.badge.right.new(data-badge-caption=" ", ng-style='{"background-color": getEventColor(datacenter.statistic.severity) || "#0faa57"}') {{statistic2[datacenter.model.station].count || '0'}}
+        //
+        //    li(ng-repeat='station in datacenter.stations')
+        //        a(ng-href='', ng-click='selectStation(station)')
+        //            span {{station.model.name}}
+        //            span.badge.right.new(data-badge-caption=" ", ng-style='{"background-color": getEventColor(station.statistic.severity) || "#0faa57"}') {{statistic2[station.model.station].count || '0'}}
+
+    .col.s12.m6.l4
+        search-input(controller="vm",parameters="{}")
+.row
+    .col.l4
+        event-statistic(controller="vm",parameters="{stationId:stationId,statisticValue:statistic.counts.allEvents}")
+        .card-panel
+            event-statistic-chart(controller="vm",parameters="{statistic:statistic}",style="height:58vh;width:100%;display:block;")
+
+        .card-panel(style="padding:5px;background-color: rgba(26, 69, 162, 0.4) !important;")
+            a(href='', ng-click='selectAllEquipmentTypes()')
+                .chip(ng-class='{"green-1": equipmentTypesCount == 0, "white-text": equipmentTypesCount == 0}', title='显示所有设备类型告警')
+                    | 所有类型
+                    i.material-icons.right done_all
+
+            a(href='', ng-repeat='(key, type) in statistic.types', ng-click='selectEquipmentType(type)')
+                .chip(ng-class='{"green-1": equipmentTypes[type.type], "white-text": equipmentTypes[type.type]}', title='按设备类型过滤')
+                    img(ng-src="{{getComponentPath('images/circle.svg')}}", ng-style='{"background-color": getEventColor(type.severity)}')
+                    | {{type.name || type.type}}: {{type.count}}
+    .col.l8.card-panel(style="padding:10px;margin-top:0;background-color: rgba(26,69,162,0.4) !important;font-size:14px;height:85vh;border-radius: 0;")
+        event-startlist(controller="vm",parameters="{stationId:stationId,pageItem:10}")
+
+
+ul#stations.dropdown-content
+    li(ng-repeat='sta in stations | filter:{key: "!="+station.key}' ng-class='{active: sta.key == station.key}')
+        a(ng-href='' ng-click='selectStation(sta)')
+            span {{sta.model.name}}
+            span.badge.right.new(data-badge-caption=" ", ng-style='{"background-color": getEventColor(station.statistic.severity) || "#0faa57"}') {{statistic2[sta.model.station].count || '0'}}
+
+ul#children.dropdown-content(ng-if="station.stations.length>0")
+    li(ng-repeat='sta in station.stations')
+        a(ng-href='' ng-click='selectChild(sta)')
+            span {{sta.model.name}}
+            span.badge.right.new(data-badge-caption=" ", ng-style='{"background-color": getEventColor(station.statistic.severity) || "#0faa57"}') {{statistic2[sta.model.station].count || '0'}}

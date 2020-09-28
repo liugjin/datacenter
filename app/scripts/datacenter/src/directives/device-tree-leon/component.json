@@ -1,0 +1,35 @@
+{
+  "id": "device-tree-leon",
+  "name": "设备树控件",
+  "type": "DeviceTreeLeonDirective",
+  "desc": {
+    "author": "sheen",
+    "comment": "报警设备标红的设备树",
+    "version": {
+        "0.0.1": ["精确到设备级别，有告警的设备背景标红","@sheen"],
+        "0.0.2": ["解决input框在从其它页面切换过来后显示登录用户名的bug","@sheen"],
+        "0.0.3": ["引入fancytree","@sheen"]
+    }
+  },
+  "group": "项目组件",
+  "parameters": [
+    {
+      "id": "checkbox",
+      "type": "bool",
+      "value": "false"
+    },
+    {
+      "id": "filter",
+      "type": "bool",
+      "value": "true"
+    }
+  ],
+  "interact": {
+    "pubs": ["selectEquip",
+      "checkEquips"],
+    "subs": []
+  },
+  "deps": [],
+  "css": ".col.s6",
+  "version": "0.0.3"
+}

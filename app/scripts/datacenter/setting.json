@@ -1,0 +1,196 @@
+{
+  "title": "数据中心监控应用",
+  "name": "datacenter",
+  "desc": "datacenter",
+  "videotype": "hik",
+  "defaultoff": false,
+  "heatmapsignal": "u",
+  "toastTime": 2000,
+  "pollingPeriod": 15000,
+  "keyword": "datacenter",
+  "namespace": "datacenter",
+  "api": "clc/api/v1",
+  "authUrls":
+  {
+    "login": "/auth/login",
+    "logout": "/auth/logout",
+    "register": "/auth/register",
+    "changePassword": "/auth/changepassword",
+    "forgetPassword": "/auth/forgetpassword",
+    "users": "/auth/users",
+    "sendSmsCode": "/auth/sendsmscode",
+    "loginBySmsCode": "/auth/loginbysmscode",
+    "changeToken": "/auth/changetoken"
+  },
+  "menus":
+  [
+    {
+      "icon": "res/svg/menu/homepage-overview.svg",
+      "title": "首页概览",
+      "url": "#/dashboard",
+      "submenus": [],
+      "moduleid": "dashboard"
+    },
+    {
+      "icon": "res/svg/menu/facility-monitoring.svg",
+      "title": "设备监控",
+      "url": "#/monitoring",
+      "submenus": [],
+      "moduleid": "device-monitoring"
+    },
+    {
+      "icon": "res/svg/menu/warning-management.svg",
+      "title": "告警管理",
+      "moduleid": "alarms",
+      "submenus":
+      [
+        {
+          "icon": "res/svg/menu/current-warning.svg",
+          "title": "活动告警",
+          "url": "#/event-manager",
+          "moduleid": "alarm"
+        },
+        {
+          "icon": "res/svg/menu/history-data.svg",
+          "title": "历史告警",
+          "url": "#/historical-alarm",
+          "moduleid": "signal-report"
+        },
+        {
+          "icon": "res/svg/menu/warning-inform.svg",
+          "title": "告警通知",
+          "url": "#/notification",
+          "moduleid": "notification"
+        },
+        {
+          "icon": "res/svg/menu/linkage-manage.svg",
+          "title": "联动管理",
+          "url": "#/link",
+          "moduleid": "link"
+        }
+      ]
+    },
+    {
+      "icon": "res/svg/menu/energy-efficiency.svg",
+      "title": "能效管理",
+      "url": "#/energy",
+      "submenus": [],
+      "moduleid": "energy"
+    },
+    {
+      "icon": "res/svg/menu/statistic-analysis.svg",
+      "title": "统计分析",
+      "moduleid": "reports",
+      "submenus":
+      [
+        {
+          "icon": "res/svg/menu/asset-query.svg",
+          "title": "设备清单",
+          "url": "#/asset-report",
+          "moduleid": "asset-report"
+        },
+        {
+          "icon": "res/svg/menu/history-data.svg",
+          "title": "历史数据",
+          "url": "#/signal-report",
+          "moduleid": "signal-report"
+        },
+        {
+          "icon": "res/svg/menu/warning-record.svg",
+          "title": "告警记录",
+          "url": "#/alarm-report",
+          "moduleid": "alarm-report"
+        },
+        {
+          "icon": "res/svg/menu/warning-record.svg",
+          "title": "告警通知记录",
+          "url": "#/history-send-notification",
+          "moduleid": "history-send-notification"
+        }
+      ]
+    },
+    {
+      "icon": "res/svg/menu/configuration-manage.svg",
+      "title": "配置管理",
+      "moduleid": "configuration",
+      "submenus":
+      [
+        {
+          "icon": "res/svg/menu/facility-manage.svg",
+          "title": "设备管理",
+          "url": "#/equipments",
+          "moduleid": "equipments"
+        },
+        {
+          "icon": "res/svg/menu/warning-setting.svg",
+          "title": "信号配置",
+          "url": "#/signal-configuration",
+          "moduleid": "alarm-setting"
+        },
+        {
+          "icon": "res/svg/menu/warning-setting.svg",
+          "title": "批量配置",
+          "url": "#/batch-configuration",
+          "moduleid": "alarm-setting"
+        },
+        {
+          "icon": "res/svg/menu/warning-setting.svg",
+          "title": "底图配置",
+          "url": "#/base-map-configuration",
+          "moduleid": "alarm-setting"
+        }
+      ]
+    },
+    {
+      "icon": "res/svg/menu/system-manage.svg",
+      "title": "系统管理",
+      "moduleid": "systemsetting",
+      "submenus":
+      [
+        {
+          "icon": "res/svg/menu/user-manage.svg",
+          "title": "用户管理",
+          "url": "#/user-info",
+          "moduleid": "user-info"
+        },
+        {
+          "icon": "res/svg/menu/warning-setting.svg",
+          "title": "数据管理",
+          "url": "#/manage-data",
+          "moduleid": "alarm-setting"
+        },
+        {
+          "icon": "res/svg/menu/user-manage.svg",
+          "title": "时间管理",
+          "url": "#/time-manage",
+          "moduleid": "user-info"
+        },
+        {
+          "icon": "res/svg/menu/system-diary.svg",
+          "title": "日志管理",
+          "url": "#/log",
+          "moduleid": "log"
+        },
+        {
+          "icon": "res/svg/menu/system-message.svg",
+          "title": "网络管理",
+          "url": "#/ip-setting",
+          "moduleid": "ip-setting"
+        }, 
+        {
+          "icon": "res/svg/menu/system-message.svg",
+          "title": "系统信息",
+          "url": "#/setting",
+          "moduleid": "setting"
+        }
+      ]
+    },
+    {
+      "icon": "res/svg/menu/system-message.svg",
+      "title": "帮助信息",
+      "url": "#/help-information",
+      "submenus": [],
+      "moduleid": "setting"
+    }
+  ]
+}

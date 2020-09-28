@@ -1,0 +1,44 @@
+{
+  "id": "signal-real-value",
+  "name": "单信号点数据组件",
+  "type": "SignalRealValueDirective",
+  "desc": {
+    "author": "david",
+    "comment": "显示",
+    "version": {
+        "0.0.1": ["初始化组件"],
+        "0.0.2": ["样式标准化region"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+    {
+      "id": "station",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "id": "equipment",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "id": "signal",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "id": "title",
+      "type": "string",
+      "value": ""
+    }
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.2"
+}

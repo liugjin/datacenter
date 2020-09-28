@@ -1,0 +1,121 @@
+notification .btn {
+  margin-left: .75rem;
+  font-size: 14px;
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid #10EBF4;
+  border-radius: 0px;
+  background: rgba(26, 69, 162, 0.4) !important;
+  color: #ffffff; }
+
+notification label {
+  color: #ffffff !important; }
+
+notification .row {
+  margin-bottom: 0 !important; }
+
+notification [type="checkbox"] + span:not(.lever) {
+  font-size: 14px; }
+
+notification [type="checkbox"]:checked + span:not(.lever):before {
+  border-right: 2px solid #03a8ff;
+  border-bottom: 2px solid #03a8ff; }
+
+notification [type="checkbox"] + span:not(.lever):before, notification [type="checkbox"]:not(.filled-in) + span:not(.lever):after {
+  border: 2px solid #00d5ff; }
+
+notification [type="radio"]:not(:checked) + span:before, notification [type="radio"]:not(:checked) + span:after {
+  border: 2px solid #CDD2D4; }
+
+notification [type="radio"]:checked + span:after, notification [type="radio"].with-gap:checked + span:before, notification [type="radio"].with-gap:checked + span:after {
+  border: 2px solid #00ac4c; }
+
+notification [type="radio"]:checked + span:after, notification [type="radio"].with-gap:checked + span:after {
+  background-color: #00AC4C; }
+
+notification [type="checkbox"].filled-in:not(:checked) + span:not(.lever):after {
+  border: 2px solid #cdd2d4;
+  top: 2px; }
+
+notification [type="checkbox"].filled-in:checked + span:not(.lever):after {
+  background: #00ac4c;
+  border: 2px solid #00ac4c;
+  top: 2px; }
+
+notification [type="checkbox"].filled-in:checked + span:not(.lever):before {
+  top: 2px; }
+
+notification .cool-title {
+  background-color: rgba(1, 166, 255, 0.65);
+  color: #ffffff;
+  padding: 10px;
+  margin-top: 10px; }
+  notification .cool-title label span {
+    padding-left: 25px !important; }
+
+notification .cool-content {
+  height: 220px;
+  overflow-y: auto;
+  padding: 0 10px;
+  background: rgba(26, 69, 162, 0.4); }
+  notification .cool-content p {
+    margin: 15px 10px; }
+  notification .cool-content p label span {
+    color: #ffffff !important; }
+
+notification .cool-content-inside {
+  background-color: rgba(26, 69, 162, 0.4); }
+
+notification .type-style {
+  background-color: rgba(26, 69, 162, 0.4) !important; }
+
+notification .nav {
+  margin-top: 10px;
+  background-color: #26a69a; }
+
+notification .cardMiddle {
+  height: 280px;
+  overflow-y: auto; }
+
+notification .cardRight {
+  height: 280px;
+  overflow-y: auto; }
+
+notification .card {
+  height: 220px;
+  margin: 0 !important; }
+
+notification .card-panel {
+  height: 280px;
+  overflow-y: auto;
+  background-color: rgba(26, 69, 162, 0.4) !important;
+  padding: 0 !important; }
+  notification .card-panel p {
+    padding: 0 10px; }
+  notification .card-panel label {
+    color: #ffffff !important; }
+
+notification .card-image {
+  height: 160px !important; }
+  notification .card-image img {
+    width: 60px !important;
+    margin: 0 auto !important;
+    padding-top: 45px !important; }
+
+notification .card-action {
+  text-align: center !important;
+  background-color: transparent !important; }
+  notification .card-action label span {
+    color: #ffffff !important; }
+
+notification .card .card-action {
+  border-top: none !important;
+  padding: 0 !important; }
+
+@media screen and (width: 1024px) {
+  notification .card {
+    height: 174px; }
+  notification .cool-content {
+    height: 174px; }
+  notification .card-image {
+    height: 140px !important; } }

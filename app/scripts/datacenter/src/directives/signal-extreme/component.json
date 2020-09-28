@@ -1,0 +1,56 @@
+{
+  "id": "signal-extreme",
+  "name": "站点信号的极值",
+  "type": "SignalExtremeDirective",
+  "desc": {
+    "author": "",
+    "comment": "站点下所有设备信号的极值",
+    "version": {
+      "0.0.1": [
+        "初始化"
+      ],
+      "0.1.0": [
+        "修改界面，增加设备的信息展示",
+        "@bingo"
+      ],
+      "0.1.1": [
+        "重新调整数据展示，只展示大于0小于100的数据",
+        "@bingo"
+      ]
+    }
+  },
+  "group": "站点组件",
+  "parameters": [
+    {
+      "id": "station",
+      "type": "string",
+      "value": "",
+      "desc": "站点ID"
+    },
+    {
+      "id": "type",
+      "type": "string",
+      "value": "",
+      "desc": "设备类型ID"
+    },
+    {
+      "id": "template",
+      "type": "string",
+      "value": "",
+      "desc": "设备模板ID"
+    },
+    {
+      "id": "signals",
+      "type": "string",
+      "value": [],
+      "desc": "需要查看的信号，只能识别两个，形式为：['temperature', 'humidity']"
+    }
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.1.1"
+}

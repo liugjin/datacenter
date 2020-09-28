@@ -1,0 +1,210 @@
+user-manager
+  .no-margin
+    margin: 0
+
+  .nav-flex-grow
+
+    a.btn
+      margin-left: .75rem
+      font-size: 14px
+      height: 40px
+      line-height: 40px
+      color: #ffffff
+
+      img
+        width: 1.2rem
+        margin: 0 .5rem 0.27rem 0
+        vertical-align: middle
+
+  .user-list
+    padding: 10px 5px
+    color: #aebdd3
+    height: 84.5vh
+    background: rgba(26, 69, 162, 0.4)
+    //margin-bottom: .75rem
+
+    .user-content
+      //height: 48rem
+      .user-table
+        font-size: 14px
+        .head-block
+          width: 1rem
+          margin: 0 auto
+    tbody
+      img
+        width: 1rem
+        text-align: center
+        margin: 0 0.5rem
+
+  [type="checkbox"]+span:not(.lever)
+    height: 19px
+    line-height: 19px
+    vertical-align: middle
+
+  [type="checkbox"].filled-in:not(:checked)+span:not(.lever):after
+    border: 2px solid #0652a2
+    height: 15px
+    width: 15px
+
+  [type="checkbox"].filled-in:checked+span:not(.lever):after
+    height: 15px
+    width: 15px
+    border: 2px solid #1467bb
+    background-color: transparent
+
+  [type="checkbox"].filled-in:checked+span:not(.lever):before
+    width: 7px
+    height: 9px
+    border-top: 2px solid transparent
+    border-left: 2px solid transparent
+    border-right: 2px solid #1467bb
+    border-bottom: 2px solid #1467bb
+
+  .modal .modal-footer .btn, .modal .modal-footer .btn-flat
+    margin: 14px 10px 0
+
+  #door-people-modal
+    z-index: 1024
+    height: calc(100% - 63px)
+    width: auto
+    max-height: 100%
+    position: fixed
+    background: rgba(72, 97, 165, 0.5)
+    top: 63px !important
+    right: 0
+    left: auto
+
+    .modal-content
+      padding: 0
+      height: calc(100%) !important
+
+      .door-people
+        width: 820px
+        height: 100%
+        float: right
+        background: #082268
+
+        .nav-top
+          padding: 0 25px
+
+          nav
+            border-bottom: 1px solid #0652a2
+
+        .nav-img
+          padding: 0 25px
+
+          .img-title
+            line-height: 18px
+            margin-bottom: 10px
+
+          .img-uploader
+            display: block
+            width: 100%
+            height: 150px
+            border: 1px solid #0652a2
+            margin: 0
+            padding: 15px
+
+            .img-image
+              display: inline-block
+              width: 35%
+              height: 100%
+              border-right: 1px solid #0652a2
+              text-align: center
+
+              .img-none
+                margin: 35px auto
+                cursor: pointer
+
+                img
+                  display: block
+                  width: 3rem
+                  height: 3rem
+                  margin: auto
+
+            .img-text-area
+              display: inline-block
+              width: 35%
+              height: 100%
+              border: 1px solid #0652a2
+              color: #e2edf2
+              resize: none
+
+            .img-btn
+              display: inline-block
+              width: 65%
+              height: 100%
+              vertical-align: top
+
+              .btn-flex
+                margin: 41px auto
+                text-align: center
+
+                .nav-flex-grow
+                  display: inline-block
+
+                  a.btn
+                    margin: 0 .5rem
+
+                  a.btn:focus
+                    background: rgba(8, 34, 104, 0.6)
+
+        .nav-item
+
+          .input-field
+            //border: 1px solid #0652a2
+            margin-top: 5px
+
+            .validate
+              height: 2rem
+              width: 100%
+              border-bottom: 0
+              text-align: center
+              margin: 0
+              box-shadow: none
+
+          .select-wrapper input.select-dropdown
+            margin: 0 auto
+            border-bottom: 0 solid #9e9e9e
+            text-align: center
+            height: 2rem
+
+          .select-wrapper .caret
+            fill: #E2EDF2
+
+  .bottom
+    margin-bottom: -0.75rem
+
+  .inline-left
+    display: inline-flex !important
+
+  .inline-right
+    display: inline
+  .eventpagination
+    position: absolute
+    bottom: 1rem
+    width: 85% !important
+    i
+      margin-top: 1px
+
+@media screen and (width: 1024px)
+  user-manager
+    .user-list
+      height: 80.5vh
+      .user-content
+        //height: 10rem
+    .eventpagination
+      width: 80% !important
+    .pagination .page-button i
+      margin-top: 4px
+    .new-table
+      thead
+        tr
+          height: 35px !important
+          line-height: 15px !important
+          th
+            font-size: 14px !important
+      tbody
+        tr
+          height: 50px !important
+          line-height: 50px !important

@@ -1,0 +1,207 @@
+.row(style="margin-top: 20px;")
+    .col.s12.m8.l8(style="padding-left: 40px;")
+        a.btn.waves-effect.waves-light.modal-trigger(href='', data-target='door-card-modal', ng-click='addCard()')
+            i.material-icons.left add
+            span 增加门卡
+
+    .col.s12.m4.l4
+        div.right.search-wrapper(style="width: 36%; margin-right: 30px;position:relative")
+            i.material-icons(style="top: 18px;left:6px;position:absolute" ) search
+            input.search-input(type="text", placeholder="搜索", ng-model="search", required style="padding: 3px 8px 3px 32px !important;")
+            i.material-icons(style="left: 202px; top: 18px;position:absolute" ng-click="search = ''; page = 1;" ng-show='search') close
+
+.row.no-margin
+    .col.s12.m12.l12
+        .collection.no-margin(style="border:0px;background-color: rgba(26, 69, 162, 0.4)")
+            table.bordered.striped.responsive-table.hoverable.highlight(style="border:0px;")
+                thead
+                    tr(style="border-bottom: 1px solid #1a45a2;background-color: rgba(26, 69, 162, 0.4)")
+                        th.center
+                            .col-header(ng-click='sortBy("card-id")')
+                                span 卡ID
+                                span.pull-right(ng-show='predicate == "card-id"') {{reverse && "▽" || "△"}}
+
+                        th.center
+                            .col-header(ng-click='sortBy("card-name")')
+                                span 卡名称
+                                span.pull-right(ng-show='predicate == "card-name"') {{ reverse && "▽" || "△"}}
+
+                        th.center
+                            .col-header(ng-click='sortBy("card-type")')
+                                span 卡种类
+                                span.pull-right(ng-show='predicate == "card-type"') {{ reverse && "▽" || "△"}}
+
+                        th.center
+                            .col-header(ng-click='sortBy("card-owner")')
+                                span 持卡人
+                                span.pull-right(ng-show='predicate == "card-owner"') {{ reverse && "▽" || "△"}}
+                        th.center
+                            .col-header(ng-click='sortBy("card-status")')
+                                span 卡状态
+                                span.pull-right(ng-show='predicate == "card-status"') {{ reverse && "▽" || "△"}}
+                        th.center
+                            .col-header(ng-click='sortBy("card-active-start-time")')
+                                span 卡有效开始时间
+                                span.pull-right(ng-show='predicate == "card-active-start-time"') {{ reverse && "▽" || "△"}}
+                        th.center
+                            .col-header(ng-click='sortBy("card-active-end-time")')
+                                span  有效结束时间
+                                span.pull-right(ng-show='predicate == "card-active-end-time"') {{reverse && "▽" || "△"}}
+
+
+                        th.center
+                            .col-header(ng-click=' sortBy("registration-time")')
+                                span 注册时间
+                                span.pull-right(ng-show=' predicate == "registration-time"') {{ reverse && "▽" || "△"}}
+                        //th.center
+                        //    .col-header(ng-click='vm.sortBy("card-describe")')
+                        //        span 备注
+                        //        span.pull-right(ng-show='vm.predicate == "card-describe"') {{vm.reverse && "▽" || "△"}}
+
+                        th.center
+                            .col-header
+                                span 操作
+
+                        //th
+                        //    .col-header(ng-click='vm.sortBy("card-describe")')
+                        //        span 员工备注
+                        //        span.pull-right(ng-show='vm.predicate == "card-describe"') {{vm.reverse && "▽" || "△"}}
+
+                        //
+                        //th
+                        //    .col-header(ng-click='vm.sortBy("card-telephone")', title='持续时长管理目标不超过1个小时')
+                        //        span 员工固定电话号码
+                        //        span.pull-right(ng-show='vm.predicate == "card-telephone"') {{vm.reverse && "▽" || "△"}}
+
+                tbody(class="highlight")
+                    //div(ng-repeat="card in cardEquips")
+                    //    span {{card.model.name}}
+                    //    span(ng-repeat="property in card.properties.items") {{property.value | }}
+                                                                    cards.pageItems : cards.pageItems* (cards.page-1)
+                    tr(style="border-bottom: 1px solid #1a45a2;" class="highlight" ng-repeat='card in cardEquips | filter: filterCard() | orderBy: cards.predicate: cards.reverse| limitTo: cards.pageItems : cards.pageItems* (cards.page-1)')
+                        //td(style="padding:10px 5px") {{event.startTime| date:'yyyy-MM-dd HH:mm:ss'}}
+                        td.center(style="padding:10px 5px") {{card.getPropertyValue('card-id')}}
+                        td.center(style="padding:10px 5px") {{card.getPropertyValue('card-name')}}
+                        td.center(style="padding:10px 5px") {{cardType[card.getPropertyValue('card-type')].name}}
+                        td.center(style="padding:10px 5px") {{getOwername(card.getPropertyValue('card-owner'))}}
+                        td.center(style="padding:10px 5px") {{cardstatus[card.getPropertyValue('card-status')].name}}
+                        td.center(style="padding:10px 5px") {{card.getPropertyValue('card-active-start-time')| date:'yyyy-MM-dd HH:mm:ss'}}
+                        td.center(style="padding:10px 5px") {{card.getPropertyValue('card-active-end-time')| date:'yyyy-MM-dd HH:mm:ss'}}
+                        td.center(style="padding:10px 5px") {{card.getPropertyValue('registration-time')| date:'yyyy-MM-dd HH:mm:ss'}}
+                        //td.center(style="padding:10px 5px") {{card.getPropertyValue('card-describe')}}
+
+                        //td.center
+                        //    a.btn-flat.waves-effect.waves-light.modal-trigger(href='', data-target='door-card-modal', ng-click='card.loadProperties();addCard(card);', title='修改门禁卡信息')
+                        //        i.material-icons.small edit
+                        td.center
+                            a.btn-flat.waves-effect.waves-light.modal-trigger(href='', data-target='door-card-modal', ng-click='selectCard(card);',style="margin-left: .75rem" class="btn modal-trigger") 编辑
+                            a.btn-flat.waves-effect.waves-light.modal-trigger(href='', ng-click='removeEquipment(card)',style="margin-left: .75rem" class="btn modal-trigger") 删除
+                            //a.btn-flat.waves-effect.waves-light.modal-trigger(href='', data-target='door-card-modal', ng-click='removeEquipment({{card.getPropertyValue("card-id")}})',style="margin-left: .75rem" class="btn modal-trigger") 删除
+
+                            //&nbsp;
+                            //a.btn.waves-effect.waves-light.modal-trigger(href='', data-target='event-info-modal', ng-click='vm.selectEvent(event)')
+                            //    | 删除
+
+
+            span.left(style="padding:1rem 1rem", ng-show="vm.filterStationEvents().items > 0") 记录数：{{vm.filterStationEvents().items}}
+            span.left(style="padding:1rem 1rem", ng-show="vm.cards.items  > 0") 记录数：{{vm.cards.items }}
+            ul.pagination.right(ng-show='vm.filterStationEvents().pageCount > 1', ng-cloak)
+                li(ng-class='{disabled: vm.cards.page <= 1, "waves-effect": vm.cards.page > 1}', ng-click='vm.cards.page>1?(vm.cards.page = vm.cards.page - 1):0')
+                    a(href='', ng-class="{'black-text':vm.cards.page > 1}")
+                        i.material-icons chevron_left
+
+                li(ng-class='{active: page == vm.cards.page, "waves-effect": page != vm.cards.page}', ng-repeat='page in vm.filterStationEvents().pages', ng-click='vm.cards.page=page' ng-if="(page>(vm.cards.page-4)&&page<(vm.cards.page+4))||page==1||page==vm.filterStationEvents().pageCount")
+                    a(style="color:#00a856;",href='')
+                        | {{((page>(vm.cards.page-3)&&page<(vm.cards.page+3))||page==1||page==vm.filterStationEvents().pageCount) ? page:".."}}
+
+                li(ng-class='{disabled: vm.cards.page >= vm.filterStationEvents().pageCount, "waves-effect": vm.cards.page < vm.filterStationEvents().pageCount}', ng-click='vm.cards.page<vm.filterStationEvents().pageCount?(vm.cards.page = vm.cards.page + 1):0')
+                    a(href='', ng-class="{'black-text':vm.cards.page < vm.filterStationEvents().pageCount}")
+                        i.material-icons chevron_right
+//include ./doormanager/door-card.html.jade
+//-
+    User: region
+    Date: 20180507
+    Desc:
+
+#door-card-modal.modal.modal-fixed-footer(md-modal)
+    .modal-content
+        .row
+            .input-field.col.s12.m6.l6
+                label.active 卡种类
+                select(md-select, ng-model='data.cardtype', ng-change='' ng-options='card.type as card.name for card in cardType')
+
+            .input-field.col.s12.m6.l6(ng-show="!data.add")
+                //input#card-id-input.validate(type='text', ng-model='vm.currentcard.cardid', ng-disabled='vm.currentcard._id',ng-click="vm.inputSelectAll($event)")
+                input#card-id-input.validate(type='text' ng-model='data.cardid' ng-click="vm.inputSelectAll($event)" )
+                label(ng-class='{active: data.cardid}') 卡ID
+
+            .input-field.col.s12.m6.l2(ng-show="data.add")
+                //input#card-id.validate(type='text', ng-model='vm.currentcard.cardid', ng-disabled='vm.currentcard._id',ng-click="vm.inputSelectAll($event)")
+                input#card-id.validate(type='text', ng-model='data.cardid'  ng-click="vm.inputSelectAll($event)" )
+                label(ng-class='{active: data.cardid}') 卡ID
+
+            .input-field.col.s12.m6.l2(ng-show="data.add")
+                label.active 发卡器
+                select(md-select, ng-model='data.sendCard', ng-change='', ng-options='property.id as property.name for property in sendCardOptions')
+
+            .input-field.col.s12.m6.l2(ng-show="data.add")
+                a.waves-effect.waves-light.btn(href='' ng-click='vm.getCardNumber()') 获取卡号
+
+            .input-field.col.s12.m6.l6
+                input.validate(type='text', ng-model='data.cardname')
+                label(ng-class='{active: data.cardname}') 卡名称
+
+            .input-field.col.s12.m6.l6
+                label.active 持卡人
+                select(md-select, ng-model='data.cardowner', ng-change='', ng-options='property.id  as property.name for property in peoplesselectoptions')
+
+            .input-field.col.s12.m6.l6
+                label.active 卡状态
+                select(md-select, ng-model='data.cardstatus', ng-change='', ng-options='card.type as card.name for card in cardstatus')
+
+
+            .input-field.col.s12.m6.l6
+                //input.validate(type='text', ng-model='vm.currentcard.registrationtime')
+                //label(ng-class='{active: vm.currentcard.registrationtime}')
+                i.material-icons.prefix today
+                input.validate(type='date', input-format, ng-model='data.registrationtime')
+                label(ng-class='{active: vm.currentcard.registrationtime}') 注册时间
+
+            .input-field.col.s12.m6.l6
+                i.material-icons.prefix today
+                input.validate(type='date', input-format, ng-model='data.cardactivestarttime')
+                label(ng-class='{active: vm.currentcard.cardactivestarttime}') 有效开始时间
+            .input-field.col.s12.m6.l6
+                i.material-icons.prefix today
+                input.validate(type='date', input-format, ng-model='data.cardactiveendtime')
+                label(ng-class='{active: vm.currentcard.cardactiveendtime}') 有效结束时间
+
+
+            .input-field.col.s12.m6.l6
+                textarea.validate.materialize-textarea(type='text', ng-model='data.carddescribe')
+                label(ng-class='{active: data.carddescribe}') 备注
+
+
+    .modal-footer.modal-nav
+        nav.teal(ng-class='mvm.setting.theme')
+            .nav-wrapper
+                ul
+
+                    li
+                        a(ng-click='saveEquipment()')
+                            i.material-icons.left save
+                            span.hide-on-med-and-down 保存
+                    //li(ng-show='cardSelected == true')
+                    //    a(ng-click='removeEquipment()')
+                    //        i.material-icons.left delete
+                    //        span.hide-on-med-and-down 删除
+                    ul.right
+                        li
+                            a.modal-action.modal-close(href='')
+                                i.material-icons.left close
+                                span.hide-on-med-and-down 关闭
+
+
+
+//include ./modals/equipment-modal-card.html.jade
+prompt-modal(options='vm.promptModel')

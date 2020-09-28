@@ -1,0 +1,6 @@
+discovery-station-management .content {
+  height: 50vh;
+  overflow: auto; }
+
+discovery-station-management table tr th, discovery-station-management table tr td {
+  text-align: center; }

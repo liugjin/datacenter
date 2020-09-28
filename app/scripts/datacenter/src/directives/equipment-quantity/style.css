@@ -1,0 +1,56 @@
+equipment-quantity {
+  display: block;
+  background-color: rgba(7, 27, 85, 0.5); }
+  equipment-quantity .big-box {
+    position: relative;
+    height: 24vh; }
+    equipment-quantity .big-box .line-col {
+      position: absolute;
+      width: calc(100% - 1px);
+      margin-top: 20px;
+      height: calc(100% - 40px);
+      border: 1px solid #082268;
+      border-top: none;
+      border-bottom: none; }
+    equipment-quantity .big-box .line-row {
+      position: absolute;
+      height: 100%;
+      margin-left: 20px;
+      width: calc(100% - 40px);
+      border: 1px solid #082268;
+      border-left: none;
+      border-right: none; }
+    equipment-quantity .big-box .box {
+      padding: 1rem;
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      color: #e2edf2;
+      background: url("~images/left-on.png~") 0 0 no-repeat, url("~images/left-under.png~") 0 100% no-repeat, url("~images/right-on.png~") calc(100% - 1px) 0 no-repeat, url("~images/right-under.png~") calc(100% - 1px) 100% no-repeat; }
+      equipment-quantity .big-box .box .title {
+        background: url("~images/title-img.png~") center no-repeat;
+        text-align: center;
+        color: #2a89ee;
+        font-size: 1.2rem; }
+      equipment-quantity .big-box .box .content {
+        padding-top: .5vh;
+        height: 18vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly; }
+        equipment-quantity .big-box .box .content .content-num {
+          color: #2a89ee;
+          border: 1px solid #082268;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly; }
+          equipment-quantity .big-box .box .content .content-num .img-box {
+            height: 3rem; }
+          equipment-quantity .big-box .box .content .content-num .equipment-length {
+            margin-bottom: -1rem;
+            color: #e2edf2; }
+          equipment-quantity .big-box .box .content .content-num .signal-name {
+            color: #fff;
+            font-size: .75rem; }

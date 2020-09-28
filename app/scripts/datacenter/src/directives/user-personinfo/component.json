@@ -1,0 +1,42 @@
+{
+  "id": "user-personinfo",
+  "name": "用户个人信息控件",
+  "type": "UserPersoninfoDirective",
+  "desc": {
+    "author": "James",
+    "comment": "用户个人信息控件",
+    "version": {
+      "0.0.1": [
+        "初始化"
+      ],
+      "0.0.3": [
+        "json文件更新", "去除删除功能", "@bingo"
+      ],
+      "0.0.4": [
+        "样式调整", "@Murray"
+      ],
+      "0.0.5": [
+        "样式调整", "@Billy"
+      ],
+      "0.0.6": [
+        "修正用户信息的电话验证，密码验证等bug", "@Albert"
+      ],
+      "0.0.7": [
+        "适配1024*768分辨率", "@vera"
+      ],
+      "0.0.8": [
+        "优化按钮细节，更改选择用户类型的方式", "@murray"
+      ]
+    }
+  },
+  "group": "模块组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "css": "",
+  "version": "0.0.8"
+}

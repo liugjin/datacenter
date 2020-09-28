@@ -1,0 +1,32 @@
+{
+  "id": "pue",
+  "name": "能源效率",
+  "type": "PueDirective",
+  "desc": {
+    "author":"Billy",
+    "desc":"能源效率，主要显示pue值",
+    "version":{
+      "0.0.1":[
+      ],
+      "0.0.2":[
+        "更新样式"
+      ],
+      "0.0.3":[
+        "修改样式", "@bingo"
+      ],
+      "0.0.4":[
+        "更新页面标准化样式", "@Albert"
+      ]
+    }
+  },
+  "group": "模块组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "css": "",
+  "version": "0.0.4"
+}

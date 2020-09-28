@@ -1,0 +1,22 @@
+.row.nav-top
+    .col.s2
+        span {{ parameters.headerName || "时间管理"}}
+.time-manage
+    .time-manage-header 当前系统时间：{{serviceTime}}
+    //- 后端newDate
+    .time-manage-list
+        span.manage-title 当前本地时间：
+        span {{webTime}}
+        //- 前端newDate
+        .btn.btn-style(ng-click="syncTime()")
+            span 时间同步
+            //- 点击时间同步,把前端的时间传给后端,后端执行linux类似date-s的命令
+            i.material-icons av_timer
+    .time-manage-list
+        span.manage-title 输入NTP服务器IP:
+        input.input-NTPIP(type="text" ng-model="ntpip", placeholder="格式示例：127.0.0.1")
+        .btn.btn-style(ng-click="saveNTPIP()")
+            span 保存
+            //- 点击保存,后端执行类似ntpip的命令
+            i.material-icons save
+

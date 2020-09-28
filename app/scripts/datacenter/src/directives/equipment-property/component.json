@@ -1,0 +1,47 @@
+{
+  "id": "equipment-property",
+  "name": "EquipmentProperty控件",
+  "type": "EquipmentPropertyDirective",
+  "desc": {
+    "author": "James",
+    "comment": "设备属性信息组件",
+    "version": {
+      "0.0.1": [
+      ],
+      "0.0.2": [
+      ],
+      "0.0.3": [
+        "修改样式", "@bingo"
+      ],
+      "0.0.4": [
+        "修改样式 --将内容框只显示底部边界", "@James"
+      ],
+      "0.0.5": [
+        "修改样式 -- 字体大小修改为14px", "@bingo"
+      ],
+      "0.0.6": [
+        "更新页面标准化样式", "@Albert"
+      ],
+      "0.0.7": [
+        "更新页面标准化样式,并适配1024*768分辨率", "@vera"
+      ],
+      "0.0.8": [
+        "适配1400以下分辨率", "@vera"
+      ],
+      "0.0.9": [
+        "增加异步刷新页面", "@James"
+      ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.9"
+}

@@ -1,0 +1,219 @@
+asset-detail .asset-detail-box {
+  color: #E2EDF2; }
+  asset-detail .asset-detail-box .icon-circle {
+    width: 11px;
+    height: 11px;
+    background-color: #4DB1E5;
+    display: inline-block;
+    border-radius: 50%;
+    left: 0.75rem; }
+  asset-detail .asset-detail-box .asset-detail-jumpItem {
+    position: relative;
+    background-color: rgba(26, 69, 162, 0.4);
+    padding: 0rem 0.75rem 0 0;
+    height: 79vh; }
+    asset-detail .asset-detail-box .asset-detail-jumpItem ul {
+      margin: 14px 0px; }
+      asset-detail .asset-detail-box .asset-detail-jumpItem ul li {
+        cursor: pointer;
+        height: 36px;
+        line-height: 36px; }
+        asset-detail .asset-detail-box .asset-detail-jumpItem ul li .icon-circle {
+          margin: 0 1rem; }
+      asset-detail .asset-detail-box .asset-detail-jumpItem ul li.active {
+        background-color: #1746A2; }
+        asset-detail .asset-detail-box .asset-detail-jumpItem ul li.active .icon-circle {
+          background-color: #72EB80; }
+    asset-detail .asset-detail-box .asset-detail-jumpItem .popout-collection {
+      position: absolute;
+      top: 50%;
+      margin-top: -25%; }
+      asset-detail .asset-detail-box .asset-detail-jumpItem .popout-collection .popout-btn {
+        cursor: pointer;
+        margin: 0px auto 10px auto;
+        height: 36px;
+        line-height: 36px;
+        width: 150px;
+        text-align: center;
+        background-color: #1746A2; }
+  asset-detail .asset-detail-box .asset-detail-edit .asset-detail-list, asset-detail .asset-detail-box .asset-detail-info .asset-detail-list {
+    overflow: auto;
+    height: 79vh; }
+    asset-detail .asset-detail-box .asset-detail-edit .asset-detail-list .asset-list-header, asset-detail .asset-detail-box .asset-detail-info .asset-detail-list .asset-list-header {
+      height: 36px;
+      line-height: 36px;
+      border-bottom: 1px solid #0050A0;
+      margin-bottom: 20px; }
+      asset-detail .asset-detail-box .asset-detail-edit .asset-detail-list .asset-list-header .icon-circle, asset-detail .asset-detail-box .asset-detail-info .asset-detail-list .asset-list-header .icon-circle {
+        margin-right: 1rem; }
+  asset-detail .asset-detail-box .asset-detail-edit .asset-list-main .asset-list, asset-detail .asset-detail-box .asset-detail-info .asset-list-main .asset-list {
+    margin-bottom: 10px;
+    margin-left: 0px;
+    margin-right: 0px; }
+    asset-detail .asset-detail-box .asset-detail-edit .asset-list-main .asset-list .input-field, asset-detail .asset-detail-box .asset-detail-info .asset-list-main .asset-list .input-field {
+      height: 43px;
+      line-height: 43px; }
+      asset-detail .asset-detail-box .asset-detail-edit .asset-list-main .asset-list .input-field.file-height, asset-detail .asset-detail-box .asset-detail-info .asset-list-main .asset-list .input-field.file-height {
+        line-height: normal;
+        height: auto; }
+      asset-detail .asset-detail-box .asset-detail-edit .asset-list-main .asset-list .input-field.image-height, asset-detail .asset-detail-box .asset-detail-info .asset-list-main .asset-list .input-field.image-height {
+        line-height: normal;
+        height: auto; }
+        asset-detail .asset-detail-box .asset-detail-edit .asset-list-main .asset-list .input-field.image-height .img-uploader, asset-detail .asset-detail-box .asset-detail-info .asset-list-main .asset-list .input-field.image-height .img-uploader {
+          width: auto; }
+      asset-detail .asset-detail-box .asset-detail-edit .asset-list-main .asset-list .input-field .select-wrapper input, asset-detail .asset-detail-box .asset-detail-info .asset-list-main .asset-list .input-field .select-wrapper input {
+        height: 43px;
+        line-height: 43px;
+        text-align: left;
+        text-indent: 10px; }
+    asset-detail .asset-detail-box .asset-detail-edit .asset-list-main .asset-list .validate, asset-detail .asset-detail-box .asset-detail-info .asset-list-main .asset-list .validate {
+      font-size: 14px;
+      text-indent: 10px;
+      margin: 0px; }
+    asset-detail .asset-detail-box .asset-detail-edit .asset-list-main .asset-list .card-image, asset-detail .asset-detail-box .asset-detail-info .asset-list-main .asset-list .card-image {
+      float: right;
+      height: 200px; }
+      asset-detail .asset-detail-box .asset-detail-edit .asset-list-main .asset-list .card-image .card-img-placeholder, asset-detail .asset-detail-box .asset-detail-info .asset-list-main .asset-list .card-image .card-img-placeholder {
+        background-color: rgba(26, 69, 162, 0.4); }
+  asset-detail .asset-detail-box .asset-list-text, asset-detail .asset-detail-box .asset-list-info {
+    height: 43px;
+    line-height: 43px; }
+    asset-detail .asset-detail-box .asset-list-text span, asset-detail .asset-detail-box .asset-list-info span {
+      color: #FF5F3D; }
+  asset-detail .asset-detail-box .asset-list-info {
+    border: 1px solid #0050A0; }
+  asset-detail .asset-detail-box .asset-detail-nav {
+    padding: 0.75rem; }
+    asset-detail .asset-detail-box .asset-detail-nav .assets-detail-btn {
+      margin-right: 1.5rem;
+      cursor: pointer;
+      font-size: 14px;
+      height: 34px;
+      line-height: 34px;
+      border: 1px solid #10EBF4;
+      background-color: rgba(26, 69, 162, 0.4);
+      color: #ffffff;
+      display: inline-block;
+      padding: 0 1.5rem; }
+      asset-detail .asset-detail-box .asset-detail-nav .assets-detail-btn .icon-back, asset-detail .asset-detail-box .asset-detail-nav .assets-detail-btn .icon-edit, asset-detail .asset-detail-box .asset-detail-nav .assets-detail-btn .icon-look {
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-right: 0.5rem;
+        background-position-y: center;
+        height: 20px;
+        vertical-align: middle; }
+      asset-detail .asset-detail-box .asset-detail-nav .assets-detail-btn .icon-back {
+        width: 15px;
+        background-image: url("~img/back.svg~"); }
+      asset-detail .asset-detail-box .asset-detail-nav .assets-detail-btn .icon-edit {
+        width: 20px;
+        background-image: url("~img/edit.svg~"); }
+      asset-detail .asset-detail-box .asset-detail-nav .assets-detail-btn .icon-look {
+        width: 20px;
+        background-image: url("~img/look.svg~"); }
+    asset-detail .asset-detail-box .asset-detail-nav .asset-detail-search {
+      position: relative;
+      width: 20rem; }
+      asset-detail .asset-detail-box .asset-detail-nav .asset-detail-search .zoom, asset-detail .asset-detail-box .asset-detail-nav .asset-detail-search .empty {
+        position: absolute;
+        height: 34px;
+        line-height: 34px; }
+      asset-detail .asset-detail-box .asset-detail-nav .asset-detail-search .zoom {
+        left: 5px; }
+      asset-detail .asset-detail-box .asset-detail-nav .asset-detail-search .empty {
+        top: 0px;
+        right: 5px; }
+      asset-detail .asset-detail-box .asset-detail-nav .asset-detail-search .search-input {
+        margin: 0;
+        text-indent: 32px;
+        height: 34px;
+        border-radius: 3px;
+        line-height: 34px;
+        font-size: 14px; }
+  asset-detail .asset-detail-box .popout-masking {
+    position: fixed;
+    left: 0px;
+    z-index: 9999;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    asset-detail .asset-detail-box .popout-masking .icon-close, asset-detail .asset-detail-box .popout-masking .icon-operate {
+      cursor: pointer;
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-size: contain;
+      vertical-align: middle;
+      margin-right: 5px; }
+    asset-detail .asset-detail-box .popout-masking .popout-box {
+      display: flex;
+      justify-content: flex-start;
+      width: 80%; }
+      asset-detail .asset-detail-box .popout-masking .popout-box .popout-left {
+        height: 70vh;
+        margin-right: 15px;
+        background-color: rgba(26, 69, 162, 0.5); }
+        asset-detail .asset-detail-box .popout-masking .popout-box .popout-left .popout-header {
+          padding: 0 20px;
+          height: 62px;
+          line-height: 62px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center; }
+          asset-detail .asset-detail-box .popout-masking .popout-box .popout-left .popout-header .icon-close {
+            width: 37px;
+            height: 37px;
+            background-image: url("~img/close.svg~"); }
+        asset-detail .asset-detail-box .popout-masking .popout-box .popout-left .popout-main {
+          height: 62vh;
+          overflow: auto; }
+          asset-detail .asset-detail-box .popout-masking .popout-box .popout-left .popout-main thead {
+            background-color: #47a6f8; }
+          asset-detail .asset-detail-box .popout-masking .popout-box .popout-left .popout-main .status {
+            cursor: default;
+            width: 76px;
+            height: 26px;
+            margin: 0 auto;
+            background: #e9b943;
+            line-height: 26px;
+            border-radius: 13px; }
+          asset-detail .asset-detail-box .popout-masking .popout-box .popout-left .popout-main .status.statusUsed {
+            background-color: #32ca59; }
+          asset-detail .asset-detail-box .popout-masking .popout-box .popout-left .popout-main .input-field {
+            margin-top: 0px;
+            margin-bottom: 0px; }
+            asset-detail .asset-detail-box .popout-masking .popout-box .popout-left .popout-main .input-field ul {
+              background-color: #1a45a2; }
+          asset-detail .asset-detail-box .popout-masking .popout-box .popout-left .popout-main .icon-operate {
+            width: 18px;
+            height: 22px;
+            background-image: url("~img/operate.svg~"); }
+      asset-detail .asset-detail-box .popout-masking .popout-box .popout-right {
+        position: relative;
+        height: 45vh;
+        width: 25%;
+        background-color: rgba(26, 69, 162, 0.5); }
+        asset-detail .asset-detail-box .popout-masking .popout-box .popout-right .popout-main {
+          margin-top: 5vh; }
+          asset-detail .asset-detail-box .popout-masking .popout-box .popout-right .popout-main ul {
+            background-color: #1a45a2; }
+        asset-detail .asset-detail-box .popout-masking .popout-box .popout-right .popout-footer {
+          width: 100%;
+          display: flex;
+          justify-content: space-around;
+          position: absolute;
+          bottom: 3vh; }
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 8px; }
+
+::-webkit-scrollbar-track {
+  background-color: rgba(26, 69, 162, 0.4); }
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 231, 238, 0.4); }

@@ -1,0 +1,13 @@
+.big-box
+    .line-col
+    .line-row
+    .box
+        .title 电力
+        .content
+            .content-num(ng-repeat="equipment in showEquipment")
+                a(ng-href='#/monitoring/{{project.model.user}}/{{project.model.project}}?equipmentType={{equipment.id}}')
+                    .img-box
+                        img(ng-src="{{equipment.imgUrl}}")
+                    .equipment-name {{equipment.name}}
+                    .equipment-length {{equipment.length}}
+                    img(ng-src="{{getComponentPath('images/bg.png')}}")

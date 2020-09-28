@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.0" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 150 150" style="enable-background:new 0 0 150 150;" xml:space="preserve">
+<g>
+	<rect x="20.87" y="0" style="fill:#9E9E9E;" width="7.48" height="150"/>
+	<rect x="123.42" y="0" style="fill:#9E9E9E;" width="7.48" height="150"/>
+	<rect x="20.87" y="0" style="fill:#9E9E9E;" width="110.05" height="7.5"/>
+	<rect x="20.92" y="142.5" style="fill:#9E9E9E;" width="110" height="7.5"/>
+	<rect x="20.92" y="32.5" style="fill:#9E9E9E;" width="110" height="7.5"/>
+	<rect x="20.89" y="110" style="fill:#9E9E9E;" width="110" height="7.5"/>
+	<g>
+		<circle style="fill:#9E9E9E;" cx="43.09" cy="20" r="3.75"/>
+		<circle style="fill:#9E9E9E;" cx="75.59" cy="20" r="3.75"/>
+		<circle style="fill:#9E9E9E;" cx="108.09" cy="20" r="3.75"/>
+	</g>
+	<g>
+		<circle style="fill:#9E9E9E;" cx="43.09" cy="130" r="3.75"/>
+		<circle style="fill:#9E9E9E;" cx="75.59" cy="130" r="3.75"/>
+		<circle style="fill:#9E9E9E;" cx="108.09" cy="130" r="3.75"/>
+	</g>
+	<g>
+		<rect x="48.02" y="82.5" style="fill:#9E9E9E;" width="20" height="7.5"/>
+		<path style="fill:#9E9E9E;" d="M58.02,55c-5.52,0-10,4.47-10,10s4.48,10,10,10s10-4.47,10-10S63.54,55,58.02,55z M58.02,67.5
+			c-1.38,0-2.5-1.13-2.5-2.5c0-1.38,1.12-2.5,2.5-2.5s2.5,1.13,2.5,2.5C60.52,66.38,59.42,67.5,58.02,67.5z"/>
+	</g>
+	<g>
+		<rect x="83.19" y="82.5" style="fill:#9E9E9E;" width="20" height="7.5"/>
+		<path style="fill:#9E9E9E;" d="M93.19,55c-5.53,0-10,4.47-10,10s4.47,10,10,10c5.52,0,10-4.47,10-10S98.69,55,93.19,55z
+			 M93.19,67.5c-1.38,0-2.5-1.13-2.5-2.5c0-1.38,1.12-2.5,2.5-2.5c1.37,0,2.5,1.13,2.5,2.5C95.69,66.38,94.57,67.5,93.19,67.5z"/>
+	</g>
+</g>
+</svg>

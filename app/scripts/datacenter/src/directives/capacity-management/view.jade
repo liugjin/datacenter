@@ -1,0 +1,36 @@
+.big-box
+    .line-col
+    .line-row
+    .box
+        .title 资产管理
+        .content.flex
+            .flex-left.flex
+                .box-circle
+                    .circle-logo
+                        img(ng-src="{{getComponentPath('images/cooling.png')}}")
+                    .circle-name {{showSignal[0].name || '-'}}
+                    .circle-num {{showSignal[0].data.formatValue || '-'}}
+                .box-circle
+                    .circle-logo
+                        img(ng-src="{{getComponentPath('images/power.png')}}")
+                    .circle-name {{showSignal[1].name|| '-'}}
+                    .circle-num {{showSignal[1].data.formatValue || '-'}}
+
+            .flex-mid.flex
+                .box-circle
+                    .circle-logo
+                        img(ng-src="{{getComponentPath('images/power.png')}}")
+                    .circle-name {{showSignal[2].name|| '-'}}
+                    .circle-num {{showSignal[2].data.formatValue || '-'}}
+
+            .flex-right.flex
+                .box-circle
+                    .circle-logo
+                        img(ng-src="{{getComponentPath('images/power.png')}}")
+                    .circle-name {{showSignal[3].name|| '-'}}
+                    .circle-num {{showSignal[3].data.formatValue || '-'}}
+                .box-circle
+                    .circle-logo
+                        img(ng-src="{{getComponentPath('images/power.png')}}")
+                    .circle-name {{showSignal[4].name|| '-'}}
+                    .circle-num {{showSignal[4].data.formatValue}}

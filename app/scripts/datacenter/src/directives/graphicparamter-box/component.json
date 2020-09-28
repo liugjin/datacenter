@@ -1,0 +1,32 @@
+{
+  "id": "graphicparamter-box",
+  "name": "GraphicparamterBox控件",
+  "type": "GraphicparamterBoxDirective",
+  "desc": {
+    "author": "James",
+    "comment": "带参数组态图形自定义组件",
+    "version": {
+      "0.0.1": [],
+      "0.0.2": ["James---处理组态传参问题"],
+      "0.0.3": ["James---解决组态重复加载"],
+      "0.0.4": ["修复组态初始加载时数据可能加载不出来的问题", "@David"],
+      "0.0.5": ["修复页面切换, 组态加载不出来的问题", "@youge"],
+      "0.0.6": ["适配1400以下分辨率,组态图大小问题", "@vera"],
+      "0.0.7": ["组态图高度改成68vh", "@region"],
+      "0.0.8": ["全屏操作时,组态里面的内容也可以进行全屏", "@foam"],
+      "0.0.9": ["全屏时无法居中放大的bug", "@foam"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+    {"id":"templateId","type":"String","value":""},
+    {"id":"templateParameters","type":"Json","value":{}}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.9"
+}

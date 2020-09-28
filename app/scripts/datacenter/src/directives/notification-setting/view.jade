@@ -1,0 +1,199 @@
+
+.row.nav-top
+    .col.s2
+        span 告警通知配置
+    .col.s10
+.row
+    .col.l12
+        .cool-content
+            .basic-configuration
+                .basic-title
+                    span 基础服务配置
+                .basic-content
+                    a.btn.modal-trigger(href='#mail-modal',title="邮件服务器配置") 邮件服务器配置
+                    a.btn.modal-trigger(href='#sms-modal',style="margin-left: 32px",title="短信猫配置") 短信猫配置
+            .content-selection
+                .notification-method
+                    .notification-selection(ng-repeat="item in categories",ng-click="cates_chan(item.type)",ng-class="{'select-style':cate==item.type,'uncheck-style':cate!=item.type}")
+                        .iocn-title
+                            img(src="{{item.imgUrl}}" width="22px",height="22x")
+                            span {{item.name}}
+                        .right-iocn
+                            img.right(src="{{getComponentPath('images/right.svg')}}" width="22px",height="22x")
+                .notification-configure
+                    .notification-content
+                        .single-content
+                            .configure-title
+                                .cool-choice
+                                    label
+                                        input(type="checkbox", class="filled-in" value="",ng-model="allUsers",checked="{{allUsers}}",ng-change="selectAll('users', 'allUsers')")
+                                        span 选择用户
+                            .con-content
+                                .cool-choice(ng-repeat="item in users")
+                                    label
+                                        input(type="checkbox", class="filled-in" ng-model="item.checked",checked="item.checked",value="{{item.id}}", ng-change="checkAll(item,'users','allUsers')")
+                                        span {{item.name}}
+
+                        //- .single-content
+                        //-     .configure-title
+                        //-         .cool-choice
+                        //-             label
+                        //-                 input(type="checkbox", class="filled-in" value="",ng-model="allStations",checked="{{allStations}}",ng-change="selectAll('stations', 'allStations')")
+                        //-                 span 选择站点
+                        //-     .con-content
+                        //-         .cool-choice(ng-repeat="item in stations")
+                        //-             label
+                        //-                 input(type="checkbox", class="filled-in" ng-model="item.checked",checked="item.checked",value="{{item.id}}", ng-change="checkAll(item,'stations', 'allStations')")
+                        //-                 span {{item.name}}
+
+                        .single-content
+                            .configure-title
+                                .cool-choice
+                                    label
+                                        input(type="checkbox", class="filled-in" value="",ng-model="allTypes",checked="{{allTypes}}",ng-change="selectAll('types', 'allTypes')")
+                                        span 选择设备类型
+                            .con-content
+                                .cool-choice(ng-repeat="item in types",ng-if="item.id !='Facility' && item.id !='_SMS' && item.id !='_station_management'")
+                                    label
+                                        input(type="checkbox", class="filled-in" ng-model="item.checked",checked="item.checked",value="{{item.id}}", ng-change="checkAll(item,'types','allTypes')")
+                                        span {{item.name}}
+
+
+                        //- .single-content
+                        //-     .configure-title
+                        //-         .cool-choice
+                        //-             label
+                        //-                 input(type="checkbox", class="filled-in" value="",ng-model="equipment_all_select",checked="{{equipment_all_select}}",ng-change="equipment_all_select_chan()")
+                        //-                 span 选择设备
+                        //-     .con-content
+                        //-         .cool-choice(ng-repeat="item in equipments")
+                        //-             label
+                        //-                 iinput(type="checkbox", class="filled-in" ng-model="item.checked",checked="item.checked",value="{{item.id}}",ng-change="equipment_select_chan()")
+                        //-                 span {{item.name}}
+
+                        .single-content
+                            .configure-title
+                                .cool-choice
+                                    label
+                                        input(type="checkbox", class="filled-in" value="",ng-model="allSeverities",checked="{{allSeverities}}",ng-change="selectAll('severities', 'allSeverities')")
+                                        span 选择事件等级
+                            .con-content
+                                .cool-choice(ng-repeat="item in severities")
+                                    label
+                                        input(type="checkbox", class="filled-in" ng-model="item.checked",checked="item.checked",value="{{item.id}}", ng-change="checkAll(item,'severities','allSeverities')")
+                                        span {{item.name}}
+
+                        .single-content
+                            .configure-title
+                                .cool-choice
+                                    label
+                                        //- input(type="checkbox", class="filled-in" value="",ng-model="allPhases",checked="{{allPhases}}",ng-change="selectAll('phases', 'allPhases')")
+                                        span 事件阶段
+                            .con-content
+                                .cool-choice(ng-repeat="item in phases",ng-if="item.id=='start' || item.id=='end'")
+                                    label
+                                        input(type="checkbox", class="filled-in" ng-model="item.checked",checked="item.checked",value="{{item.id}}", ng-change="checkAll(item,'phases','allPhases')")
+                                        span {{item.name}}
+
+                        .single-content
+                            .configure-title
+                                .cool-choice
+                                    label
+                                        span 通知格式
+                            .con-content(ng-show="cate =='email'")
+                                .cool-choice(ng-repeat="item in formats")
+                                    label
+                                        input(type="checkbox", class="filled-in" value="",ng-model="item.checked",checked="{{item.checked}}",ng-disabled="{{item.disabled}}")
+                                        span {{item.name}}
+                            .con-content(ng-show="cate !='email'")
+                                .cool-choice(ng-repeat="item in formats",ng-if="item.id !='station' && item.id !='startTime'")
+                                    label
+                                        input(type="checkbox", class="filled-in" value="",ng-model="item.checked",checked="{{item.checked}}",ng-disabled="{{item.disabled}}")
+                                        span {{item.name}}
+                        
+                    .notification-preserve
+                        a.btn(ng-click="save()",title="保存告警规则")
+                            span 保存
+
+//- 邮件配置
+#mail-modal.modal(md-modal)
+    .row.nav-top(style="height:50px;line-height:50px;margin:0")
+        .col.s12.m12.l12.modal-head
+            .modal-name
+                span 邮件服务配置
+            .close-modal.modal-close
+                i.material-icons close
+
+    .modal-content
+        .cat-basic(style="margin-bottom: 14px")
+            .cat-title 基础配置
+            .cat-content
+                .built-content(style="height:100%")
+                    .input-box(style="height:20%")
+                        label(style="width:30%") 邮件服务器：
+                        input.validate.input-new-css(type='text' ng-model='mail.options.host')
+                        label.color-txt(style="text-align: center") 输入邮件服务器域名或IP地址
+                    .input-box(style="height:20%")
+                        label(style="width:30%") 用户名：
+                        input.validate.input-new-css(type='text' ng-model='mail.options.auth.user')
+                        label.color-txt(style="text-align: center") 输入邮件用户名
+                    .input-box(style="height:20%")
+                        label(style="width:30%") 密码：
+                        input.validate.input-new-css(type='password' ng-model='mail.options.auth.pass')
+                        label.color-txt(style="text-align: center") 密码需与邮件用户名和邮件服务器匹配
+                    .input-box(style="height:20%")
+                        label(style="width:30%") 发件端口：
+                        input.validate.input-new-css(type='text' ng-model='mail.options.port')
+                        label.color-txt(style="text-align: center") 默认465，建议不修改
+                    .input-box(style="justify-content:flex-start;height:20%")
+                        a.btn(ng-click="saveMail()",title="保存邮件服务器配置") 保存
+
+        .sms-test
+            .sms-title 邮件发送测试
+            .sms-contentr
+                .input-box
+                    label(style="width:14%") 收件账号：
+                    input.validate.input-new-css(type='text' ng-model='email' style="width:44%")
+                    a.btn(ng-click="test(email, 'email')",title="测试邮件发送功能",style="margin-left:54px;height:2.4rem")
+                        span 单击测试
+
+
+//- 短信猫
+#sms-modal.modal(md-modal)
+    .row.nav-top(style="height:50px;line-height:50px;margin:0")
+        .col.s12.m12.l12.modal-head
+            .modal-name
+                span 短信猫配置
+            .close-modal.modal-close
+                i.material-icons close
+    .modal-content
+        .cat-basic
+            .cat-title 基础配置
+            .cat-content
+                //- .built-module
+                //-     label
+                //-        input(type="checkbox", class="filled-in" ng-model="innerSms",checked="innerSms",value="{{innerSms}}")
+                //-        span 使用内置短信模块
+                .built-content
+                    .input-box
+                        label(style="width:30%") 端口号：
+                        input.validate.input-new-css(type='text' ng-model='sms.options.port', ng-disabled="innerSms", ng-class="{'grey darken-1': innerSms}")
+                        label.color-txt(style="text-align: center") 短信猫输入到网关上的端口号
+                    .input-box
+                        label(style="width:30%") 波特率：
+                        input.validate.input-new-css(type='text' ng-model='sms.options.baudRate', ng-disabled="innerSms", ng-class="{'grey darken-1': innerSms}")
+                        label.color-txt(style="text-align: center") 短信猫的通讯波特率
+                    .input-box
+                        label(style="width:30%") SCA：
+                        input.validate.input-new-css(type='text' ng-model='sms.options.sca', ng-disabled="innerSms", ng-class="{'grey darken-1': innerSms}")
+                        label.color-txt(style="text-align: center") 运营商短信中心号码
+                    .input-box(style="justify-content:flex-start")
+                        a.btn(ng-click="saveSMS()",title="保存短信配置") 保存
+        .sms-test
+            .sms-title 短信发送测试
+            .sms-contentr
+                .input-box
+                    label(style="width:14%") 手机号：
+                    input.validate.input-new-css(type='text' ng-model='phone',style="width:44%")
+                    a.btn(ng-click="test(phone, 'sms')",title="测试短信功能",style="margin-left:54px;height:2.4rem")
+                        span 单击测试

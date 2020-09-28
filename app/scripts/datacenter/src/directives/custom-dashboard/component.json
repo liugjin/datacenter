@@ -1,0 +1,33 @@
+{
+  "id": "custom-dashboard",
+  "name": "自定义Dashboard页面组件",
+  "type": "CustomDashboardDirective",
+  "desc": {
+    "author": "david",
+    "comment": "根据项目描述中定义的页面组件组合呈现页面内容",
+    "version": {
+      "0.0.1": [
+        "项目描述中定义Json对象，用来描述指定页面的组件呈现布局和内容",
+        "JSON的格式如下：{key:[{tag:'', class:'', style:'', component:'', parameters:'{}', children:[]},{tag:'', class:'', style:'', component:'', parameters:'{}', children:[]},...]}，其中key是用来展现自定义内容的页面路由关键字，比如dashboard页面，它的url是/dashboard/user/project，那它的key就是dashboard，key所对应的值就是这个页面里自定义的内容，这个内容由多个HMTL标签组成",
+        "每一个标签用{tag:'', class:'', style:'', component:'', parameters:'{}', children:[]}来描述，其中tag用来标识标签类型，如果是div时，可以省略掉tag，class是定义标签上应用的css类，style是定义标签上应用的style格式，component是定义使用的组件id，parameters是定义组件使用的参数，children是定义标签内包含的子标签内容"
+      ],
+      "0.0.2": [],
+      "0.0.3": ["json调整"],
+      "0.0.4": ["region--json调整，将设备监控页面改成customerdashboard"],
+      "0.0.5": ["region--json调整"],
+      "0.0.6": ["region--引用组件调整"],
+      "0.0.7": ["region--提示告警的放块放中间对其"]
+    }
+  },
+  "group": "项目组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.7"
+}

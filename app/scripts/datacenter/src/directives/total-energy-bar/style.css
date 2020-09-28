@@ -1,0 +1,24 @@
+total-energy-bar .date1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: .75rem .75rem 0 .75rem; }
+  total-energy-bar .date1 .title {
+    margin-left: 1.2rem; }
+  total-energy-bar .date1 .picker {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    margin-right: 2.2rem; }
+  total-energy-bar .date1 .date-value1 {
+    border: 1px solid #0050a0;
+    margin-right: -1px;
+    padding: 0.15rem 0.9rem;
+    font-size: 16px;
+    font-weight: 400;
+    color: #a2caf8; }
+  total-energy-bar .date1 .date-active1 {
+    color: white;
+    border: 1px solid #00e7ee;
+    background-color: rgba(26, 69, 162, 0.4);
+    margin-right: 0; }

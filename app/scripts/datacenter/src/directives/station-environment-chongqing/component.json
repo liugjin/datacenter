@@ -1,0 +1,24 @@
+{
+  "id": "station-environment-chongqing",
+  "name": "环境量组件,重庆监察机房监控项目",
+  "type": "StationEnvironmentChongqingDirective",
+  "desc": {
+    "author": "",
+    "comment": "因为该项目没有漏水,因此放两个烟感",
+    "version": {
+        "0.0.1": [
+        ]
+    }
+  },
+  "group": "模块组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.1"
+}

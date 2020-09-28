@@ -1,0 +1,26 @@
+{
+  "id": "custom-label-location",
+  "name": "hmu2500自定义设备位置组件",
+  "type": "CustomLabelLocationDirective",
+  "desc": {
+    "author": "murray",
+    "comment": "实现通过改变页面位置属性，来自定义设备位置",
+    "version": {
+      "0.0.1": ["点击编辑能拖动页面上的设备,改变设备的位置,目前只支持温湿度需要在温湿度的模板有自定义位置属性：页面位置，ID：position @murray"],
+      "0.0.2":["bug修改"],
+      "0.0.3": ["改用查数据库并修改数据库equipments表的方式保存设备，并添加debounce 解决equip.save方法多次提示保存成功的问题@sheen"]
+    }
+  },
+  "keywords":"单属性,单设备,自定义页面位置",
+  "group": "模块组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.3"
+}

@@ -1,0 +1,143 @@
+body
+    background-image: url("~img/bg.png~")
+    background-position-y: -48px
+login-hmu2500
+    .no-margin-bottom
+        margin-bottom: 0
+        padding: 0 20%
+
+    .side-title
+        text-align: center
+        font-size: 30px
+        color: #9ddfff
+        margin-bottom: 2.7rem !important
+
+    .cool-input
+        color: #9ddfff
+        border: 1px solid #9ddfff !important
+        margin-bottom: 2.7rem !important
+        width: calc(100% - 60px - 1.5rem) !important
+        border-radius: 3px !important
+
+
+    label
+        color: #9ddfff
+    input
+        color: #9ddfff
+        border: 1px solid #9ddfff !important
+        padding: 0 0.75rem !important
+        margin-bottom: 0 !important
+        box-shadow: none !important
+        height: 60px !important
+        line-height: 60px !important
+    .switch label .lever
+        background-color: rgba(26, 69, 162, 1)
+
+    .switch label input[type=checkbox]:checked+.lever
+        background-color: rgba(26, 69, 162, 1)
+
+    .switch label input[type=checkbox]:checked+.lever:after
+        background-color: rgba(1, 166, 255, 1)
+
+    .bg-circle
+        background-image: url('~img/circle.png~')
+        background-repeat: no-repeat
+        background-position: center
+        display: flex
+        flex-direction: column
+        justify-content: center
+        height: 100%
+    .container-footer
+        width: 100%
+        position: absolute
+        bottom: 1vh
+        color: #9ddfff
+        font-size: 16px
+    .login-button
+        background-image: url('~img/login.png~')
+        background-repeat: no-repeat
+        background-position: center
+        background-size: contain
+        text-align: center
+        height: 4rem
+        line-height: 4rem
+        cursor: pointer
+        margin-bottom: 1rem
+
+    .name-logo, .psw-logo
+        width: 60px
+        height: 60px
+        border: 1px solid #9ddfff
+        margin-right: .75rem
+        box-sizing: content-box
+
+    .name-logo
+        background-image: url('~img/name.png~')
+        background-repeat: no-repeat
+        background-position: center
+
+    .psw-logo
+        background-image: url('~img/psw.png~')
+        background-repeat: no-repeat
+        background-position: center
+    .flex
+        display: flex
+    #tip-reset-password-modal
+        width: 40%
+        position: fixed
+        top: 30% !important
+        background-color: rgba(4,18,57,0.9)
+        border: 1px solid #3573b6
+        border-radius: 5px
+        padding-top: 35px
+    #forget-password-modal
+        width: 40%
+        position: fixed
+        top: 30% !important
+        background-color: rgba(4,18,57,0.9)
+        border: 1px solid rgba(53,115,182,1)
+        border-radius: 5px
+        padding-top: 47px
+        .input-user
+            width: 70%
+            margin: 0 auto
+            .user-tips
+                font-size: 14px
+                color: #AAC6DF
+                padding-bottom: 55px
+            .user-text
+                font-size: 16px
+                padding-bottom: 20px
+            input
+                color: #9ddfff
+                border-radius: 3px
+                height: 43px !important
+                line-height: 43px !important
+                margin-bottom: 20px !important
+        .modal-footer
+            background-color: #0D2564
+            padding: 0px
+            font-size: 14px
+            .modal-confirm, .modal-cancel
+                cursor: pointer
+            .icon-resetPassword, .icon-return
+                display: inline-block
+                margin-right: 5px
+                width: 26px
+                height: 26px
+                background-repeat: no-repeat
+                background-size: contain
+            .icon-resetPassword
+                background-image: url("~img/resetPassword.svg~")
+            .icon-return
+                background-image: url("~img/return.svg~")
+
+    // #forget-password-modal .modal-footer .modal-confirm, #forget-password-modal .modal-footer .modal-cancel
+    //     cursor: pointer
+    //     width: 116px
+    //     height: 100%
+    //     display: flex
+    //     justify-content: center
+    //     align-items: center
+    // #forget-password-modal .modal-footer .modal-confirm
+    //     background-color: rgba(75, 165, 248, 0.4)

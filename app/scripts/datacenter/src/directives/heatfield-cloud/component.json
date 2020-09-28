@@ -1,0 +1,23 @@
+{
+	"id": "heatfield-cloud",
+	"name": "HeatfieldCloud控件",
+	"type": "HeatfieldCloudDirective",
+	"desc": {
+		"author": "youge",
+		"comment": "自定义组件",
+		"version": {
+			"0.0.1": ["初始化"]
+		}
+	},
+	"group": "功能组件",
+	"parameters": [
+
+	],
+	"interact": {
+		"pubs": [],
+		"subs": []
+	},
+	"deps": ["heat-stag-3d", "slide-timeline"],
+	"css": "",
+	"version": "0.0.1"
+}

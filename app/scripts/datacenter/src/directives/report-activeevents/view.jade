@@ -1,0 +1,68 @@
+link(rel='stylesheet', href='/lib/gl-datepicker/styles/glDatePicker.default.css')
+.row.nav-top(style="margin-left: 0")
+    .col.s2
+        span(style="font-size: 14px") 活动告警记录
+    .col.s4
+        nav
+            .nav-wrapper
+                ul(style="display:flex;align-items:center")
+                    li
+                        span  告警等级
+                    li.margin-left-10(style="height: 36px;")
+                        select(md-select ng-model='checkNews.severity')
+                            option(value='all') 所有告警
+                            option(ng-repeat='data in alarmLevels',value='{{data.id}}') {{data.name}}
+                    li(style="margin-left:2%")
+                        span 告警状态
+                    li.margin-left-10(style="height: 36px;")
+                        select(md-select ng-model='checkNews.phase')
+                            option(value='all') 所有状态
+                            option(ng-repeat='data in alarmStateArr',value='{{data.id}}') {{data.name}}
+    .col.s6
+        nav
+            .nav-wrapper.right(style="display:flex;")
+                ul
+                    li
+                        span.hide-on-med-and-down 开始时间
+                    li.margin-left-10
+                        .input-field1
+                            input#start-time-input.datepicker(type='text', ng-model='query.startTime')
+                    li
+                        span.hide-on-med-and-down 结束时间
+                    li.margin-left-10
+                        .input-field1
+                            input#end-time-input.datepicker(type='text', ng-model='query.endTime')
+                ul
+                    li
+                        .btn.standard-report-btn.btn-margin-top(style="margin-right: 1rem;margin-left: 1rem" href='', ng-click='getReportData()', title='查询')
+                            span.hide-on-med-and-down 查询
+                    li
+                        .btn.standard-report-btn.btn-margin-top(href='',ng-click='exportReport("活动告警记录")', title='导出')
+                            span.hide-on-med-and-down 导出
+    grid-table(style="width: 100%; " controller='controller' parameters="{header: headers, data: historicalData}")
+.row(ng-style='{"height":parameters.height || "84vh"}')
+    .col.s2.device-tree
+        device-tree.col(style="width:100%;",controller='vm', parameters='{"checkbox":"false","filter":"true","reportName":"告警记录"}')
+    .col.s10.table
+        table
+            tr(style="background: rgba(1, 166, 255, 0.5)")
+                th 告警级别
+                th 告警状态
+                th 分区名称
+                th 设备名称
+                th 告警名称
+                th 开始值
+                th 结束值
+                th 开始时间
+                th 结束时间
+            tr(ng-repeat='d in historicalData')
+                td {{d.severityName}}
+                td {{d.phaseName}}
+                td {{d.stationName}}
+                td {{d.equipmentName}}
+                td {{d.eventName}}
+                td {{d.startValue}}
+                td {{d.endValue}}
+                td {{d.startTime | date:'yyyy-MM-dd HH:mm:ss'}}
+                td {{d.endTime | date:'yyyy-MM-dd HH:mm:ss'}}
+                

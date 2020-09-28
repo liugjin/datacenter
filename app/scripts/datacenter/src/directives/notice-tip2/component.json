@@ -1,0 +1,24 @@
+{
+  "id": "notice-tip2",
+  "name": "NoticeTip2控件",
+  "type": "NoticeTip2Directive",
+  "desc": {
+    "author": "sheen",
+    "comment": "自定义组件",
+    "version": {
+      "0.0.1": ["修复全部是英文字母或者数字不会换行的问题@sheen"]
+    }
+  },
+  "keywords":"系统信息,notice,系统简介",
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.2"
+}

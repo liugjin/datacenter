@@ -1,0 +1,52 @@
+credit-record-last .text-align-right {
+  text-align: right; }
+
+credit-record-last .font-16 {
+  font-size: 16px; }
+
+credit-record-last .credit-header-font {
+  font-size: 18px;
+  font-weight: 300;
+  color: #e2edf2; }
+
+credit-record-last .text-light {
+  color: #e2edf2; }
+
+credit-record-last .credit-record {
+  background: transparent;
+  padding: .75rem 1.5rem 1.5rem;
+  margin-bottom: .75rem; }
+  credit-record-last .credit-record .record-content .record-item {
+    border-bottom: 1px solid #004da0;
+    font-size: 14px; }
+    credit-record-last .credit-record .record-content .record-item .item {
+      position: relative;
+      display: inline-block;
+      line-height: 2.5rem; }
+      credit-record-last .credit-record .record-content .record-item .item i {
+        position: relative;
+        top: 6px; }
+      credit-record-last .credit-record .record-content .record-item .item .status-block {
+        position: absolute;
+        background: rgba(20, 148, 255, 0.6);
+        height: 1.5rem;
+        width: 5rem;
+        top: 8px;
+        left: 0; }
+  credit-record-last .credit-record .record-content .item-30 {
+    width: 30%; }
+  credit-record-last .credit-record .record-content .item-40 {
+    width: 40%; }
+  credit-record-last .credit-record .record-content .item-60 {
+    width: 60%; }
+  credit-record-last .credit-record .record-content .record-table {
+    font-size: 14px; }
+    credit-record-last .credit-record .record-content .record-table tr.border-bottom {
+      border-bottom: 1px solid #004da0; }
+    credit-record-last .credit-record .record-content .record-table tr:nth-child(odd) {
+      background-color: transparent !important; }
+    credit-record-last .credit-record .record-content .record-table .result-block {
+      display: inline-block;
+      color: #e2edf2;
+      background: #1d94ff;
+      padding: 2px 10px; }

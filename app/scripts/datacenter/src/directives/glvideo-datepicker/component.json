@@ -1,0 +1,37 @@
+{
+  "id": "glvideo-datepicker",
+  "name": "GlvideoDatepicker控件",
+  "type": "GlvideoDatepickerDirective",
+  "desc": {
+    "author":"Sheen",
+    "desc":"历史回放页的日期控件",
+    "version":{
+      "0.0.1":[
+        "初始化,订阅侧菜单缩放事件防止缩放日期控件错位 发布日期选择事件给历史视频组件接收选中的日期并执行操作"
+      ],
+      "0.0.2":[
+        "region:修改样式以适应历史视频组件"
+      ],
+      "0.0.3":[
+        "region:修改样式以适应IE版本历史视频组件"
+      ],
+      "0.0.4":[
+        "region:修改样式"
+      ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [
+      "somedayplayback"
+    ],
+    "subs": [
+      "menu-collapsed"
+    ]
+  },
+  "css": "",
+  "version": "0.0.4"
+}

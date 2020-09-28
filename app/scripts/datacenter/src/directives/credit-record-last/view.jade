@@ -1,0 +1,41 @@
+
+.credit-record
+    .record-content
+        .record-item.text-light
+            .item.item-40.font-16 最近刷卡记录
+            .item.item-60.text-align-right
+                i.material-icons(style="") credit_card
+        table.record-table
+            tbody
+                tr.border-bottom
+                    td.item-30
+                        span 微模块门
+                    td
+                        .credit-info-span {{currentCreditInfo.equipmentName || '无数据'}}
+                    td
+                tr.border-bottom
+                    td.item-30
+                        span 刷卡人名
+                    td
+                        .credit-info-span {{currentCreditInfo.cardOwner|| '无数据'}}
+                    td
+                        span
+                tr.border-bottom
+                    td.item-30
+                        span 刷卡状态
+                    td(style="padding: 8px 5px;")
+                        .credit-info-span
+                            span.result-block {{currentCreditInfo.result}}
+                    td
+                tr.border-bottom
+                    td.item-30
+                        span 刷卡时间
+                    td
+                        .credit-info-span {{currentCreditInfo.timestamp || '无数据'}}
+                    td
+
+
+
+
+
+

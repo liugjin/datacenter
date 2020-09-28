@@ -1,0 +1,49 @@
+{
+  "id": "rack-3d-component",
+  "name": "3D机柜组件",
+  "type": "Rack3dComponentDirective",
+  "desc": {
+    "author": "Hardy",
+    "comment": "3D机柜组件",
+    "version": {
+      "0.0.1": [],
+      "0.0.2": ["新增接收 room-3d组件的选择设备的消息"],
+      "0.0.3":["增加canvas高宽异常的错误提示。"],
+      "0.0.4":["修复多次show时生成多个canvas对象问题，以及其它若干BUG。"],
+      "0.0.5":["修复没有释放订阅导致无法正常弹出服务器。"],
+      "0.0.6":["修复若干个BUG、新增加载进度条、选择服务器发出消息"],
+      "0.0.7":["修复上下架时没有更新3D的BUG。"],
+      "0.0.8":["同步更新room.js，增加3D缓存功能"],
+      "0.0.9":["优化3D缓存代码"],
+      "0.0.10":["修复可能出现无效服务器的BUG"],
+      "0.1.0":["专供临安医学院适配版本"],
+      "0.1.1":["专供临安医学院适配版本v2.0", "@youge"],
+      "0.1.2":["修改为南通版本", "@youge"],
+      "0.1.3":["调整", "@youge"],
+      "0.1.4":["调整, 修复页面切换导致的初始化问题", "@youge"],
+      "0.1.5":["调整, 增加height为3u, 10u, 19u的默认模型", "@youge"],
+      "0.1.6":["调整, 服务器定位", "@youge"],
+      "0.1.7":["修复加载后订阅设备上下架信息时频繁向后端请求数据的bug", "@david"]
+    }
+  },
+  "group": "模块组件",
+  "parameters": [
+    {
+      "id": "stationId",
+      "type": "string",
+      "value": "shenzhen"
+    },
+    {
+      "id": "equipmentId",
+      "type": "string",
+      "value": "rack2"
+    }
+  ],
+  "interact": {
+    "pubs": ["selectRow","rack-3d-select-server"],
+    "subs": ["selectRow","room-3d-select-equipment"]
+  },
+  "deps": [],
+  "css": "position:relative;width:40vw;height:90vh;",
+  "version": "0.1.7"
+}

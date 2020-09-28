@@ -1,0 +1,25 @@
+{
+	"id": "one-file-uploader",
+	"name": "OneFileUploader控件",
+	"type": "OneFileUploaderDirective",
+	"desc": {
+		"author": "",
+		"comment": "自定义组件",
+		"version": {
+			"0.0.1": [],
+			"0.0.2": ["调试"],
+			"0.0.3": ["图标替换"]
+		}
+	},
+	"group": "功能组件",
+	"parameters": [
+
+	],
+	"interact": {
+		"pubs": [],
+		"subs": []
+	},
+	"deps": [],
+	"css": "",
+	"version": "0.0.3"
+}

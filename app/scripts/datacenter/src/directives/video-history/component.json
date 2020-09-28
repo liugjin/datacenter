@@ -1,0 +1,54 @@
+{
+  "id": "video-history",
+  "name": "VideoHistory控件",
+  "type": "VideoHistoryDirective",
+  "desc": {
+    "author":"Sheen",
+    "desc":"历史回放页面",
+    "version":{
+      "0.0.1":[
+        "sheen:初始化"
+      ],
+      "0.0.2":[
+        "sheen:重新梳理 去掉部分无用代码"
+      ],
+      "0.0.3":[
+        "region:解决页面报错,历史视频可以播放"
+      ],
+      "0.0.4":[
+        "sheen:修复选择站点后摄像头列表和日期组件中错位问题，nav样式调整"
+      ],
+      "0.0.5":[
+        "region:修复部分方法得代码"
+      ],
+      "0.0.6":[
+        "region:修复IP地址模式不能访问得问题"
+      ],
+      "0.0.7":[
+        "region:样式调整以适应ie"
+      ],
+      "0.0.8":[
+        "region:样式调整以适应ie"
+      ],
+      "0.0.9":[
+        "region:播放控制按钮重构"
+      ],
+      "0.0.10":[
+        "region:站点下来列表bug处理"
+      ]
+
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": ["somedayplayback"
+    ]
+  },
+  "deps":["glvideo-datepicker"],
+  "css": "",
+  "version": "0.0.10"
+}

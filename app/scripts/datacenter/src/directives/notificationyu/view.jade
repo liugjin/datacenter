@@ -1,0 +1,118 @@
+.row.nav-top
+    .col.s2
+        span 告警配置
+    .col.s10
+        nav
+            .nav-wrapper
+                ul.right
+                    li
+                        a.btn(href="")(ng-click="save()",title="保存告警规则")
+                            span 保存
+                            i.material-icons.left save
+
+.row(style="margin-top: 10px;")
+    .col.l2
+        .card.type-style
+            .card-image
+                img(src="{{getComponentPath('image/youjian.png')}}")
+            .card-action
+                label
+                    input.with-gap(type="radio",name="cate",ng-model="cate",ng-value="cates[0].type",ng-change="cates_chan()")
+                    span {{cates[0].name}}方式
+    .col.l2
+        .card.type-style
+            .card-image
+                img(src="{{getComponentPath('image/weixin.png')}}")
+            .card-action
+                label
+                    input.with-gap(type="radio",name="cate",ng-model="cate",ng-value="cates[1].type",ng-change="cates_chan()")
+                    span {{cates[1].name}}方式
+    .col.l2
+        .card.type-style
+            .card-image
+                img(src="{{getComponentPath('image/duanxin.png')}}")
+            .card-action
+                label
+                    input.with-gap(type="radio",name="cate",ng-model="cate",ng-value="cates[2].type",ng-change="cates_chan()")
+                    span {{cates[2].name}}方式
+    .col.l2
+        .card.type-style
+            .card-image
+                img(src="{{getComponentPath('image/phone.png')}}")
+            .card-action
+                label
+                    input.with-gap(type="radio",name="cate",ng-model="cate",ng-value="cates[3].type",ng-change="cates_chan()")
+                    span {{cates[3].name}}方式
+    .col.l2
+        .card.type-style
+            .card-image
+                img(src="{{getComponentPath('image/yunduanxin.png')}}")
+            .card-action
+                label
+                    input.with-gap(type="radio",name="cate",ng-model="cate",ng-value="cates[4].type",ng-change="cates_chan()")
+                    span {{cates[4].name}}方式
+.row
+    .col.l2(style="height:60vh;padding: 0 0 0 10px;")
+        .cool-title(title="加载用户") 选择用户
+            label.right
+                input(type="checkbox", class="filled-in" value="",ng-model="user_all_select",checked="{{user_all_select}}",ng-change="user_all_select_chan()")
+                span 全选
+        .cool-content(style='position:relative')
+            p(ng-repeat="item in users")
+                label
+                    input(type="checkbox", class="filled-in" ng-model="item.checked",checked="item.checked",value="{{item.name}}",ng-change="user_select_chan()")
+                    span {{item.name}}
+
+    .col.l2(style="height:60vh;padding: 0 0 0 10px;")
+        .cool-title(title="加载用户") 选择站点
+            label.right
+                input(type="checkbox", class="filled-in" value="",ng-model="station_all_select",checked="{{station_all_select}}",ng-change="station_all_select_chan()")
+                span 全选
+        .cool-content(style='position:relative')
+            p(ng-repeat="item in stations")
+                label
+                    input(type="checkbox", class="filled-in" ng-model="item.checked",checked="item.checked",value="{{item.name}}",ng-change="station_select_chan()")
+                    span {{item.name}}
+    .col.l2(style="height:60vh;padding: 0 0 0 10px;")
+        .cool-title(title="加载用户") 选择设备类型
+            label.right
+                input(type="checkbox", class="filled-in" value="",ng-model="type_all_select",checked="{{type_all_select}}",ng-change="type_all_select_chan()")
+                span 全选
+        .cool-content(style='position:relative')
+            p(ng-repeat="item in types")
+                label
+                    input(type="checkbox", class="filled-in" ng-model="item.checked",checked="item.checked",value="{{item.name}}",ng-change="type_select_chan()")
+                    span {{item.name}}
+
+    .col.l2(style="height:60vh;padding: 0 10px;")
+        .cool-title(title="加载用户") 选择设备
+            label.right
+                input(type="checkbox", class="filled-in" value="",ng-model="equipment_all_select",checked="{{equipment_all_select}}",ng-change="equipment_all_select_chan()")
+                span 全选
+        .cool-content(style='position:relative')
+            p(ng-repeat="item in equipments")
+                label
+                    input(type="checkbox", class="filled-in" ng-model="item.checked",checked="item.checked",value="{{item.name}}",ng-change="equipment_select_chan()")
+                    span {{item.name}}
+    .col.l2(style="height:60vh;padding: 0 0 0 10px;")
+        .cool-title(title="加载用户") 选择事件等级
+            label.right
+                input(type="checkbox", class="filled-in" value="",ng-model="eventSeveritie_all_select",checked="{{eventSeveritie_all_select}}",ng-change="eventSeveritie_all_select_chan()")
+                span 全选
+
+        .cool-content(style='position:relative')
+            p(ng-repeat="item in eventSeverities")
+                label
+                    input(type="checkbox", class="filled-in" ng-model="item.checked",checked="item.checked",value="{{item.severity}}",ng-change="eventSeveritie_select_chan()")
+                    span {{item.name}}
+    .col.l2(style="height:60vh;padding: 0 0 0 10px;")
+        .cool-title(title="加载用户") 选择事件阶段
+            label.right
+                input(type="checkbox", class="filled-in" value="",ng-model="eventSeveritie_all_select",checked="{{eventSeveritie_all_select}}",ng-change="eventSeveritie_all_select_chan()")
+                span 全选
+
+        .cool-content(style='position:relative')
+            p(ng-repeat="item in eventSeverities")
+                label
+                    input(type="checkbox", class="filled-in" ng-model="item.checked",checked="item.checked",value="{{item.severity}}",ng-change="eventSeveritie_select_chan()")
+                    span {{item.name}}

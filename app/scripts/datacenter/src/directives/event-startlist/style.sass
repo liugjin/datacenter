@@ -1,0 +1,104 @@
+event-startlist
+  table:hover
+    box-shadow: none !important
+    outline: none !important
+  table
+    margin-top: 0.75rem
+    overflow: auto
+    thead
+      th
+        padding: 0 !important
+    tbody
+      tr
+        line-height: 20px !important
+        td
+          padding: 1px !important
+  .progress
+    margin: 0 0 0.2rem 0 !important
+  .page-button
+    border: 1px solid #3A85E4
+    border-radius: 0
+    i
+      margin-top: 1px
+  .pagination
+    position: absolute
+    bottom: 1rem
+    margin-left: 24%
+    li
+      height: 32px
+      a
+        line-height: 36px
+
+  .text-align-left
+    text-align: left !important
+
+  .modal.modalToast
+    background-color: rgba( 26, 69, 162, .8 )
+    margin: 10% auto 0
+    .modal-content
+      height: calc(100% - 64px) !important  
+      padding: 0 2.375rem
+      overflow: hidden
+      h5
+        font-size: 1.25rem
+        font-family: PingFang SC
+        font-weight: 400
+        margin: 2.82rem 0 !important
+        line-height: 1.3rem
+        overflow: hidden
+      p
+        margin: 0 
+        font-size: 1rem
+        line-height: 1rem
+        margin-bottom: 0.82rem
+        font-family: PingFang SC
+        font-weight: 400 
+      input
+        height: 2.6875rem
+        width: 100%
+        display: block  
+        border: 1px solid rgba(0, 80, 160, 1) !important
+        margin: 0 0 2.8125rem 
+        font-size: .875rem
+        font-family: PingFang SC
+        font-weight: 400
+        text-indent: 1.06rem
+        color: #FFFFFF
+      
+    .modal-footer
+      border: none !important
+      height: 64px
+      padding: 0
+      background-color: rgba(26, 69, 162, 0.8)!important
+      color: #fff
+      padding: 0
+      a
+        margin: 0
+        height: 64px
+        width: 7.25rem
+        text-align: center
+        line-height: 4rem
+        padding: 0
+        border: none
+        border-radius: 0
+        font-size: .875rem
+        font-family: PingFang SC
+        font-weight: 400
+
+
+@media screen and (width: 1024px)
+  event-startlist
+    table.new-table
+      width: 150% !important
+      thead tr th
+
+        font-size: 12px
+      tbody
+        tr td
+          line-height: 15px
+          font-size: 12px
+    .pagination
+      margin-left: 15%
+    .page-button
+      i
+        margin-top: 4px

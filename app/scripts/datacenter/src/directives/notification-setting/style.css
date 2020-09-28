@@ -1,0 +1,212 @@
+notification-setting .btn {
+  font-size: 14px !important;
+  border-radius: 4px; }
+
+notification-setting .cool-content {
+  height: calc(100vh - 10.25rem);
+  font-size: 14px; }
+  notification-setting .cool-content .basic-configuration {
+    width: 100%;
+    height: 16%;
+    background: rgba(26, 69, 162, 0.4);
+    margin-bottom: 0.75rem; }
+    notification-setting .cool-content .basic-configuration .basic-title {
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      width: 100%;
+      height: 40%;
+      font-size: 16px;
+      padding-left: 14px; }
+    notification-setting .cool-content .basic-configuration .basic-content {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 60%;
+      margin-left: 32px; }
+      notification-setting .cool-content .basic-configuration .basic-content .cool-choice {
+        display: flex;
+        align-items: center;
+        width: 10%;
+        height: 100%; }
+        notification-setting .cool-content .basic-configuration .basic-content .cool-choice label span {
+          font-size: 14px !important;
+          color: white !important; }
+  notification-setting .cool-content .content-selection {
+    display: flex;
+    width: 100%;
+    height: 84%; }
+    notification-setting .cool-content .content-selection .notification-method {
+      width: 12%;
+      height: 100%;
+      margin-right: 0.75rem;
+      background: rgba(26, 69, 162, 0.4); }
+      notification-setting .cool-content .content-selection .notification-method .select-style {
+        background: #4ca6f8;
+        color: #FFFFFF; }
+      notification-setting .cool-content .content-selection .notification-method .uncheck-style {
+        background: #1a46a2;
+        color: #7EBFFA; }
+      notification-setting .cool-content .content-selection .notification-method .notification-selection {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 53px;
+        margin-bottom: 0.75rem;
+        cursor: pointer; }
+        notification-setting .cool-content .content-selection .notification-method .notification-selection .iocn-title {
+          display: flex;
+          align-items: center;
+          width: 70%;
+          height: 100%; }
+          notification-setting .cool-content .content-selection .notification-method .notification-selection .iocn-title img {
+            margin: 14px; }
+        notification-setting .cool-content .content-selection .notification-method .notification-selection .right-iocn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 30%;
+          height: 100%; }
+    notification-setting .cool-content .content-selection .notification-configure {
+      width: 88%;
+      height: 100%;
+      background: rgba(26, 69, 162, 0.4); }
+      notification-setting .cool-content .content-selection .notification-configure .notification-content {
+        width: 100%;
+        height: 540px;
+        overflow-y: auto;
+        padding: 0 16px;
+        padding-top: 12px; }
+        notification-setting .cool-content .content-selection .notification-configure .notification-content .single-content {
+          width: 100%;
+          min-height: 104px; }
+          notification-setting .cool-content .content-selection .notification-configure .notification-content .single-content .configure-title {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 40px;
+            color: #95ADDF;
+            padding-left: 16px;
+            border-radius: 4px;
+            background: #1a46a2; }
+            notification-setting .cool-content .content-selection .notification-configure .notification-content .single-content .configure-title .cool-choice {
+              display: flex;
+              align-items: center;
+              width: 14.2%;
+              height: 40px; }
+              notification-setting .cool-content .content-selection .notification-configure .notification-content .single-content .configure-title .cool-choice label span {
+                font-size: 14px !important;
+                color: white !important; }
+          notification-setting .cool-content .content-selection .notification-configure .notification-content .single-content .con-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            width: calc(100% - 50px);
+            min-height: 64px;
+            margin-left: 50px; }
+            notification-setting .cool-content .content-selection .notification-configure .notification-content .single-content .con-content .cool-choice {
+              display: flex;
+              align-items: center;
+              width: 14.2%;
+              height: 46px; }
+              notification-setting .cool-content .content-selection .notification-configure .notification-content .single-content .con-content .cool-choice label span {
+                font-size: 14px !important;
+                color: white !important; }
+      notification-setting .cool-content .content-selection .notification-configure .notification-preserve {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 10%;
+        padding-left: 32px; }
+
+notification-setting .modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px; }
+  notification-setting .modal-head .modal-name {
+    font-weight: 400;
+    margin-left: 14px; }
+  notification-setting .modal-head .close-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 14px; }
+
+notification-setting .modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 440px;
+  padding-left: 60px !important;
+  padding-right: 60px !important; }
+  notification-setting .modal-content .cat-basic {
+    width: 100%;
+    height: 70%; }
+    notification-setting .modal-content .cat-basic .cat-title {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 10%;
+      color: #7dbffa; }
+    notification-setting .modal-content .cat-basic .cat-content {
+      width: 100%;
+      height: 90%;
+      padding: 0 32px; }
+      notification-setting .modal-content .cat-basic .cat-content .built-module {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 24%; }
+      notification-setting .modal-content .cat-basic .cat-content .built-content {
+        width: 100%;
+        height: 76%;
+        padding: 0 36px; }
+        notification-setting .modal-content .cat-basic .cat-content .built-content .input-box {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          width: 100%;
+          height: 30%;
+          font-size: 14px !important; }
+          notification-setting .modal-content .cat-basic .cat-content .built-content .input-box label {
+            font-size: 14px; }
+          notification-setting .modal-content .cat-basic .cat-content .built-content .input-box .color-txt {
+            color: #aac6df; }
+  notification-setting .modal-content .sms-test {
+    width: 100%;
+    height: 30%; }
+    notification-setting .modal-content .sms-test .sms-title {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 36%;
+      color: #7dbffa; }
+    notification-setting .modal-content .sms-test .sms-contentr {
+      width: 100%;
+      height: 64%;
+      padding: 0 68px; }
+      notification-setting .modal-content .sms-test .sms-contentr .input-box {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        font-size: 14px !important; }
+        notification-setting .modal-content .sms-test .sms-contentr .input-box label {
+          font-size: 14px; }
+
+notification-setting [type="checkbox"].filled-in:not(:checked) + span:not(.lever):after {
+  border: 2px solid #ced2d4 !important; }
+
+notification-setting [type="checkbox"].filled-in:checked + span:not(.lever):after {
+  border: 2px solid #00A856;
+  background-color: #00A856; }
+
+notification-setting input[type=text]:not(.browser-default), notification-setting input[type=password]:not(.browser-default) {
+  height: 2.4rem !important;
+  margin: 0 0 3px 0 !important; }
+
+notification-setting input[type=text]:not(.browser-default):disabled + label {
+  color: #aac6df; }

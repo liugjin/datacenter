@@ -1,0 +1,327 @@
+monitoring
+  station-tree-with-count
+    .tree
+      height: 77.8vh !important
+  .new-table
+    thead
+      tr
+        background-color: rgba(75,165,248,0.5) !important
+    tbody
+      tr
+        border-bottom: 1px solid rgba(0,80,160,1) !important
+        td
+          padding-left: 1rem !important
+      tr:nth-child(even)
+        background-color: transparent !important
+  a:focus
+    outline: none !important
+  .page-button
+    border: 1px solid rgba(0, 102, 255, 1)
+    border-radius: 0
+
+  .pagination li a
+    font-size: 14px
+    color: #7cbff9 !important
+  .pagination li.active
+    border: 1px solid rgba(0, 213, 255, 1) !important
+    background-color: rgba(0, 102, 255, 0.4) !important
+    color: #fff
+
+  .type-img
+    float: left
+    margin-right: 8px
+
+    .img-bing
+      width: 25px
+      height: 35px
+      background-repeat: no-repeat
+
+    .img-type
+      background-position: -123px -16px
+
+    .img-type-active
+      background-position: -183px -16px
+
+  .tabs-btn
+    margin-left: .75rem
+    color: rgba(125,191,250,1)
+  #equipment-tabs
+    .btn
+      color: #fff
+  .equips-btn-container
+    height: 64px
+    line-height: 64px
+    div
+      display: inline-block
+  .standard-span-btn
+    width: 140px
+    height: 40px
+    line-height: 38px
+    text-align: center
+    padding: 0
+    overflow: hidden
+    span
+      font-size: 14px
+      font-weight: 400
+  .list-icon
+    float: left
+    width: 25px
+    height: 46px
+    background-repeat: no-repeat
+
+  .equips-list2
+    background-color: rgba(0, 188, 212, 0.77)
+
+  .equips-list2:hover
+    background-color: #173c8c
+
+  .equips-list
+    background-color: #112e69
+
+  .equips-list:hover
+    background-color: #173c8c
+
+  .card-img-placeholder
+    height: 100%
+    background-color: rgba(26,69,162,0.2)
+
+  .card-content
+    background-color: rgba(26, 69, 162, 0.6)
+    height: 35%
+    .equip-status
+      position: absolute
+      right: 5px
+      top: 60.5%
+      .equip-status-loc
+        span
+          padding: 5px 15px
+          height: 25px
+          font-size: 12px
+          border-radius: 13px
+
+  .card-span-text
+    .truncate
+      color: #ffffff !important
+
+  .col-header
+    text-align: center
+
+  .card
+    margin: 0 0 .75rem 0
+    height: 35vh
+    .card-image
+      height: 65%
+  .list-view
+    margin-left: 0.75rem
+
+    .col-text-align
+      text-align: left
+
+    tbody>tr:hover
+      background-color: rgba(75,165,248,0.4) !important
+  .inventory-nav
+    margin: .75rem 0
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    .search-classify
+      height: 38px
+      font-size: 14px
+      font-weight: 400
+      .dropdown-content
+        width: 120px
+      .equip-classify
+        border: 1px solid #0652a2
+        margin-right: 20px
+        background-color: rgba(26,69,162,0.4)
+        border: 1px solid rgba(16,235,244,1)
+        color: #ffffff
+        width: 120px
+        height: 36px
+        display: inline-block
+        span
+          text-align: center
+          display: inline-block
+          line-height: 36px
+          height: 34px
+        .left-equip-box
+          width: 90px
+          border-right: 1px solid rgba(16,235,244,1)
+        .right-equip-box
+          width: 28px
+    .btn
+      vertical-align: bottom
+
+  .invent-list
+    background-color: rgba(26, 69, 162, 0.4)
+    height: 84vh
+    position: relative
+
+  .eventpagination
+    position: absolute
+    bottom: 0.1rem
+    width: 100%
+
+  .inventory
+    .invent-type
+      padding: 0 0.75rem
+
+      .type
+        margin-bottom: .75rem
+        height: 46px
+
+        a
+          color: #a2aab6
+          line-height: 46px
+          text-align: left
+
+          .type-count
+            .right
+              color: rgb(16, 235, 244)
+
+      .current-type
+        background-color: rgba(16, 235, 244, .4)
+        border: 1px solid rgb(16, 235, 244)
+        transition: .6s
+
+        .type-count
+          color: #e2edf2 !important
+
+          .right
+            color: #e2edf2 !important
+
+    .search-wrapper
+      display: inline-block
+      position: relative
+
+      i
+        position: absolute
+        font-size: 1.2rem
+        left: 8px
+        line-height: 38px
+        color: #a2caf8
+
+      .search-input
+        display: block
+        margin: 0
+        padding: 0 0 0 32px
+        width: 80%
+        height: 34px
+        font-size: 14px
+        color: #a2caf8
+        //border-radius: 3px
+        line-height: 34px
+
+  .state-status
+    position: absolute
+    right: 5px
+    bottom: 7px
+
+    .state-dot
+      width: 12px
+      height: 12px
+      display: inline-block
+      border-radius: 50%
+      vertical-align: middle
+      position: relative
+      background-color: #d9d9d9
+      margin-right: 8px
+
+    .state-online
+      background-color: #52c41a
+
+    .state-alarm
+      background-color: #f44336
+
+  [type="radio"]:not(:checked) + span, [type="radio"]:checked + span
+    padding-left: 25px
+    font-size: 14px
+    color: #ffffff
+
+  .state-offline
+    span
+      background-color: rgba(176, 201, 240, 1)
+
+  .state-online
+    span
+      background-color: rgba(98,169,241,1)
+
+  .state-offalarm
+    span
+      background-color: rgba(66,194,168,1) !important
+  .state-onalarm
+    span
+      background-color: rgba(220,121,120,1) !important
+
+  .left-box-container
+    width: 80% !important
+    background-color: rgba(26,69,162,0.4) !important
+    height: 100%
+
+    .btn
+      padding: 0 32px
+  .header-style
+    margin: 0.75rem 0
+    a
+      color: #fff !important
+  .right-box-container
+    width: calc( 20% - 10px ) !important
+    margin-left: 10px !important
+    background-color: rgba(26,69,162,0.4) !important
+    height: 100%
+    padding: 0px !important
+  .inventory-left-box
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+  .no-background-color
+    background-color: transparent !important
+    padding: 0 !important
+
+@media screen and (width: 1024px)
+  monitoring
+    station-tree-with-count
+      .tree
+        height: 74vh !important
+    .equips-btn-container
+      overflow-y: hidden
+      overflow-x: auto
+      white-space: nowrap
+      div
+        display: inline-block
+      .standard-span-btn
+        width: 100px
+        padding: 0 5px
+        span
+          font-size: 12px
+          font-weight: 400
+    .new-table thead tr
+      line-height: 20px !important
+    .new-table thead tr th
+      font-size: 14px
+    .new-table tbody tr
+      line-height: 20px !important
+    .new-table tbody tr td
+      font-size: 12px
+    .left-box-container .btn
+      margin-bottom: 5px
+      padding: 0 5px
+
+    .listView
+      overflow: auto
+      height: 67vh
+    .invent-list-container
+      height: 81vh
+    .card-view
+      height: 33vh
+    .card-content .equip-status .equip-status-loc span
+      line-height: 25px
+    .detial-list
+      height: 81vh
+    .btn.btn-back
+      padding: 0 40px
+
+
+
+
+

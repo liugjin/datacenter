@@ -1,0 +1,291 @@
+//-
+    User: Dow
+    Date: 12/31/2015
+    Desc: 
+    
+#event-modal.modal.bottom-sheet.modal-fixed-footer(md-modal)
+    .modal-content
+        .row
+            .col.s12.m6.l4
+                p.equipment-item-title
+                    | {{event.station.model.name}} / {{event.equipment.model.name}} / {{event.instance.name}}
+
+                table.hoverable.responsive-table.highlight
+                    tbody
+                        tr
+                            td
+                                label 告警ID
+                            td
+                                span {{event.model.event}}
+                            td.center
+                                //a(ng-href='{{setting.services.model}}/#/equipmentevents/{{event.model.user}}/{{event.model.project}}/{{event.model.type}}/{{event.model.template}}?event={{event.model.event}}', target='_blank', title='模板告警配置')
+                                //    i.material-icons.huayuancolor settings
+                        tr
+                            td
+                                label 告警名称
+                            td
+                                input(type='text', ng-model='event.instance.name' style="border-top: 0 !important;border-left: 0 !important;border-right: 0 !important;border-bottom: 0 !important;margin-bottom: 0 !important;")
+                            td
+                        tr
+                            td
+                                label 告警使能
+                            td
+                                .switch
+                                    label
+                                        | 无效
+                                        input(type='checkbox', ng-model='event.instance.enable')
+                                        span.lever
+                                        | 有效
+                            td
+                        tr
+                            td
+                                label 告警描述
+                            td
+                                span {{event.data.title}}
+                            td
+                        tr
+                            td
+                                label 设备类型
+                            td
+                                span {{event.data.equipmentType}}
+                            td
+                        tr
+                            td
+                                label 设备模板
+                            td
+                                span {{event.data.equipmentTemplate}}
+                            td
+
+                        tr
+                            td
+                                label 告警状态
+                            td
+                                span {{event.data.eventSeverity.name}}
+                            td.center
+                                i.material-icons.small(ng-style='{color: event.data.color}', title='{{event.data.eventSeverity.name}}') {{event.data.phase == "start" && "notifications_on" || event.data.phase == "confirm" && "notifications_paused" || event.data.phase == "end" && "notifications_off" || event.data.phase == "completed" && "notifications" || "notifications_none"}}
+                        tr
+                            td
+                                label 触发值
+                            td
+                                span {{event.data.startValue}}
+                            td
+                        tr
+                            td
+                                label 结束值
+                            td
+                                span {{event.data.endValue}}
+                            td
+                        tr
+                            td
+                                label 开始时间
+                            td
+                                span {{event.data.startTime | date: 'yyyy-MM-dd HH:mm:ss'}}
+                            td
+                        tr
+                            td
+                                label 结束时间
+                            td
+                                span {{event.data.endTime | date: 'yyyy-MM-dd HH:mm:ss'}}
+                            td
+                        tr
+                            td
+                                label 持续时长
+                            //td
+                                span {{event.data.duration}}
+                            td
+                                span {{event.data | duration}}
+                                .progress(title="{{event.data.progress}}")
+                                    .determinate(ng-class='{}', ng-style='{width: event.data.progress, "background-color": event.data.color}')
+                            td
+                        tr
+                            td
+                                label 备注
+                            td
+                                span {{event.data.comment}}
+                            td
+                        tr
+                            td
+                                label 确认时间
+                            td
+                                span {{event.data.confirmTime | date: 'yyyy-MM-dd HH:mm:ss'}}
+                            td
+                        tr
+                            td
+                                label 确认人
+                            td
+                                span {{event.data.operator}}
+                            td
+
+            .col.s12.m6.l8
+                .row
+                    .right
+                        label 数据时段: {{eventManager.parameters.startTime.format('YYYY-MM-DD HH:mm:ss')}} ~ {{eventManager.parameters.endTime.format('YYYY-MM-DD HH:mm:ss')}}
+                        label &nbsp;/&nbsp;查询时间：
+                        label(am-time-ago='eventManager.parameters.queryTime')
+                        label &nbsp;/&nbsp;记录数：{{eventManager.records.items.length}}
+
+                .row
+                    table.bordered.responsive-table.hoverable.highlight
+                        thead
+                            tr
+                                th
+                                    .col-header(ng-click='eventManager.records.sortBy("severity")')
+                                        span 级别
+                                        span.pull-right(ng-show='eventManager.records.predicate == "severity"') {{eventManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='eventManager.records.sortBy("index")')
+                                        span #
+                                        span.pull-right(ng-show='eventManager.records.predicate == "index"') {{eventManager.records.reverse && "▽" || "△"}}
+                                //-th
+                                    .col-header(ng-click='eventManager.records.sortBy("stationName")')
+                                        span 微模块名称
+                                        span.pull-right(ng-show='eventManager.records.predicate == "stationName"') {{eventManager.records.reverse && "▽" || "△"}}
+                                //-th
+                                    .col-header(ng-click='eventManager.records.sortBy("equipmentName")')
+                                        span 设备名称
+                                        span.pull-right(ng-show='eventManager.records.predicate == "equipmentName"') {{eventManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='eventManager.records.sortBy("title")')
+                                        span 告警名称
+                                        span.pull-right(ng-show='eventManager.records.predicate == "title"') {{eventManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='eventManager.records.sortBy("startValue")')
+                                        span 开始值
+                                        span.pull-right(ng-show='eventManager.records.predicate == "startValue"') {{eventManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='eventManager.records.sortBy("endValue")')
+                                        span 结束值
+                                        span.pull-right(ng-show='eventManager.records.predicate == "endValue"') {{eventManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='eventManager.records.sortBy("startTime")')
+                                        span 开始时间
+                                        span.pull-right(ng-show='eventManager.records.predicate == "startTime"') {{eventManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='eventManager.records.sortBy("endTime")')
+                                        span 结束时间
+                                        span.pull-right(ng-show='eventManager.records.predicate == "endTime"') {{eventManager.records.reverse && "▽" || "△"}}
+                                //-th
+                                    .col-header(ng-click='eventManager.records.sortBy("updateTime")')
+                                        span 更新时间
+                                        span.pull-right(ng-show='eventManager.records.predicate == "updateTime"') {{eventManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='eventManager.records.sortBy("duration")', title='持续时长管理目标不超过1个小时')
+                                        span 持续时长
+                                        span.pull-right(ng-show='eventManager.records.predicate == "duration"') {{eventManager.records.reverse && "▽" || "△"}}
+                                //-th
+                                    .col-header(ng-click='eventManager.records.sortBy("comment")')
+                                        span 备注
+                                        span.pull-right(ng-show='eventManager.records.predicate == "comment"') {{eventManager.records.reverse && "▽" || "△"}}
+                                //-th
+                                    .col-header(ng-click='eventManager.records.sortBy("confirmTime")')
+                                        span 告警确认
+                                        span.pull-right(ng-show='eventManager.records.predicate == "confirmTime"') {{eventManager.records.reverse && "▽" || "△"}}
+                        tbody
+                            tr(ng-repeat='event in eventManager.records.items | orderBy: eventManager.records.predicate:eventManager.records.reverse | limitTo: eventManager.records.pageItems * eventManager.records.page | limitTo: -eventManager.records.pageItems')
+                                td()
+                                    i.material-icons.small(ng-style='{color: event.color}', title='{{event.eventSeverity.name}}') {{event.phase == "start" && "notifications_on" || event.phase == "confirm" && "notifications_paused" || event.phase == "end" && "notifications_off" || event.phase == "completed" && "notifications" || "notifications_none"}}
+
+                                td {{event._index}}
+                                //-td
+                                    a(ng-href='#/site-manager/{{event.user}}/{{event.project}}?&station={{event.station}}&tab=stations')
+                                        | {{event.stationName || event.station}}
+                                //-td
+                                    a(ng-href='#/site-manager/{{event.user}}/{{event.project}}?&station={{event.station}}&equipment={{event.equipment}}&tab=equipments')
+                                        | {{event.equipmentName || event.equipment}}
+                                td
+                                    | {{event.title || event.event}}
+                                td {{event.startValue | prettyNumber:2}}
+                                td {{event.endValue | prettyNumber:2}}
+                                td {{event.startTime| date:'yyyy-MM-dd HH:mm:ss'}}
+                                td {{event.endTime| date:'yyyy-MM-dd HH:mm:ss'}}
+                                //-td
+                                    span(am-time-ago='event.updateTime')
+                                td
+                                    span {{event | duration}}
+                                    //.progress(title="{{event.progress}}")
+                                        .determinate(ng-class='{}', ng-style='{width: event.progress, "background-color": event.color}')
+                                //-td
+                                    .trim-info(tooltip='{{event.comment}}') {{event.comment}}
+                                //-td
+                                    span {{event.operatorName}} / {{event.confirmTime | date:"yyyy-MM-dd HH:mm:ss"}}
+                   
+                    ul.pagination(ng-show='eventManager.parameters.paging.pages.length > 1')
+                        li(ng-class='{disabled: eventManager.parameters.paging.page <= 1, "waves-effect": eventManager.parameters.paging.page > 1}', ng-click='eventManager.queryPage("previous")')
+                            a(href='')
+                                i.material-icons chevron_left
+                        li(ng-class='{active: page == eventManager.parameters.paging.page, "waves-effect": page != eventManager.parameters.paging.page}', ng-repeat='page in eventManager.parameters.paging.pages', ng-click='eventManager.queryPage(page)')
+                            a(href='')
+                                | {{page}}
+                        li(ng-class='{disabled: eventManager.parameters.paging.page >= eventManager.parameters.paging.pageCount, "waves-effect": eventManager.parameters.paging.page < eventManager.parameters.paging.pageCount}', ng-click='eventManager.queryPage("next")')
+                            a(href='')
+                                i.material-icons chevron_right
+
+
+
+            //-.col.s12.m6.l4
+                p 告警知识库
+
+
+    .modal-footer.modal-nav
+        nav(ng-class='msetting.theme')
+            .nav-wrapper
+                ul
+                    li
+                        a(href='', ng-click='saveEventInstance(event)', title='保存告警实例')
+                            i.material-icons.left save
+                            span.hide-on-med-and-down 保存
+                    li
+                        a(href='', ng-click='confirmEquipmentEvent(event)', title='确认当前告警')
+                            i.material-icons.left done
+                            span.hide-on-med-and-down 确认
+                    li
+                        a(href='', ng-click='confirmEquipmentEvent(event, true)', title='强制结束告警')
+                            i.material-icons.left check_circle
+                            span.hide-on-med-and-down 结束
+                    li
+                        a(href='', ng-click='confirmEquipmentEvents(currEquipment)', title='确认设备所有告警')
+                            i.material-icons.left done_all
+                            span.hide-on-med-and-down 设备
+                    li
+                        a(ng-href='#/event-manager/{{event.model.user}}/{{event.model.project}}?station={{event.station.model.station}}&equipment={{event.equipment.model.equipment}}&event={{event.model.event}}', title='集中告警管理')
+                            i.material-icons.left notifications_none
+                            span.hide-on-med-and-down 管理
+
+                    li
+                        a.waves-effect.waves-light(href='', ng-click='selectNextEvent()', title='选择上一事件')
+                            i.material-icons.left arrow_upward
+                            span.hide-on-med-and-down 上移
+
+                    li
+                        a.waves-effect.waves-light(href='', ng-click='selectPreviousEvent()', title='选择下一事件')
+                            i.material-icons.left arrow_downward
+                            span.hide-on-med-and-down 下移
+
+                    ul.right
+                        li
+                            a.dropdown-trigger(href='', data-target='event-query-periods', data-hover='true', data-beloworigin="false", md-dropdown, title='报表查询时段')
+                                | {{eventManager.recordType.name || "报表查询时段"}}
+                                i.material-icons.right arrow_drop_up
+                        li
+                            a(href='', title='上移查询时段', ng-click='eventManager.queryRecords(event, "previous")')
+                                i.material-icons.left skip_previous
+                                span.hide-on-med-and-down 前移
+                        li
+                            a(href='', title='查询数据', ng-click='eventManager.queryRecords(event, "refresh")')
+                                i.material-icons.left refresh
+                                span.hide-on-med-and-down 查询
+                        li
+                            a(href='', title='下移查询时段', ng-click='eventManager.queryRecords(event, "next")')
+                                i.material-icons.left skip_next
+                                span.hide-on-med-and-down 后移
+
+                        li
+                            a.modal-action.modal-close(href='')
+                                i.material-icons.left close
+                                span.hide-on-med-and-down 关闭
+
+        ul#event-query-periods.dropdown-content
+            li(ng-repeat='type in eventManager.recordTypes')
+                a(href='', ng-class='{active: type == eventManager.recordType}' ng-click='eventManager.selectRecordType(type); eventManager.queryRecords(event)')
+                    | {{type.name}}
+        

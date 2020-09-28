@@ -1,0 +1,28 @@
+{
+  "id": "system-setting",
+  "name": "系统设置基本信息",
+  "type": "SystemSettingDirective",
+  "desc": {
+    "author": "James",
+    "desc": "系统设置基本信息",
+    "version": {
+      "0.0.10": ["增加菜单修改功能", "@David"],
+      "0.0.11": ["适配1024*768分辨率", "@vera"],
+      "0.0.12": ["修改菜单编辑功能，增加项目私有化时菜单重新初始化的功能", "@David"],
+      "0.0.12": ["适配1024*768分辨率", "@youge"]
+    }
+  },
+  "group": "模块组件",
+  "parameters": [{
+      "id": "version",
+      "type": "string",
+      "value": ""
+    }
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "css": "",
+  "version": "0.0.13"
+}

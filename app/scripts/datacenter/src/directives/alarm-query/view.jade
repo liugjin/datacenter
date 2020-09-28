@@ -1,0 +1,66 @@
+link(rel='stylesheet', href='/lib/gl-datepicker/styles/glDatePicker.default.css')
+style.
+    .tree {
+        height: 72vh;
+        margin-top: .75rem; }
+        .tree ul {
+            height: 100%;
+            overflow-x: auto; }
+.row.nav-top
+    .col.s2
+        span 事件故障查询
+    .col.s10
+        nav
+            .nav-wrapper
+                ul
+                    li
+                        a.dropdown-trigger(data-target='type' data-hover='true' md-dropdown title='切换报表')
+                            i.material-icons.left view_list
+                            span(ng-show="eventsType == 'new'") 最新事件
+                            span(ng-show="eventsType == 'history'") 历史事件
+                    ul#type.dropdown-content
+                        li
+                            a(ng-href="" ng-click="selectType('new')")
+                                i.material-icons timer
+                                span 最新事件
+                        li
+                            a(ng-href="" ng-click="selectType('history')")
+                                i.material-icons timeline
+                                span 历史事件
+
+                .right(style="display:flex;" ng-show="eventsType == 'history'")
+                    report-query-time(controller='vm',parameters='{}')
+                    ul
+                        li
+                            .btn(href='', ng-click='queryAlarm()', title='查询')
+                                span.hide-on-med-and-down 查询
+                        li
+                            .btn(href='', ng-click='exportReport(header,"历史事件")', title='导出')
+                                span.hide-on-med-and-down 导出
+
+
+
+.row(ng-show="eventsType == 'new'")
+    .col.l12(style="height: 84vh;padding-left: .75rem;")
+        #new.ag-blue(style="width: 100%;height: 100%;")
+
+.row(ng-show="eventsType == 'history'")
+    .col.s12.m12.l2
+        station-tree.col.tree-style(controller='vm', parameters='{"checkbox":true,"filter":true}',style="width: 100%;" ng-show="eventsType == 'history'")
+    .col.s12.m12.l10
+        .row
+            .col(style="height: 78vh;width: 100%;padding-left: 0;")
+                #history.ag-blue(style="width: 100%;height: 100%;")
+            .col.l12
+                ul.pagination.right(ng-show='pagination.pageCount > 1')
+                    li(ng-class='{disabled: pagination.page <= 1, "waves-effect": pagination.page > 1}', ng-click='queryPage("previous")')
+                        a(href='')
+                            i.material-icons.white-text chevron_left
+
+                    li(ng-class='{active: page == pagination.page, "waves-effect": page != pagination.page}', ng-repeat='page in pagination.pages', ng-click='queryPage(page)')
+                        a(href='')
+                            | {{(($index == 1 && pagination.page > 4)||($index == pagination.pages.length-2 && vm.pagination.page < pagination.pageCount-3)) ? "..":page}}
+
+                    li(ng-class='{disabled: pagination.page >= pagination.pageCount, "waves-effect": pagination.page < pagination.pageCount}', ng-click='queryPage("next")')
+                        a(href='')
+                            i.material-icons.white-text chevron_right

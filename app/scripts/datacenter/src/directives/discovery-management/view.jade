@@ -1,0 +1,103 @@
+.row.nav-top
+    .col.l2
+        span 已监管{{name}}清单({{equipments.length}}个)
+    .col.l10
+        nav
+            .nav-wrapper
+                //ul.right
+                //    li(ng-show="project.model._role.isAdmin || project.model._role.operations[0]=='_all' || project.model._role.operations.indexOf('station-manager-add')>=0" )
+                //        .btn(data-target='station-new-modal', ng-click='createStation()', title='新建站点')
+                //            span 新建
+
+.row.content
+    .col.s12
+        .card.item-list(style="padding: 0 0.75rem;")
+            table.responsive-table.highlight
+                thead
+                    tr
+                        th ID
+                        th 名称
+                        th 所属站点
+                        th 接入时间
+                        th 当前状态
+                        th 操作
+                tbody
+                    tr(ng-repeat='equipment in equipments')
+                        td {{equipment.model.equipment}}
+                        td {{equipment.model.name}}
+                        td {{equipment.station.model.name || '-'}}
+                        td {{equipment.model.createtime | date:'yyyy-MM-dd HH:mm:ss'}}
+                        td {{status[equipment.model.equipment]}}
+                        td
+                            a.btn(ng-href='#/{{parameters.link||"monitoring"}}/{{equipment.model.user}}/{{equipment.model.project}}?station={{equipment.model.station}}&equipment={{equipment.model.equipment}}') 查看详情
+
+.row.nav-top
+    .col.l2
+        span 待监管{{name}}清单({{list.length}}个)
+    .col.l10
+        nav
+            .nav-wrapper
+.row
+    .col.s12
+        .card.item-list(style="padding: 0 0.75rem;")
+            table.responsive-table.highlight
+                thead
+                    tr
+                        th 采集器网关ID
+                        th 采集单元ID
+                        th 名称
+                        th 当前状态
+                        th 操作
+                tbody
+                    tr(ng-repeat='item in list')
+                        td {{item.mu}}
+                        td {{item.su}}
+                        td {{item.template.model.name}}
+                        td {{status[item.mu+"/"+item.su]}}
+                        td
+                            a.btn(ng-click="addEquipment(item)") 加入监管
+
+#add-equipment-modal.modal.modal-fixed-footer(md-modal, dismissible="false")
+    .modal-content
+        .row
+            .col.s12
+                h5 新增ID为{{equipment.model.equipment}}的{{name}}
+                .choose
+                    md-radio(name="method", ng-model="method", value="link", label="关联现有设备", ng-click="selectMethod('link')" ng-if="candidates.length > 0")
+                    md-radio(name="method", ng-model="method", value="create", label="添加为新设备", ng-click="selectMethod('create')")
+                .col.s12.top-grap(ng-show="method == 'link'")
+                    .input-field.col.s12
+                        label.active 关联到设备
+                        select(ng-model='linkKey', md-select, data='candidates', ng-change="selectLinkEquipment(linkKey)")
+                            option(ng-repeat='equip in candidates', value='{{equip.key}}', ng-selected='equip.key == linkKey') {{equip.model.name}}
+
+                .col.s12(ng-show="method == 'create'")
+                    .input-field.col.s12
+                        span.input-label 设备ID
+                        input#equipment.validate(type='text', ng-model='equipment.model.equipment')
+                        //label(for='equipment', class="active" ng-class='{active: equipment.model.equipment}') 设备ID
+
+                    .input-field.col.s12
+                        span.input-label 设备名称
+                        input#name.validate(type='text', ng-model='equipment.model.name')
+                        //label(for='name' class="active" ng-class='{active: equipment.model.name}') 设备名称
+
+                    .input-field.col.s12
+                        span.input-label 所属站点
+                        select(ng-model='equipment.model.station', md-select, data='project.stations.items')
+                            option(ng-repeat='station in project.stations.items', value='{{station.model.station}}', ng-selected='station.model.station == equipment.model.station') {{station.model.name}}
+
+    .modal-footer.modal-nav
+        nav
+            .nav-wrapper
+                ul
+                    li
+                        a(href='', ng-click='saveEquipment()', title='保存')
+                            i.material-icons.left save
+                            span.hide-on-med-and-down 确认
+
+                    ul.right
+                        li
+                            a.modal-action.modal-close(href='', ng-click="cancel()")
+                                i.material-icons.right close
+                                span.hide-on-med-and-down 取消

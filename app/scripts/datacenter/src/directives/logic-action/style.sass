@@ -1,0 +1,88 @@
+logic-action
+  .select-wrapper ul
+    top: 0 !important
+    height: 240px !important
+  .cool-content
+    background-color: rgba(26, 69, 162, 0.4)
+    padding-top: .75rem !important
+    height: calc(100vh - 9.5rem)
+    font-size: 14px
+  .click-btn
+    width: 70px
+    height: 50px
+    cursor: pointer
+    display: flex
+    justify-content: center
+    align-items: center
+  .cool-table
+    thead
+      tr
+        border: none !important
+        background-color: rgba(1, 166, 255, 0.5) !important
+        height: 50px !important
+        line-height: 50px !important
+        th
+          font-size: 16px
+          color: #e2edf2
+          padding: 0
+          border-radius: 0 !important
+    >tbody
+      overflow: auto
+      tr
+        padding: 0 !important
+        height: 100px !important
+        line-height: 100px !important
+        border: none
+        td
+          font-size: 16px
+          text-align: left
+          padding: 0 0.5rem 0 0.5rem
+          border-radius: 0 !important
+          text-align: center
+          .title, .value
+            display: block
+            line-height: 110%
+          .title
+            color: grey
+            margin: 0.8rem 0
+
+      tr.main:hover
+        background-color: rgba(16, 235, 244, 0.2) !important
+      >tr:nth-child(even)
+        background-color: rgba(26,69,162,0.4) !important
+
+  input
+    padding: 0 0 0 5px !important
+
+  .select-wrapper .caret
+    fill: rgba(255,255,255,0.7)
+
+  .modal.open
+    border-radius: 5px
+    border: 1px solid #3573b6
+
+  .modal-content input
+      text-indent: 15px
+
+  .modal-footer
+      background-color: #0D2564 !important
+      font-size: 14px
+
+  .modal-content
+      background-color: #061239
+
+  .modal-content .p-color
+      color: #AAC6DF
+
+  .modal-footer .modal-cancel .material-icons, .modal-footer .modal-confirm .material-icons
+      margin-right: 5px
+
+  .modal-footer .modal-confirm, .modal-footer .modal-cancel
+      width: 116px
+      height: 100%
+      display: flex
+      justify-content: center
+      align-items: center
+
+  .modal-footer .modal-confirm
+      background-color: rgba(75, 165, 248, 0.4)

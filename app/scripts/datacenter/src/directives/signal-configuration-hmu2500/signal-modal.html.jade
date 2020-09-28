@@ -1,0 +1,200 @@
+//-
+    User: Dow
+    Date: 12/31/2015
+    Desc: 
+style.
+    i {
+        vertical-align: middle;
+    }
+#signal-modal.modal.bottom-sheet.modal-fixed-footer(md-modal style="max-height: 55%;")
+    .modal-content
+        .row
+            .col.s12.m6.l4
+                p.equipment-item-title
+                    | {{signal.station.model.name}} / {{signal.equipment.model.name}} / {{signal.instance.name}}
+
+                table.hoverable.responsive-table.highlight
+                    tbody
+                        tr
+                            td(style="width: 15%;")
+                                label 信号ID
+                            td
+                                span {{signal.model.signal}}
+                            td.center
+                                //a(ng-href='{{setting.services.model}}/#/equipmentsignals/{{signal.model.user}}/{{signal.model.project}}/{{signal.model.type}}/{{signal.model.template}}?signal={{signal.model.signal}}', target='_blank', title='模板信号配置')
+                                //    i.material-icons settings
+                        tr
+                            td
+                                label 信号名称
+                            td
+                                input.validate(type='text', ng-model='signal.instance.name' style="border-top: 0 !important;border-left: 0 !important;border-right: 0 !important;border-bottom: 0 !important;margin-bottom: 0 !important;")
+                            td
+                        tr
+                            td
+                                label 信号使能
+                            td
+                                .switch
+                                    label
+                                        | 无效
+                                        input(type='checkbox', ng-model='signal.instance.enable')
+                                        span.lever
+                                        | 有效
+                            td
+                        tr
+                            td
+                                label 信号状态
+                            td
+                                span {{signal.data.tooltip}}
+                            td.center
+                                i.material-icons(ng-style='{color: signal.data.color}', title='{{signal.data.tooltip}}') multitrack_audio
+                        tr
+                            td
+                                label 实时值
+                            td
+                                span {{signal.data.newFormatValue}}
+                            td.center
+                                span {{signal.unit.unit}}
+
+                        tr(ng-repeat='statistic in signal.statistics')
+                            td
+                                label 统计/{{statisticNames[statistic.mode] || statistic.mode}}
+                            td(title='统计最小值/平均值/最大值')
+                                span {{statistic.min | number:2}} / {{statistic.avg | number:2}} / {{statistic.max | number:2}}
+                            td(title='统计周期')
+                                label {{statistic.period}}
+
+                        tr
+                            td
+                                label 变化时间
+                            td
+                                span {{signal.data.timestamp | date: 'yyyy-MM-dd HH:mm:ss'}}
+                            td
+                        //- tr
+                        //-     td
+                        //-         label 曲线Y轴
+                        //-     td
+                        //-         .switch
+                        //-             label
+                        //-                 | 从零开始
+                        //-                 input(type='checkbox', ng-model='yScale', ng-change='setYScale()')
+                        //-                 span.lever
+                        //-                 | 自动缩放
+                        //-     td
+
+            .col.s12.m6.l8(ng-show='signal.model.dataType == "float" ')
+                //-span 实时信号曲线
+                signal-chart.signal-chart(signals='signalValues', setting='signalSetting', data='signalValue')
+
+            .col.s12.m6.l8
+                .row
+                    .right
+                        label 数据时段: {{signalManager.parameters.startTime.format('YYYY-MM-DD HH:mm:ss')}} ~ {{signalManager.parameters.endTime.format('YYYY-MM-DD HH:mm:ss')}}
+                        label &nbsp;/&nbsp;查询时间：
+                        label(am-time-ago='signalManager.parameters.queryTime')
+                        label &nbsp;/&nbsp;记录数：{{signalManager.records.items.length}}
+
+                .row
+                    table.bordered.responsive-table.hoverable.highlight
+                        thead
+                            tr
+                                th
+                                    .col-header(ng-click='signalManager.records.sortBy("severity")')
+                                        span 级别
+                                        span.pull-right(ng-show='signalManager.records.predicate == "severity"') {{signalManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='signalManager.records.sortBy("index")')
+                                        span 索引
+                                        span.pull-right(ng-show='signalManager.records.predicate == "index"') {{signalManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='signalManager.records.sortBy("value")')
+                                        span 信号值
+                                        span.pull-right(ng-show='signalManager.records.predicate == "value"') {{signalManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='signalManager.records.sortBy("unit")')
+                                        span 单位
+                                        span.pull-right(ng-show='signalManager.records.predicate == "endValue"') {{signalManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='signalManager.records.sortBy("mode")')
+                                        span 存储类型
+                                        span.pull-right(ng-show='signalManager.records.predicate == "mode"') {{signalManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='signalManager.records.sortBy("timestamp")')
+                                        span 记录时间
+                                        span.pull-right(ng-show='signalManager.records.predicate == "timestamp"') {{signalManager.records.reverse && "▽" || "△"}}
+                        tbody
+                            tr(ng-repeat='signal in signalManager.records.items | orderBy: signalManager.records.predicate:signalManager.records.reverse | limitTo: signalManager.records.pageItems * signalManager.records.page | limitTo: -signalManager.records.pageItems')
+                                td(style="text-align: center;")
+                                    i.material-icons(ng-style='{color: signal.color || "#00a856"}', title='{{signal.eventSeverity.name || "正常"}}') multitrack_audio
+
+                                td(style="text-align: center;") {{signal._index}}
+                                //-td
+                                    a(ng-href='#/site-signalManager/{{signal.user}}/{{signal.project}}?&station={{signal.station}}&tab=stations')
+                                        | {{signal.stationName || signal.station}}
+                                //-td
+                                    a(ng-href='#/site-signalManager/{{signal.user}}/{{signal.project}}?&station={{signal.station}}&equipment={{signal.equipment}}&tab=equipments')
+                                        | {{signal.equipmentName || signal.equipment}}
+                                //td {{signal.name}}
+                                td(style="text-align: center;") {{signal.value | prettyNumber:2}}
+                                td(style="text-align: center;") {{signal.unitName}}
+                                td(style="text-align: center;") {{signal.modeName}}
+                                td(style="text-align: center;") {{signal.timestamp| date:'yyyy-MM-dd HH:mm:ss'}}
+
+                    ul.pagination(ng-show='signalManager.parameters.paging.pages.length > 1')
+                        li(ng-class='{disabled: signalManager.parameters.paging.page <= 1, "waves-effect": signalManager.parameters.paging.page > 1}', ng-click='signalManager.queryPage("previous")')
+                            a(href='')
+                                i.material-icons chevron_left
+                        li(ng-class='{active: page == signalManager.parameters.paging.page, "waves-effect": page != signalManager.parameters.paging.page}', ng-repeat='page in signalManager.parameters.paging.pages', ng-click='signalManager.queryPage(page)')
+                            a(href='')
+                                | {{page}}
+                        li(ng-class='{disabled: signalManager.parameters.paging.page >= signalManager.parameters.paging.pageCount, "waves-effect": signalManager.parameters.paging.page < signalManager.parameters.paging.pageCount}', ng-click='signalManager.queryPage("next")')
+                            a(href='')
+                                i.material-icons chevron_right
+
+
+    .modal-footer.modal-nav
+        nav(ng-class='msetting.theme')
+            .nav-wrapper
+                ul
+                    li
+                        a(href='', ng-click='saveSignalInstance(signal)', title='保持信号实例信息')
+                            i.material-icons.left save
+                            span.hide-on-med-and-down 保存
+
+                    li
+                        a.waves-effect.waves-light(href='', ng-click='selectNextSignal()', title='选择上一信号')
+                            i.material-icons.left arrow_upward
+                            span.hide-on-med-and-down 上移
+
+                    li
+                        a.waves-effect.waves-light(href='', ng-click='selectPreviousSignal()', title='选择下一信号')
+                            i.material-icons.left arrow_downward
+                            span.hide-on-med-and-down 下移
+
+                    ul.right
+                        li
+                            a.dropdown-trigger(href='', data-target='signal-query-periods', data-hover='true', data-beloworigin="false", md-dropdown, title='报表查询时段')
+                                | {{signalManager.recordType.name || "报表查询时段"}}
+                                i.material-icons.right arrow_drop_up
+                        li
+                            a(href='', title='上移查询时段', ng-click='signalManager.queryRecords(signal, "previous")')
+                                i.material-icons.left skip_previous
+                                span.hide-on-med-and-down 前移
+                        li
+                            a(href='', title='查询数据', ng-click='signalManager.queryRecords(signal, "refresh")')
+                                i.material-icons.left refresh
+                                span.hide-on-med-and-down 查询
+                        li
+                            a(href='', title='下移查询时段', ng-click='signalManager.queryRecords(signal, "next")')
+                                i.material-icons.left skip_next
+                                span.hide-on-med-and-down 后移
+
+                        li
+                            a.modal-action.modal-close(href='')
+                                i.material-icons.left close
+                                span.hide-on-med-and-down 关闭
+                                
+        ul#signal-query-periods.dropdown-content
+            li(ng-repeat='type in signalManager.recordTypes')
+                a(href='', ng-class='{active: type == signalManager.recordType}' ng-click='signalManager.selectRecordType(type); signalManager.queryRecords(signal)')
+                    | {{type.name}}
+        

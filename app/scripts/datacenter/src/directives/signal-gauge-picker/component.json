@@ -1,0 +1,50 @@
+{
+  "id": "signal-gauge-picker",
+  "name": "SignalGaugePicker控件",
+  "type": "SignalGaugePickerDirective",
+  "desc": {
+    "author": "Billy",
+    "comment": "用仪表盘形式呈现信号实时数据,并可以选择时间区间",
+    "version": {
+      "0.0.1": [
+      ],
+      "0.0.2": [
+        "实时PUE组件调整样式"
+      ],
+      "0.0.3": [
+        "仪表盘数据保留两位小数"
+      ],
+      "0.0.4": [
+        "修复数据没有的问题", "@bingo"
+      ],
+      "0.0.5": [
+        "修改样式", "@bingo"
+      ],
+      "0.0.6": [
+        "修改样式", "@bingo"
+      ],
+      "0.0.7": [
+        "将实时PUE改成历史PUE", "@region"
+      ],
+      "0.0.8": [
+        "修改tooltip", "@region"
+      ],
+      "0.0.9": [
+        "更新页面标准化样式", "@Albert"
+      ],
+      "0.0.10": [
+        "适配1400分辨率一下，文字掉落遮盖问题", "@vera"
+      ]
+    }
+  },
+  "group": "数据点组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": ["stationId"]
+  },
+  "css": "",
+  "version": "0.0.10"
+}

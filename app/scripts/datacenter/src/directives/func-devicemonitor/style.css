@@ -1,0 +1,169 @@
+func-devicemonitor .card-img-placeholder {
+  background-color: transparent; }
+
+func-devicemonitor .card-content {
+  background-color: rgba(26, 69, 162, 0.6); }
+
+func-devicemonitor .col-header {
+  text-align: center;
+  font-weight: bold !important; }
+
+func-devicemonitor .card {
+  margin: 0 0 .75rem 0; }
+  func-devicemonitor .card .card-content {
+    font-size: 14px;
+    padding: 18px 24px; }
+    func-devicemonitor .card .card-content .font-bold {
+      font-weight: bold; }
+    func-devicemonitor .card .card-content .font-12 {
+      font-size: 12px; }
+
+func-devicemonitor .inventory-nav {
+  margin: .75rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  func-devicemonitor .inventory-nav .btn {
+    margin-left: .75rem;
+    font-size: 14px;
+    height: 34px;
+    line-height: 34px;
+    border: 1px solid #10EBF4;
+    border-radius: 0px;
+    background: rgba(26, 69, 162, 0.4) !important;
+    color: #ffffff;
+    vertical-align: bottom; }
+
+func-devicemonitor .invent-list {
+  background-color: rgba(26, 69, 162, 0.4);
+  height: 84vh;
+  position: relative; }
+  func-devicemonitor .invent-list .list-card .pad-left {
+    padding-left: 0 !important; }
+  func-devicemonitor .invent-list .list-card .pad-right {
+    padding-right: 0 !important; }
+
+func-devicemonitor .eventpagination {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%; }
+  func-devicemonitor .eventpagination .pagination li {
+    height: 36px;
+    border: 1px solid #0066ff;
+    border-radius: 0; }
+  func-devicemonitor .eventpagination .pagination li.active {
+    background-color: rgba(0, 102, 255, 0.4);
+    border: 1px solid #00d5ff; }
+  func-devicemonitor .eventpagination .pagination li a {
+    color: white; }
+  func-devicemonitor .eventpagination .pagination i.material-icons {
+    color: #00d5ff; }
+
+func-devicemonitor .inventory {
+  font-size: 14px; }
+  func-devicemonitor .inventory .btn {
+    font-size: 14px; }
+  func-devicemonitor .inventory .truncate {
+    margin-top: 5px; }
+    func-devicemonitor .inventory .truncate a {
+      margin-right: 10px; }
+  func-devicemonitor .inventory .invent-type {
+    padding: 0 0.75rem; }
+    func-devicemonitor .inventory .invent-type .type {
+      margin-bottom: .75rem;
+      background-color: rgba(26, 69, 162, 0.4);
+      height: 46px;
+      border: none; }
+      func-devicemonitor .inventory .invent-type .type a {
+        color: #FFFFFF;
+        line-height: 46px;
+        text-align: left; }
+        func-devicemonitor .inventory .invent-type .type a .type-img {
+          float: left;
+          margin-right: .75rem; }
+          func-devicemonitor .inventory .invent-type .type a .type-img .img-bing {
+            width: 25px;
+            height: 46px;
+            background-repeat: no-repeat; }
+          func-devicemonitor .inventory .invent-type .type a .type-img .img-type {
+            background-position: -183px -16px; }
+          func-devicemonitor .inventory .invent-type .type a .type-img .img-type-active {
+            background-position: -183px -16px; }
+        func-devicemonitor .inventory .invent-type .type a .type-count .right {
+          color: #01A6FF; }
+    func-devicemonitor .inventory .invent-type .current-type {
+      background-color: rgba(1, 166, 255, 0.7);
+      border: 1px solid #00E7EE;
+      transition: .6s;
+      border-radius: 0; }
+      func-devicemonitor .inventory .invent-type .current-type .type-count {
+        color: #e2edf2 !important; }
+        func-devicemonitor .inventory .invent-type .current-type .type-count .right {
+          color: #e2edf2 !important; }
+  func-devicemonitor .inventory .search-wrapper {
+    display: inline-block;
+    position: relative; }
+    func-devicemonitor .inventory .search-wrapper i {
+      position: absolute;
+      font-size: 22px;
+      left: 4px;
+      line-height: 36px;
+      color: #e2edf2; }
+    func-devicemonitor .inventory .search-wrapper .search-input {
+      display: block;
+      margin: 0;
+      padding: 0 0 0 32px;
+      width: 80%;
+      height: 34px;
+      border-radius: 3px;
+      line-height: 34px;
+      font-size: 14px;
+      border: 1px solid #0050a0 !important;
+      color: #A2CAF8 !important; }
+
+func-devicemonitor .state-status {
+  position: absolute;
+  right: 5px;
+  bottom: 7px; }
+  func-devicemonitor .state-status .state-dot {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border-radius: 50%;
+    vertical-align: middle;
+    position: relative;
+    background-color: #d9d9d9;
+    margin-right: 8px; }
+  func-devicemonitor .state-status .state-online {
+    background-color: #52c41a; }
+  func-devicemonitor .state-status .state-alarm {
+    background-color: #f44336; }
+
+func-devicemonitor [type="radio"]:not(:checked) + span, func-devicemonitor [type="radio"]:checked + span {
+  padding-left: 25px;
+  font-size: 14px;
+  color: #ffffff; }
+
+func-devicemonitor .state-offline [type="radio"]:checked + span:after, func-devicemonitor .state-offline [type="radio"].with-gap:checked + span:before, func-devicemonitor .state-offline [type="radio"].with-gap:checked + span:after {
+  border: 2px solid #b0c9f0; }
+
+func-devicemonitor .state-offline [type="radio"]:checked + span:after, func-devicemonitor .state-offline [type="radio"].with-gap:checked + span:after {
+  background-color: #b0c9f0; }
+
+func-devicemonitor .state-online [type="radio"]:checked + span:after, func-devicemonitor .state-online [type="radio"].with-gap:checked + span:before, func-devicemonitor .state-online [type="radio"].with-gap:checked + span:after {
+  border: 2px solid #4ca7f8; }
+
+func-devicemonitor .state-online [type="radio"]:checked + span:after, func-devicemonitor .state-online [type="radio"].with-gap:checked + span:after {
+  background-color: #4ca7f8; }
+
+func-devicemonitor .state-offalarm [type="radio"]:checked + span:after, func-devicemonitor .state-offalarm [type="radio"].with-gap:checked + span:before, func-devicemonitor .state-offalarm [type="radio"].with-gap:checked + span:after {
+  border: 2px solid #6ce4ec; }
+
+func-devicemonitor .state-offalarm [type="radio"]:checked + span:after, func-devicemonitor .state-offalarm [type="radio"].with-gap:checked + span:after {
+  background-color: #6ce4ec; }
+
+func-devicemonitor .state-onalarm [type="radio"]:checked + span:after, func-devicemonitor .state-onalarm [type="radio"].with-gap:checked + span:before, func-devicemonitor .state-onalarm [type="radio"].with-gap:checked + span:after {
+  border: 2px solid #dc7978; }
+
+func-devicemonitor .state-onalarm [type="radio"]:checked + span:after, func-devicemonitor .state-onalarm [type="radio"].with-gap:checked + span:after {
+  background-color: #dc7978; }

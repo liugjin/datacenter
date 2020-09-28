@@ -1,0 +1,74 @@
+report-alarm-records device-tree .tree {
+  height: 77.7vh; }
+
+report-alarm-records .nav-wrapper ul li {
+  margin-right: 4px; }
+
+report-alarm-records .datepicker {
+  width: 135px !important;
+  height: 38px !important;
+  border: 1px solid #4ba5f8 !important; }
+
+report-alarm-records .input-field1 {
+  margin-right: 1rem; }
+
+report-alarm-records .btn-margin-top {
+  margin-top: 0.7rem !important; }
+
+report-alarm-records .grid-table {
+  width: calc( 80% - 0.75rem);
+  height: 78vh;
+  display: block;
+  margin-left: 20%;
+  background-color: rgba(26, 69, 162, 0.4) !important; }
+  report-alarm-records .grid-table .ag-header {
+    height: 50px !important; }
+  report-alarm-records .grid-table .ag-blue .ag-ltr .ag-header-cell {
+    border-right: 0 !important; }
+  report-alarm-records .grid-table .ag-blue .ag-cell, report-alarm-records .grid-table .ag-blue .ag-header-group-cell-label {
+    text-align: left; }
+  report-alarm-records .grid-table .ag-blue .ag-header {
+    background-color: #616161;
+    font-size: 15px; }
+  report-alarm-records .grid-table .ag-blue .ag-body {
+    background-color: white;
+    font-size: 14px; }
+  report-alarm-records .grid-table .ag-blue .ag-root {
+    border: 0px solid #e0e0e0; }
+  report-alarm-records .grid-table .no-box-shadow {
+    box-shadow: none; }
+  report-alarm-records .grid-table .grey-text-5 {
+    color: #101010; }
+  report-alarm-records .grid-table .grey-6 {
+    background-color: #fbfbfb; }
+  report-alarm-records .grid-table .gldp-default {
+    position: absolute;
+    font-family: 'helvetica'; }
+
+report-alarm-records .paging-select-box {
+  margin-left: 20%;
+  background-color: rgba(26, 69, 162, 0.4) !important;
+  height: 5.9vh;
+  width: calc( 80% - 0.75rem); }
+  report-alarm-records .paging-select-box .page-button i {
+    margin-top: 0px; }
+
+report-alarm-records .device-tree {
+  width: 20%; }
+
+@media screen and (width: 1024px) {
+  report-alarm-records device-tree {
+    width: 25% !important; }
+    report-alarm-records device-tree .tree {
+      height: 74.5vh; }
+  report-alarm-records .paging-select-box {
+    width: calc( 75% - 0.75rem) !important;
+    margin-left: 25% !important; }
+    report-alarm-records .paging-select-box .page-button i {
+      margin-top: 4px; }
+  report-alarm-records .grid-table {
+    overflow: auto;
+    width: calc( 75% - 0.75rem) !important;
+    height: 75vh; }
+    report-alarm-records .grid-table #grid {
+      width: 100% !important; } }

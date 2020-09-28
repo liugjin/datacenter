@@ -1,0 +1,30 @@
+{
+  "id": "query-report",
+  "name": "查询报表",
+  "type": "QueryReportDirective",
+  "desc": "[hardy]-查询报表，同时支持告警报表与信号报表(type分别对应传入alarm,signal)。【v0.0.10】Hardy样式更新【v0.0.8】更新样式,集成device-tree【v0.0.5】更改使用新接口device-tree【v0.0.4】修复查询同一天查不出数据的BUG。",
+  "group": "项目组件",
+  "parameters": [
+    {
+      "id": "type",
+      "type": "string",
+      "value": "alarm"
+    },
+    {
+      "id": "height",
+      "type": "string",
+      "value": "60vh"
+    }
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": [
+      "selectedEquips"
+    ]
+  },
+  "deps": [
+    "device-tree"
+  ],
+  "css": "",
+  "version": "0.0.11"
+}

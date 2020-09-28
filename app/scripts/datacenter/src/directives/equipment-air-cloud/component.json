@@ -1,0 +1,33 @@
+{
+  "id": "equipment-air-cloud",
+  "name": "空调控件信息组件",
+  "type": "EquipmentAirCloudDirective",
+  "desc": {
+    "author": "foam",
+    "comment": "空调控件信息组件,适用于云监控项目",
+    "version": {
+      "0.0.1": [],
+      "0.0.2": ["添加可以控制英文参数"],
+      "0.0.3": ["修改样式,保留两位小数"],
+      "0.0.4": ["释放内存"],
+      "0.0.5": ["添加一个thShow的属性,用来控制是否显示下方的温湿度"]
+    }
+  },
+  "keywords":"信号,空调,信息,温度,湿度",
+  "group": "功能组件",
+  "parameters": [
+    {"id": "titleEnShow", "type": "boolean", "value": false, "desc": "true时显示英文标题,false时不显示"},
+    {"id": "supplyTemplate", "type": "string", "value": "supply-air-temperature", "desc": "默认读取信号送风温度:supply-air-temperature"},
+    {"id": "returnTemplate", "type": "string", "value": "return-air-temperature", "desc": "默认读取信号回风温度:return-air-temperature"},
+    {"id": "supplyHumidity", "type": "string", "value": "supply-air-humidity", "desc": "默认读取信号送风湿度:supply-air-humidity"},
+    {"id": "returnTemplate", "type": "string", "value": "return-air-humidity", "desc": "默认读取信号回风湿度:return-air-humidity"},
+    {"id": "thShow", "type": "boolean", "value": false, "desc": "是否显示下方的温湿度,当thshow为true时,显示下方的温湿度"}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.5"
+}

@@ -1,0 +1,29 @@
+.box-hexagon(style="margin-top: 0 !important;font-size:14px;")
+    .box-content(style="text-align: start;")
+        .no-margin-top(ng-style='{"background-color": getEventColor(station.statistic.severity) || "transparent","padding": "0 46px"}')
+            .row.white-text.no-margin-bottom
+                .col.s12(style="margin-top: 30px;")
+                    i.material-icons.right.small(ng-click='', title='告警管理') notifications_none
+                    span.card-title {{station.model.name}} / 告警管理
+
+
+                .col.s12.title-content-container
+                    div.left-title-box(ng-if="parameters.alarmFlag")
+                        span(title='活动告警数') {{(parameters.activeValue | number:0) || '-'}}
+                        span(style="margin:0 10px;") /
+                        span(title='告警总数') {{(parameters.statisticValue | number:0) || '-'}}
+                    div.left-title-box(ng-if="!parameters.alarmFlag")
+                        span.left-first-title 活动告警数
+                        span(title='告警总数') {{(parameters.activeValue | number:0) || '-'}}
+                    a.right.right-select-box(href='', title='选择事件类型: {{eventType.model.name}}', data-target='eventtypes2', data-cover-trigger='false', data-hover='true', data-constrain-width='false', md-dropdown)
+                        span.hide-on-med-and-down.white-text {{eventType.model.name || '所有事件类型'}}
+                        i.material-icons.left.white-text layers
+
+                    ul#eventtypes2.dropdown-content
+                        li(ng-class='{active: !eventType}')
+                            a.all-events-type-lbtn(ng-click='selectEventType()')
+                                span 所有事件类型
+
+                        li(ng-repeat='item in project.typeModels.eventtypes.items', ng-class='{active: item == eventType}')
+                            a(ng-click='selectEventType(item)')
+                                span {{item.model.name}}

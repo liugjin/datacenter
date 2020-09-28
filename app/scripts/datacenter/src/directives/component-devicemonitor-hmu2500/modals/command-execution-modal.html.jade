@@ -1,0 +1,145 @@
+//-
+    User: Dow
+    Date: 12/5/2016
+    Desc:
+
+style.
+    .input-field>label:not(.label-icon).active {
+        transform: translateY(-14px) scale(0.8);
+        transform-origin: 0 0;
+    }
+#command-execution-modal.modal.bottom-sheet2.modal-fixed-footer(md-modal)
+    .modal-content
+        .row
+            .col.s12
+                p.equipment-item-title
+                    | {{command.station.model.name}} / {{command.equipment.model.name}} / {{command.instance.name}}
+
+            .col.s6
+                table.hoverable.responsive-table.highlight
+                    tbody
+                        tr
+                            td
+                                label 控制ID
+                            td
+                                span {{command.model.command}}
+                            td
+                                //a(ng-href='{{setting.services.model}}/#/equipmentcommands/{{command.model.user}}/{{command.model.project}}/{{command.model.type}}/{{command.model.template}}?command={{command.model.command}}', target='_blank', title='模板控制配置')
+                                //    i.material-icons settings
+
+                        tr
+                            td
+                                label 控制优先级
+                            td
+                                span {{command.model.priority}}
+                            td
+                        tr
+                            td
+                                label 控制超时
+                            td
+                                span {{command.model.timeout}}
+                            td
+                                label 毫秒
+                        tr
+                            td
+                                label 控制权限
+                            td
+                                span {{command.model.password && "密码验证" || "简单"}}
+                            td
+                        tr
+                            td
+                                label 控制状态
+                            td
+                                i.material-icons.small {{!command.data && "share" || command.data.phase == "executing" && "send" || command.data.phase == "timeout" && "access_time" || command.data.phase == "complete" && "done" || command.data.phase == "cancel" && "not_interested" || command.data.phase == "error" && "error" || "send"}}
+                                .progress(ng-show='command.data.phase == "executing"')
+                                    .indeterminate
+                            td
+                                span {{command.data.phase}}
+
+
+            .col.s6
+                div(ng-repeat='parameter in command.model.parameters', ng-switch='parameter.type')
+                    .input-field.col.s12(ng-switch-when='int')
+                        input.validate(type='number', step='1', ng-model='parameter.value')
+                        label.active {{parameter.name}} ({{parameter.key}})
+                    .input-field.col.s12(ng-switch-when='float')
+                        input.validate(type='number', step='any', ng-model='parameter.value')
+                        label.active {{parameter.name}} ({{parameter.key}})
+                    .input-field.col.s12(ng-switch-when='bool')
+                        p
+                            input(type='checkbox', id='p-{{parameter.key}}', ng-model='parameter.value')
+                            label(for='p-{{parameter.key}}')
+                    .input-field.col.s12(ng-switch-when='enum')
+                        label.active {{parameter.name}} ({{parameter.key}})
+                        select(ng-model='parameter.value', md-select, data='parameter')
+                            option(ng-repeat='kv in parameter.enums', value='{{kv.value}}', ng-selected='parameter.value == kv.value') {{kv.key}}
+                    .input-field.col.s12(ng-switch-when='content')
+                        textarea.validate(ng-model='parameter.value')
+                        label.active {{parameter.name}} ({{parameter.key}})
+                    .input-field.col.s12(ng-switch-when='signal')
+                        input.validate(type='text', ng-model='parameter.value')
+                        label.active {{parameter.name}} ({{parameter.key}})
+                    .input-field.col.s12(ng-switch-default)
+                        input.validate(type='text', ng-model='parameter.value')
+                        label.active {{parameter.name}} ({{parameter.key}})
+
+
+                .input-field.col.s12
+                    input.validate(id="remark" type='text', ng-model='command.model.comment')
+                    label(for="remark" ng-class='{active: command.model.comment}') 执行备注
+
+
+                .input-field.col.s12(ng-show='command.model.password')
+                    input.validate(type='password', ng-model='password')
+                    label(ng-class='{active: password}') 验证用户密码
+
+            .col.s12
+                .btn-group(ng-show='queryToExecuting')
+                    a.btn.waves-effect.waves-light.red(ng-click='doExecuteCommand(command, true)', ng-show='command.data.phase != "executing"')
+                        | 确认执行控制
+                    a.btn.waves-effect.waves-light.red(ng-click='doCancelCommand(command ,false)', ng-show='command.data.phase == "executing"')
+                        | 确认终止控制
+                    a.btn.waves-effect.waves-light.grey(ng-click='stopQueryExecuting()')
+                        | 取消
+
+            .col.s6
+                .card-panel.no-padding.yellow(ng-show='commandError')
+                    span.grey-text {{commandError}}
+
+    .modal-footer.modal-nav
+        nav(ng-class='mvm.setting.theme')
+            .nav-wrapper
+                ul
+                    li
+                        a(href='', ng-click='doExecuteCommand(command)', title='执行控制命令', ng-show='command.data.phase != "executing"')
+                            i.material-icons.left send
+                            span.hide-on-med-and-down 执行控制
+                        a(href='', ng-click='doCancelCommand(command)', title='终止控制命令', ng-show='command.data.phase == "executing"')
+                            i.material-icons.left cancel
+                            span.hide-on-med-and-down 终止控制
+
+                    li
+                        a.waves-effect.waves-light.modal-trigger.modal-close(href='', data-target='command-modal')
+                            i.material-icons.left details
+                            span.hide-on-med-and-down 历史记录
+
+                    li
+                        a.waves-effect.waves-light(href='', ng-click='selectNextCommand()', title='选择上一控制')
+                            i.material-icons.left arrow_upward
+                            span.hide-on-med-and-down 上移
+
+                    li
+                        a.waves-effect.waves-light(href='', ng-click='selectPreviousCommand()', title='选择下一控制')
+                            i.material-icons.left arrow_downward
+                            span.hide-on-med-and-down 下移
+
+                    ul.right
+                        li
+                            a.modal-action.modal-close(href='')
+                                i.material-icons.left close
+                                span.hide-on-med-and-down 关闭
+
+        ul#command-query-periods.dropdown-content
+            li(ng-repeat='type in commandManager.recordTypes')
+                a(href='', ng-class='{active: type == commandManager.recordType}' ng-click='commandManager.selectRecordType(type); commandManager.queryRecords(command)')
+                    | {{type.name}}

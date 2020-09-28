@@ -1,0 +1,23 @@
+{
+  "id": "base-map-configuration",
+  "name": "hmu2500自定义站点底图组件",
+  "type": "BaseMapConfigurationDirective",
+  "desc": {
+    "author": "murray",
+    "comment": "实现通过上传自定义图片，来改变站点底图",
+    "version": {
+      "0.0.2": ["实现通过上传自定义图片，来改变站点底图@murray"],
+      "0.0.3": ["bug修改让svg的图片能上传@murray"]
+    }
+  },
+  "keywords":"首页底图,配置,自定义",
+  "group": "模块组件",
+  "parameters": [],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.3"
+}

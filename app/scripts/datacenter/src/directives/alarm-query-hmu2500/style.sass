@@ -1,0 +1,114 @@
+alarm-query-hmu2500
+  device-tree-single
+    width: 100%
+    padding-right: 0!important
+    padding-left: 0!important
+    .tree
+      height: 78.3vh !important
+      margin-top: .75rem
+      ul
+        height: 100%
+        overflow-x: auto
+    ul.fancytree-container
+      ul
+        padding-left: 10px!important
+
+  .dropdown-content
+    i
+      margin-right: 10px !important
+  report-query-time
+    .report-li span
+      margin: 0 10px
+  .btn-width
+    width: 100px
+
+
+  .ag-blue
+    height: 100%
+    color: #e2edf2
+    width: 100%
+    .ag-body-viewport
+      overflow-x: hidden
+    .ag-body
+      background-color: transparent
+      font-size: 0.875rem
+    // .ag-icon.ag-icon-menu
+    //   display: none
+    .ag-root
+      border: none
+    .ag-cell-focus
+      border: none !important
+    .ag-row:nth-child(2n) .ag-cell
+      background-color: rgba(37,70,156,0.4)
+    .ag-row-even
+      background-color: transparent
+    .ag-row-odd
+      background-color: transparent
+    .ag-cell-no-focus
+      border: none !important
+    .ag-cell, .ag-header-group-cell-label
+      // padding-left: 1rem
+      text-align: center
+      font-size: 0.875rem
+      color: #fff
+      display: flex
+      justify-content: center
+      align-items: center
+    .ag-cell:focus
+      outline: none
+    .ag-body-viewport-wrapper
+      background-color: transparent
+    .ag-header
+      height: 3.125rem !important
+      background-color: transparent
+      display: flex
+      border-bottom: 0
+      font-size: 0.9rem
+      justify-content: center
+      align-items: center
+      .ag-header-cell-label
+        justify-content: center
+
+      .ag-header-cell
+        // margin-left: 1rem
+        line-height: 3.125rem
+        padding: 0
+        border-right: 0
+      .ag-header-viewport
+        background-color: rgba(75,165,248,0.5)
+
+
+  .trackUl
+    li
+      margin-left: .75rem
+
+  .rowNgShow
+    box-sizing: border-box
+    .cLeft
+      width: 20%
+    .cRight
+      padding: 0.75rem 0 0.75rem 0.75rem
+      background-color: rgba(26,69,162,0.4)
+      height: 84.5vh
+      width: 80%
+      font-size: 0.8rem
+      .pagination
+        display: flex
+        justify-content: center
+        li
+          height: 36px
+          border: 1px solid #3A85E4
+          a
+            color: #3A85E4
+            line-height: 36px
+        li.active
+          background-color:rgba(41,104,246,0.4) !important
+          color: #ffffff
+
+@media screen and (max-width: 1300px)
+    alarm-query-hmu2500
+      .cLeft
+        width: 200px!important
+      .cRight
+        width: calc(100% - 200px)!important
+        overflow-x: auto

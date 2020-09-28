@@ -1,0 +1,41 @@
+{
+  "id": "report-notifications",
+  "name": "ReportNotifications控件",
+  "type": "ReportNotificationsDirective",
+  "desc": {
+    "author": "Sheen",
+    "comment": "告警通知记录组件",
+    "version": {
+        "0.0.2": ["告警通知记录报表，查询数据库notifications表","sheen"
+        ],
+        "0.0.4": ["修改类型显示bug","sheen"
+        ],
+        "0.0.5": ["增减通知状态过滤条件","James"
+        ],
+        "0.0.6": ["兼容输入框的宽度","region"
+        ],
+        "0.0.7": ["调试在浏览器分辨率为1024x768情况下，背景颜色跟随高度变化的情况", "@Mackie"],
+        "0.0.8": ["修改分页，通过parameters传入pageItems，值超过12则默认一页为12条数据", "@Mackie"],
+        "0.0.9": ["降低grid-table高度","@mackie"],
+        "0.0.10": ["添加对通知类型、状态为空时的判断条件", "@mackie"],
+        "0.0.11": ["修改无法查询告警通知记录的bug@murray"],
+        "0.0.12": ["修复通知类型和通知状态选择那里的样式掉下来问题，通知状态列内容改用中文，command的通知类型按faner要求显示为‘内置短信’@sheen"]
+    }
+  },
+  "keywords":"告警通知记录,邮件,通知状态",
+  "group": "功能组件",
+  "parameters": [
+    {
+      "id": "type",
+      "type": "int",
+      "value": "pageItems"
+    }
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.12"
+}

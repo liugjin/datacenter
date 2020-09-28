@@ -1,0 +1,24 @@
+{
+  "id": "manage-data",
+  "name": "数据管理页面",
+  "type": "ManageDataDirective",
+  "desc": {
+    "author": "foam",
+    "comment": "需要配置一个ftp地址才能,该组件会修改所有拥有存储周期,存储阀值的信号",
+    "version": {
+      "0.0.1": [""]
+    }
+  },
+  "keywords":"数据,备份,ftp,存储策略",
+  "group": "模块组件",
+  "parameters": [
+    {"id": "headerName", "type": "string", "value": "数据管理" ,"desc":"页面标题"}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": ".col.s12",
+  "version": "0.0.1"
+}

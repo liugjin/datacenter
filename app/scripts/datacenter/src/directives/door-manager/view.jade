@@ -1,0 +1,14 @@
+.row.nav-top
+    .col.s12
+        station-breadcrumbs(controller="controller" parameters="{station:accessStation}")
+
+.row
+    .col.l6
+        credit-record-last.credit-record(controller="vm" parameters="{station: station.model.station}")
+
+        credit-records.credit-record(controller="vm" parameters="{station: station.model.station}")
+
+    .col.l6.no-padding-left
+        equip-door.credit-record(controller="vm" parameters="{station: station.model.station}")
+
+

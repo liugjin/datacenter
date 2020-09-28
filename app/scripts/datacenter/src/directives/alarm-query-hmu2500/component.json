@@ -1,0 +1,25 @@
+{
+  "id": "alarm-query-hmu2500",
+  "name": "hmu2500告警记录页面",
+  "type": "AlarmQueryHmu2500Directive",
+  "desc": {
+    "author": "foam",
+    "comment": "hmu2500告警记录页面,可以查询某个站点或者某个设备的告警记录",
+    "version": {
+      "0.0.1": []
+    }
+  },
+  "keywords":"表格,告警,历史",
+  "group": "功能组件",
+  "parameters": [
+    {"id": "headerName", "type": "string", "value": "告警记录", "desc": "标题名字,导出excel表的名字,默认为告警记录"},
+    {"id": "pageItems", "type": "Number", "value": 10, "desc": "一页要显示多少条数据,若不传,则显示所有数据"}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": ["selectEquip"]
+  },
+  "deps": ["report-query-time", "device-tree-single"],
+  "css": ".s12.col",
+  "version": "0.0.1"
+}

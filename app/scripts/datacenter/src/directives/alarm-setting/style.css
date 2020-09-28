@@ -1,0 +1,177 @@
+alarm-setting .tHeader label [type="checkbox"].filled-in:not(:checked) + span:not(.lever):after {
+  border-color: #cdd2d4;
+  top: 8px; }
+
+alarm-setting .tHeader label [type="checkbox"].filled-in:checked + span:not(.lever):after, alarm-setting .tHeader label [type="checkbox"].filled-in:checked + span:not(.lever):before {
+  top: 8px; }
+
+alarm-setting .search-wrapper {
+  display: inline-block;
+  position: relative;
+  width: 20%; }
+
+alarm-setting .search-wrapper > i {
+  position: absolute;
+  font-size: 24px;
+  top: 8px;
+  left: 8px;
+  color: #b4d8f5; }
+
+alarm-setting .search-wrapper .search-input {
+  display: block;
+  margin: 0;
+  padding: 0 0 0 32px;
+  width: 91%;
+  height: 38px;
+  line-height: 38px;
+  font-size: 14px;
+  border: 1px solid #0050a6 !important;
+  color: #b4d8f5 !important; }
+
+alarm-setting .select-wrapper {
+  width: 100%; }
+
+alarm-setting .select-wrapper ul.dropdown-content {
+  max-height: 300px !important;
+  overflow: scroll; }
+
+alarm-setting .select-wrapper input.select-dropdown {
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  border: 1px solid #4ba5f8 !important; }
+
+alarm-setting .inventory {
+  margin-right: 0; }
+
+alarm-setting .search-input:hover {
+  border: 1px solid #10ebf4 !important;
+  border-bottom: 1px solid #10ebf4 !important;
+  background: transparent; }
+
+alarm-setting .search-input:focus {
+  border: 1px solid #10ebf4;
+  box-shadow: none; }
+
+alarm-setting .pad-control {
+  padding-right: 10px; }
+
+alarm-setting .invent-type {
+  height: 84vh;
+  background-color: rgba(26, 69, 162, 0.4);
+  overflow: auto; }
+  alarm-setting .invent-type .btn:hover {
+    box-shadow: none !important; }
+  alarm-setting .invent-type .type {
+    margin-bottom: .6rem;
+    background-color: rgba(2, 68, 168, 0.4);
+    height: 46px;
+    border: none; }
+    alarm-setting .invent-type .type a {
+      color: #FFFFFF;
+      line-height: 46px;
+      text-align: left; }
+      alarm-setting .invent-type .type a .type-img {
+        float: left;
+        margin-right: .75rem; }
+        alarm-setting .invent-type .type a .type-img i {
+          width: 46px;
+          height: 46px; }
+        alarm-setting .invent-type .type a .type-img .img-bing {
+          width: 25px;
+          height: 46px;
+          background-repeat: no-repeat; }
+        alarm-setting .invent-type .type a .type-img .img-type {
+          background-position: -183px -16px; }
+        alarm-setting .invent-type .type a .type-img .img-type-active {
+          background-position: -183px -16px; }
+      alarm-setting .invent-type .type a .type-count .right {
+        color: #01A6FF; }
+  alarm-setting .invent-type .current {
+    background-color: rgba(0, 167, 255, 0.5) !important;
+    transition: .6s;
+    border-radius: 0; }
+    alarm-setting .invent-type .current .type-count {
+      color: #e2edf2 !important; }
+      alarm-setting .invent-type .current .type-count .right {
+        color: #e2edf2 !important; }
+
+alarm-setting .invent-list {
+  background-color: rgba(26, 69, 162, 0.4);
+  height: 84vh;
+  position: relative; }
+  alarm-setting .invent-list .list-view img {
+    width: 1rem;
+    text-align: center;
+    margin: 0 0.5rem; }
+  alarm-setting .invent-list .list-view .text-align-left {
+    text-align: left !important; }
+  alarm-setting .invent-list .list-view table tbody tr {
+    height: 62px !important;
+    border-bottom: 1px solid #0050a6 !important; }
+  alarm-setting .invent-list .list-view table tbody tr:hover {
+    background-color: rgba(3, 166, 255, 0.3) !important; }
+  alarm-setting .invent-list .list-view table tbody tr:nth-child(even) {
+    background-color: transparent !important; }
+  alarm-setting .invent-list .list-view table tbody .td-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  alarm-setting .invent-list .inventory-nav {
+    padding-left: 0 !important;
+    margin-bottom: 10px;
+    margin-top: 0.75rem; }
+    alarm-setting .invent-list .inventory-nav .btn {
+      height: 40px;
+      color: #fff;
+      line-height: 40px;
+      width: 100px; }
+    alarm-setting .invent-list .inventory-nav .right-gap {
+      margin-right: 50px; }
+    alarm-setting .invent-list .inventory-nav .left-gap {
+      cursor: pointer;
+      margin-left: 20px;
+      color: #00b4ff; }
+    alarm-setting .invent-list .inventory-nav .active {
+      color: #00e7ef;
+      font-size: 1rem; }
+  alarm-setting .invent-list .list-view {
+    position: relative;
+    width: 100%;
+    height: 76vh;
+    overflow: auto; }
+    alarm-setting .invent-list .list-view table {
+      width: 100%; }
+      alarm-setting .invent-list .list-view table tbody input, alarm-setting .invent-list .list-view table tbody input.select-dropdown {
+        margin: 0 auto;
+        border-bottom: 0 solid #9e9e9e;
+        text-align: center;
+        height: 38px;
+        font-size: 14px; }
+
+@media screen and (width: 1024px) {
+  alarm-setting .alarm-box1-control {
+    width: 25% !important; }
+  alarm-setting .alarm-box2-control {
+    width: 75% !important; }
+  alarm-setting .search-wrapper .search-input {
+    width: 80%; }
+  alarm-setting .invent-type {
+    height: 81vh; }
+  alarm-setting .invent-list {
+    height: 81vh; }
+    alarm-setting .invent-list .list-view {
+      height: 72vh; }
+      alarm-setting .invent-list .list-view table {
+        width: 160%; }
+        alarm-setting .invent-list .list-view table tbody tr {
+          height: 50px !important;
+          line-height: 50px !important; }
+          alarm-setting .invent-list .list-view table tbody tr td {
+            font-size: 12px;
+            text-overflow: ellipsis;
+            white-space: nowrap; }
+    alarm-setting .invent-list .inventory-nav .right-gap {
+      margin-right: 2px !important; }
+    alarm-setting .invent-list .inventory-nav .left-gap {
+      margin-left: 6px !important; } }

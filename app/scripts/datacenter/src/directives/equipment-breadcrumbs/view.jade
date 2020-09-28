@@ -1,0 +1,19 @@
+nav.no-bg-color
+    .nav-wrapper
+        .col.s12.truncate
+            a.breadcrumb(ng-repeat="parent in parents", href="", data-hover='true', title='{{parent.model.name}}', ng-click="selectParent(parent)" ng-if="parents")
+                | {{parent.model.name}}
+            a.breadcrumb.dropdown-trigger(href="", data-target='stations', data-hover='true',  md-dropdown, title='{{station.model.name}}')
+                | {{station.model.name}}
+            a.breadcrumb.dropdown-trigger(href='', data-target='childrens', data-hover='true', md-dropdown, ng-if="equipments.length>0")
+                span.active-menu {{equipment.model.name || "--"}}
+
+ul#stations.dropdown-content
+    li(ng-repeat='sta in stations | filter:{key: "!="+station.key}', ng-class='{active: sta.key == station.key}')
+        a(ng-href='', ng-click='selectStation(sta)')
+            span {{sta.model.name}}
+
+ul#childrens.dropdown-content(ng-if="equipments.length>0")
+    li(ng-repeat='equip in equipments')
+        a(ng-href='', ng-click='selectEquipment(equip)')
+            span {{equip.model.name}}

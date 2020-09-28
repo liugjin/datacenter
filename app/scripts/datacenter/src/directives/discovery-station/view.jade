@@ -1,0 +1,35 @@
+#add-station-modal.modal.modal-fixed-footer(md-modal, dismissible="false")
+    .modal-content
+        .row
+            .col.s12
+                h5 系统检测到有{{element.template.name||"站点"}}(对应采集器ID:{{element.mu}})数据接入，是否新增到系统？
+                .col.s12
+                    .input-field.col.s12
+                        span.input-label ID
+                        input#equipment.validate(type='text', ng-model='station.model.station')
+                        //label(for='equipment', class="active" ng-class='{active: equipment.model.equipment}') 设备ID
+
+                    .input-field.col.s12
+                        span.input-label 名称
+                        input#name.validate(type='text', ng-model='station.model.name')
+                        //label(for='name' class="active" ng-class='{active: equipment.model.name}') 设备名称
+
+                    .input-field.col.s12
+                        span.input-label 上级站点
+                        select(ng-model='station.model.parent', md-select, data='project.stations.items')
+                            option(ng-repeat='sta in project.stations.items', value='{{sta.model.station}}', ng-selected='sta.model.station == station.model.parent') {{sta.model.name}}
+
+    .modal-footer.modal-nav
+        nav
+            .nav-wrapper
+                ul
+                    li
+                        a(href='', ng-click='saveStation()', title='保存')
+                            i.material-icons.left save
+                            span.hide-on-med-and-down 确认
+
+                    ul.right
+                        li
+                            a.modal-action.modal-close(href='', ng-click="cancel()")
+                                i.material-icons.right close
+                                span.hide-on-med-and-down 取消

@@ -1,0 +1,20 @@
+.row.nav-top
+    .col.l1.main-title
+        span(style="color: #fff") 设备清单
+    .col.l11
+        nav
+            .nav-wrapper.asset-nav-bar
+                drop-down(controller="controller" parameters="{title: '选中站点', all: stations, selected: selectedStations, origin: 'station'}")
+                drop-down(controller="controller" parameters="{title: '选择资产类型', all: equipmentTypes, selected: selectedTypes, origin: 'type'}")
+                drop-down(controller="controller" parameters="{title: '选择厂商', all: vendors, selected: selectedVendors, origin: 'vendor'}")
+                drop-down(controller="controller" parameters="{title: '选择保修状态', all: guaranteeStatus, selected: selectedGuaranteeStatus, origin: 'guarantee'}")
+                drop-down(controller="controller" parameters="{title: '选择使用状态', all: usageStatus, selected: selectedUsageStatus, origin: 'usage'}")
+                .btn(ng-click='exportReport(headers,"资产信息报表")' title='导出报表CSV数据')
+                    span 导出
+                .btn.btn-margin-style(ng-click='queryData()' title='查询/刷新数据')
+                    span 查询
+
+.row.no-margin
+    .col.s12.m8.l12.no-padding
+        .new-collection
+            grid-table.grid-table(controller='controller' parameters="{header: headers, data: data}")

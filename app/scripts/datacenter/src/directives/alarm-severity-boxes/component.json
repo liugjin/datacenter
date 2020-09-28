@@ -1,0 +1,33 @@
+{
+  "id": "alarm-severity-boxes",
+  "name": "告警等级统计组件",
+  "type": "AlarmSeverityBoxesDirective",
+  "desc": {
+    "author": "david",
+    "comment": "按告警等级分类统计显示站点下告警数量",
+    "version": {
+        "0.0.1": [
+        ],
+        "0.0.2": [
+          "更新页面标准化组件","@Albert"
+        ],
+        "0.0.3": [
+          "样式标准化","@region"
+        ],
+        "0.0.4": [
+          "提示告警的放块放中间对其","@region"
+        ]
+    }
+  },
+  "group": "站点组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.3"
+}

@@ -1,0 +1,50 @@
+link(rel='stylesheet', href='/lib/gl-datepicker/styles/glDatePicker.default.css')
+.row.nav-top
+    .col.s2
+        span {{ parameters.headerName ||"告警记录"}}
+    .col.s10
+        nav
+            .nav-wrapper
+                ul
+                    li
+                    ul#type.dropdown-content
+                        li
+                            a(ng-href="" ng-click="selectType('new')")
+                                i.material-icons timer
+                                span 最新告警
+                        li
+                            a(ng-href="" ng-click="selectType('history')")
+                                i.material-icons timeline
+                                span {{ parameters.headerName ||"告警记录"}}
+
+                .right(style="display:flex;" ng-show="eventsType == 'history'")
+                    report-query-time(controller='controller',parameters='{"startLable":"时间  ","endLable":"--   "}')
+                    ul.trackUl
+                        li
+                            .btn.btn-width(href='', ng-click='queryAlarm()', title='查询')
+                                span.hide-on-med-and-down 查询
+                        li
+                            .btn.btn-width(href='', ng-click='exportReport(header, parameters.headerName ||"告警记录")', title='导出')
+                                span.hide-on-med-and-down 导出
+
+.row.rowNgShow(ng-show="eventsType == 'history'")
+    .col.cLeft
+        //- station-tree.col.tree-style(controller='controller', parameters='{"checkbox":true,"filter":true}',style="width: 100%;" ng-show="eventsType == 'history'")
+        device-tree-single.col.tree-style(controller='controller',parameters='{"checkbox":false,"filter":true,"reportName": parameters.headerName ||"告警记录"}')
+    .col.cRight
+        .row(style="margin-left: 0rem")
+            .col(style="height: 73.5vh;width: 100%;padding-left: 0;")
+                #history.ag-blue
+            .col.l12
+                ul.pagination(ng-show='pagination.pageCount > 1')
+                    li(ng-class='{disabled: pagination.page <= 1, "waves-effect": pagination.page > 1}', ng-click='queryPage("previous")')
+                        a(href='')
+                            img(ng-src="{{getComponentPath('icons/left.svg')}}",width="14px",height="14px")
+
+                    li(ng-class='{active: page == pagination.page, "waves-effect": page != pagination.page}', ng-repeat='page in pagination.pages', ng-click='queryPage(page)')
+                        a(href='')
+                            | {{(($index == 1 && pagination.page > 4)||($index == pagination.pages.length-2 && vm.pagination.page < pagination.pageCount-3)) ? "..":page}}
+
+                    li(ng-class='{disabled: pagination.page >= pagination.pageCount, "waves-effect": pagination.page < pagination.pageCount}', ng-click='queryPage("next")')
+                        a(href='')
+                            img(ng-src="{{getComponentPath('icons/right.svg')}}",width="14px",height="14px")

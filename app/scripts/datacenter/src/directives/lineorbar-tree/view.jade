@@ -1,0 +1,22 @@
+.row.equip-lineorbar(style="height:100%;margin-right: 12px;margin-left: 12px;")
+    .card(style="width:100%;height:100%;background-color: transparent;box-shadow: 0 0 0 0;")
+        .row(style="background-color: transparent;")
+            .col.s2
+                .signal-select
+                    span
+                        .nav-wrapper
+                            a.breadcrumb.dropdown-trigger(href='' data-target='signallists' data-hover='true'
+                                data-constrain-width='false' data-cover-trigger="false"
+                                md-dropdown ng-show='signalList.length > 1')
+                                span.active-menu 信号选择 ▼
+                            a.breadcrumb.dropdown-trigger(ng-show='signalList.length == 1')
+                                span.active-menu {{signalList[0].name}}
+                    ul#signallists.dropdown-content
+                        li(ng-repeat = '(index, type) in signalList')
+                            a(ng-href='' ng-click='selectSignal(type, index)')
+                                i.material-icons.left {{type.check ? 'check' : 'crop_din'}}
+                                span {{type.name}}
+            .col.s10
+                equipment-timefilter(controller='controller' parameters='{}')
+        .row(style="height:60vh;")
+            lineorbar-echart(controller='controller' parameters='{chartValues:chartValues,legend:false,width:"100%",tip:tipFun}')

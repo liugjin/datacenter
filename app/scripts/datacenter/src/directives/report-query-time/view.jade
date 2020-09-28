@@ -1,0 +1,15 @@
+link(rel='stylesheet', href='/lib/gl-datepicker/styles/glDatePicker.default.css')
+ul.report-time
+    li.report-li
+        span(ng-hide="time.mode=='day'")
+            | {{startLable}}
+        span(ng-show="time.mode=='day'")
+            | {{startLable}}
+    li.report-li
+        .input-field
+            input#startdate.datepicker(type='text' ng-model="time.startTime" ng-change="formatDate('startdate')" ng-mouseenter="myenter('startdate')" readonly)
+    li.report-li(ng-hide="time.mode=='day'" style="margin: 0 4px;")
+        span {{endLable}}
+    li.report-li(ng-hide="time.mode=='day'")
+        .input-field
+            input#enddate.datepicker(type='text' ng-model="time.endTime" ng-change="formatDate('enddate')" ng-mouseenter="myenter('enddate')" readonly)

@@ -1,0 +1,25 @@
+{
+  "id": "notification-setting",
+  "name": "NotificationSetting控件",
+  "type": "NotificationSettingDirective",
+  "desc": {
+    "author": "murray",
+    "comment": "自定义组件",
+    "version": {
+      "0.0.1": ["优化通知配置页面"],
+      "0.0.2":["优化通知配置页面,对bug进行修改"]
+    }
+  },
+  "keywords":"配置,邮件,短信猫,2500",
+  "group": "模块组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.2"
+}

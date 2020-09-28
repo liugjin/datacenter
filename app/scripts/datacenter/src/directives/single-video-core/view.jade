@@ -1,0 +1,12 @@
+.content
+    .row(style="margin-bottom:0;height:100%")
+        .col.m12(style="box-sizing:border-box; height:100%")
+            .video(style="display:block;height:100%", ng-mouseover="over=true", ng-mouseout="over=false", ng-class="{'selected':over}")
+                div(style="height:100%;overflow:hidden;border-radius: 10px; position:relative")
+                    .name.dropdown-trigger(ng-show="over" data-target='videos{{date}}' data-alignment='right' data-constrain-width='false' md-dropdown ng-mouseover="over=true" ng-mouseout="over=false") {{equipment.model.name}}
+                        ul.dropdown-content.list(id="videos{{date}}" style="overflow: overlay")
+                            li(ng-repeat='equip in videos' ng-class='{active: equip.key==equipment.key}', style="min-height:10px")
+                                a(ng-href='', ng-click='playVideo(equip)', style="padding:0")
+                                    span(style="font-size:10px") {{equip.model.name}}
+
+                    .vxgplayer(id="{{'player-'+equipment.model.equipment+date}}")

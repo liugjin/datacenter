@@ -1,0 +1,28 @@
+{
+  "id": "logic-action",
+  "name": "联动规则配置组件",
+  "type": "LogicActionDirective",
+  "desc": {
+    "author": "David",
+    "comment": "项目中设备告警或状态信号联动到设备控制的配置组件",
+    "version": {
+      "0.0.1": ["在此组件中，能配置和显示项目中的设备实例联动规则，一条规则包含输入、运算符和输出，输入可以有多条，输出也可以有多条，输入又分为状态信号和设备告警2种，输出只能是设备控制",
+        "最终的联动规则是一个json配置，形如：[{id: new Date().getTime(), enable:true, input:[{station:'demo', equipment:'1', event:'alarm-temperature-high', value: start'},{station:'demo', equipment:'2', event:'trigger-alarm-signal'}], operator: 'AND', output:[{station:'demo', equipment:'4', command:'alarm-status', value:'1', valueType:'int'}]}]",
+        "此组件的配置信息会写入项目的setting字段中，后台需启动logic-service服务来解析运行该配置，才能真正实现逻辑联动功能"
+      ],
+      "0.0.2": ["修改弹框的样式为标准弹框样式"]
+    }
+  },
+  "keywords":"告警联动,信号联动,列表,多对多联动",
+  "group": "模块组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.2"
+}

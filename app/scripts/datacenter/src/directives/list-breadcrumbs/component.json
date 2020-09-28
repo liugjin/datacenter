@@ -1,0 +1,30 @@
+{
+	"id": "list-breadcrumbs",
+	"name": "ListBreadcrumbs控件",
+	"type": "ListBreadcrumbsDirective",
+	"desc": {
+		"author": "youge",
+		"comment": "数组通用面包屑,选中可以返回所有子节点",
+		"version": {
+			"0.0.1": ["初始化", "@youge"],
+			"0.0.2": ["增加参数, 可控制是否返回子节点", "@youge"],
+			"0.0.3": ["解决bug: 达到最下层级别的站点时, 后面不显示 > 符号", "@youge"],
+			"0.0.4": ["增加在 url 传参时, 默认为该值", "@youge"],
+			"0.0.5": ["接参修改", "@youge"]
+		}
+	},
+	"keywords": "样式,站点,breadcrumbs",
+	"group": "数据点组件",
+	"parameters": [
+		{ "id": "data", "type": "array", "value": "[]", "desc": "tree形的源数据" }, 
+		{ "id": "needChild", "type": "boolean", "value": "true", "desc": "是否返回子节点, 默认true" }, 
+		{ "id": "key", "type": "string", "value": "station", "desc": "在url传参包含该字段时, 初始化它" }
+	],
+	"interact": {
+		"pubs": ["list-breadcrumbs"],
+		"subs": []
+	},
+	"deps": [],
+	"css": "",
+	"version": "0.0.5"
+}

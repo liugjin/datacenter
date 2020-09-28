@@ -1,0 +1,12 @@
+.row.nav-top(style="margin-bottom: 10px !important;")
+    .col.s12
+        station-breadcrumbs(controller='vm', parameters='{}')
+
+.row
+    signal-gauge-picker.col.l3.set-height(controller='vm', parameters='{}' style="padding: 0 0 0 10px;")
+
+    energy-year-pie.col.l3.set-height(controller='vm', parameters='{stationId: station.model.station}' style="padding: 0 0 0 10px;")
+
+    real-time-pue.col.l6.set-height(controller='vm', parameters='{station: station.model.station,equipment:"_station_efficient",signal:"pue-value"}' style="padding: 0 10px;")
+
+    total-energy-bar.col.l12.set-height(controller='vm', parameters='{stationId: station.model.station}' style="margin-top: 10px; padding: 0 10px;")

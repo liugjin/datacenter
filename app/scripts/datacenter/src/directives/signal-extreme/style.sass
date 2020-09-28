@@ -1,0 +1,112 @@
+
+signal-extreme
+
+  .line-col
+    position: absolute
+    width: calc(100% - 1px)
+    margin-top: 20px
+    height: calc(100% - 40px)
+    border: 1px solid #082268
+    border-top: none
+    border-bottom: none
+
+  .line-row
+    position: absolute
+    height: 100%
+    margin-left: 20px
+    width: calc(100% - 40px)
+    border: 1px solid #082268
+    border-left: none
+    border-right: none
+
+  .box-hexagon
+    position: relative
+    width: 100%
+    height: 24vh
+    overflow: hidden
+
+  .height-43
+    height: 42vh
+
+  .height-32
+    height: 32vh
+
+  .pad-left
+    padding-left: 0 !important
+
+  .box-border-top
+    height: 20px
+
+  .box-content
+    padding: 1rem
+    position: absolute
+    top: 0
+    height: 100%
+    width: 100%
+    color: #e2edf2
+    background: url("~image/left-on.png~") 0 0 no-repeat, url("~image/left-under.png~") 0 100% no-repeat, url("~image/right-on.png~") calc(100% - 1px) 0 no-repeat, url("~image/right-under.png~") calc(100% - 1px) 100% no-repeat
+
+    .title
+      background: url("~image/title-img.png~") center no-repeat
+      text-align: center
+      color: #2a89ee
+      font-size: 1.2rem
+
+    .subtitle
+      position: absolute
+      color: #2a89ee
+      font-size: .5rem
+      right: 25px
+      top: 8px
+
+    .content
+      padding-top: .5vh
+      flex-direction: row
+      justify-content: space-evenly
+
+    .content
+      padding-top: .5vh
+      height: 18vh
+      display: flex
+      flex-direction: row
+      justify-content: space-evenly
+
+      .environment
+        width: 100%
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+
+        .font
+          width: 100%
+          text-align: left
+          //height: 9vh
+          display: flex
+          flex-direction: column
+          padding-top: 1.5vh
+          font-size: 14px
+
+          &:first-of-type
+            padding-top: 0
+
+          .img
+            text-align: center
+
+            img
+              height: 4vh
+
+          .font-value
+
+            .left
+              color: #ffffff
+
+            .right
+              color: #10ebf4
+
+          .font-name
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+
+
+

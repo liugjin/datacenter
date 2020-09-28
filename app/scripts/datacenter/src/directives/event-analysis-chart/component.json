@@ -1,0 +1,36 @@
+{
+  "id": "event-analysis-chart",
+  "name": "EventAnalysisChart控件",
+  "type": "EventAnalysisChartDirective",
+  "desc": {
+    "author": "",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.1": [
+        ],
+        "0.0.2": [
+          "更新适配1024x768分辨率","@Albert"
+        ],
+        "0.0.3": [
+          "去除打印", "@mackie"
+        ],
+        "0.0.4": [
+          "修改图标默认显示", "@mackie"
+        ],
+        "0.0.5": [
+          "更新chart将饼图leged改成适应屏幕宽度", "@region"
+        ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.5"
+}

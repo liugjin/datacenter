@@ -1,0 +1,45 @@
+{
+  "id": "alarm-number-box",
+  "name": "AlarmNumberBox控件",
+  "type": "AlarmNumberBoxDirective",
+  "parameters": [
+    {
+      "id": "text",
+      "type": "string",
+      "value": "紧急告警"
+    },
+    {
+      "id": "number",
+      "type": "number",
+      "value": 0
+    },
+    {
+      "id": "color",
+      "type": "string",
+      "value": "#ec2c4c"
+    }
+  ],
+  "desc": {
+    "author": "Hardy",
+    "desc": "一个显示一行数字与一行文字的盒子",
+    "version": {
+      "0.0.1": [
+        "【Hardy】初步完成"
+      ],
+      "0.0.2": [
+        "【Hardy】尝试修复前端组件库显示异常"
+      ],
+      "0.0.3":["【hardy】样式调整"],
+      "0.0.4":["增加链接"],
+      "0.0.5":["region--去掉背景色"]
+    }
+  },
+  "group": "模块组件",
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "width:10vw;height:10vh;",
+  "version": "0.0.5"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "station-environmentyu",
+  "name": "站点环境量呈现组件",
+  "type": "StationEnvironmentyuDirective",
+  "desc": {
+    "author": "",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.1": ["更新页面标准化样式,region"],
+        "0.0.2": ["样式优化,region"],
+        "0.0.3": ["样式优化,region"]
+    }
+  },
+  "group": "站点组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.3"
+}

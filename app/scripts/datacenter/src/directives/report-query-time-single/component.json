@@ -1,0 +1,23 @@
+{
+  "id": "report-query-time-single",
+  "name": "ReportQueryTimeSingle控件",
+  "type": "ReportQueryTimeSingleDirective",
+  "desc": {
+    "author": "foam",
+    "comment": "单设备上云标准时间控件",
+    "version": {
+        "0.0.1": ["首次提交"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": ["startdate","enddate"],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.1"
+}

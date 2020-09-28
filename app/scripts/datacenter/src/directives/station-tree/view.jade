@@ -1,0 +1,9 @@
+.row
+    .col.l12
+        .filter(ng-show="filter")
+            i.material-icons.white-text search
+            input.validate.ng-pristine.ng-valid.ng-empty.ng-touched(type="password" style="display:none" placeholder="过滤条件.." ng-model="searchLisggggts" required)
+            input.validate.ng-pristine.ng-valid.ng-empty.ng-touched(placeholder='过滤条件..' ng-model="search" autocomplete="off" ng-keyup="filterTree()" name="search")
+
+            div.grey-text.center.delete(ng-show='search', ng-click='search=""; filterTree()', title='清空过滤条件', style="") ×
+        .tree

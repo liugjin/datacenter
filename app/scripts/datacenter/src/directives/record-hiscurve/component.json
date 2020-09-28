@@ -1,0 +1,27 @@
+{
+  "id": "record-hiscurve",
+  "name": "RecordHiscurve控件",
+  "type": "RecordHiscurveDirective",
+  "desc": {
+    "author": "Mackie",
+    "comment": "历史数据曲线告警记录报表",
+    "version": {
+        "0.0.1": ["组件初始版本提交"],
+        "0.0.2": ["优化组件，去除不必要的参数"],
+        "0.0.3": ["解决缺少scope.alarms报错问题"],
+        "0.0.4": ["将refresh改为true"],
+        "0.0.5": ["将setTimeout改为@$timeout"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": ["device-accla-alarm","lineorbar-tree"],
+  "css": "",
+  "version": "0.0.5"
+}

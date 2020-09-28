@@ -1,0 +1,88 @@
+distribution-manager
+  display: block
+  margin-top: -2.8rem
+  margin-left: 22px
+  .line-col
+    position: absolute
+    width: calc(100% - 1px)
+    margin-top: 20px
+    height: calc(100% - 40px)
+
+  .line-row
+    position: absolute
+    height: 100%
+    width: calc(100% - 40px)
+
+  .box-hexagon
+    position: relative
+    width: 102.5%
+    overflow: hidden
+
+  .height-43
+    height: 42vh
+
+  .height-32
+    height: 32vh
+  .box-border-top
+    height: 20px
+
+  .box-content
+    padding: 1rem 0 1rem 1rem
+    position: absolute
+    top: 0
+    height: 100%
+    width: 100%
+    color: #e2edf2
+
+    .title
+      color: #ffffff
+      .title-line
+        width: 4px
+        height: 20px
+        background: rgba(1,166,255,1)
+        float: left
+        margin-top: 0.3rem
+      .title-h1
+        font-size: 20px
+        font-weight: 600
+        margin-left: 0.5rem
+      .title-h2
+        font-size: 12px
+        font-weight: 400
+        margin-left: 0.5rem
+    .subtitle
+      position: absolute
+      color: #2a89ee
+      font-size: .5rem
+      right: 25px
+      top: 8px
+
+    .content
+      padding-top: .5vh
+      flex-direction: row
+      justify-content: space-evenly
+      position: relative
+      left: -7px
+      .standard-pie-loc
+        margin-top: 5px
+@media screen and (width: 1024px)
+  distribution-manager
+    margin-left: 0
+    margin-top: -2.8rem
+    .box-content
+      .title
+        .title-line
+          height: 16px
+        .title-h1
+          font-size: 16px
+        .title-h2
+          font-size: 0px
+      .content
+        left: 0px
+        .standard-pie-loc
+          margin-top: 0px
+          padding: 0 !important
+          signal-pie
+            .signal
+              padding-bottom: 0px
+

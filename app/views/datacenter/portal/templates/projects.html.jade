@@ -1,0 +1,94 @@
+//-
+   User: Dow
+   Date: 4/17/2015
+
+.row
+    .col.s12.m4.l3
+        nav.nav-top(ng-class='mvm.setting.theme')
+            .nav-wrapper
+                ul.nav-flex
+                    li
+                        a.modal-trigger(href='', data-target='projects-modal', title='选择我的项目')
+                            span.active-menu 项目管理（{{filterItems.length}}）
+
+    .col.s12.m8.l6
+        nav.nav-top(ng-class='mvm.setting.theme')
+            .nav-wrapper
+                ul.nav-flex
+                    li.nav-flex-grow
+                        .input-field(style="height: auto;")
+                            input(type='search', ng-model='vm.search', placeholder='输入项目ID或名称', required)
+                            label.label-icon
+                                i.material-icons search
+                            i.material-icons(ng-click='vm.search = ""', ng-show='vm.search') close
+
+                    //li
+                        a.modal-trigger(ng-href='{{vm.setting.services.model}}#/projects/{{$root.user.user}}/new', title='新增项目', target='_blank')
+                            i.material-icons.left add
+                            span.hide-on-med-and-down 新增
+    .col.s12.m8.l3
+        nav.nav-top(ng-class="mvm.setting.theme")
+            .nav-wrapper
+                ul.nav-flex
+                    li.nav-flex-grow(ng-show="vm.$rootScope.user.user=='admin'")
+                        plugin-uploader(controller="vm", parameters="{}")
+.row
+    .col.s12.m4.l3(ng-repeat='item in filterItems = (vm.items | filter: vm.filterItem()) | orderBy:vm.predicate:vm.reverse | limitTo: vm.pageItems * vm.page | limitTo: -vm.pageItems')
+        .cool-card.card.hoverable(ng-class='{"z-depth-4": item.project == vm.$routeParams.project}')
+            .card-image
+                a(ng-href='#/dispatch/{{item.user}}/{{item.project}}', title='访问项目')
+                    .card-img-placeholder
+                        img.responsive-img(ng-if='item.image', ng-src='{{vm.options.uploadUrl}}/{{item.image}}')
+            .card-content
+                span.card-title.grey-text(title='{{item.name}}')
+                    //-.truncate {{item.user}} / {{item.name}}
+                    .flow-text.truncate {{item.user}} / {{item.name}}
+
+            .card-action
+                a(href='', ng-click='vm.star(item, true)', title='关注项目', ng-show='!vm.isStared(item)')
+                    i.material-icons.icon-center favorite_outline
+                    span &nbsp;{{item.stars || 0}}
+                a(href='', ng-click='vm.star(item, false)', title='取消关注', ng-show='vm.isStared(item)')
+                    i.material-icons.icon-center favorite
+                    span &nbsp;{{item.stars || 0}}
+
+
+                a.right(ng-href='#/dispatch/{{item.user}}/{{item.project}}', title='管理项目')
+                    | 浏览
+
+    .col.s12
+        ul.pagination(ng-show='vm.pages.length > 1')
+            li(ng-class='{disabled: vm.page <= 1, "waves-effect": vm.page > 1}', ng-click='vm.previousPage()')
+                a(href='')
+                    i.material-icons chevron_left
+            li(ng-class='{active: page == vm.page, "waves-effect": page != vm.page}', ng-repeat='page in vm.pages', ng-click='vm.setPage(page)')
+                a(href='')
+                    | {{page}}
+            li(ng-class='{disabled: vm.page >= vm.pageCount, "waves-effect": vm.page < vm.pageCount}', ng-click='vm.nextPage()')
+                a(href='')
+                    i.material-icons chevron_right
+
+#projects-modal.modal(md-modal)
+    .modal-content
+        .row
+            .col.s12
+                span 项目管理（{{filterItems.length}}）
+
+                a(href='', ng-click='vm.closeModal("#projects-modal")')
+                    i.material-icons.right close
+
+            .col.s6
+                p
+                    md-checkbox(ng-model='vm.showMineOnly', label='我的项目')
+                p
+                    md-checkbox(ng-model='vm.showStarsOnly', label='关注项目')
+
+            .col.s6
+                p
+                    md-checkbox(ng-model='vm.reverse', label='逆序排序')
+                p
+                    md-radio(name='order', value='updatetime', ng-model='vm.predicate', label='更新时间')
+                p
+                    md-radio(name='order', value='name', ng-model='vm.predicate', label='项目名称')
+                p
+                    md-radio(name='order', value='user', ng-model='vm.predicate', label='用户名称')

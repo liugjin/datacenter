@@ -1,0 +1,25 @@
+{
+  "id": "user-management",
+  "name": "UserManagement控件",
+  "type": "UserManagementDirective",
+  "desc": {
+    "author": "Murray",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.1": [
+          "组件新建"
+        ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.1"
+}

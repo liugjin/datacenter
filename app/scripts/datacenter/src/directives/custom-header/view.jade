@@ -1,0 +1,15 @@
+.header(ng-init="hover=false", ng-mouseover="hover=true", ng-mouseout="hover=false")
+    .row.no-margin
+        nav.z-depth-0.header-bg
+            .nav-wrapper
+                .logo
+                    //station-breadcrumbs(controller='vm' parameters='{}')
+                    //a(style='cursor:pointer;' ng-href='#/iiot/{{$root.myproject.user}}/{{$root.myproject.project}}')
+                        img
+                .title
+                    //img(src="res/img/changan/{{vm.title.url}}")
+                    .main {{parameters.name}}
+                    .en-name {{parameters.subtitle}}
+                .time {{vm.getDate}}
+                    .right(ng-show="hover==true")
+                        img.nav-img(title="全屏",ng-src="{{getComponentPath('image/fullscreen.png')}}",ng-click='fullscreen()')

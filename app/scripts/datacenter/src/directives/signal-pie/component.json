@@ -1,0 +1,59 @@
+{
+  "id": "signal-pie",
+  "name": "单信号饼图",
+  "type": "SignalPieDirective",
+  "desc": {
+    "author": "bingo",
+    "comment": "单信号饼图",
+    "version": {
+      "0.0.1": [
+        "init"
+      ],
+      "0.0.2": [
+        "信号name过长隐藏",
+        "@bingo"
+      ],
+      "0.0.3": [
+        "修改样式",
+        "@bingo"
+      ],
+      "0.0.4": [
+        "根据信号的告警等级显示不同的颜色",
+        "@bingo"
+      ],
+      "0.0.5": [
+        "把数据精确到一位小数点",
+        "@region"
+      ],
+      "0.0.6": [
+        "更新页面标准化样式",
+        "@Albert"
+      ]
+    }
+  },
+  "group": "数据点组件",
+  "parameters": [
+    {
+      "id": "station",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "id": "equipment",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "id": "signal",
+      "type": "string",
+      "value": ""
+    }
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.6"
+}

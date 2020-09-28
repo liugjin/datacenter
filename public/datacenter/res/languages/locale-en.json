@@ -1,0 +1,25 @@
+{
+  "401": {
+    "TITLE": "401 Unauthorized Error",
+    "DESC": "Allow Administrator (admin), Project Owner or Users who have been authorized by project role to access only!",
+    "LOGOUT": "Login as project manager"
+  },
+  "LOADING": "loading...",
+  "MENU": {
+    "TITLE": "DATACENTER",
+    "LOGIN": "LOGIN",
+    "USER_INFO": "USER",
+    "LOGOUT": "LOGOUT",
+    "PROJECT": "Projects"
+  },
+  "FOOTER": {
+    "COPYRIGHT": "Copyright Reserved",
+    "REGISTER_ID": "/ ICP-15004925",
+    "SYSTEM_INFO": "System",
+    "HYIoT": "/ Copyright",
+    "CLOSE": "Close"
+  },
+  "LOGIN": {
+    "LOADING": "Authenticating..."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "dashboard-header1",
+  "name": "DashboardHeader1控件",
+  "type": "DashboardHeader1Directive",
+  "desc": {
+    "author": "",
+    "comment": "自定义组件",
+    "version": {
+      "0.0.1": [],
+      "0.0.2": ["bug修复", "@youge"],
+      "0.0.4": ["更新标准化样式,并适配1024x768分辨率", "@Albert"],
+      "0.0.5": ["bug修复,加入23：59：59自动刷新页面", "@region"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.5"
+}

@@ -1,0 +1,50 @@
+{
+  "id": "report-alarm-records",
+  "name": "告警记录页面组件",
+  "type": "ReportAlarmRecordsDirective",
+  "desc": {
+    "author": "david",
+    "comment": "告警记录报表页面",
+    "version": {
+        "0.0.1": [
+        ],
+      "0.0.2": [
+        "处理记录不能导出问题---James"
+      ],
+      "0.0.3": [
+        "更新页面标准化样式","@Albert"
+      ],
+      "0.0.4": [
+        "适配1024x768分辨率","@Albert"
+      ],
+      "0.0.5": [
+        "调整设备树宽度","@Albert"
+      ],
+      "0.0.6": [
+        "修复告警总时长计算错误的问题","@foam"
+      ],
+      "0.0.7": [
+        "添加了alarmCompleted参数,当该参数为true时,查询的告警记录只有已经结束的告警,添加了 pageItems 的参数,输入数字可以显示一页的的","foam"
+      ],
+      "0.0.8": [
+        "如果添加了alarmCompleted参数,当该参数为true时,查询的phase为非start的记录(原来是知道为completed的记录)","sheen"
+      ]
+    }
+  },
+  "keywords": "告警,历史,表格",
+  "group": "模块组件",
+  "parameters": [
+    {"id": "type","type":"string", "value": "signal", "desc": "参数可以是signal或者alarm,当参数为alarm时查询的是历史告警数据,当参数为signal时,查询的是历史信号数据"},
+    {"id": "height","type":"string", "value": "80vh", "desc": "组件的高度"},
+    {"id": "alarmCompleted","type":"boolean", "value": false, "desc": "type为alarm时可以使用,默认查询所有历史告警数据,当值为true时,查询已结束的历史告警数据"},
+    {"id": "pageItems", "type": "number", "value": 50, "desc": "一页显示多少条数据,默认不显示分页"},
+    {"id": "headerName", "type": "string", "value": "告警记录", "desc": "表头名字和导出excel表时候的名字,默认为告警记录"}
+  ],
+  "interact": {
+    "pubs": ["export-report"],
+    "subs": ["checkEquips"]
+  },
+  "deps": ["device-tree"],
+  "css": "",
+  "version": "0.0.8"
+}

@@ -1,0 +1,200 @@
+alarm-setting
+  .tHeader
+    label
+      [type="checkbox"].filled-in:not(:checked)+span:not(.lever):after
+        border-color: #cdd2d4
+        top: 8px
+      [type="checkbox"].filled-in:checked+span:not(.lever):after, [type="checkbox"].filled-in:checked+span:not(.lever):before
+        top: 8px
+
+  .search-wrapper
+    display: inline-block
+    position: relative
+    width: 20%
+
+  .search-wrapper > i
+    position: absolute
+    font-size: 24px
+    top: 8px
+    left: 8px
+    color: rgba(180,216,245,1)
+
+  .search-wrapper .search-input
+    display: block
+    margin: 0
+    padding: 0 0 0 32px
+    width: 91%
+    height: 38px
+    line-height: 38px
+    font-size: 14px
+    border: 1px solid rgba(0,80,166,1) !important
+    color: rgba(180,216,245,1) !important
+  .select-wrapper
+    //width: 70%   使用70%新告警级别那一列点击选择新告警级别有问题改为100%
+    width: 100%
+  .select-wrapper ul.dropdown-content
+    max-height: 300px !important
+    overflow: scroll
+  .select-wrapper input.select-dropdown
+    po
+    height: 38px
+    line-height: 38px
+    text-align: center
+    border: 1px solid #4ba5f8 !important
+      // width: 70%
+  //.search-wrapper input
+  //  border: 1px solid #0652a2
+  //  height: 18px
+  .inventory
+    margin-right: 0
+  .search-input:hover
+    border: 1px solid #10ebf4 !important
+    border-bottom: 1px solid #10ebf4 !important
+    background: transparent
+
+  .search-input:focus
+    border: 1px solid #10ebf4
+    box-shadow: none
+  .pad-control
+    padding-right: 10px
+  .invent-type
+    height: 84vh
+    background-color: rgba(26,69,162,0.4)
+    overflow: auto
+    .btn:hover
+      box-shadow: none !important
+    .type
+      margin-bottom: .6rem
+      background-color: rgba(2,68,168,0.4)
+      height: 46px
+      border: none
+
+      a
+        color: #FFFFFF
+        line-height: 46px
+        text-align: left
+
+        .type-img
+          float: left
+          margin-right: .75rem
+
+          i
+            width: 46px
+            height: 46px
+
+          .img-bing
+            width: 25px
+            height: 46px
+            background-repeat: no-repeat
+
+          .img-type
+            //background-position: -123px -16px
+            background-position: -183px -16px
+
+          .img-type-active
+            background-position: -183px -16px
+
+        .type-count
+          .right
+            color: #01A6FF
+
+    .current
+      background-color: rgba(0,167,255,0.5) !important
+      //border: 1px solid #00E7EE
+      transition: .6s
+      border-radius: 0
+
+      .type-count
+        color: #e2edf2 !important
+
+        .right
+          color: #e2edf2 !important
+
+  .invent-list
+    //border: 1px solid rgba(0,231,238,1)
+    background-color: rgba(26, 69, 162, 0.4)
+    height: 84vh
+    position: relative
+
+    .list-view
+      img
+        width: 1rem
+        text-align: center
+        margin: 0 0.5rem
+      .text-align-left
+        text-align: left !important
+      table
+        tbody
+          tr
+            height: 62px !important
+            border-bottom: 1px solid rgba(0,80,166,1) !important
+          tr:hover
+            background-color: rgba(3,166,255,0.3) !important
+          tr:nth-child(even)
+            background-color: transparent !important
+          .td-ellipsis
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+    .inventory-nav
+      padding-left: 0 !important
+      margin-bottom: 10px
+      margin-top: 0.75rem
+      .btn
+        height: 40px
+        color: #fff
+        line-height: 40px
+        width: 100px
+      .right-gap
+        margin-right: 50px
+      .left-gap
+        cursor: pointer
+        margin-left: 20px
+        color: #00b4ff
+      .active
+        color: #00e7ef
+        font-size: 1rem
+    .list-view
+      position: relative
+      width: 100%
+      height: 76vh
+      overflow: auto
+      table
+        width: 100%
+        tbody
+          input, input.select-dropdown
+            margin: 0 auto
+            border-bottom: 0 solid #9e9e9e
+            text-align: center
+            height: 38px
+            font-size: 14px
+
+@media screen and (width: 1024px)
+  alarm-setting
+    .alarm-box1-control
+      width: 25% !important
+    .alarm-box2-control
+      width: 75% !important
+    .search-wrapper .search-input
+      width: 80%
+    .invent-type
+      height: 81vh
+    .invent-list
+      height: 81vh
+      .list-view
+        height: 72vh
+        table
+          width: 160%
+          tbody tr
+            height: 50px !important
+            line-height: 50px !important
+            td
+              font-size: 12px
+              text-overflow: ellipsis
+              //overflow: hidden
+              white-space: nowrap
+      .inventory-nav
+        .right-gap
+          margin-right: 2px !important
+        .left-gap
+          margin-left: 6px !important

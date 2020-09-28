@@ -1,0 +1,178 @@
+.row.nav-top
+    .col.s2
+        nav 联动规则
+    .col.s10
+        nav
+            .nav-wrapper
+                ul.right
+                    li
+                        a.btn.modal-trigger(title="新增",data-target="logic-modal", ng-click="add()")
+                            //i.material-icons.left add
+                            | 新增
+                    //li
+                    //    a.modal-trigger(title="修改",data-target="add-logic", ng-click="modify()", href="",ng-show="selectedLogic")
+                    //        i.material-icons.left edit
+                    //        | 修改
+                    //li
+                    //    a.modal-trigger(title="删除", data-target="prompt-modal" ng-click="delete()",ng-show="selectedLogic")
+                    //        i.material-icons.left delete
+                    //        | 删除
+div
+    .col.l12.cool-content
+        table.bordered.cool-table
+            thead
+                tr
+                    th.center 序号
+                    th.center 输入
+                    th 运算符
+                        i.material-icons.help-cursor.tiny(title="运算符含义：AND-逻辑与，同时满足多个输入条件，执行输出动作; OR-逻辑或，其中一个输入条件满足，执行输出动作") help
+                    th.center 输出
+                    th
+            tbody
+                tr.main(ng-repeat="logic in logics" ng-click="select(logic)" ng-class='{"active": selectedLogic==logic}')
+                    td.center {{$index+1}}
+                    td
+                        table
+                            tbody
+                                tr(ng-repeat="input in logic.input")
+                                    td.grey-text 输入{{$index+1}}
+                                    td
+                                        .title 站点名
+                                        .value {{items[input.key].stationName}}
+                                    td(style="display: inline-block;width:200px")
+                                        .title 设备名
+                                        .value {{items[input.key].equipmentName}}
+                                    td(ng-if="input.event")
+                                        .title 告警名
+                                        .value {{items[input.key].eventName}}
+                                    td(ng-if="input.signal")
+                                        .title 信号名
+                                        .value {{items[input.key].signalName}}
+                                    td
+                                        .title 状态
+                                        .value {{items[input.key].valueName}}
+
+                    td {{logic.operator}}
+                    td
+                        table
+                            tbody
+                                tr(ng-repeat="output in logic.output")
+                                    td
+                                        .title 站点名
+                                        .value {{items[output.key].stationName}}
+                                    td(style="display: inline-block;width:200px")
+                                        .title 设备名
+                                        .value {{items[output.key].equipmentName}}
+                                    td
+                                        .title 控制信号
+                                        .value {{items[output.key].commandName}}
+                                    td
+                                        .title 值
+                                        .value {{items[output.key].valueName}}
+                    td
+                        a.waves-effect.waves-light.modal-trigger(href='#logic-modal' ng-click="editLogic(logic, $index)" title="修改")
+                            i.material-icons create
+                        a.waves-effect(ng-click="deleteLogic(logic, $index)" title="删除")
+                            i.material-icons delete
+
+
+#logic-modal.modal(md-modal, style="width:70%")
+    .modal-content(style="height:64vh")
+        h5.center {{index==null?"添加":"修改"}}联动规则
+        .row.no-margin
+            table.bordered.cool-table(style="height: 56vh; overflow:auto; display:block")
+                thead
+                    tr(style="background-color: rgba(1, 166, 255, 0.2) !important; line-height: 25px !important")
+                        th.center.grey-text
+                            i.material-icons.tiny.green-text(ng-click="logic.input.push({station:'',equipment:'',signal:'',value:''})", title="增加信号输入条件", style="cursor:pointer") add
+                            span 输入
+                            i.material-icons.tiny.red-text(ng-click="logic.input.push({station:'',equipment:'',event:'',value:''})", title="增加告警输入条件", style="cursor:pointer") add
+                        th.center.grey-text.click-btn(title="改变运算符",ng-click="logic.operator=(logic.operator=='AND'?'OR':'AND')") 运算符
+                            i.material-icons.tiny(style="font-size: 20px") invert_colors
+                        th.center.grey-text 输出
+                            i.material-icons.tiny(ng-click="logic.output.push({station:'',equipment:'',command:''})", title="增加输出", style="cursor:pointer") add
+                tbody
+                    tr
+                        td
+                            table
+                                tr(ng-repeat="input in logic.input")
+                                    td(style="position:relative")
+                                        i.material-icons.tiny.close.grey-text(ng-if="logic.input.length>1",title="删除输入条件", ng-click="logic.input.splice($index,1)", style="cursor:pointer; position:absolute; left:-10px;top: 50px") remove
+                                        .title 站点名
+                                        .value
+                                            select(ng-model='input.station', md-select, data='stations')
+                                                option(value="+" ng-selected = "input.station == null || input.station == '+'") 所有站点
+                                                option(ng-repeat='station in stations' value='{{station.model.station}}' ng-selected='input.station == station.model.station') {{station.model.name}}
+                                    td
+                                        .title 设备名
+                                        .value
+                                            select(ng-model='input.equipment' md-select data='stas[input.station].equipments.items' ng-change="selectEquipment(input.station, input.equipment)")
+                                                option(value="+" ng-selected = "input.equipment == null || input.equipment == '+'") 所有设备
+                                                option(ng-repeat='equipment in stas[input.station].equipments.items' value='{{equipment.model.equipment}}' ng-selected='input.equipment == equipment.model.equipment') {{equipment.model.name}}
+                                    td(ng-if="input.hasOwnProperty('event')")
+                                        .title 告警名
+                                        .value
+                                            select(ng-model='input.event' md-select data='equips[input.station+"."+input.equipment].events.items.length')
+                                                option(value="+" ng-selected = "input.event == null || input.event == '+'") 所有告警
+                                                option(ng-repeat='event in equips[input.station+"."+input.equipment].events.items' value='{{event.model.event}}' ng-selected='input.event == event.model.event') {{event.model.name}}
+                                    td(ng-if="input.hasOwnProperty('event')")
+                                        .title 状态
+                                        .value
+                                            select(ng-model='input.value' md-select data='project.dictionary.eventphases.items.length')
+                                                option(value="+" ng-selected = "input.value == null || input.value == '+'") 所有状态
+                                                option(ng-repeat='state in project.dictionary.eventphases.items' value='{{state.model.phase}}' ng-selected='input.value == state.model.phase') {{state.model.name}}
+                                    td(ng-if="input.hasOwnProperty('signal')")
+                                        .title 信号名
+                                        .value
+                                            select(ng-model='input.signal' md-select data='equips[input.station+"."+input.equipment].signals.items.length', ng-change="selectSignal(input.station, input.equipment, input.signal)")
+                                                option(ng-repeat='signal in equips[input.station+"."+input.equipment].signals.items | filter:filterEnumSignal()' value='{{signal.model.signal}}' ng-selected='input.signal == signal.model.signal') {{signal.model.name}}
+                                    td(ng-if="input.hasOwnProperty('signal')")
+                                        .title 状态
+                                        .value
+                                            select(ng-model='input.value' md-select data='sigs[input.station+"."+input.equipment+"."+input.signal].enums')
+                                                option(ng-repeat='value in sigs[input.station+"."+input.equipment+"."+input.signal].enums' value='{{value.id}}' ng-selected='input.value == value.id') {{value.name}}
+                        td
+                          table
+                                tr
+                                    td
+                                        .center {{logic.operator}}
+                            //select(ng-model='input.operator', md-select, style="width: 50%")
+                            //    option(value="AND" ng-selected = "input.operator == 'AND'") AND
+                            //    option(value="OR" ng-selected = "input.operator == 'OR'") OR
+                        td
+                            table
+                                tr(ng-repeat="output in logic.output")
+                                    td(style="position:relative")
+                                        i.material-icons.tiny.close.grey-text(ng-if="logic.output.length>1",title="删除输出动作", ng-click="logic.output.splice($index,1)", style="cursor:pointer; position:absolute; left:-10px;top: 50px") remove
+                                        .title 站点名
+                                        .value
+                                            select(ng-model='output.station', md-select, data='stations')
+                                                //option(value="+" ng-selected = "output.station == null || output.station == '+'") 所有站点
+                                                option(ng-repeat='station in stations' value='{{station.model.station}}' ng-selected='output.station == station.model.station') {{station.model.name}}
+                                    td
+                                        .title 设备名
+                                        .value
+                                            select(ng-model='output.equipment' md-select data='stas[output.station].equipments.items' ng-change="selectEquipment(output.station, output.equipment)")
+                                                //option(value="+" ng-selected = "output.equipment == null || output.equipment == '+'") 所有设备
+                                                option(ng-repeat='equipment in stas[output.station].equipments.items' value='{{equipment.model.equipment}}' ng-selected='output.equipment == equipment.model.equipment') {{equipment.model.name}}
+                                    td
+                                        .title 控制信号
+                                        .value
+                                            select(ng-model='output.command' md-select data='equips[output.station+"."+output.equipment].commands.items.length', ng-change="selectCommand(output.station, output.equipment, output.command)")
+                                                //option(value="+" ng-selected = "output.command == null || output.command == '+'") 所有控制
+                                                option(ng-repeat='command in equips[output.station+"."+output.equipment].commands.items' value='{{command.model.command}}' ng-selected='output.command == command.model.command') {{command.model.name}}
+                                    td
+                                        .title 值
+                                        .value
+                                            input(type="text", ng-model="output.value" ng-if='cmds[output.station+"."+output.equipment+"."+output.command].type != "enum"' ng-change='output.valueType=cmds[output.station+"."+output.equipment+"."+output.command].type')
+                                            select(ng-model='output.value', md-select, data='cmds[output.station+"."+output.equipment+"."+output.command].enums' ng-if='cmds[output.station+"."+output.equipment+"."+output.command].type == "enum"' ng-change='output.valueType=cmds[output.station+"."+output.equipment+"."+output.command].type')
+                                                option(ng-repeat='value in cmds[output.station+"."+output.equipment+"."+output.command].enums' value='{{value.id}}' ng-selected='output.value == value.id') {{value.name}}
+
+    .modal-footer
+        .modal-confirm.modal-action.right(ng-click='saveLogic()')
+            i.material-icons done
+            span 确认
+        .modal-cancel.modal-action.right.modal-close
+            i.material-icons close
+            span 取消
+

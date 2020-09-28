@@ -1,0 +1,99 @@
+event-startlist table:hover {
+  box-shadow: none !important;
+  outline: none !important; }
+
+event-startlist table {
+  margin-top: 0.75rem;
+  overflow: auto; }
+  event-startlist table thead th {
+    padding: 0 !important; }
+  event-startlist table tbody tr {
+    line-height: 20px !important; }
+    event-startlist table tbody tr td {
+      padding: 1px !important; }
+
+event-startlist .progress {
+  margin: 0 0 0.2rem 0 !important; }
+
+event-startlist .page-button {
+  border: 1px solid #3A85E4;
+  border-radius: 0; }
+  event-startlist .page-button i {
+    margin-top: 1px; }
+
+event-startlist .pagination {
+  position: absolute;
+  bottom: 1rem;
+  margin-left: 24%; }
+  event-startlist .pagination li {
+    height: 32px; }
+    event-startlist .pagination li a {
+      line-height: 36px; }
+
+event-startlist .text-align-left {
+  text-align: left !important; }
+
+event-startlist .modal.modalToast {
+  background-color: rgba(26, 69, 162, 0.8);
+  margin: 10% auto 0; }
+  event-startlist .modal.modalToast .modal-content {
+    height: calc(100% - 64px) !important;
+    padding: 0 2.375rem;
+    overflow: hidden; }
+    event-startlist .modal.modalToast .modal-content h5 {
+      font-size: 1.25rem;
+      font-family: PingFang SC;
+      font-weight: 400;
+      margin: 2.82rem 0 !important;
+      line-height: 1.3rem;
+      overflow: hidden; }
+    event-startlist .modal.modalToast .modal-content p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1rem;
+      margin-bottom: 0.82rem;
+      font-family: PingFang SC;
+      font-weight: 400; }
+    event-startlist .modal.modalToast .modal-content input {
+      height: 2.6875rem;
+      width: 100%;
+      display: block;
+      border: 1px solid #0050a0 !important;
+      margin: 0 0 2.8125rem;
+      font-size: .875rem;
+      font-family: PingFang SC;
+      font-weight: 400;
+      text-indent: 1.06rem;
+      color: #FFFFFF; }
+  event-startlist .modal.modalToast .modal-footer {
+    border: none !important;
+    height: 64px;
+    padding: 0;
+    background-color: rgba(26, 69, 162, 0.8) !important;
+    color: #fff;
+    padding: 0; }
+    event-startlist .modal.modalToast .modal-footer a {
+      margin: 0;
+      height: 64px;
+      width: 7.25rem;
+      text-align: center;
+      line-height: 4rem;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      font-size: .875rem;
+      font-family: PingFang SC;
+      font-weight: 400; }
+
+@media screen and (width: 1024px) {
+  event-startlist table.new-table {
+    width: 150% !important; }
+    event-startlist table.new-table thead tr th {
+      font-size: 12px; }
+    event-startlist table.new-table tbody tr td {
+      line-height: 15px;
+      font-size: 12px; }
+  event-startlist .pagination {
+    margin-left: 15%; }
+  event-startlist .page-button i {
+    margin-top: 4px; } }

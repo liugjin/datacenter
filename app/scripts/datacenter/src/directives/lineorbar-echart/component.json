@@ -1,0 +1,24 @@
+{
+  "id": "lineorbar-echart",
+  "name": "LineorbarEchart控件",
+  "type": "LineorbarEchartDirective",
+  "desc": {
+    "author": "Mackie",
+    "comment": "历史曲线echart内容",
+    "version": {
+        "0.0.1": [
+        ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.1"
+}

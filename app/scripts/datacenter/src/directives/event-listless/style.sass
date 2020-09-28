@@ -1,0 +1,69 @@
+event-list
+  table:hover
+    box-shadow: none !important
+    outline: none !important
+    height: 18px
+  table
+    margin-top: 0.75rem
+    overflow: auto
+    thead
+      th
+        padding: 0 !important
+    tbody
+      tr
+        line-height: 20px !important
+        td
+          padding: 1px !important
+  .progress
+    margin: 0 0 0.2rem 0 !important
+  .page-button
+    border: 1px solid #3A85E4
+    border-radius: 0
+    i
+      margin-top: 1px
+  .pagination
+    position: relative
+    bottom: 1rem
+    top: 1vh
+    li
+      height: 32px
+      a
+        line-height: 36px
+
+  .text-align-left
+    text-align: left !important
+  .new-table thead tr
+    border: none !important
+    background-color: rgba(1, 166, 255, 0.5) !important
+    height: 50px !important
+    line-height: 50px !important
+  .new-table tbody tr
+    padding: 0 !important
+    height: 50px !important
+    line-height: 50px !important
+    border: none
+  .new-table tbody tr:nth-child(even)
+    background-color: rgba(26, 69, 162, 0.4) !important
+  table.striped>tbody>tr:nth-child(odd)
+    background: none
+  .modal-content table tr td:first-of-type
+    box-sizing: border-box
+    padding: .75rem 0 .75rem .4rem !important
+@media screen and (width: 1024px)
+  event-list
+    table.new-table
+      width: 150% !important
+      thead tr th
+
+        font-size: 12px
+      tbody
+        tr td
+          line-height: 15px
+          font-size: 12px
+    .pagination
+      position: static  !important
+      bottom: 1rem
+      margin-left: 15%
+    .page-button
+      i
+        margin-top: 4px

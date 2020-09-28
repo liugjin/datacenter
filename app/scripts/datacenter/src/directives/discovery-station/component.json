@@ -1,0 +1,24 @@
+{
+  "id": "discovery-station",
+  "name": "自动发现站点控件",
+  "type": "DiscoveryStationDirective",
+  "desc": {
+    "author": "",
+    "comment": "根据采集上送mu，寻找其中的特征码并自动发现新增站点及站点下挂所有设备",
+    "version": {
+        "0.0.1": [
+        ]
+    }
+  },
+  "group": "框架组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.1"
+}

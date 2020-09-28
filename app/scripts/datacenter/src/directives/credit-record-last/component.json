@@ -1,0 +1,43 @@
+{
+  "id": "credit-record-last",
+  "name": "最近一次刷卡记录",
+  "type": "CreditRecordLastDirective",
+  "desc": {
+    "author": "bingo",
+    "comment": "当前站点下门设备最近一次刷卡记录",
+    "version": {
+      "0.0.1": [
+        "当前站点最近一次刷卡记录"
+      ],
+      "0.0.2": [
+        "更新样式"
+      ],
+      "0.0.3": [
+        "修改刷卡记录按时间倒叙排列", "@bingo"
+      ],
+      "0.0.4": [
+        "修复门禁在子站点下时无法显示刷卡人的bug", "@david"
+      ],
+      "0.0.5": [
+        "修复切换站点时如果站点下无门禁信息不更新的bug", "修复刷卡状态不显示的bug", "@david"
+      ],
+      "0.0.6": [
+        "远程开门的时候记录当前登录用户", "@region"
+      ],
+      "0.0.7": [
+        "更新页面标准化样式", "@Albert"
+      ]
+    }
+  },
+  "group": "数据点组件",
+  "parameters": [
+    {"id": "station", "type": "string", "value": ""}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": ["stationId"]
+  },
+  "deps": [],
+  "css": "style='color: #aebdd3; background: rgba(26, 69, 162, 0.4)'",
+  "version": "0.0.7"
+}

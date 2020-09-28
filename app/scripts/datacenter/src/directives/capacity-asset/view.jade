@@ -1,0 +1,17 @@
+.big-box
+    .line-col
+    .line-row
+    .box
+        span.title-line
+        .title 容量现状
+        .content
+            .flex(ng-repeat="signal in showSignal")
+                .content-logo
+                    img(ng-src="{{signal.imgUrl}}")
+                    .signal-name {{signal.name}}
+                .content-info
+                    a(ng-href="{{signal.href}}")
+                        .signal-value {{signal.usedValue.toFixed(0) || "-"}}/{{signal.totalValue || "-"}}
+                            span.signal-unit  {{signal.unit || ""}}
+                        .progress(title="{{signal.ratioValue.toFixed(0) + '%'}}")
+                            .determinate(ng-style="{ width: signal.ratioValue.toFixed(0) + '%' }")

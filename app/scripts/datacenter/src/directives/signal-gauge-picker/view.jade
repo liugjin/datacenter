@@ -1,0 +1,12 @@
+.cool-card
+    .date
+        .cool-card-title PUE数据
+        .picker
+            .date-value(ng-repeat="mode in picker" ng-click="selectMode($event,mode)") {{mode.name}}
+
+    .signal-gauge(style="height: 90%")
+
+    .mode
+        .mode-value(ng-repeat="(key,value) in currentModeValue")
+            .mode-name {{key}}
+            .mode-child-value(ng-class="key=='Max'?'max-color':''") {{value| prettyNumber:2 || "-"}}

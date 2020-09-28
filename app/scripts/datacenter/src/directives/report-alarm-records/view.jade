@@ -1,0 +1,47 @@
+link(rel='stylesheet', href='/lib/gl-datepicker/styles/glDatePicker.default.css')
+
+.row.nav-top
+    .col.s2
+        span(style="font-size: 14px") {{parameters.headerName||"告警记录"}}
+    .col.s10
+        nav
+            .nav-wrapper.right(style="display:flex;")
+                ul
+                    li
+                        span.hide-on-med-and-down 开始时间
+                    li
+                        .input-field1
+                            input#start-time-input.datepicker(type='text', ng-model='query.startTime')
+                    li
+                        span.hide-on-med-and-down 结束时间
+                    li
+                        .input-field1
+                            input#end-time-input.datepicker(type='text', ng-model='query.endTime')
+                ul
+                    li
+                        .btn.standard-report-btn.btn-margin-top(style="margin-right: 1rem;margin-left: 1rem" href='', ng-click='queryReport(parameters.type)', title='查询')
+                            span.hide-on-med-and-down 查询
+                    li
+                        .btn.standard-report-btn.btn-margin-top(href='', ng-click='exportReport(header, parameters.headerName || "告警记录")', title='导出')
+                            span.hide-on-med-and-down 导出
+
+
+.row(ng-style='{"height":parameters.height || "60vh"}')
+    device-tree.col.tree-style.device-tree(controller='vm', parameters='{"checkbox":"false","filter":"true","reportName": parameters.headerName || "告警记录"}')
+    grid-table.grid-table( controller='vm',parameters='{header:header,data:data}')
+    .paging-select-box
+        .col.l12.eventpagination
+            div(style="flex:1;")
+            .valign-wrapper(style='flex:2;')
+                div(style="margin: 0 auto;")
+                    ul.pagination.center(ng-show='pagination.pageCount > 1')
+                        li.page-button(ng-class='{disabled: pagination.page <= 1, "waves-effect": pagination.page > 1}', ng-click='queryPage("previous")')
+                            a(href='')
+                                i.material-icons chevron_left
+                        li.page-button(ng-class='{active: page == pagination.page, "waves-effect": page != pagination.page}', ng-repeat='page in pagination.pages', ng-click='queryPage(page)')
+                            a(href='')
+                                | {{(($index == 1 && pagination.page > 4)||($index == pagination.pages.length-2 && pagination.page < pagination.pageCount-3)) ? "..":page}}
+                        li.last.page-button(ng-class='{disabled: pagination.page >= pagination.pageCount, "waves-effect": pagination.page < pagination.pageCount}', ng-click='queryPage("next")')
+                            a(href='')
+                                i.material-icons chevron_right
+            div(style='flex:1;')

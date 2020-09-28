@@ -1,0 +1,145 @@
+.visualization-slide {
+  width: 100%; }
+  .visualization-slide .slides {
+    background-color: #e0e0e0; }
+  .visualization-slide img {
+    max-height: 100%;
+    max-width: 100%;
+    height: auto;
+    background-size: contain !important;
+    background-repeat: no-repeat; }
+
+#player {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden; }
+
+.graphic-viewer {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+  .graphic-viewer:focus {
+    outline: none; }
+
+#element-placeholder {
+  top: 10px;
+  left: 10px;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  background-image: url("/datacenter/res/img/none.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer; }
+
+.main-1 {
+  padding-left: 240px; }
+
+.main-2 {
+  padding-left: 0; }
+
+@media only screen and (max-device-width: 800px) {
+  .main-1 {
+    padding: 0 !important; }
+  .main-2 {
+    padding: 0 !important; } }
+
+@font-face {
+  font-family: 'impact'; }
+
+html {
+  font-size: 10px; }
+
+@media screen and (min-width: 1770px) and (max-width: 1920px) {
+  html {
+    font-size: 16px; } }
+
+@media screen and (min-width: 1660px) and (max-width: 1770px) {
+  html {
+    font-size: 15px; } }
+
+@media screen and (min-width: 1400px) and (max-width: 1660px) {
+  html {
+    font-size: 14px; } }
+
+@media screen and (max-width: 1400px) {
+  html {
+    font-size: 14px; } }
+
+main {
+  background-color: transparent !important;
+  z-index: 99; }
+
+.cool-header {
+  position: fixed;
+  background-color: #0a1c41 !important;
+  border-bottom: 1px solid;
+  border-image: linear-gradient(to right, transparent, #00e7ef, transparent) 10 100 10;
+  z-index: 9999; }
+
+body {
+  background-image: url(/datacenter/res/img/bg/background.png);
+  background-size: 100%; }
+
+.cool-header {
+  box-shadow: none; }
+
+.no-margin-bottom {
+  margin-bottom: 0; }
+
+.breadcrumb {
+  font-size: 16px; }
+
+.page-header .nav-wrapper {
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  .page-header .nav-wrapper div {
+    display: inline-block;
+    height: 4rem;
+    line-height: 4rem; }
+  .page-header .nav-wrapper .logo {
+    width: 13rem !important; }
+    .page-header .nav-wrapper .logo img {
+      vertical-align: middle;
+      height: 3rem;
+      margin-left: 0.4rem; }
+  .page-header .nav-wrapper .time {
+    width: 13rem !important;
+    font-size: 1.4rem;
+    font-family: "impact"; }
+  .page-header .nav-wrapper .title {
+    text-align: center;
+    padding-top: 1.2rem; }
+    .page-header .nav-wrapper .title img {
+      height: 2.6rem; }
+    .page-header .nav-wrapper .title .en-name {
+      display: block;
+      height: 1rem;
+      line-height: 0;
+      margin-top: -0.4rem; }
+
+.page-header nav {
+  background-image: url(/datacenter/res/img/bg/header-background.png);
+  background-size: 100%;
+  background-color: inherit;
+  background-repeat: no-repeat;
+  height: 9rem; }
+
+.card {
+  margin: .75rem 0 0 0;
+  background-color: rgba(26, 69, 162, 0.4);
+  color: #e2edf2 !important; }
+  .card .card-content {
+    font-size: 1.125rem; }
+    .card .card-content .card-title {
+      font-size: 1.125rem; }
+
+.keyboard-focused .collapsible-header:focus {
+  background-color: transparent !important; }
+
+.no-margin {
+  margin: 0 !important; }

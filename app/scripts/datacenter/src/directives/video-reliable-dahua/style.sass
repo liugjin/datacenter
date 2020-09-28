@@ -1,0 +1,327 @@
+menu
+  display: none !important
+.main-1
+  padding-left: 0px !important
+
+video-reliable-dahua
+  .right-2
+    float: right
+    margin-left: 10px
+
+  .no-padding
+    padding: 0 !important
+
+  .search-box
+    position: relative
+    input
+      padding-left: 36px !important
+      width: calc(100% - 38px) !important
+      margin-bottom: 0 !important
+
+    i
+      position: absolute
+      height: 48px
+      line-height: 48px
+    .search-icon
+      left: 18px
+    .close-icon
+      right: 1vw
+      cursor: pointer
+  // 控制条样式
+  .timeline-cover
+    padding: 0px 45px 40px 165px
+    //background: white
+    background-color: rgba(26, 69, 162, 0.4)
+
+  .timeline-bar
+    height: 2px
+    width: 100%
+    background: #1D96DB
+    position: relative
+    color: #1D96DB
+
+  .steps-bar
+    position: absolute
+    left: 0
+    width: 100%
+    height: 50px
+    cursor: pointer
+    display: table
+  /* top: -27; */
+
+
+  .step
+    /* float: left;  */
+    /* width: 1.996%; */
+    /* margin-top: 29px; */
+    text-align: center
+    position: relative
+    display: table-cell
+
+  .step:last-child
+    width: 2px !important
+
+
+  .step:first-child .step-border
+    height: 20px
+    width: 2px
+    background: #1D96DB
+    margin-top: -10px
+
+  .step:nth-child(10n+1) .step-border
+    height: 20px
+    width: 2px
+    background: #1D96DB
+    margin-top: -10px
+
+  .step-mark
+    height: 20px
+    width: 2px
+    background: #1D96DB
+    margin-top: -10px
+
+  .step-border
+    height: 10px
+    width: 2px
+    background: #1D96DB
+    margin-left: 1.5%
+    display: block
+
+
+  .time-instant
+    position: absolute
+    top: -30px
+    left: -17px
+
+
+  .pointer
+    position: absolute
+    top: 10px
+    margin-left: -1%
+    /* left:-10px; */
+    border-width: 10px
+    border-style: solid
+    border-color: transparent transparent #666666 transparent
+    cursor: pointer
+    transition: 100ms all linear
+    -webkit-transition: 100ms all linear
+    -moz-transition: 100ms all linear
+
+
+  .pointerSelected
+    border-color: transparent transparent #D04640 transparent !important
+
+  .selection-line
+    position: absolute
+    top: -10px
+    left: 0px
+    height: 50px
+    width: 2px
+    background: #ff0000
+
+
+  #draggable
+    height: 50px
+    width: 2px
+    background: #ff0000
+    top: 24px
+    cursor: pointer
+    z-index: 1000
+    position: relative
+
+
+  .MB10
+    margin-bottom: 10px
+
+
+  #embedJWPlayerTarget
+    width: 100% !important
+
+
+  #boxdiv
+    display: none
+
+
+  .cuepoint-btn
+    text-align: right
+    margin-right: 14%
+
+  #imgpaly i.pauseing
+    color: #009042
+
+  .btnsome
+    width: 36px
+    height: 36px
+    margin-top: 5px
+    margin: 0 4px
+    cursor: pointer
+    border: 1px solid #BECDE0
+    color: #BECDE0
+    background-color: transparent !important
+
+  //video page style start
+  .video-list.active
+    //background: grey
+    //background-color: rgb(11,189,202)
+    //color: white
+    color: rgb(11,189,202) !important
+  .video-list:hover
+    //background: whitesmoke
+    //background-color: rgb(11,189,202)
+    //color: black
+    color: rgb(11,189,202) !important
+  .unselected
+    border: 1px solid black
+  .selected
+    border: 1px solid yellow
+
+  .ptz .ptz-ctrl
+    height: 130px
+
+  .ptz .ptz-ctrl-l
+    float: left
+    margin-top: 10px
+    width: 115px
+
+  .ptz .ptz-ctrl-r
+    float: left
+    margin-top: 10px
+    text-align: right
+    width: 75px
+
+  .ptz-ctrl-l .direction
+    float: left
+    width: 32px
+    height: 32px
+    margin: 0 4px 4px 0
+    cursor: pointer
+    background-image: url("~image/video/ptz-icons.png~")
+    background-color: #FFFFFF
+    background-position: 0 -90px
+
+  .ptz-ctrl-l i
+    display: inline-block
+    width: 30px
+    height: 30px
+    margin: 1px 1px
+    background: url("~image/video/ptz-icons.png~") no-repeat
+
+  .ptz-ctrl-l i:hover
+    background-image: url("~image/video/ptz-icons-on.png~")
+
+  .ptz i.icon-ptz-left-up
+    background-position: 0 0
+
+  .ptz i.icon-ptz-up
+    background-position: -30px 0px
+
+  .ptz i.icon-ptz-right-up
+    background-position: -60px 0px
+
+  .ptz i.icon-ptz-left
+    background-position: 0 -30px
+
+  .ptz i.icon-ptz-auto
+    background-position: -30px -30px
+
+  .ptz i.icon-ptz-auto-sel
+    background-position: -126px -90px
+
+  .ptz i.icon-ptz-right
+    background-position: -60px -30px
+
+  .ptz i.icon-ptz-left-down
+    background-position: 0px -60px
+
+  .ptz i.icon-ptz-down
+    background-position: -30px -60px
+
+  .ptz i.icon-ptz-right-down
+    background-position: -60px -60px
+
+  .ptz-ctrl-r .operation
+    float: left
+    width: 75px
+    height: 32px
+    margin-bottom: 4px
+    cursor: pointer
+    background-image: url("~image/video/ptz-icons.png~")
+    background-color: #FFFFFF
+    background-position: -32px -90px
+
+  .ptz-ctrl-r i
+    float: left
+    width: 36px
+    height: 30px
+    margin: 1px 0 1px 1px
+    background: url("~image/video/ptz-icons.png~") no-repeat
+
+  .ptz-ctrl-r i:hover
+    float: left
+    width: 36px
+    height: 30px
+    margin: 1px 0 1px 1px
+    background: url("~image/video/ptz-icons-on.png~") no-repeat
+
+  .ptz-ctrl-r i.icon-ptz-zoomout
+    background-position: -90px 0
+
+  .ptz-ctrl-r i.icon-ptz-zoomin
+    background-position: -126px 0
+
+  .ptz-ctrl-r i.icon-ptz-focusout
+    background-position: -90px -30px
+
+  .ptz-ctrl-r i.icon-ptz-focusin
+    background-position: -126px -30px
+
+  .ptz-ctrl-r i.icon-ptz-irisout
+    background-position: -90px -60px
+
+  .ptz-ctrl-r i.icon-ptz-irisin
+    background-position: -126px -60px
+
+
+  .btn-menu .button
+    padding: 5px 3px 0px 3px
+    border: 1px solid transparent
+
+  .btn-menu .button.active
+    border: 1px solid green
+    border-radius: 4px
+
+  .btn-menu .button:hover
+    border: 1px solid grey
+    border-radius: 4px
+
+  .btn-menu .button i
+    display: inline-block
+    width: 18px
+    height: 18px
+    background: url("~image/video/tool-icons.png~") no-repeat
+
+  .btn-menu i.icon-wnd-1
+    background-position: -6px -5px
+
+  .btn-menu i.icon-wnd-2
+    background-position: -33px -5px
+
+  .btn-menu i.icon-wnd-3
+    background-position: -61px -5px
+
+  .btn-menu i.icon-wnd-4
+    background-position: -88px -5px
+
+  .btn-menu i.icon-playall
+    background-position: -5px -147px
+
+  .btn-menu i.icon-stopall
+    background-position: -34px -147px
+
+  .btn-menu a.disabled
+    opacity: 0.5
+
+
+//video page style end
+
+

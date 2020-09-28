@@ -1,0 +1,219 @@
+//-
+    User: Dow
+    Date: 1/3/2016
+    Desc: 
+    
+#command-modal.modal.bottom-sheet.modal-fixed-footer(md-modal)
+    .modal-content
+        .row
+            .col.s12.m6.l3
+                p.equipment-item-title
+                    | {{command.station.model.name}} / {{command.equipment.model.name}} / {{command.instance.name}}
+
+                table.hoverable.responsive-table.highlight
+                    tbody
+                        tr
+                            td
+                                label 控制ID
+                            td
+                                span {{command.model.command}}
+                            td
+                                //a(ng-href='{{setting.services.model}}/#/equipmentcommands/{{command.model.user}}/{{command.model.project}}/{{command.model.type}}/{{command.model.template}}?command={{command.model.command}}', target='_blank', title='模板控制配置')
+                                //    i.material-icons settings
+
+                        tr
+                            td
+                                label 控制名称
+                            td
+                                input(type='text', ng-model='command.instance.name' style="border-top: 0 !important;border-left: 0 !important;border-right: 0 !important;border-bottom: 0 !important;margin-bottom: 0 !important;")
+                            td
+                        tr
+                            td
+                                label 控制使能
+                            td
+                                .switch
+                                    label
+                                        | 无效
+                                        input(type='checkbox', ng-model='command.instance.enable')
+                                        span.lever
+                                        | 有效
+                            td
+                        tr
+                            td
+                                span 控制参数
+                            td(colspan=2)
+                                div(ng-repeat='parameter in command.model.parameters', ng-switch='parameter.type')
+                                    .input-field.col.s12(ng-switch-when='int')
+                                        input.validate(type='number', step='1', ng-model='parameter.value')
+                                        label.active {{parameter.name}} ({{parameter.key}})
+                                    .input-field.col.s12(ng-switch-when='float')
+                                        input.validate(type='number', step='any', ng-model='parameter.value')
+                                        label.active {{parameter.name}} ({{parameter.key}})
+                                    .input-field.col.s12(ng-switch-when='bool')
+                                        p
+                                            input(type='checkbox', id='p-{{parameter.key}}', ng-model='parameter.value')
+                                            label(for='p-{{parameter.key}}')
+                                    .input-field.col.s12(ng-switch-when='enum')
+                                        label.active {{parameter.name}} ({{parameter.key}})
+                                        select(ng-model='parameter.value', md-select, data='parameter')
+                                            option(ng-repeat='kv in parameter.enums', value='{{kv.value}}', ng-selected='parameter.value == kv.value') {{kv.key}}
+                                    .input-field.col.s12(ng-switch-when='content')
+                                        textarea.validate(ng-model='parameter.value')
+                                        label.active {{parameter.name}} ({{parameter.key}})
+                                    .input-field.col.s12(ng-switch-when='command')
+                                        input.validate(type='text', ng-model='parameter.value')
+                                        label.active {{parameter.name}} ({{parameter.key}})
+                                    .input-field.col.s12(ng-switch-default)
+                                        input.validate(type='text', ng-model='parameter.value')
+                                        label.active {{parameter.name}} ({{parameter.key}})
+
+                        tr
+                            td
+                                span 控制备注
+                            td(colspan=2)
+                                .input-field.col.s12
+                                    input.validate(type='text', ng-model='command.model.comment')
+                                    label(ng-class='{active: command.model.comment}') 执行备注
+
+
+            .col.s12.m6.l9
+                .row
+                    .right
+                        label 数据时段: {{commandManager.parameters.startTime.format('YYYY-MM-DD HH:mm:ss')}} ~ {{commandManager.parameters.endTime.format('YYYY-MM-DD HH:mm:ss')}}
+                        label &nbsp;/&nbsp;查询时间：
+                        label(am-time-ago='commandManager.parameters.queryTime')
+                        label &nbsp;/&nbsp;记录数：{{commandManager.records.items.length}}
+
+                .row
+                    table.bordered.hoverable.responsive-table.highlight
+                        thead
+                            tr
+                                th
+                                    .col-header(ng-click='commandManager.records.sortBy("phase")')
+                                        span 状态
+                                        span.pull-right(ng-show='commandManager.records.predicate == "phase"') {{commandManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='commandManager.records.sortBy("_index")')
+                                        span 索引
+                                        span.pull-right(ng-show='commandManager.records.predicate == "_index"') {{commandManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='commandManager.records.sortBy("startTime")')
+                                        span 执行时间
+                                        span.pull-right(ng-show='commandManager.records.predicate == "startTime"') {{commandManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='commandManager.records.sortBy("endTime")')
+                                        span 完成时间
+                                        span.pull-right(ng-show='commandManager.records.predicate == "endTime"') {{commandManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='commandManager.records.sortBy("parameters")')
+                                        span 控制参数
+                                        span.pull-right(ng-show='commandManager.records.predicate == "parameters"') {{commandManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='commandManager.records.sortBy("priority")')
+                                        span 优先级
+                                        span.pull-right(ng-show='commandManager.records.predicate == "priority"') {{commandManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='commandManager.records.sortBy("result")')
+                                        span 控制结果
+                                        span.pull-right(ng-show='commandManager.records.predicate == "result"') {{commandManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='commandManager.records.sortBy("comment")')
+                                        span 执行备注
+                                        span.pull-right(ng-show='commandManager.records.predicate == "comment"') {{commandManager.records.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='commandManager.records.sortBy("triggerName")')
+                                        span 操作人员
+                                        span.pull-right(ng-show='commandManager.records.predicate == "triggerName"') {{commandManager.records.reverse && "▽" || "△"}}
+
+                        tbody
+                            tr(ng-repeat='command in commandManager.records.items | orderBy: commandManager.records.predicate:commandManager.records.reverse | limitTo: commandManager.records.pageItems * commandManager.records.page | limitTo: -commandManager.records.pageItems')
+                                td(title='{{command.phase}}')
+                                    i.material-icons.small {{command.phase == "executing" && "send" || command.phase == "timeout" && "access_time" || command.phase == "complete" && "done" || command.phase == "cancel" && "not_interested" || command.phase == "error" && "error" || "share"}}
+                                    .progress(ng-show='command.phase == "executing"')
+                                        .indeterminate
+                                td
+                                    span {{command._index}}
+                                //td
+                                    span {{command.name}}
+                                td
+                                    span {{command.startTime | date: 'yyyy-MM-dd HH:mm:ss'}}
+                                td
+                                    span {{command.endTime| date: 'yyyy-MM-dd HH:mm:ss'}}
+                                td
+                                    span {{command.parameters3}}
+                                td
+                                    span {{command.priority}}
+                                td
+                                    span {{command.result}}
+                                td
+                                    span {{command.comment}}
+                                td
+                                    span {{command.triggerName}}
+
+                    ul.pagination(ng-show='commandManager.parameters.paging.pages.length > 1')
+                        li(ng-class='{disabled: commandManager.parameters.paging.page <= 1, "waves-effect": commandManager.parameters.paging.page > 1}', ng-click='commandManager.queryPage("previous")')
+                            a(href='')
+                                i.material-icons chevron_left
+                        li(ng-class='{active: page == commandManager.parameters.paging.page, "waves-effect": page != commandManager.parameters.paging.page}', ng-repeat='page in commandManager.parameters.paging.pages', ng-click='commandManager.queryPage(page)')
+                            a(href='')
+                                | {{page}}
+                        li(ng-class='{disabled: commandManager.parameters.paging.page >= commandManager.parameters.paging.pageCount, "waves-effect": commandManager.parameters.paging.page < commandManager.parameters.paging.pageCount}', ng-click='commandManager.queryPage("next")')
+                            a(href='')
+                                i.material-icons chevron_right
+
+
+
+    .modal-footer.modal-nav
+        nav(ng-class='mvm.setting.theme')
+            .nav-wrapper
+                ul
+                    li
+                        a(href='', ng-click='saveCommandInstance(command)', title='保持控制实例信息')
+                            i.material-icons.left save
+                            span.hide-on-med-and-down 保存
+
+                    li
+                        a.waves-effect.waves-light.modal-trigger(href='', data-target='command-execution-modal', title='执行控制命令', ng-show='command.data.phase != "executing"')
+                            i.material-icons.left send
+                            span.hide-on-med-and-down 执行控制
+                        a.waves-effect.waves-light.modal-trigger(href='', data-target='command-execution-modal', title='取消控制命令', ng-show='command.data.phase == "executing"')
+                            i.material-icons.left cancel
+                            span.hide-on-med-and-down 取消控制
+
+                    li
+                        a.waves-effect.waves-light(href='', ng-click='selectNextCommand()', title='选择上一控制')
+                            i.material-icons.left arrow_upward
+                            span.hide-on-med-and-down 上移
+
+                    li
+                        a.waves-effect.waves-light(href='', ng-click='selectPreviousCommand()', title='选择下一控制')
+                            i.material-icons.left arrow_downward
+                            span.hide-on-med-and-down 下移
+
+                    ul.right
+                        li
+                            a.dropdown-trigger(href='', data-target='command-query-periods', data-hover='true', data-beloworigin="false", md-dropdown, title='报表查询时段')
+                                | {{commandManager.recordType.name || "报表查询时段"}}
+                                i.material-icons.right arrow_drop_up
+                        li
+                            a(href='', title='上移查询时段', ng-click='commandManager.queryRecords(command, "previous")')
+                                i.material-icons.left skip_previous
+                                span.hide-on-med-and-down 前移
+                        li
+                            a(href='', title='查询数据', ng-click='commandManager.queryRecords(command, "refresh")')
+                                i.material-icons.left refresh
+                                span.hide-on-med-and-down 查询
+                        li
+                            a(href='', title='下移查询时段', ng-click='commandManager.queryRecords(command, "next")')
+                                i.material-icons.left skip_next
+                                span.hide-on-med-and-down 后移
+
+                        li
+                            a.modal-action.modal-close(href='')
+                                i.material-icons.left close
+                                span.hide-on-med-and-down 关闭
+
+        ul#command-query-periods.dropdown-content
+            li(ng-repeat='type in commandManager.recordTypes')
+                a(href='', ng-class='{active: type == commandManager.recordType}' ng-click='commandManager.selectRecordType(type); commandManager.queryRecords(command)')
+                    | {{type.name}}

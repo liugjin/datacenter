@@ -1,0 +1,43 @@
+{
+  "id": "alarm-query",
+  "name": "AlarmQuery控件",
+  "type": "AlarmQueryDirective",
+  "desc": {
+    "author": "Billy",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.1": [
+          "上传组件"
+        ],
+        "0.0.2": [
+          "处理最新事件状态"
+        ],
+      "0.0.3": [
+        "James-修改历史事件查不到数据问题，增加分页并调整页面样式显示"
+      ],
+      "0.0.4": [
+        "James-解决报表不能导出问题"
+      ],
+      "0.0.5": [
+        "James-处理状态数据错乱以及增加查询约束和数据排序"
+      ],
+      "0.0.6": [
+        "James-修改功能标题以及列表标题"
+      ],
+      "0.0.7": [
+        "James-修改实时数据逻辑以及历史数据时长处理"
+      ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": ["station-tree"],
+  "css": "",
+  "version": "0.0.7"
+}

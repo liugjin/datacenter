@@ -1,0 +1,28 @@
+{
+  "id": "ip-setting",
+  "name": "网络管理组件",
+  "type": "IpSettingDirective",
+  "desc": {
+    "author": "murray",
+    "comment": "实现了网络配置和在页面ping网络ip",
+    "version": {
+        "0.0.1": ["初始化，david"],
+        "0.0.2": ["修改网络类型，region"],
+        "0.0.3":["整加ping网络ip功能,@murray"],
+        "0.0.4": ["修改bug,网络类型只限定静态IP"],
+        "0.0.5": ["修改ping的方式，放后台处理"]
+    }
+  },
+  "keywords":"网络配置,IP配置,ping网络IP",
+  "group": "模块组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.5"
+}

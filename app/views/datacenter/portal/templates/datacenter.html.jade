@@ -1,0 +1,26 @@
+//-
+    User: Pu
+    Date: 2018/10/7
+    Desc: 
+
+.container2
+    .row
+        .col.s12.m4.l3
+            nav.teal.lighten-1(ng-class='mvm.setting.theme')
+                .nav-wrapper
+                    ul
+                        li
+                            a(ng-click='vm.echo()')
+                                span RPC-ECHO
+
+        .col.s12.m8.l9
+
+    .row
+        .col.s12
+            h3 {{vm.echoResult.data}}
+        .col.s2
+            select(multiple multi-select, data="vm.infos", ng-model="vm.data", refresh="true")
+                option(ng-repeat="item in vm.infos" value="{{item.id}}") {{item.value}}
+
+        .col.s6
+            h5 {{vm.data}}

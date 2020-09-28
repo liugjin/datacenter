@@ -1,0 +1,123 @@
+.row.nav-top
+    .col.s2
+        span(style="font-size: 14px") 告警设置
+    .col.l10
+        station-breadcrumbs(controller="controller", parameters="{}")
+
+
+.row.inventory
+    .col.s2.m2.l2.alarm-box1-control.pad-control
+        .invent-type
+            .col.s12.m12.l12.type.btn(ng-click="selectTemplate('all')" ng-class="{'current': 'all' == currentTemplate}")
+                a
+                    .type-img
+                        i.material-icons.center select_all
+                    .type-count 全部
+            .col.s12.m12.l12.type.btn(ng-repeat="template in templates | filter: filterTemplates() | orderBy: 'index': false" ng-class="{'current': template.model.template == currentTemplate.model.template}" ng-click="selectTemplate(template)")
+                a(class="title" ng-href="")
+                    .type-img
+                        //.img-bing(style="background-image: url('{{setting.urls.uploadUrl}}/{{template.model.image}}');" ng-if='template.model.image' ng-class="{'img-type': template.model.template != currentTemplate.model.template, 'img-type-active': template.model.template == currentTemplate.model.template}")
+                        img(src="{{setting.urls.uploadUrl}}/{{template.model.image}}", style="width:46px; height:46px")
+                    .type-count.truncate(title="{{template.model.name}}") {{template.model.name}}
+
+    .col.s10.m10.l10.alarm-box2-control.invent-list
+        .inventory-lists
+            .col.s12.m12.l12.inventory-nav.valign-wrapper
+                .nav-flex-grow.left
+                    a.waves-effect.waves-light.btn(href='' ng-click='saveSetting()' title='保存', ng-show="project.model._role.isAdmin || project.model._role.operations[0]=='_all' || project.model._role.operations.indexOf('setting')>=0")
+                        .left
+                            img(ng-src="{{addImg}}")
+                        span 保存
+
+                .right.right-gap
+                    span 总告警数
+                    span.left-gap(ng-click="selectSeverity(null)", ng-class="{active:severity==null}") {{list.length}}
+
+                .right.right-gap(ng-repeat="sty in severities")
+                    span {{sty.model.name}}
+                    span.left-gap(ng-click="selectSeverity(sty.model.severity)", ng-class="{active:severity==sty.model.severity}") {{getCountBySeverity(sty.model.severity)}}
+
+                .right.search-wrapper()
+                    i.material-icons search
+                    input.search-input(type="text" placeholder="" ng-model="search" required)
+                    i.material-icons(style="left: 225px;" ng-click="search = ''; pageIndex = 1;" ng-show='search') close
+
+            // 列表视图
+            .list-view
+                table.responsive-table.centered.highlight.new-table
+                    thead
+                        tr
+                            th.tHeader
+                                label(title="全选")
+                                    input(type="checkbox", class="filled-in" value="", ng-model="user_all_select", checked="{{user_all_select}}", ng-change="user_all_change()")
+                                    span
+                            th(ng-show="currentTemplate == 'all'")
+                                .col-header.text-align-left(ng-click='sortBy("template")')
+                                    span 设备型号
+                                    span.right(ng-show='sort.predicate == "template"') {{sort.reverse && "▽" || "△"}}
+                            th(ng-hide="currentTemplate == 'all'")
+                                .col-header.text-align-left(ng-click='sortBy("name")')
+                                    span 告警名称
+                                    span.right(ng-show='sort.predicate == "name"') {{sort.reverse && "▽" || "△"}}
+                            th
+                                .col-header.text-align-left(ng-click='sortBy("content")')
+                                    span 告警内容
+                                    span.right(ng-show='sort.predicate == "content"') {{sort.reverse && "▽" || "△"}}
+                            th
+                                .col-header(ng-click='sortBy("severity")')
+                                    span 当前告警级别
+                                    span.right(ng-show='sort.predicate == "severity"') {{sort.reverse && "▽" || "△"}}
+                            th
+                                .col-header(ng-click='sortBy("newseverity")')
+                                    span 新告警级别
+                                    span.right(ng-show='sort.predicate == "newseverity"') {{sort.reverse && "▽" || "△"}}
+                            th
+                                .col-header(ng-click='sortBy("value")')
+                                    span 当前告警阀值
+                                    span.right(ng-show='sort.predicate == "model.tag"') {{sort.reverse && "▽" || "△"}}
+                            th
+                                .col-header(ng-click='sortBy("severity")')
+                                    span 告警开始条件
+                                    span.right(ng-show='sort.predicate == "severity"') {{sort.reverse && "▽" || "△"}}
+                            th
+                                .col-header(ng-click='sortBy("newvalue")')
+                                    span 新告警阀值
+                                    span.right(ng-show='sort.predicate == "model.tag"') {{sort.reverse && "▽" || "△"}}
+                            th
+                                .col-header(ng-click='sortBy("enable")')
+                                    span 状态
+                                    span.right(ng-show='sort.predicate == "model.enable"') {{sort.reverse && "▽" || "△"}}
+                    tbody
+                        tr(ng-repeat='event in list |filter:filterEvent()| orderBy: sort.predicate:sort.reverse track by $index')
+                            td.tHeader
+                                label
+                                    input(type="checkbox", class="filled-in", ng-model="event.checkedFlag",checked="event.checkedFlag", value="", ng-change="user_event_change(event)")
+                                    span
+                            td.text-align-left(ng-show="currentTemplate == 'all'", ng-click="selectTemplateId(event.type+'.'+event.templateId)" style="padding-left: 1rem")
+                                .td-ellipsis(style="width: 130px; cursor:pointer" title="{{event.template}}") {{event.template}}
+                            td.text-align-left(ng-hide="currentTemplate == 'all'" style="padding-left: 1rem")
+                                .td-ellipsis(style="width: 130px" title="{{event.name}}") {{event.name}}
+                            td.text-align-left(style="padding-left: 1rem")
+                                .td-ellipsis(style="width: 130px" title="{{event.content}}") {{event.content}}
+                            td {{event.severityName}}
+                            td(style="padding:0")
+                                input(ng-if="!event.show", ng-click="editEventSeverity(event, $index)", type="text", ng-value="getSeverityName(event.severity)" readonly)
+                                select(id="event{{$index}}" ng-model='event.newseverity', md-select, data='severities', ng-if="event.show" , ng-change="user_editSer(event)")
+                                    option(ng-repeat='severity in severities' value='{{severity.model.severity}}', ng-selected='1 == severity.model.severity') {{severity.model.name}}
+                            td {{event.value}}
+                            //- td {{event.startCondition}}
+                            td(style="padding:0")
+                                select( ng-model="event.startCondition", md-select, data='operatorTypes', ng-change="user_startCond(event)")
+                                    option(ng-repeat='operator in operatorTypes', value='{{operator.operator}}', ng-selected='event.startCondition == operator.operator') {{operator.name}}
+                            td(style="padding:0")
+                                input(ng-if="event.dataType!='enum'" type="text" ng-model="event.newvalue" maxlength='10' ng-change="user_newVal(event)" style="width:60px")
+                                select(ng-if="event.dataType == 'enum'" ng-model="event.newvalue", md-select, ng-change="user_newVal(event)")
+                                    option(ng-repeat='operator in event.format', value='{{operator.id}}', ng-selected='event.newvalue == operator.id') {{operator.name}}
+                            td(style="padding:0")
+                                .td-ellipsis(style="width: 160px")
+                                    md-switch(ng-model="event.enable", label-off='无效', label-on='有效', ng-change="switchEventAble(event)" style="margin-left:.75rem;" )
+
+                            //下面注释内容为使用原生select做的，因为md-select更费性能。 以前会引起浏览器页面崩溃，现在没有发现页面崩溃情况，暂时还用md-select写法
+                            //td(style="padding:0")
+                            //    select(ng-model='event.newseverity',style="display:block;    height: 2rem;border: 1px solid #0652a2 !important;color: white;text-align: center !important;background-color:rgba(26, 69, 162, 0.8);")
+                            //        option(ng-repeat='severity in severities' value='{{severity.model.severity}}' style="background-color:transparent;") {{severity.model.name}}

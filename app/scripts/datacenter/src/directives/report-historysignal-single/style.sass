@@ -1,0 +1,152 @@
+report-historysignal-single
+    .header-left
+        display: flex
+        justify-content: space-between
+        .show-mode
+            display: flex
+            align-items: center
+            justify-content: space-between
+            .show-mode-list
+                margin-right: 10px
+    .nav-wrap-container
+        display: flex
+        align-items: center
+        .img-box
+            display: flex
+            align-items: center
+            img
+                margin-right: 15px
+        .custom-checkout-box
+            width: 200px
+            height: 36px
+            line-height: 36px
+            .checkout-name, .checkout-triangle
+                display: inline-block
+                background-color: rgba(26,69,162,0.5)
+                line-height: 36px
+                height: 36px
+                border-style: solid
+                border-color: #64D6FB
+            .checkout-name
+                border-width: 1px
+                text-align: center
+                width: 157px
+            .checkout-triangle
+                color: #64D6FB
+                border-width: 1px 1px 1px 0px
+                text-align: center
+                width: 40px
+
+    ul.signal-box
+        width: 197px
+        z-index: 999
+        position: absolute
+        top: 50px
+        height: 68vh
+        overflow-y: auto
+        [type="checkbox"].filled-in:not(:checked)+span:not(.lever):after
+            border: 2px solid #fff
+            height: 15px
+            width: 15px
+            margin-top: 4px
+        [type="checkbox"].filled-in:checked+span:not(.lever):after
+            height: 21px
+            width: 21px
+            border: none
+            background: transparent
+        .ng-binding
+            padding-left: 18px
+    .signal-list
+        text-indent: 10px
+        width: 197px
+        height: 45px
+        line-height: 45px
+        // overflow-x: auto
+        background-color: rgba(26, 69, 162, 0.5)
+        &:hover
+            background-color: rgba(26, 69, 162, 0.9)
+    device-tree
+        .tree
+            height: 78.7vh
+    .nav-top
+        height: auto
+        span
+            font-size: 14px
+
+    report-query-time
+        .report-time
+            li.report-li:nth-of-type(2)
+                margin: 0 4px
+
+    .nav-wrapper
+        ul li
+            margin-right: 4px
+    .right-wrapper-box
+        float: right
+        display: flex
+    .input-field1
+        margin-right: 1rem
+    .standard-report-btn
+        width: 100px
+        height: 36px
+        line-height: 36px
+    .report-query-time
+        margin: 0 10px
+    .grid-table
+        padding: 0.75rem
+        background-color: rgba(26,69,162,0.4)
+        width: calc( 100% - 0.75rem )
+        height: 83.7vh
+        display: block
+        .ag-full-width-viewport-wrapper
+            height: 77.5vh
+        .ag-body-viewport-wrapper
+            background-color: transparent
+            height: 77.5vh
+            .ag-body-viewport .ag-row-odd .ag-cell-no-focus
+                background-color: rgba(37,70,156,0.4) !important
+            .ag-body-viewport .ag-row-odd .ag-cell-focus
+                background-color: rgba(37,70,156,0.4) !important
+        .ag-header
+            height: 50px !important
+    .no-box-shadow
+        box-shadow: none
+    .eventpagination
+        position: absolute
+        bottom: 10px
+        display: flex
+        justify-content: center
+        .pagination
+            display: flex
+            justify-content: center
+            li
+                height: 36px
+                border: 1px solid #3A85E4
+            a
+                color: #3A85E4
+                line-height: 36px
+            li.active
+                background-color: rgba(41,104,246,0.4) !important
+                color: #ffffff
+    .device-tree
+        width: 20%
+        height: 85%
+    .grid-table-contaner
+        width: 80%
+        position: relative
+        // overflow: auto
+        height: 83.7vh
+        .row
+            height: 83.7vh
+
+    ul.fancytree-container
+        ul
+            padding-left: 10px
+
+
+    @media screen and (max-width: 1300px)
+        .device-tree
+            width: 200px!important
+        .grid-table-contaner
+            width: calc(100% - 200px)!important
+

@@ -1,0 +1,63 @@
+{
+  "id": "distribution-manager",
+  "name": "配电管理",
+  "type": "DistributionManagerDirective",
+  "desc": {
+    "author": "bingo",
+    "comment": "配电管理",
+    "version": {
+      "0.0.1": [
+        "init"
+      ],
+      "0.0.2": [
+        "修改样式",
+        "@bingo"
+      ],
+      "0.0.3": [
+        "修复问题",
+        "选择设备详情存储在本地",
+        "@bingo"
+      ],
+      "0.0.4": [
+        "设备类型改为传入",
+        "当前设备为索引最大的一个",
+        "去掉选择设备",
+        "@bingo"
+      ],
+      "0.0.5": [
+        "修改标题的颜色",
+        "@bingo"
+      ],
+      "0.0.6": [
+        "更新页面标准化样式",
+        "@Albert"
+      ],
+      "0.0.7": [
+        "更新适配1024x768分辨率",
+        "@Albert"
+      ]
+    }
+  },
+  "group": "设备组件",
+  "parameters": [
+    {
+      "id": "station",
+      "type": "string",
+      "value": ""
+    },
+    {
+      "id": "type",
+      "type": "string",
+      "value": ""
+    }
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [
+    "signal-pie"
+  ],
+  "css": "",
+  "version": "0.0.7"
+}

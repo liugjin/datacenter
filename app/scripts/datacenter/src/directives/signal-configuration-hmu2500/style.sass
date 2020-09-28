@@ -1,0 +1,96 @@
+signal-configuration-hmu2500
+  .btn-style.active
+    background-color: rgba(0, 188, 212, 0.7)
+  .nav-top
+    .btn-style.active
+      background-color: rgba(0, 188, 212, 0.7)
+    .btn-style
+      margin-right: 0.75rem
+      .btn-sample, .btn-alarm, .btn-status
+        margin-right: 5px
+        vertical-align: middle
+        display: inline-block
+        width: 22px
+        height: 22px
+        background-size: contain
+        background-repeat: no-repeat
+      .btn-sample
+        background-image: url("~image/sample.svg~")
+      .btn-alarm
+        background-image: url("~image/alarm.svg~")
+      .btn-status
+        background-image: url("~image/status.svg~")
+  .configuration-left
+    width: 17%
+    device-tree-single
+      width: 100%
+      .tree
+        height: 78.3vh !important
+  .configuration-right
+    width: 83%
+    height: 84.5vh
+    padding: 0.75rem !important
+    background-color: rgba(26,69,162,0.4)
+    .configuration-header
+      .search-wrapper
+        display: inline-block
+        position: relative
+        i
+          position: absolute
+          font-size: 1.2rem
+          left: 8px
+          line-height: 38px
+          color: #a2caf8
+
+        .search-input
+          display: block
+          margin: 0
+          padding: 0 0 0 32px
+          width: 80%
+          height: 34px
+          font-size: 14px
+          color: #a2caf8
+          line-height: 34px
+      .text-position
+        position: relative
+        bottom: 4px
+        padding-right: 4px
+    .configuration-main
+      position: relative
+      margin-top: 10px
+      overflow: auto
+      height: 78.5vh
+      padding-top: 1vh
+      table.table-sample
+        min-width: 1570px
+      table.table-status
+        min-width: 1092px
+      // table
+      //     margin-top: 15px
+      table
+        thead
+          background: rgba(75,165,248,0.5)
+          th
+            text-align: center
+        td
+          text-align: center
+        tbody tr
+          &:nth-child(2n)
+            background-color: rgba(37,70,156,0.4)
+          &:hover
+            background-color: rgba(3, 166, 255, 0.3)
+          .label-checkbox-style
+            position: relative
+            top: 5px
+        input
+          width: 75%
+          text-indent: 0.75rem
+        [type="checkbox"]+span:not(.lever)
+          margin-left: 0.75rem
+        [type="checkbox"].filled-in:not(:checked)+span:not(.lever):after
+          border: 2px solid #ffffff
+        .select-dropdown
+          margin: 0 auto 8px auto
+          width: 60%
+        .caret
+          right: 25%

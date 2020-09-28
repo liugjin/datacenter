@@ -1,0 +1,22 @@
+app-qrcode span {
+  color: #fff; }
+
+app-qrcode .card-image {
+  padding-top: 16%; }
+
+app-qrcode .card-content {
+  padding: 20px; }
+
+app-qrcode .card-img-container {
+  height: 84vh; }
+
+app-qrcode .card-image-placeholder {
+  padding: 15px 0 0 0; }
+  app-qrcode .card-image-placeholder .qrcode {
+    width: 200px;
+    height: 200px;
+    margin: auto; }
+
+@media screen and (width: 1024px) {
+  app-qrcode .card-img-container {
+    height: 81vh; } }

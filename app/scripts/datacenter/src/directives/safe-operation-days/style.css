@@ -1,0 +1,14 @@
+safe-operation-days .flex {
+  display: flex; }
+
+safe-operation-days .white-text {
+  color: white; }
+
+safe-operation-days .box {
+  font-size: 2em;
+  margin: 0.2vw;
+  padding: 0 0.5vw;
+  font-family: Palatino; }
+
+safe-operation-days .gray-text {
+  color: #ccc; }

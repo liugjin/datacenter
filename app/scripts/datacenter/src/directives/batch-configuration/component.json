@@ -1,0 +1,24 @@
+{
+  "id": "batch-configuration",
+  "name": "批量配置组件",
+  "type": "BatchConfigurationDirective",
+  "desc": {
+    "author": "murray",
+    "comment": "自定义组件",
+    "version": {
+      "0.0.1": ["配置恢复，配置备份。包括配置，设备库，组态。主要用于备份整个项目的数据，和恢复整个项目的数据。后台服务configurationSetup-service @murray"],
+      "0.0.2":["bug修改,更改配置备份下载的文件格式"],
+      "0.0.3":["bug修改,添加monitoring-units.json的备份"]
+    }
+  },
+  "keywords":"配置恢复,配置备份,批量配置",
+  "group": "模块组件",
+  "parameters": [],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.3"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "device-tree-single",
+  "name": "DeviceTreeSingle控件",
+  "type": "DeviceTreeSingleDirective",
+  "desc": {
+    "author": "foam",
+    "comment": "功能组件",
+    "desc": "单设备云项目站点树",
+    "version": {
+        "0.0.1": ["首次提交"],
+        "0.0.2": ["文字过长省略悬浮显示"]
+    }
+  },
+  "group": "项目组件",
+  "parameters": [
+    {
+      "id": "checkbox",
+      "type": "bool",
+      "value": "false"
+    },
+    {
+      "id": "filter",
+      "type": "bool",
+      "value": "true"
+    }
+  ],
+  "interact": {
+    "pubs": [
+      "selectEquip",
+      "checkEquips"
+    ],
+    "subs": []
+  },
+  "deps": [],
+  "css": ".col.s6",
+  "version": "0.0.2"
+}

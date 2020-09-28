@@ -1,0 +1,30 @@
+.big-box
+    .box-top
+        .title 空调
+            span(ng-if="parameters.titleEnShow") Air conditioner
+        .subtitle.right.dropdown-trigger(
+            ng-show='equipments.length > 0'
+            data-target='equipments'
+            data-hover='true'
+            data-alignment='right'
+            data-constrain-width='false'
+            md-dropdown) 选择设备
+            span.select-slogo
+        ul#equipments.dropdown-content(style="overflow: overlay;max-height:7rem")
+            li(ng-repeat='equip in equipments',ng-class='{active: equip.isSelect}')
+                a(ng-href='', ng-click='selectEquipment(equip)')
+                    span {{equip.model.name}}
+    .box-content
+        span.air-name {{theAirStatu.equipName}}&nbsp;
+        .air-status(ng-class='{"warmColor": colorChange,"normalColor": !colorChange}')
+            .status-des {{theAirStatu.equipStatu}}
+    .box-list(ng-if="parameters.thShow")
+        .equipment-template
+            span 回风温度：{{theAirStatu.returnTemplate}}℃
+        .equipment-template
+            span 送风温度：{{theAirStatu.supplyTemplate}}℃
+    .box-list(ng-if="parameters.thShow")
+        .equipment-humidity
+            span 回风湿度：{{theAirStatu.returnHumidity}}%RH
+        .equipment-humidity
+            span 送风湿度：{{theAirStatu.supplyHumidity}}%RH

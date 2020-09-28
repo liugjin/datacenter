@@ -1,0 +1,6 @@
+discovery-management .content {
+  height: 50vh;
+  overflow: auto; }
+
+discovery-management table tr th, discovery-management table tr td {
+  text-align: center; }

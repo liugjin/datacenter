@@ -1,0 +1,45 @@
+{
+  "id": "equipment-quantity",
+  "name": "设备数量组件",
+  "type": "EquipmentQuantityDirective",
+  "desc": {
+    "author":"Billy",
+    "desc":"设备数量组件",
+    "version": {
+      "0.0.1": [
+        "[Billy]发布组件,根据不同的信号展示相关设备类型数量信息"
+      ],
+      "0.0.2": [
+        "[Billy]取消refresh，调整细节"
+      ],
+      "0.0.3": [
+        "[Billy]修改UPS不显示的bug，无设备时显示N/A"
+      ],
+      "0.0.4": [
+        "[Billy]会同时计算子站点的所有设备数量"
+      ],
+      "0.0.5": [
+        "[Billy]修改细节"
+      ],
+      "0.0.6": [
+        "[Billy]使用递归方式取所有设备数量"
+      ],
+      "0.0.7": [
+        "更新样式@Billy"
+      ],
+      "0.0.9": [
+        "增加跳转链接到设备监控页面", "@bingo"
+      ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+    {"id":"stationId","type":"string","value":"host-room"}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "css": "",
+  "version": "0.0.9"
+}

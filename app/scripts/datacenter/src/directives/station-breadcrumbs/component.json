@@ -1,0 +1,35 @@
+{
+  "id": "station-breadcrumbs",
+  "name": "站点面包屑导航控件",
+  "type": "StationBreadcrumbsDirective",
+  "desc": {
+    "author": "david",
+    "comment": "站点导航控件，切换站点时，对外抛出站点ID信息",
+    "version": {
+      "0.0.1": [
+      ],
+      "0.0.2": [
+        "修复获取根站点的bug，调整部分显示样式",
+        "调整默认显示站点的逻辑，默认加载时发布当前站点"
+      ],
+      "0.0.3": [
+        "过滤掉ID以'_'开头的站点"
+      ],
+      "0.0.4": [
+        "修改逻辑，保证传入任意站点ID，能正确显示该站点及其父站点级联信息"
+      ],
+      "0.0.5": [
+        "修复bug,解决多顶级站点时显示问题"
+      ]
+    }
+  },
+  "group": "项目组件",
+  "parameters": [
+  ],
+  "interact": {
+    "pubs": ["stationId"],
+    "subs": []
+  },
+  "css": ".green",
+  "version": "0.0.5"
+}

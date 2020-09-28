@@ -1,0 +1,47 @@
+@import url(/lib/jquery.fancytree/dist/skin-win8/ui.fancytree.css);
+ul.fancytree-container {
+  border: 0 !important; }
+
+device-tree-leon input:not([type]):focus:not([readonly]) {
+  box-shadow: none; }
+
+device-tree-leon .filter input {
+  width: calc(100% - 38px);
+  margin: 0 !important;
+  padding-left: 36px; }
+
+device-tree-leon .icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -.125em; }
+
+device-tree-leon .filter {
+  margin: 0;
+  background-color: rgba(26, 69, 162, 0.4);
+  margin-bottom: 2px;
+  position: relative; }
+
+device-tree-leon .filter > i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.2rem;
+  height: 48px;
+  line-height: 50px;
+  padding-left: 10px; }
+
+device-tree-leon .filter > .delete {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0px;
+  padding: 0;
+  width: 40px;
+  font-size: 18px;
+  height: 46px;
+  line-height: 46px;
+  color: #ef5350;
+  font-size: 24px; }
+
+device-tree-leon .tree-style {
+  margin-bottom: .75rem; }

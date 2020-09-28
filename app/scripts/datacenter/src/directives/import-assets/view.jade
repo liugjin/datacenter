@@ -1,0 +1,42 @@
+.import-assets.col.s10
+    //- 头部
+    .import-assets-header
+        .back-btn(ng-click="publishBack()")
+            i.icon-back
+            span 返回
+        .import-assets-btn(ng-click="downloadExcel()")
+            i.icon-download
+            span 下载Excel模板
+        .import-assets-btn(ng-click="importExcel()")
+            i.icon-import
+            span 导入设备信息
+        .btn.confirm-btn(ng-click="addDevice()") 确定
+        input.import-file(type="file")
+        span.progress-value(ng-if="ng.progressShow") {{ng.importProgress}}
+        .progress.import-progress(ng-if="ng.progressShow")
+            .determinate(ng-style="{width: ng.importProgress }")
+    //- 主体部分
+    .import-assets-main
+        table.centered.responsive-table
+            thead
+                tr
+                    th 站点ID
+                    th 设备类型ID
+                    th 设备模板ID
+                    th 厂商
+                    th 设备ID
+                    th 设备名
+                    th 资产标签序列号
+                    th 位置
+                    th 上级设备
+            tbody
+                tr(ng-repeat="item in ng.excelTable" ng-class="{'iserror': item.iserror}" title="{{item.remark}}")
+                    td {{item["站点ID"]}}
+                    td {{item["设备类型ID"]}}
+                    td {{item["设备模板ID"]}}
+                    td {{item["厂商"]}}
+                    td {{item["设备ID"]}}
+                    td {{item["设备名"]}}
+                    td {{item["资产标签序列号"]}}
+                    td {{item["位置"]}}
+                    td {{item["上级设备"]}}

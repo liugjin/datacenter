@@ -1,0 +1,304 @@
+monitoring station-tree-with-count .tree {
+  height: 77.8vh !important; }
+
+monitoring .new-table thead tr {
+  background-color: rgba(75, 165, 248, 0.5) !important; }
+
+monitoring .new-table tbody tr {
+  border-bottom: 1px solid #0050a0 !important; }
+  monitoring .new-table tbody tr td {
+    padding-left: 1rem !important; }
+
+monitoring .new-table tbody tr:nth-child(even) {
+  background-color: transparent !important; }
+
+monitoring a:focus {
+  outline: none !important; }
+
+monitoring .page-button {
+  border: 1px solid #0066ff;
+  border-radius: 0; }
+
+monitoring .pagination li a {
+  font-size: 14px;
+  color: #7cbff9 !important; }
+
+monitoring .pagination li.active {
+  border: 1px solid #00d5ff !important;
+  background-color: rgba(0, 102, 255, 0.4) !important;
+  color: #fff; }
+
+monitoring .type-img {
+  float: left;
+  margin-right: 8px; }
+  monitoring .type-img .img-bing {
+    width: 25px;
+    height: 35px;
+    background-repeat: no-repeat; }
+  monitoring .type-img .img-type {
+    background-position: -123px -16px; }
+  monitoring .type-img .img-type-active {
+    background-position: -183px -16px; }
+
+monitoring .tabs-btn {
+  margin-left: .75rem;
+  color: #7dbffa; }
+
+monitoring #equipment-tabs .btn {
+  color: #fff; }
+
+monitoring .equips-btn-container {
+  height: 64px;
+  line-height: 64px; }
+  monitoring .equips-btn-container div {
+    display: inline-block; }
+
+monitoring .standard-span-btn {
+  width: 140px;
+  height: 40px;
+  line-height: 38px;
+  text-align: center;
+  padding: 0;
+  overflow: hidden; }
+  monitoring .standard-span-btn span {
+    font-size: 14px;
+    font-weight: 400; }
+
+monitoring .list-icon {
+  float: left;
+  width: 25px;
+  height: 46px;
+  background-repeat: no-repeat; }
+
+monitoring .equips-list2 {
+  background-color: rgba(0, 188, 212, 0.77); }
+
+monitoring .equips-list2:hover {
+  background-color: #173c8c; }
+
+monitoring .equips-list {
+  background-color: #112e69; }
+
+monitoring .equips-list:hover {
+  background-color: #173c8c; }
+
+monitoring .card-img-placeholder {
+  height: 100%;
+  background-color: rgba(26, 69, 162, 0.2); }
+
+monitoring .card-content {
+  background-color: rgba(26, 69, 162, 0.6);
+  height: 35%; }
+  monitoring .card-content .equip-status {
+    position: absolute;
+    right: 5px;
+    top: 60.5%; }
+    monitoring .card-content .equip-status .equip-status-loc span {
+      padding: 5px 15px;
+      height: 25px;
+      font-size: 12px;
+      border-radius: 13px; }
+
+monitoring .card-span-text .truncate {
+  color: #ffffff !important; }
+
+monitoring .col-header {
+  text-align: center; }
+
+monitoring .card {
+  margin: 0 0 .75rem 0;
+  height: 35vh; }
+  monitoring .card .card-image {
+    height: 65%; }
+
+monitoring .list-view {
+  margin-left: 0.75rem; }
+  monitoring .list-view .col-text-align {
+    text-align: left; }
+  monitoring .list-view tbody > tr:hover {
+    background-color: rgba(75, 165, 248, 0.4) !important; }
+
+monitoring .inventory-nav {
+  margin: .75rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  monitoring .inventory-nav .search-classify {
+    height: 38px;
+    font-size: 14px;
+    font-weight: 400; }
+    monitoring .inventory-nav .search-classify .dropdown-content {
+      width: 120px; }
+    monitoring .inventory-nav .search-classify .equip-classify {
+      border: 1px solid #0652a2;
+      margin-right: 20px;
+      background-color: rgba(26, 69, 162, 0.4);
+      border: 1px solid #10ebf4;
+      color: #ffffff;
+      width: 120px;
+      height: 36px;
+      display: inline-block; }
+      monitoring .inventory-nav .search-classify .equip-classify span {
+        text-align: center;
+        display: inline-block;
+        line-height: 36px;
+        height: 34px; }
+      monitoring .inventory-nav .search-classify .equip-classify .left-equip-box {
+        width: 90px;
+        border-right: 1px solid #10ebf4; }
+      monitoring .inventory-nav .search-classify .equip-classify .right-equip-box {
+        width: 28px; }
+  monitoring .inventory-nav .btn {
+    vertical-align: bottom; }
+
+monitoring .invent-list {
+  background-color: rgba(26, 69, 162, 0.4);
+  height: 84vh;
+  position: relative; }
+
+monitoring .eventpagination {
+  position: absolute;
+  bottom: 0.1rem;
+  width: 100%; }
+
+monitoring .inventory .invent-type {
+  padding: 0 0.75rem; }
+  monitoring .inventory .invent-type .type {
+    margin-bottom: .75rem;
+    height: 46px; }
+    monitoring .inventory .invent-type .type a {
+      color: #a2aab6;
+      line-height: 46px;
+      text-align: left; }
+      monitoring .inventory .invent-type .type a .type-count .right {
+        color: #10ebf4; }
+  monitoring .inventory .invent-type .current-type {
+    background-color: rgba(16, 235, 244, 0.4);
+    border: 1px solid #10ebf4;
+    transition: .6s; }
+    monitoring .inventory .invent-type .current-type .type-count {
+      color: #e2edf2 !important; }
+      monitoring .inventory .invent-type .current-type .type-count .right {
+        color: #e2edf2 !important; }
+
+monitoring .inventory .search-wrapper {
+  display: inline-block;
+  position: relative; }
+  monitoring .inventory .search-wrapper i {
+    position: absolute;
+    font-size: 1.2rem;
+    left: 8px;
+    line-height: 38px;
+    color: #a2caf8; }
+  monitoring .inventory .search-wrapper .search-input {
+    display: block;
+    margin: 0;
+    padding: 0 0 0 32px;
+    width: 80%;
+    height: 34px;
+    font-size: 14px;
+    color: #a2caf8;
+    line-height: 34px; }
+
+monitoring .state-status {
+  position: absolute;
+  right: 5px;
+  bottom: 7px; }
+  monitoring .state-status .state-dot {
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    border-radius: 50%;
+    vertical-align: middle;
+    position: relative;
+    background-color: #d9d9d9;
+    margin-right: 8px; }
+  monitoring .state-status .state-online {
+    background-color: #52c41a; }
+  monitoring .state-status .state-alarm {
+    background-color: #f44336; }
+
+monitoring [type="radio"]:not(:checked) + span, monitoring [type="radio"]:checked + span {
+  padding-left: 25px;
+  font-size: 14px;
+  color: #ffffff; }
+
+monitoring .state-offline span {
+  background-color: #b0c9f0; }
+
+monitoring .state-online span {
+  background-color: #62a9f1; }
+
+monitoring .state-offalarm span {
+  background-color: #42c2a8 !important; }
+
+monitoring .state-onalarm span {
+  background-color: #dc7978 !important; }
+
+monitoring .left-box-container {
+  width: 80% !important;
+  background-color: rgba(26, 69, 162, 0.4) !important;
+  height: 100%; }
+  monitoring .left-box-container .btn {
+    padding: 0 32px; }
+
+monitoring .header-style {
+  margin: 0.75rem 0; }
+  monitoring .header-style a {
+    color: #fff !important; }
+
+monitoring .right-box-container {
+  width: calc( 20% - 10px) !important;
+  margin-left: 10px !important;
+  background-color: rgba(26, 69, 162, 0.4) !important;
+  height: 100%;
+  padding: 0px !important; }
+
+monitoring .inventory-left-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+monitoring .no-background-color {
+  background-color: transparent !important;
+  padding: 0 !important; }
+
+@media screen and (width: 1024px) {
+  monitoring station-tree-with-count .tree {
+    height: 74vh !important; }
+  monitoring .equips-btn-container {
+    overflow-y: hidden;
+    overflow-x: auto;
+    white-space: nowrap; }
+    monitoring .equips-btn-container div {
+      display: inline-block; }
+    monitoring .equips-btn-container .standard-span-btn {
+      width: 100px;
+      padding: 0 5px; }
+      monitoring .equips-btn-container .standard-span-btn span {
+        font-size: 12px;
+        font-weight: 400; }
+  monitoring .new-table thead tr {
+    line-height: 20px !important; }
+  monitoring .new-table thead tr th {
+    font-size: 14px; }
+  monitoring .new-table tbody tr {
+    line-height: 20px !important; }
+  monitoring .new-table tbody tr td {
+    font-size: 12px; }
+  monitoring .left-box-container .btn {
+    margin-bottom: 5px;
+    padding: 0 5px; }
+  monitoring .listView {
+    overflow: auto;
+    height: 67vh; }
+  monitoring .invent-list-container {
+    height: 81vh; }
+  monitoring .card-view {
+    height: 33vh; }
+  monitoring .card-content .equip-status .equip-status-loc span {
+    line-height: 25px; }
+  monitoring .detial-list {
+    height: 81vh; }
+  monitoring .btn.btn-back {
+    padding: 0 40px; } }

@@ -1,0 +1,61 @@
+energy-management {
+  display: block; }
+  energy-management .big-box {
+    position: relative;
+    height: 30vh; }
+    energy-management .big-box .line-col {
+      position: absolute;
+      width: calc(100% - 1px);
+      margin-top: 20px;
+      height: calc(100% - 40px);
+      border-top: none;
+      border-bottom: none; }
+    energy-management .big-box .line-row {
+      position: absolute;
+      height: 100%;
+      margin-left: 20px;
+      width: calc(100% - 40px);
+      border-left: none;
+      border-right: none; }
+    energy-management .big-box .box {
+      padding: 1rem;
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      color: #e2edf2; }
+      energy-management .big-box .box .title {
+        display: inline;
+        text-align: left;
+        margin-left: 0.5rem;
+        color: white;
+        font-size: 20px;
+        font-weight: 600; }
+      energy-management .big-box .box .title-h2 {
+        color: white;
+        font-size: 12px;
+        font-weight: 400;
+        margin-left: 0.5rem; }
+      energy-management .big-box .box .content {
+        padding-top: 2.5vh;
+        height: 24vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly; }
+        energy-management .big-box .box .content .ratio-pie div {
+          margin: auto !important; }
+        energy-management .big-box .box .content .content-num {
+          display: flex;
+          width: 105%;
+          flex-direction: row;
+          justify-content: space-evenly; }
+          energy-management .big-box .box .content .content-num .signal {
+            text-align: center;
+            color: #e2edf2;
+            font-size: 1.25rem; }
+            energy-management .big-box .box .content .content-num .signal .signal-value {
+              margin-bottom: -1rem; }
+          energy-management .big-box .box .content .content-num .signal-name {
+            color: #2a89ee;
+            font-size: .75rem;
+            text-align: center; }

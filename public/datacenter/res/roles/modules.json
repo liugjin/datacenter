@@ -1,0 +1,242 @@
+{
+  "id": "features",
+  "name": "应用模块",
+  "modules": [
+    {
+      "module": "projects",
+      "name": "选择项目"
+    },
+    {
+      "module": "dashboard",
+      "name": "首页概览"
+    },
+    {
+      "module": "station-3d",
+      "name": "3D展示"
+    },
+    {
+      "module": "monitoring",
+      "name": "监控管理"
+    },
+    {
+      "module": "device-monitoring",
+      "name": "设备监控",
+      "parent": "monitoring"
+    },
+    {
+      "module": "distribute",
+      "name": "配电系统",
+      "parent": "monitoring"
+    },
+    {
+      "module": "temperature-cloud",
+      "name": "温度云场",
+      "parent": "monitoring"
+    },
+    {
+      "module": "cooling",
+      "name": "制冷系统",
+      "parent": "monitoring"
+    },
+    {
+      "module": "alarms",
+      "name": "告警管理"
+    },
+    {
+      "module": "alarm",
+      "name": "活动告警",
+      "parent": "alarms"
+    },
+    {
+      "module": "event-analysis",
+      "name": "告警分析",
+      "parent": "alarms"
+    },
+    {
+      "module": "notification",
+      "name": "告警通知",
+      "parent": "alarms"
+    },
+    {
+      "module": "operations",
+      "name": "运维管理"
+    },
+    {
+      "module": "inventory",
+      "name": "资产管理",
+      "parent": "operations"
+    },
+    {
+      "module": "capacity",
+      "name": "3D容量管理",
+      "parent": "operations"
+    },
+    {
+      "module": "capacity-2d",
+      "name": "2D容量管理",
+      "parent": "operations"
+    },
+    {
+      "module": "energy",
+      "name": "能效管理",
+      "parent": "operations"
+    },
+    {
+      "module": "energy-flow",
+      "name": "能效流向",
+      "parent": "operations"
+    },
+    {
+      "module": "work-overviewinfo",
+      "name": "运维概况",
+      "parent": "operations"
+    },
+    {
+      "module": "work-calendar",
+      "name": "我的工单",
+      "parent": "operations"
+    },
+    {
+      "module": "main-tasks",
+      "name": "工单查询",
+      "parent": "operations"
+    },
+    {
+      "module": "report-tasksum",
+      "name": "工单汇总",
+      "parent": "operations"
+    },
+    {
+      "module": "work-manager",
+      "name": "巡检任务配置",
+      "parent": "operations"
+    },
+    {
+      "module": "electric-calendar",
+      "name": "故障任务配置",
+      "parent": "operations"
+    },
+    {
+      "module": "work-employee",
+      "name": "人员管理",
+      "parent": "operations"
+    },
+    {
+      "module": "knowledge",
+      "name": "知识库管理",
+      "parent": "operations"
+    },
+    {
+      "module": "inspect",
+      "name": "巡检管理",
+      "parent": "operations"
+    },
+    {
+      "module": "job",
+      "name": "工单管理",
+      "parent": "operations"
+    },
+    {
+      "module": "schedule",
+      "name": "排班管理",
+      "parent": "operations"
+    },
+    {
+      "module": "reports",
+      "name": "统计分析"
+    },
+    {
+      "module": "history-send-notification",
+      "name": "通知发送记录",
+      "parent": "reports"
+    },
+    {
+      "module": "reporting-events-level",
+      "name": "高频次告警记录",
+      "parent": "reports"
+    },
+    {
+      "module": "asset-report",
+      "name": "资产报表",
+      "parent": "reports"
+    },
+    {
+      "module": "signal-report",
+      "name": "历史数据",
+      "parent": "reports"
+    },
+    {
+      "module": "alarm-report",
+      "name": "告警记录",
+      "parent": "reports"
+    },
+    {
+      "module": "repord-report-alarm",
+      "name": "告警屏蔽记录",
+      "parent": "reports"
+    },
+    {
+      "module": "door-report",
+      "name": "刷卡记录",
+      "parent": "reports"
+    },
+    {
+      "module": "configuration",
+      "name": "配置管理"
+    },
+    {
+      "module": "door",
+      "name": "门禁管理",
+      "parent": "configuration"
+    },
+    {
+      "module": "video",
+      "name": "视频管理",
+      "parent": "configuration"
+    },
+    {
+      "module": "link",
+      "name": "联动管理",
+      "parent": "configuration"
+    },
+    {
+      "module": "alarm-setting",
+      "name": "告警设置",
+      "parent": "configuration"
+    },
+    {
+      "module": "systemsetting",
+      "name": "系统管理"
+    },
+    {
+      "module": "user-info",
+      "name": "用户管理",
+      "parent": "systemsetting"
+    },
+    {
+      "module": "log",
+      "name": "日志管理",
+      "parent": "systemsetting"
+    },
+    {
+      "module": "station-setting",
+      "name": "站点管理",
+      "parent": "systemsetting"
+    },
+    {
+      "module": "setting",
+      "name": "系统信息",
+      "parent": "systemsetting"
+    },
+    {
+      "module": "component-rolesrights",
+      "name": "权限配置",
+      "parent": "systemsetting"
+    },
+    {
+      "module": "mobile",
+      "name": "移动端",
+      "parent": "mobile"
+    }
+  ]
+}

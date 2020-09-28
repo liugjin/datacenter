@@ -1,0 +1,51 @@
+#right-data-list(style="height:100%;")
+    .row(style="margin:1vh 0 0 1vw;background-color:rgba(0,150,255,0.2);")
+        .col.l11.m11.s11
+            p.info-title 机柜信息
+    .row
+        .col.l10.m10.s10.offset-l1.offset-m1.offset-s1
+            .row.mt10-mb0
+                a
+                    .col.l4.m4.s4.zero-margin-padding
+                        p.info-text.right-align.nowrap 资产名称
+                    .col.l8.m8.s8.zero-margin-padding
+                        p.info-content.left-align.nowrap {{equipment.model.name || '————'}}
+            .row.mt10-mb0(ng-repeat="p in rackInfo | orderBy:'index'")
+                .col.l4.m4.s4.zero-margin-padding
+                    p.info-text.right-align.nowrap {{p.name}}
+                .col.l8.m8.s8.zero-margin-padding
+                    p.info-content.left-align.nowrap {{ p.value || '————'}}
+
+
+    .row(style="margin:58px 0 0 15px;background-color:rgba(0,150,255,0.2);",ng-if="server")
+        .col.l6.m6.s6
+            p.info-title 服务器信息
+        .col.l6.m6.s6
+            p.info-title
+                a.right.modal-trigger(data-target='server-performanceinfo-modal' style="cursor: pointer;") 性能信息
+    .row(ng-if="server")
+        .col.l10.m10.s10.offset-l1.offset-m1.offset-s1
+            .row.mt10-mb0
+                a
+                    .col.l4.m4.s4.zero-margin-padding
+                        p.info-text.right-align.nowrap 资产名称
+                    .col.l8.m8.s8.zero-margin-padding
+                        p.info-content.left-align.nowrap {{ server.model.name || '————'}}
+            .row.mt10-mb0(ng-repeat="s in serverInfo | orderBy:'index'")
+                .col.l4.m4.s4.zero-margin-padding
+                    p.info-text.right-align.nowrap {{s.name}}
+                .col.l8.m8.s8.zero-margin-padding
+                    p.info-content.left-align.nowrap {{ s.value || '————'}}
+
+#server-performanceinfo-modal.modal.modal-fixed-footer(md-modal, style="width: 80%;")
+    .modal-content
+        server-performanceinfo(controller="controller",parameters="{station:parameters.station,equipment:parameters.server}" )
+    .modal-footer.modal-nav
+        nav
+            .nav-wrapper
+                ul
+                    ul.right
+                        li
+                            a.modal-action.modal-close(href='')
+                                i.material-icons.right close
+                                span.hide-on-med-and-down 关闭

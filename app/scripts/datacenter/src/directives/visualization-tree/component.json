@@ -1,0 +1,25 @@
+{
+  "id": "visualization-tree",
+  "name": "组态树控件",
+  "type": "VisualizationTreeDirective",
+  "desc": "自定义控件",
+  "desc": {
+    "author":"Billy",
+    "desc":"站点树",
+    "version":{
+      "0.0.2":[
+        "组态树组件"
+      ]
+    }
+  },
+  "group": "项目组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": ["selectStation","checkStations"],
+    "subs": []
+  },
+  "css": "",
+  "version": "0.0.2"
+}

@@ -1,0 +1,63 @@
+﻿//-
+//-   User: Dow
+//-   Date: 15/02/04
+doctype html
+html(lang='en', ng-controller='LiveMainController as mvm')
+    head
+        meta(http-equiv="Access-Control-Allow-Origin" content="*")
+        meta(http-equiv="X-UA-Compatible",content="IE=11;IE=10;IE=8;")
+        meta(name="renderer",content="webkit|ie-comp|ie-stand")
+        meta(charset='utf-8')
+        meta(name='author', content='Dow')
+        meta(name='keywords', content='clc datacenter')
+        meta(name='viewport', content='width=device-width,initial-scale=1')
+        //-base(href='/')
+        block title
+            title(ng-bind='$root.title + " " + mvm.setting.title')
+        block styles
+            link(type='text/css', rel='stylesheet', href='/lib/highlightjs/styles/default.css')
+            link(type='text/css', rel='stylesheet', href='/lib/materialize-css/dist/css/materialize.min.css')
+            link(type='text/css', rel='stylesheet', href='/lib/webui-popover/dist/jquery.webui-popover.min.css')
+            link(type='text/css', rel='stylesheet', href='/lib/vxgplayer/vxgplayer-1.8.31.min.css')
+            link(type='text/css', rel='stylesheet', href='/style/datacenter/site.css')
+            link(type='text/css', rel='stylesheet', href='/style/datacenter/classic.css')
+            link(type='text/css', rel='stylesheet', href='/style/datacenter/datacenter.css')
+            link(type='text/css', rel='stylesheet', href='/datacenter/res/hyiconfont.css')
+    body
+        block header
+            include header
+        block menu
+            include menu
+        main( style="height:90%;margin-top: 64px;z-index: auto;",ng-class="mvm.flag ? 'main-2': 'main-1'",ng-style="{'padding-left': ($root.project? '':'0px')}")
+            block content
+                loading-spinner(ng-show='$root.loading')
+                .loading(ng-show='$root.executing')
+                    //.sk-rotating-plane
+                    .spinner
+                        .rect1
+                        .rect2
+                        .rect3
+                        .rect4
+                        .rect5
+
+                #container(ng-view)
+
+        //block footer
+        //    include footer
+        block scripts
+
+            script(type='text/javascript', src='/lib/js-xlsx/dist/xlsx.full.min.js')
+            script(type='text/javascript', src='/lib/clc.foundation.angular/src/requirejs-config.js')
+            script(src='/lib/requirejs/require.js', data-main='/scripts/datacenter/main')
+
+            script(type='text/javascript', src='/lib/vxgplayer/vxgplayer-1.8.31.min.js')
+            script(type='text/javascript', src='/lib/jquery/dist/jquery.min.js')
+            script(type='text/javascript', src='/lib/timebar/timebar.js')
+            script(type='text/javascript', src='/lib/ckplayer/ckplayer.js')
+            script(type='text/javascript', src='/lib/timebar/json2.js')
+            script(type='text/javascript', src='/lib/timebar/foundation.js')
+            script(type='text/javascript', src='/lib/timebar/webVideoCtrlHIK.js')
+
+
+
+

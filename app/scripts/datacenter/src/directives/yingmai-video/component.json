@@ -1,0 +1,39 @@
+{
+  "id": "yingmai-video",
+  "name": "YingmaiVideo控件",
+  "type": "YingmaiVideoDirective",
+  "desc": {
+    "author":"Sheen",
+    "desc":"海康直播视频",
+    "version":{
+      "0.0.1":[
+        "初始化，rtsp模式海康摄像头直播组件"
+      ],
+      "0.0.2":[
+        "打开网页增加了弹窗，在未安装插件时弹窗安装插件提示"
+      ],
+      "0.0.5":[
+        "基于0.0.2，修改id，防止id重复导致与single-video冲突。","@hardy"
+      ],
+      "0.0.6":[
+        "加可选择某个摄像头显示，默认加载站点下第一个摄像头","@sheen"
+      ],
+      "0.0.7":[
+        "删除废旧代码","@region"
+      ],
+      "0.0.8":[
+        "删除提示下载控件得层","@region"
+      ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+    {"id":"station","type":"string","value":"datacenter"}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "css": "",
+  "version": "0.0.8"
+}

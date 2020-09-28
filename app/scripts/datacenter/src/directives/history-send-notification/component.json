@@ -1,0 +1,23 @@
+{
+  "id": "history-send-notification",
+  "name": "HistorySendNotification控件",
+  "type": "HistorySendNotificationDirective",
+  "desc": {
+    "author": "Mackie",
+    "comment": "查询告警notification通知服务的历史记录",
+    "version": {
+        "0.0.1": ["初始化组件"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.1"
+}

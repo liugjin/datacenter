@@ -1,0 +1,43 @@
+.box-hexagon
+    .line-col
+    .line-row
+    .box-content
+        div
+            .title 环境量
+            .subtitle.right.dropdown-trigger(
+                ng-show='equipments.length > 0'
+                data-target='environments'
+                data-hover='true'
+                data-alignment='right'
+                data-constrain-width='false'
+                md-dropdown) 选择设备
+
+            ul#environments.dropdown-content(style="overflow: overlay")
+                li(ng-repeat='equip in equipments' ng-class='{active: equip.isSelect}')
+                    a(ng-href='', ng-click='selectEquipment(equip)')
+                        span {{equip.model.name}}
+
+        .content
+            .row(style="margin-bottom:0;width: 100%;box-sizing:border-box;padding: 0px 12px;")
+                .environment
+                    .font
+                        span(style="color:{{getSeverityColor(th.signals.getItemByIds({signal:'temperature'}).data.severity)}}") {{th.signals.getItemByIds({signal:'temperature'}).data.formatValue || "-"}} ℃
+                        div {{th.signals.getItemByIds({signal:'temperature'}).equipment.model.name+"-温度"}}
+
+                    .font
+                        span(style="color:{{getSeverityColor(th.signals.getItemByIds({signal:'temperature'}).data.severity)}}") {{th.signals.getItemByIds({signal:'humidity'}).data.formatValue || "-"}} %RH
+                        div {{th.signals.getItemByIds({signal:'humidity'}).equipment.model.name+"-湿度"}}
+
+                    //- .font
+                    //-     .img
+                    //-         img(ng-show="leak.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.value > 0" ng-src="{{getComponentPath('images/water-error.png')}}")
+                    //-         img(ng-show="leak.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.value == 0 || !leak.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.value" ng-src="{{getComponentPath('images/water-normal.png')}}")
+                    //-     span {{leak.signals.getItemByIds({signal:'trigger-alarm-signal'}).equipment.model.name || "漏水"}}
+                    //-     span(style="color:{{getSeverityColor(leak.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.severity)}}") {{leak.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.formatValue || "-"}}
+
+                    .font(ng-repeat="smoke in smokes")
+                        .img
+                            img(ng-show="smoke.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.value > 0" ng-src="{{getComponentPath('images/smoke-error.png')}}")
+                            img(ng-show="smoke.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.value == 0 || !smoke.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.value" ng-src="{{getComponentPath('images/smoke-normal.png')}}")
+                        span {{smoke.signals.getItemByIds({signal:'trigger-alarm-signal'}).equipment.model.name || "烟感"}}
+                        span(style="color:{{getSeverityColor(smoke.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.severity)}}") {{smoke.signals.getItemByIds({signal:'trigger-alarm-signal'}).data.formatValue || "-"}}

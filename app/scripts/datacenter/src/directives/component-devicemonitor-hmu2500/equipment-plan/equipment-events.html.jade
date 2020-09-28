@@ -1,0 +1,79 @@
+//-
+    User: Dow
+    Date: 6/29/2016
+    Desc: 
+style(type='text/css').
+    nav .input-field label {
+        top: -11px;
+        left: 0;
+    }
+    .input-field label:not(.label-icon).active {
+        -webkit-transform: translateY(16px) scale(0.8);
+        transform: translateY(16px) scale(0.8);
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+    }
+.col.row.s12
+    nav.equiplannav.z-depth-0
+        .nav-wrapper
+            .search-box
+                i.search-i.material-icons search
+                input.search-signal-input(type='search', ng-model='searchEvent', placeholder='输入事件ID或名称', required)
+                i.search-c.material-icons(ng-click='searchEvent = ""', ng-show='searchEvent') close
+
+    .signal-list
+        table.hoverable.highlight.responsive-table
+            thead
+                tr
+                    th
+                        .col-header(ng-click='currEquipment.events.sortBy("data.severity")')
+                            span 状态
+                            span.right(ng-show='currEquipment.events.predicate == "data.severity"') {{currEquipment.events.reverse && "▽" || "△"}}
+                    th
+                        .col-header.text-align-left(ng-click='currEquipment.events.sortBy("model.name")')
+                            span 事件名称
+                            span.right(ng-show='currEquipment.events.predicate == "model.name"') {{currEquipment.events.reverse && "▽" || "△"}}
+                    th
+                        .col-header.text-align-left(ng-click='currEquipment.events.sortBy("data.title")')
+                            span 事件信息
+                            span.right(ng-show='currEquipment.events.predicate == "data.title"') {{currEquipment.events.reverse && "▽" || "△"}}
+                    th
+                        .col-header.text-align-left(ng-click='currEquipment.events.sortBy("data.startValue")')
+                            span 开始值
+                            span.right(ng-show='currEquipment.events.predicate == "data.startValue"') {{currEquipment.events.reverse && "▽" || "△"}}
+                    th
+                        .col-header.text-align-left(ng-click='currEquipment.events.sortBy("data.endValue")')
+                            span 结束值
+                            span.right(ng-show='currEquipment.events.predicate == "data.endValue"') {{currEquipment.events.reverse && "▽" || "△"}}
+                    th
+                        .col-header.text-align-left(ng-click='currEquipment.events.sortBy("data.startTime")')
+                            span 开始时间
+                            span.right(ng-show='currEquipment.events.predicate == "data.startTime"') {{currEquipment.events.reverse && "▽" || "△"}}
+                    th
+                        .col-header.text-align-left(ng-click='currEquipment.events.sortBy("data.endTime")')
+                            span 结束时间
+                            span.right(ng-show='currEquipment.events.predicate == "data.endTime"') {{currEquipment.events.reverse && "▽" || "△"}}
+                    th
+                        .col-header.text-align-left(ng-click='currEquipment.events.sortBy("data.duration")')
+                            span 持续时长
+                            span.right(ng-show='currEquipment.events.predicate == "data.duration"') {{currEquipment.events.reverse && "▽" || "△"}}
+            tbody
+                //-tr(ng-repeat='event in events track by $index | orderBy: "model.index"')
+                tr(ng-repeat='event in filterEvents = (currEquipment.events.items | filter: currEquipment.events.filter(searchEvent, ["event", "name"], true)) | orderBy: currEquipment.events.predicate:revers', ng-class='{"active": event == event}', ng-show="event.data.phase=='start'")
+                    td.center
+                        a.waves-effect.waves-light.modal-trigger(href='', data-target='event-modal', ng-click='selectEvent(event)' )
+                            i.material-icons.small(ng-style='{color: event.data.color || "grey"}', title="查看细节") {{event.data.phase == "start" && "notifications_on" || event.data.phase == "confirm" && "notifications_paused" || event.data.phase == "end" && "notifications_off" || event.data.phase == "completed" && "notifications" || "notifications_none"}}
+                    td.text-align-left {{event.instance.name}}
+                    td.text-align-left {{event.data.title}}
+                    td.text-align-left {{event.data.startValue}}
+                    td.text-align-left {{event.data.endValue}}
+                    td.text-align-left {{event.data.startTime | date: 'yyyy-MM-dd HH:mm:ss'}}
+                    td.text-align-left {{event.data.endTime | date: 'yyyy-MM-dd HH:mm:ss'}}
+
+                    td.text-align-left
+                        span {{event.data | duration}}
+                        .progress(title="{{event.data.progress}}", ng-style='{"background-color": event.data.color?"":"transparent"}')
+                            .determinate(ng-class='{}', ng-style='{width: event.data.progress, "background-color": event.data.color}')
+
+
+

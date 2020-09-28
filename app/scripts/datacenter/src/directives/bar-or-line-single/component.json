@@ -1,0 +1,39 @@
+{
+  "id": "bar-or-line-single",
+  "name": "BarOrLineSingle控件",
+  "type": "BarOrLineSingleDirective",
+  "desc": {
+    "author": "foam",
+    "comment": "线性图表",
+    "version": {
+        "0.0.1": ["首次提交"],
+        "0.0.2": ["修改图表为渐变色"],
+        "0.0.3": ["修改颜色问题"]
+    }
+  },
+  "group": "模块组件",
+  "parameters": [
+    {"id":"height","type":"string","value":"300px"},
+    {"id":"title","type":"string","value":"能耗柱状图"},
+    {"id":"type","type":"string","value":"LB"},
+    {"id":"xname","type":"string","value":"时间"},
+    {"id":"yname","type":"string","value":"数值"},
+    {"id":"mutilcolorflag","type":"string","value":"#ff00000"},
+    {"id":"mutillevelflag","type":"string","value":"#00ff00"},
+    {"id":"leghidflag","type":"string","value":true},
+    {"id":"hidsplitlineflag","type":"string","value":true},
+    {"id":"hidlabelshowflag","type":"string","value":true},
+    {"id":"lbbevelflag","type":"string","value":true},
+    {"id":"hidaxislabel","type":"string","value":true},
+    {"id":"hidxaxislineshow","type":"string","value":true},
+    {"id":"hidyaxislineshow","type":"string","value":true},
+    {"id":"hidtoolboxshow","type":"string","value":true}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": ["barlinevalue"]
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.3"
+}

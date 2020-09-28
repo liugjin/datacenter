@@ -1,0 +1,66 @@
+.box-hexagon
+    .line-col
+    .line-row
+    .box-content
+        div
+            .title 环境
+            .subtitle.right.dropdown-trigger(
+                ng-show='tempHumi || water || smoke'
+                data-target='selectEquip'
+                data-hover='true'
+                data-constrain-width='false'
+                md-dropdown) 选择设备
+
+            ul#selectEquip.dropdown-content(style="width: auto;")
+                li(ng-repeat='equip in selectEquip' ng-class='{active: parent.key == station.key}')
+                    a(ng-href='', ng-click='selectEquipment(equip)')
+                        span {{equip.model.name}}
+
+        .content
+            .row(style="margin-bottom:0; width: 100%; box-sizing:border-box; padding: 0px 8px;")
+                .col.s6(style="padding: 0 1rem 0 0; border-right: 1px solid #082268;")
+                    .environment
+                        .font
+                            .img
+                                img(ng-src="{{getComponentPath('image/temperature.svg')}}")
+                        .font
+                            .font-value
+                                .left MAX
+                                .right {{lookSignals[parameters.signals[0]].data[lookSignals[parameters.signals[0]].data.length -1].value || "-"}} {{lookSignals[parameters.signals[0]].signal.model.unitName}}
+                            .font-name(title="{{lookSignals[parameters.signals[0]].data[lookSignals[parameters.signals[0]].data.length -1].name}}") {{lookSignals[parameters.signals[0]].data[lookSignals[parameters.signals[0]].data.length -1].name || "-"}}
+                        .font
+                            .font-value
+                                .left MIN
+                                .right {{lookSignals[parameters.signals[0]].data[0].value || "-"}} {{lookSignals[parameters.signals[0]].signal.model.unitName}}
+                            .font-name(title="{{lookSignals[parameters.signals[0]].data[0].name}}") {{lookSignals[parameters.signals[0]].data[0].name || "-"}}
+                .col.s6(style="padding: 0 0 0 1rem;")
+                    .environment
+                        .font
+                            .img
+                                img(ng-src="{{getComponentPath('image/humidity.svg')}}")
+                        .font
+                            .font-value
+                                .left MAX
+                                .right {{lookSignals[parameters.signals[1]].data[lookSignals[parameters.signals[1]].data.length -1].value || "-"}} {{lookSignals[parameters.signals[1]].signal.model.unitName}}
+                            .font-name(title="{{lookSignals[parameters.signals[1]].data[lookSignals[parameters.signals[1]].data.length -1].name}}") {{lookSignals[parameters.signals[1]].data[lookSignals[parameters.signals[1]].data.length -1].name || "-"}}
+                        .font
+                            .font-value
+                                .left MIN
+                                .right {{lookSignals[parameters.signals[1]].data[0].value || "-"}} {{lookSignals[parameters.signals[1]].signal.model.unitName}}
+                            .font-name(title="{{lookSignals[parameters.signals[1]].data[0].name}}") {{lookSignals[parameters.signals[1]].data[0].name || "-"}}
+
+                //.environment
+                    .font
+                        span.valuecolor {{lookSignals[parameters.signals[0]].data[lookSignals[parameters.signals[0]].data.length -1].value || "-"}} {{lookSignals[parameters.signals[0]].signal.model.unitName}}
+                        div 最高{{lookSignals[parameters.signals[0]].signal.model.name}}
+                    .font
+                        span.valuecolor {{lookSignals[parameters.signals[1]].data[lookSignals[parameters.signals[1]].data.length -1].value || "-"}} {{lookSignals[parameters.signals[1]].signal.model.unitName}}
+                        div 最高{{lookSignals[parameters.signals[1]].signal.model.name}}
+                    .font
+                        span.valuecolor {{lookSignals[parameters.signals[0]].data[0].value || "-"}} {{lookSignals[parameters.signals[0]].signal.model.unitName}}
+                        div 最低{{lookSignals[parameters.signals[0]].signal.model.name}}
+                    .font
+                        span.valuecolor {{lookSignals[parameters.signals[1]].data[1].value || "-"}} {{lookSignals[parameters.signals[1]].signal.model.unitName}}
+                        div 最低{{lookSignals[parameters.signals[1]].signal.model.name}}
+
+

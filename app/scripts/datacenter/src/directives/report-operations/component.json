@@ -1,0 +1,40 @@
+{
+  "id": "report-operations",
+  "name": "ReportOperations控件",
+  "type": "ReportOperationsDirective",
+  "desc": {
+    "author": "James",
+    "desc": "系统操作日志跟踪报表控件",
+    "version": {
+      "0.0.4": [
+        "James---将grid和数据逻辑处理分离"
+      ],
+      "0.0.6": [
+        "0509样式修改@hardy"
+      ],
+      "0.0.7": [
+        "0509样式修改@billy"
+      ],
+      "0.0.8": [
+        "如修改什么设置，添加设备记录等等@region"
+      ],
+      "0.0.9": [
+        "增加日志的分页功能，@region"
+      ],
+      "0.0.10": [
+        "修改名称是设备操作日志，@region"
+      ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [
+    "report-query-time"
+  ],
+  "css": "",
+  "version": "0.0.10"
+}

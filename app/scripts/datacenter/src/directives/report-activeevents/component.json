@@ -1,0 +1,28 @@
+{
+  "id": "report-activeevents",
+  "name": "ReportActiveevents控件",
+  "type": "ReportActiveeventsDirective",
+  "desc": {
+    "author": "",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.2": [
+          "活动告警组件新增","@murray"
+        ],
+        "0.0.3": [
+          "修改界面布局","@region"
+        ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": ["checkEquips"]
+  },
+  "deps": ["device-tree","grid-table"],
+  "css": "",
+  "version": "0.0.3"
+}

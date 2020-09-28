@@ -1,0 +1,655 @@
+inventory-manage a:focus {
+  outline: none !important; }
+
+inventory-manage .page-button {
+  border: 1px solid #0066ff;
+  border-radius: 0; }
+  inventory-manage .page-button i {
+    margin-top: 6px; }
+
+inventory-manage .text-align-left {
+  text-align: left !important; }
+
+inventory-manage .table-th-padding {
+  padding-left: 0.75rem; }
+
+inventory-manage .btn {
+  font-size: 14px;
+  height: 34px;
+  line-height: 34px;
+  border: 1px solid #10EBF4;
+  border-radius: 0;
+  background: rgba(26, 69, 162, 0.4) !important;
+  color: #ffffff; }
+
+inventory-manage .bgColo {
+  background-color: rgba(26, 69, 162, 0.4) !important; }
+
+inventory-manage .nav-top {
+  display: block; }
+  inventory-manage .nav-top .nav-li {
+    list-style: none;
+    font-size: 1rem; }
+    inventory-manage .nav-top .nav-li a {
+      font-size: 1rem; }
+  inventory-manage .nav-top .no-bg-color {
+    background-color: transparent; }
+  inventory-manage .nav-top .breadcrumb:before {
+    color: #bdbdbd; }
+  inventory-manage .nav-top .active-menu {
+    border-bottom: 0 solid white; }
+
+inventory-manage .eventpagination {
+  position: absolute;
+  bottom: 0.1rem;
+  width: 100%; }
+  inventory-manage .eventpagination .pagination li {
+    height: 36px;
+    border: 1px solid #0066ff;
+    border-radius: 0; }
+  inventory-manage .eventpagination .pagination li.active {
+    background-color: rgba(0, 102, 255, 0.4);
+    border: 1px solid #00d5ff; }
+  inventory-manage .eventpagination .pagination li a {
+    color: white; }
+  inventory-manage .eventpagination .pagination i.material-icons {
+    color: #00d5ff; }
+
+inventory-manage .inventory {
+  font-size: 14px; }
+  inventory-manage .inventory .pad-control {
+    padding-right: 10px; }
+  inventory-manage .inventory .card {
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.14); }
+  inventory-manage .inventory .material-icons {
+    font-family: "Material Icons", serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "liga"; }
+  inventory-manage .inventory .nav-flex-grow {
+    flex-grow: 1; }
+    inventory-manage .inventory .nav-flex-grow a {
+      box-shadow: none;
+      padding: 0 1.1rem;
+      margin-right: 1rem; }
+    inventory-manage .inventory .nav-flex-grow img {
+      width: 1.2rem;
+      margin: 0 1rem .27rem 0;
+      vertical-align: middle; }
+  inventory-manage .inventory .search-wrapper {
+    display: inline-block;
+    position: relative;
+    width: 20%; }
+  inventory-manage .inventory .search-wrapper > i {
+    position: absolute;
+    font-size: 24px;
+    top: 6px;
+    left: 4px;
+    color: #bbd7f2; }
+  inventory-manage .inventory .search-wrapper .search-input {
+    display: block;
+    margin: 0;
+    padding: 0 0 0 32px;
+    width: 80%;
+    height: 34px;
+    line-height: 34px;
+    font-size: 14px;
+    border: 1px solid #0050a0 !important;
+    color: #bbd7f2 !important; }
+  inventory-manage .inventory .search-wrapper input {
+    border: 1px solid #0652a2;
+    height: 18px; }
+  inventory-manage .inventory .search-input:focus {
+    border: 1px solid #10ebf4;
+    box-shadow: none; }
+  inventory-manage .inventory td {
+    color: #ffffff; }
+  inventory-manage .inventory th input, inventory-manage .inventory td input {
+    height: 2rem !important;
+    margin: 0 !important;
+    text-align: center; }
+  inventory-manage .inventory th span {
+    color: #e2edf2;
+    font-weight: bold !important; }
+  inventory-manage .inventory .select-wrapper input.select-dropdown {
+    margin: 0 auto;
+    border-bottom: 0 solid #9e9e9e;
+    text-align: center;
+    height: 2rem;
+    font-size: 14px; }
+  inventory-manage .inventory .select-wrapper .caret {
+    fill: white; }
+  inventory-manage .inventory table {
+    color: #ffffff; }
+    inventory-manage .inventory table thead tr {
+      border: 0 !important;
+      background-color: rgba(75, 165, 248, 0.5) !important;
+      height: 50px !important;
+      line-height: 50px !important; }
+      inventory-manage .inventory table thead tr th {
+        font-size: 16px;
+        color: #e2edf2;
+        text-align: left !important;
+        padding: 0 0 0 1rem;
+        border-radius: 0 !important; }
+    inventory-manage .inventory table tbody tr:hover {
+      background-color: rgba(75, 165, 248, 0.4) !important; }
+    inventory-manage .inventory table tbody tr {
+      padding: 0 !important;
+      height: 50px !important;
+      line-height: 50px !important;
+      border: none !important; }
+    inventory-manage .inventory table tbody td {
+      font-size: 14px;
+      text-align: left !important;
+      padding: 0 0 0 1rem;
+      border-radius: 0 !important; }
+  inventory-manage .inventory .select-dropdown.dropdown-content li.selected {
+    background-color: rgba(1, 166, 255, 0.65); }
+  inventory-manage .inventory .invent-type {
+    height: 84vh;
+    background-color: rgba(26, 69, 162, 0.4);
+    overflow: auto; }
+    inventory-manage .inventory .invent-type .btn:hover {
+      box-shadow: none !important; }
+    inventory-manage .inventory .invent-type .type {
+      margin-bottom: .6rem;
+      background-color: rgba(26, 69, 162, 0.4);
+      height: 46px;
+      border: none; }
+      inventory-manage .inventory .invent-type .type a {
+        color: #FFFFFF;
+        line-height: 46px;
+        text-align: left; }
+        inventory-manage .inventory .invent-type .type a .type-img {
+          float: left;
+          margin-right: .75rem; }
+          inventory-manage .inventory .invent-type .type a .type-img .img-bing {
+            width: 25px;
+            height: 46px;
+            background-repeat: no-repeat; }
+          inventory-manage .inventory .invent-type .type a .type-img .img-type {
+            background-position: -183px -16px; }
+          inventory-manage .inventory .invent-type .type a .type-img .img-type-active {
+            background-position: -183px -16px; }
+        inventory-manage .inventory .invent-type .type a .type-count {
+          color: #fff; }
+    inventory-manage .inventory .invent-type .current-type {
+      background-color: rgba(75, 166, 248, 0.4) !important;
+      transition: .6s;
+      border-radius: 0; }
+  inventory-manage .inventory .inventory-nav {
+    padding: .75rem 0; }
+  inventory-manage .inventory .silver-line {
+    height: 1px;
+    background: #dbdee0; }
+  inventory-manage .inventory .invent-list {
+    background-color: rgba(26, 69, 162, 0.4);
+    height: 84vh;
+    position: relative; }
+    inventory-manage .inventory .invent-list .list-view img {
+      width: 1rem;
+      text-align: center;
+      margin: 0 0.5rem; }
+    inventory-manage .inventory .invent-list .list-card {
+      position: relative; }
+      inventory-manage .inventory .invent-list .list-card .pad-left {
+        padding-left: 0 !important; }
+      inventory-manage .inventory .invent-list .list-card .pad-right {
+        padding-right: 0 !important; }
+      inventory-manage .inventory .invent-list .list-card .card {
+        margin: 0; }
+        inventory-manage .inventory .invent-list .list-card .card .card-image .card-img-placeholder {
+          height: 200px; }
+          inventory-manage .inventory .invent-list .list-card .card .card-image .card-img-placeholder .responsive-img {
+            width: auto;
+            margin: 0 auto; }
+          inventory-manage .inventory .invent-list .list-card .card .card-image .card-img-placeholder .default-img {
+            width: auto;
+            height: 100%;
+            margin: 0 auto;
+            background-position: center;
+            background-repeat: no-repeat; }
+        inventory-manage .inventory .invent-list .list-card .card .card-content {
+          background-color: rgba(26, 69, 162, 0.4);
+          padding: 14px 20px 10px; }
+          inventory-manage .inventory .invent-list .list-card .card .card-content .font-bold {
+            font-weight: bold; }
+          inventory-manage .inventory .invent-list .list-card .card .card-content .font-12 {
+            font-size: 12px; }
+          inventory-manage .inventory .invent-list .list-card .card .card-content img {
+            width: 1rem;
+            text-align: center;
+            margin: 0 0.5rem; }
+          inventory-manage .inventory .invent-list .list-card .card .card-content span {
+            text-align: center;
+            font-size: 14px; }
+        inventory-manage .inventory .invent-list .list-card .card .card-img-placeholder {
+          background-color: transparent; }
+        inventory-manage .inventory .invent-list .list-card .card .no-margin {
+          margin: 0 !important; }
+        inventory-manage .inventory .invent-list .list-card .card .card-padding {
+          padding: 0 0 .75rem .75rem !important; }
+  inventory-manage .inventory .invent-detail {
+    height: 77vh;
+    overflow: auto; }
+    inventory-manage .inventory .invent-detail .invent-detail-body .card-img-container {
+      background-color: rgba(26, 69, 162, 0.4);
+      width: 342px;
+      margin-right: 1rem; }
+    inventory-manage .inventory .invent-detail .m-icon-style {
+      color: #51b1e5;
+      font-size: 11px; }
+    inventory-manage .inventory .invent-detail .reference-img {
+      border: 0;
+      max-height: 260px;
+      width: auto;
+      margin: 0 auto; }
+    inventory-manage .inventory .invent-detail .basic-text {
+      margin-left: 5px;
+      font-size: 16px; }
+    inventory-manage .inventory .invent-detail .other-text {
+      margin-left: 5px;
+      font-size: 16px; }
+    inventory-manage .inventory .invent-detail .basic-bottom-line {
+      width: 100%;
+      height: 1px;
+      margin-top: 10px;
+      background: linear-gradient(90deg, #0050a0 0%, #0050a0 100%); }
+  inventory-manage .inventory .inventory-edit-add {
+    padding: 0 .75rem;
+    background: rgba(26, 69, 162, 0.4);
+    height: 84vh; }
+    inventory-manage .inventory .inventory-edit-add label {
+      color: #e2edf2;
+      font-size: 14px; }
+    inventory-manage .inventory .inventory-edit-add .inventory-img {
+      height: 25vh;
+      width: 340px;
+      margin-right: 5rem;
+      float: right; }
+      inventory-manage .inventory .inventory-edit-add .inventory-img .img-uploader {
+        height: 135px !important;
+        width: 100% !important;
+        border: 0;
+        margin-top: 0.75rem; }
+        inventory-manage .inventory .inventory-edit-add .inventory-img .img-uploader .nav-img .img-title {
+          line-height: 18px;
+          margin-bottom: 10px; }
+        inventory-manage .inventory .inventory-edit-add .inventory-img .img-uploader .nav-img .img-uploader {
+          display: block;
+          width: 100%;
+          height: 150px;
+          border: 1px solid #0652a2;
+          margin: 0;
+          padding: 15px 0 15px 15px; }
+          inventory-manage .inventory .inventory-edit-add .inventory-img .img-uploader .nav-img .img-uploader .img-image {
+            display: inline-block;
+            width: 35%;
+            height: 100%;
+            border-right: 1px solid #0652a2;
+            text-align: center; }
+            inventory-manage .inventory .inventory-edit-add .inventory-img .img-uploader .nav-img .img-uploader .img-image .img-none {
+              margin: 28px auto;
+              cursor: pointer; }
+              inventory-manage .inventory .inventory-edit-add .inventory-img .img-uploader .nav-img .img-uploader .img-image .img-none img {
+                display: block;
+                width: 3rem;
+                height: 3rem;
+                margin: auto; }
+          inventory-manage .inventory .inventory-edit-add .inventory-img .img-uploader .nav-img .img-uploader .img-text-area {
+            display: inline-block;
+            width: 35%;
+            height: 100%;
+            border: 1px solid #0652a2;
+            color: #e2edf2;
+            resize: none; }
+          inventory-manage .inventory .inventory-edit-add .inventory-img .img-uploader .nav-img .img-uploader .img-btn {
+            display: inline-block;
+            width: 65%;
+            height: 100%;
+            vertical-align: top; }
+            inventory-manage .inventory .inventory-edit-add .inventory-img .img-uploader .nav-img .img-uploader .img-btn .btn-flex {
+              margin: 33px auto;
+              text-align: center; }
+              inventory-manage .inventory .inventory-edit-add .inventory-img .img-uploader .nav-img .img-uploader .img-btn .btn-flex .nav-flex-grow {
+                display: inline-block; }
+                inventory-manage .inventory .inventory-edit-add .inventory-img .img-uploader .nav-img .img-uploader .img-btn .btn-flex .nav-flex-grow a.btn {
+                  margin: 0 .5rem;
+                  padding: 0 0.5rem; }
+                  inventory-manage .inventory .inventory-edit-add .inventory-img .img-uploader .nav-img .img-uploader .img-btn .btn-flex .nav-flex-grow a.btn img {
+                    margin: 0 0.5rem 0.27rem 0; }
+                inventory-manage .inventory .inventory-edit-add .inventory-img .img-uploader .nav-img .img-uploader .img-btn .btn-flex .nav-flex-grow a.btn:focus {
+                  background: rgba(8, 34, 104, 0.6); }
+      inventory-manage .inventory .inventory-edit-add .inventory-img .critical-model {
+        height: 480px;
+        margin: 1rem 0 0 0; }
+        inventory-manage .inventory .inventory-edit-add .inventory-img .critical-model .input-field {
+          margin-top: 5px; }
+          inventory-manage .inventory .inventory-edit-add .inventory-img .critical-model .input-field .validate {
+            height: 2rem;
+            width: 100%;
+            border-bottom: 0;
+            text-align: center;
+            margin: 0;
+            font-size: 14px; }
+          inventory-manage .inventory .inventory-edit-add .inventory-img .critical-model .input-field .desc {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            height: 34px; }
+    inventory-manage .inventory .inventory-edit-add .inventory-right {
+      padding: 0 0 0 .5rem;
+      margin: 1rem 0 0 0; }
+      inventory-manage .inventory .inventory-edit-add .inventory-right .inventory-right-pro {
+        height: 675px;
+        width: 100%; }
+        inventory-manage .inventory .inventory-edit-add .inventory-right .inventory-right-pro .inventory-right-table {
+          height: 650px;
+          overflow: auto;
+          margin-top: 10px; }
+
+.label-fixed-icon {
+  color: red; }
+
+.centered.machine-basic-infos label {
+  font-size: 14px; }
+
+.centered.machine-basic-infos .label-text {
+  text-align: left !important;
+  padding-left: 1rem; }
+
+.centered.machine-basic-infos .input-new-css {
+  height: 40px !important;
+  background-color: transparent !important;
+  border: 1px solid #0050a0 !important;
+  width: 21.25rem;
+  float: left; }
+
+.centered.machine-basic-infos input.valid:not([type]), .centered.machine-basic-infos input.valid:not([type]):focus, .centered.machine-basic-infos input.valid[type=text]:not(.browser-default), .centered.machine-basic-infos input.valid[type=text]:not(.browser-default):focus, .centered.machine-basic-infos input.valid[type=password]:not(.browser-default), .centered.machine-basic-infos input.valid[type=password]:not(.browser-default):focus, .centered.machine-basic-infos input.valid[type=email]:not(.browser-default), .centered.machine-basic-infos input.valid[type=email]:not(.browser-default):focus, .centered.machine-basic-infos input.valid[type=url]:not(.browser-default), .centered.machine-basic-infos input.valid[type=url]:not(.browser-default):focus, .centered.machine-basic-infos input.valid[type=time]:not(.browser-default), .centered.machine-basic-infos input.valid[type=time]:not(.browser-default):focus, .centered.machine-basic-infos input.valid[type=date]:not(.browser-default), .centered.machine-basic-infos input.valid[type=date]:not(.browser-default):focus, .centered.machine-basic-infos input.valid[type=datetime]:not(.browser-default), .centered.machine-basic-infos input.valid[type=datetime]:not(.browser-default):focus, .centered.machine-basic-infos input.valid[type=datetime-local]:not(.browser-default), .centered.machine-basic-infos input.valid[type=datetime-local]:not(.browser-default):focus, .centered.machine-basic-infos input.valid[type=tel]:not(.browser-default), .centered.machine-basic-infos input.valid[type=tel]:not(.browser-default):focus, .centered.machine-basic-infos input.valid[type=number]:not(.browser-default), .centered.machine-basic-infos input.valid[type=number]:not(.browser-default):focus, .centered.machine-basic-infos input.valid[type=search]:not(.browser-default), .centered.machine-basic-infos input.valid[type=search]:not(.browser-default):focus, .centered.machine-basic-infos textarea.materialize-textarea.valid, .centered.machine-basic-infos textarea.materialize-textarea.valid:focus, .centered.machine-basic-infos .select-wrapper.valid > input.select-dropdown {
+  box-shadow: none !important;
+  outline: none !important; }
+
+.centered.machine-basic-infos tr {
+  border: none !important; }
+
+.centered.machine-basic-infos tbody tr:hover {
+  background-color: transparent !important; }
+
+.centered.machine-basic-infos tbody td {
+  padding-top: 10px !important;
+  padding-bottom: 0px !important; }
+  .centered.machine-basic-infos tbody td input {
+    height: 40px !important;
+    width: 21.25rem !important; }
+
+.centered.machine-basic-infos tbody .float-right-td {
+  float: right;
+  margin-right: 5rem; }
+
+.equip-type-display {
+  margin-top: 8px; }
+
+.other-right-table-basic {
+  width: 44%;
+  float: right;
+  margin-right: 10.2rem; }
+
+.machine-basic-infos .other-tbody-td-pad {
+  padding-left: 28px; }
+
+.machine-basic-infos .input-new-css:focus {
+  outline: none; }
+
+.machine-basic-infos .input-field {
+  margin: 0; }
+  .machine-basic-infos .input-field input {
+    height: 40px !important;
+    width: 21.25rem; }
+
+.left-table-width {
+  width: 43%;
+  float: left; }
+
+.right-table-width {
+  width: 43.1%; }
+
+.table-margin-location {
+  margin-left: 10px; }
+
+@media screen and (max-width: 1400px) {
+  inventory-manage .btn {
+    font-size: 12px; }
+  inventory-manage .inventory .invent-type {
+    height: 78vh; }
+    inventory-manage .inventory .invent-type .type {
+      overflow: hidden;
+      height: 30px; }
+      inventory-manage .inventory .invent-type .type a {
+        line-height: 30px; }
+        inventory-manage .inventory .invent-type .type a .type-count {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+        inventory-manage .inventory .invent-type .type a .type-img {
+          height: 30px; }
+          inventory-manage .inventory .invent-type .type a .type-img .img-type-active {
+            background-position: -183px -23px; }
+          inventory-manage .inventory .invent-type .type a .type-img .img-type {
+            background-position: -183px -23px; }
+  inventory-manage .inventory table tbody td {
+    font-size: 12px !important; }
+  inventory-manage .inventory .inventory-edit-add {
+    height: 78vh; }
+  inventory-manage .inventory .inventory-edit-add .inventory-img {
+    width: 280px;
+    height: 20vh;
+    margin-right: 0rem !important; }
+  inventory-manage .inventory .search-wrapper .search-input {
+    padding-left: 24px; }
+  inventory-manage .inventory .invent-list {
+    height: 78vh; }
+    inventory-manage .inventory .invent-list .inventory-lists {
+      overflow: auto; }
+    inventory-manage .inventory .invent-list .list-card .card .card-image .card-img-placeholder {
+      height: 140px; }
+      inventory-manage .inventory .invent-list .list-card .card .card-image .card-img-placeholder .responsive-img {
+        top: 1.2rem; }
+  inventory-manage .inventory .invent-detail {
+    height: 68vh; }
+    inventory-manage .inventory .invent-detail .invent-detail-body .card-img-container {
+      width: 259px;
+      height: 135px; }
+    inventory-manage .inventory .invent-detail .left-table-width {
+      width: 48% !important;
+      margin-right: 0 !important; }
+      inventory-manage .inventory .invent-detail .left-table-width tbody tr td {
+        padding-left: 4px !important; }
+    inventory-manage .inventory .invent-detail .right-table-width {
+      width: 42%; }
+    inventory-manage .inventory .invent-detail .other-right-table-basic {
+      width: 49%;
+      margin-right: 1.3rem; }
+      inventory-manage .inventory .invent-detail .other-right-table-basic tbody tr td {
+        padding-left: 4px !important; }
+    inventory-manage .inventory .invent-detail .centered.machine-basic-infos label {
+      font-size: 12px; }
+    inventory-manage .inventory .invent-detail .centered.machine-basic-infos .other-tbody-td-pad {
+      padding-left: 5px; }
+    inventory-manage .inventory .invent-detail .centered.machine-basic-infos .label-text {
+      font-size: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+    inventory-manage .inventory .invent-detail .centered.machine-basic-infos thead tr {
+      line-height: 32px !important;
+      height: 32px !important; }
+      inventory-manage .inventory .invent-detail .centered.machine-basic-infos thead tr th {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 12px !important;
+        padding-left: 5px; }
+    inventory-manage .inventory .invent-detail .centered.machine-basic-infos tbody .float-right-td {
+      margin-right: 0px !important; }
+    inventory-manage .inventory .invent-detail .centered.machine-basic-infos tbody tr {
+      line-height: 32px !important; }
+      inventory-manage .inventory .invent-detail .centered.machine-basic-infos tbody tr td {
+        padding: 0; }
+        inventory-manage .inventory .invent-detail .centered.machine-basic-infos tbody tr td input {
+          width: 13.5rem !important;
+          height: 32px !important;
+          font-size: 12px !important; }
+  inventory-manage .inventory .right-basic-infos-table {
+    margin-left: 2.3rem; }
+    inventory-manage .inventory .right-basic-infos-table tbody .label-text {
+      padding-left: 1rem !important;
+      width: 23%; }
+  inventory-manage .inventory .list-view .responsive-table {
+    width: 150%; }
+    inventory-manage .inventory .list-view .responsive-table thead tr {
+      height: 32px !important;
+      line-height: 32px !important; }
+      inventory-manage .inventory .list-view .responsive-table thead tr th {
+        font-size: 12px; }
+    inventory-manage .inventory .list-view .responsive-table tbody tr {
+      height: 32px !important;
+      line-height: 32px !important; }
+      inventory-manage .inventory .list-view .responsive-table tbody tr td {
+        font-size: 12px; }
+  inventory-manage .eventpagination .pagination li {
+    height: 32px;
+    border: 1px solid #0066ff; } }
+
+@media screen and (max-width: 1080px) {
+  inventory-manage .truncate {
+    display: flex; }
+  inventory-manage .btn {
+    font-size: 12px; }
+  inventory-manage .inventory .invent-type {
+    height: 78vh; }
+    inventory-manage .inventory .invent-type .type {
+      overflow: hidden;
+      height: 30px; }
+      inventory-manage .inventory .invent-type .type a {
+        line-height: 30px; }
+        inventory-manage .inventory .invent-type .type a .type-count {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }
+        inventory-manage .inventory .invent-type .type a .type-img {
+          height: 30px; }
+          inventory-manage .inventory .invent-type .type a .type-img .img-type-active {
+            background-position: -183px -23px; }
+          inventory-manage .inventory .invent-type .type a .type-img .img-type {
+            background-position: -183px -23px; }
+  inventory-manage .inventory table tbody td {
+    font-size: 12px !important; }
+  inventory-manage .inventory .inventory-edit-add {
+    height: 78vh; }
+  inventory-manage .inventory .inventory-edit-add .inventory-img {
+    width: 280px;
+    height: 20vh;
+    margin-right: 0rem !important; }
+  inventory-manage .inventory .search-wrapper .search-input {
+    padding-left: 24px; }
+  inventory-manage .inventory .invent-list {
+    height: 78vh; }
+    inventory-manage .inventory .invent-list .inventory-lists {
+      overflow: auto; }
+    inventory-manage .inventory .invent-list .list-card .card .card-image .card-img-placeholder {
+      height: 140px; }
+      inventory-manage .inventory .invent-list .list-card .card .card-image .card-img-placeholder .responsive-img {
+        top: 1.2rem; }
+  inventory-manage .inventory .invent-detail {
+    height: 68vh; }
+    inventory-manage .inventory .invent-detail .invent-detail-body .card-img-container {
+      width: 259px;
+      height: 135px; }
+    inventory-manage .inventory .invent-detail .left-table-width {
+      width: 48% !important;
+      margin-right: 0 !important; }
+      inventory-manage .inventory .invent-detail .left-table-width tbody tr td {
+        padding-left: 4px !important; }
+    inventory-manage .inventory .invent-detail .right-table-width {
+      width: 42%; }
+    inventory-manage .inventory .invent-detail .other-right-table-basic {
+      width: 49%;
+      margin-right: 1.3rem; }
+      inventory-manage .inventory .invent-detail .other-right-table-basic tbody tr td {
+        padding-left: 4px !important; }
+    inventory-manage .inventory .invent-detail .centered.machine-basic-infos label {
+      font-size: 12px; }
+    inventory-manage .inventory .invent-detail .centered.machine-basic-infos .other-tbody-td-pad {
+      padding-left: 5px; }
+    inventory-manage .inventory .invent-detail .centered.machine-basic-infos .label-text {
+      font-size: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+    inventory-manage .inventory .invent-detail .centered.machine-basic-infos thead tr {
+      line-height: 32px !important;
+      height: 32px !important; }
+      inventory-manage .inventory .invent-detail .centered.machine-basic-infos thead tr th {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: 12px !important;
+        padding-left: 5px; }
+    inventory-manage .inventory .invent-detail .centered.machine-basic-infos tbody .float-right-td {
+      margin-right: 0px !important; }
+    inventory-manage .inventory .invent-detail .centered.machine-basic-infos tbody tr {
+      line-height: 32px !important; }
+      inventory-manage .inventory .invent-detail .centered.machine-basic-infos tbody tr td {
+        padding: 0; }
+        inventory-manage .inventory .invent-detail .centered.machine-basic-infos tbody tr td input {
+          width: 13.5rem !important;
+          height: 32px !important;
+          font-size: 12px !important; }
+  inventory-manage .inventory .right-basic-infos-table {
+    margin-left: 2.3rem; }
+    inventory-manage .inventory .right-basic-infos-table tbody .label-text {
+      padding-left: 1rem !important;
+      width: 23%; }
+  inventory-manage .inventory .list-view .responsive-table {
+    width: 150%; }
+    inventory-manage .inventory .list-view .responsive-table thead tr {
+      height: 32px !important;
+      line-height: 32px !important; }
+      inventory-manage .inventory .list-view .responsive-table thead tr th {
+        font-size: 12px; }
+    inventory-manage .inventory .list-view .responsive-table tbody tr {
+      height: 32px !important;
+      line-height: 32px !important; }
+      inventory-manage .inventory .list-view .responsive-table tbody tr td {
+        font-size: 12px; }
+  inventory-manage .eventpagination .pagination li {
+    height: 32px;
+    border: 1px solid #0066ff; } }
+
+@media screen and (max-height: 900px) {
+  inventory-manage .inventory .invent-list {
+    height: 750px; }
+  inventory-manage .inventory .pad-control .invent-type {
+    height: 750px; }
+  inventory-manage .inventory .invent-lists {
+    height: calc(100% - 50px); } }
+
+@media screen and (max-height: 700px) {
+  inventory-manage .inventory .invent-list {
+    height: 640px; }
+  inventory-manage .inventory .pad-control .invent-type {
+    height: 640px; }
+  inventory-manage .inventory .invent-lists {
+    height: calc(100% - 50px); } }

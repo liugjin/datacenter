@@ -1,0 +1,39 @@
+{
+  "id": "equipment-info",
+  "name": "设备信息",
+  "type": "EquipmentInfoDirective",
+  "desc": {
+    "author": "hardy",
+    "comment": "显示设备信息、服务器信息",
+    "version": {
+      "0.0.1": [],
+      "0.0.2": ["过滤json数据"],
+      "0.0.3": ["整合新的组件"]
+    }
+  },
+  "group": "模块组件",
+  "parameters": [
+    {
+      "id": "stationId",
+      "type": "string",
+      "value": "shenzhen"
+    },
+    {
+      "id": "equipmentId",
+      "type": "string",
+      "value": "rack2"
+    },
+    {
+      "id": "serverId",
+      "type": "string",
+      "value": "server1"
+    }
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": ["server-performanceinfo"],
+  "css": "",
+  "version": "0.0.3"
+}

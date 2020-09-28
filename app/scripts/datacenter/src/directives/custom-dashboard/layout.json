@@ -1,0 +1,100 @@
+{
+
+  "dashboard": [
+    {
+      "class": "row",
+      "style": "",
+      "children": [
+        {
+          "class": "col s12",
+          "children": [
+            {
+              "component": "dashboard-header1",
+              "parameters": {},
+              "class": "",
+              "style": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": "row",
+      "children": [
+        {
+          "class": "col m3 s12",
+          "children": [
+            {
+              "component": "notice-tip2",
+              "parameters": {"type": "'meter'"},
+              "style": ""
+            },
+            {
+              "component": "ups-manager",
+              "parameters": {
+                "title": "'UPS监控'",
+                "type": "'ups'" ,
+                "template":"'ups-ql'" ,
+                "group": [
+                  "'3d-detail'",
+                  "'ratio'"
+                ]
+              },
+               "style": ""
+            }
+          ]
+        },
+        {
+          "class": "col m6 s12",
+          "children": [
+            {
+              "class": "box-border",
+              "style": "height:80vh;position:relative",
+              "children": [
+                {
+                  "component": "custom-label-location",
+                  "parameters": {
+                    "templateId": "station.model.image",
+                    "noBorderStyle": "true"
+                  },
+                  "style": "height: 65vh; display:block; position:relative"
+                },
+                {
+                  "component": "alarm-severity-boxes",
+                  "parameters": {}
+                }
+                
+              ]
+            }
+          ]
+        },
+        {
+          "class": "col m3 s12",
+          "children": [
+            {
+              "component": "equipment-statistic",
+              "parameters": {}
+            },
+            {
+              "component": "station-environment",
+              "parameters": {},
+              "style": "margin: 14px 0;"
+            },
+            {
+              "component": "equipment-air-cloud",
+              "parameters": {},
+              "style": "margin-top:0vh"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "monitoring":[
+    {
+      "class": "col s12",
+      "component": "monitoring-leon-hmu2500",
+      "parameters": {"'filterType'":"true"}
+    }
+  ]
+}

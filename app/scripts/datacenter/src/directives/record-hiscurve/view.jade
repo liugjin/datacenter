@@ -1,0 +1,30 @@
+.row.nav-top
+    .col.l2.pointerCol
+        span.cursorTitle(title="{{ paraName }}") {{ paraName }}
+    .col.l10
+            .nav-wrapper(ng-show="equipTypeLists.length > 0")
+                .setTypeSpan
+                    span.equipType 设备类型：
+                    span.requireEquip(ng-repeat= '(index, type) in equipTypeLists')
+                        .btn.tabs-btn(ng-style='{"color": "#e2edf2","background-color": currentType.type==type.type?"rgba(0, 188, 212, 0.7)":"#112e69"}'
+                            ng-click='selectEquipType(type)' title='{{type.name}}' ng-show="{{index < 7}}" )
+                            .type-img
+                                .img-bing(style="background:url('{{setting.urls.uploadUrl}}/{{type.image}}');background-repeat: no-repeat;background-position: -183px -22px;")
+                            span {{type.name}} ({{type.count}})
+                    span.dropdown-trigger.tabs-btn(data-target='equipemttypes' data-hover='true'
+                        data-constrain-width='false' data-cover-trigger="false"
+                        md-dropdown title='更多类型' ng-show="equipTypeLists.length > 7") 更多 ▼
+                    ul#equipemttypes.dropdown-content
+                        li(ng-repeat = '(index, type) in equipTypeLists'
+                            ng-class='{true:"equips-list2",false:"equips-list"}[currentType.type==type.type]'
+                            ng-show="{{index > 6}}")
+                            a(ng-href='' ng-click="selectEquipType(type)" style="padding-left: 8px;")
+                                .type-img
+                                    .img-bing(style="top: -5px;position: relative;background:url('{{setting.urls.uploadUrl}}/{{type.image}}');background-repeat: no-repeat;background-position: -183px -22px;")
+                                span {{type.name}} ({{type.count}})
+.row
+    .col.l12
+        .row.cowContainer(style="height: 84vh;")
+            device-accla-alarm.col.tree-style(controller='controller',parameters='{"checkbox":false,"filter":true,"reportName":"历史曲线告警记录",template: currentType.type }',style="height:85%;width: 20%;")
+            .col.oStyleAlarmSignal
+                lineorbar-tree(controller="controller" parameters="{}")

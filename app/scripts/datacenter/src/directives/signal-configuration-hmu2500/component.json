@@ -1,0 +1,24 @@
+{
+  "id": "signal-configuration-hmu2500",
+  "name": "信号配置页面",
+  "type": "SignalConfigurationHmu2500Directive",
+  "desc": {
+    "author": "sheen",
+    "comment": "模块组件",
+    "version": {
+        "0.0.1": ["按信号类型float、int的信号为采集信号，enum的信号为状态信号；对信号名称及此信号的告警进行配置；每个设备会创建自己的设备模板，有修改的信号会按保存的配置在这个设备自己的模板上创建信号及此信号的事件告警"]
+    }
+  },
+  "keywords":"信号配置、告警配置、信号告警配置",
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": ["selectEquip"]
+  },
+  "deps": ["device-tree-single"],
+  "css": "",
+  "version": "0.0.1"
+}

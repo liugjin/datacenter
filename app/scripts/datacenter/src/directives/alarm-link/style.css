@@ -1,0 +1,9 @@
+alarm-link table {
+  color: #ffffff;
+  background-color: rgba(26, 69, 162, 0.4); }
+
+alarm-link .back-control td {
+  background-color: rgba(26, 69, 162, 0.4); }
+
+alarm-link .input-field input[type=search]:focus:not(.browser-default) {
+  background-color: rgba(26, 69, 162, 0.4); }

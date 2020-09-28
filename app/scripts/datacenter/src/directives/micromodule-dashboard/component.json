@@ -1,0 +1,48 @@
+{
+  "id": "micromodule-dashboard",
+  "name": "MicromoduleDashboard控件",
+  "type": "MicromoduleDashboardDirective",
+  "desc": {
+    "author": "Hardy",
+    "comment": "微模块dashboard",
+    "version": {
+      "0.0.1": [],
+      "0.0.2": [
+        "添加切换站点功能"
+      ],
+      "0.0.3": [
+        "修复：切换站点时告警数量异常、图片缺失"
+      ],
+      "0.0.4":["新增容量模式、模式轮转效果"],
+      "0.0.5":["样式调整"],
+      "0.0.6":["修复无法canvas高宽问题"],
+      "0.0.12":["基于0.0.6，新增视频弹窗功能","@hardy"],
+      "0.0.14":["基于0.0.12，修复关闭视频时没有停止视频的问题","@hardy"],
+      "0.0.15":["组件选用","@region"],
+      "0.0.16":["删除背景色","@region"],
+      "0.0.17":["处理数据精度","@region"]
+    }
+  },
+  "group": "站点组件",
+  "parameters": [
+    {"id":"title", "type":"string", "value":""}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [
+    "alarm-number-box",
+    "safe-operation-days",
+    "pue-value",
+    "room-3d-component",
+    "capacity-management",
+    "energy-management",
+    "capacity-asset",
+    "equipment-quantity",
+    "yingmai-video",
+    "yingmai-environment"
+  ],
+  "css": "",
+  "version": "0.0.17"
+}

@@ -1,0 +1,172 @@
+
+.row.nav-top
+    .col.s12.bottom
+        station-breadcrumbs.inline-left(controller="vm" parameters="{}")
+        nav.inline-right
+            .nav-flex-grow.right(style="margin-right:0.75rem")
+                a.waves-effect.waves-light.btn.modal-trigger(href='' title='增加人员' data-target='door-people-modal' ng-click='addEquip()' ng-show="project.model._role.operations[0]=='_all' || project.model._role.operations.indexOf('setting')>=0")
+                    .left
+                        img(ng-src="{{addImg}}")
+                    span 增加人员
+
+.row
+    .col.s12(style="margin-top: -5px")
+        .user-list
+            .user-content
+                table.user-table.new-table
+                    thead
+                        tr.border-bottom
+                            th &nbsp;
+                            th 工号
+                            th 姓名
+                            th 手机号码
+                            th 性别
+                            th 类型
+                            th 部门
+                            th 职称
+                            th 邮件地址
+                            th(ng-show="project.model._role.operations[0]=='_all' || project.model._role.operations.indexOf('setting')>=0") 操作
+
+                    tbody
+                        tr.border-bottom(ng-repeat="people in peopleEquips | limitTo: pageItems * pageIndex | limitTo: limitToEquipment()")
+                            td &nbsp;
+                            td {{people.getPropertyValue('people-id')}}
+                            td {{people.getPropertyValue('people-name')}}
+                            td {{people.getPropertyValue('people-mobile')}}
+                            td {{formatValue('people-sex', people.getPropertyValue('people-sex'))}}
+                            td {{formatValue('people-position', people.getPropertyValue('people-position'))}}
+                            td {{formatValue('people-group', people.getPropertyValue('people-group'))}}
+                            td {{formatValue('people-title', people.getPropertyValue('people-title'))}}
+                            td {{people.getPropertyValue('people-email')}}
+                            td(ng-show="project.model._role.operations[0]=='_all' || project.model._role.operations.indexOf('setting')>=0")
+                                a.waves-effect.waves-light.modal-trigger(title='编辑设备' href='' data-target='door-people-modal' ng-click="selectPeople(people)")
+                                    img(ng-src="{{editImg}}")
+                                a.waves-effect.waves-light(title='删除设备' href='' ng-click='deleteEquip(people); $event.stopPropagation();')
+                                    img(ng-src="{{deleteImg}}")
+
+                .col.s12.m12.l12.eventpagination
+                    div(style="flex:1;")
+                    .valign-wrapper(style='flex:2;')
+                        div(style="margin: 0 auto;")
+                            ul.pagination.center(ng-show='filterEquipmentItem().pageCount > 1' ng-cloak)
+                                li.page-button(ng-class='{disabled: pageIndex <= 1, "waves-effect": pageIndex > 1}' ng-click='pageIndex>1?(pageIndex = pageIndex - 1):0')
+                                    a(href='', ng-class="{'choose-text': pageIndex > 1}")
+                                        i.material-icons chevron_left
+
+                                li.page-button(ng-class='{active: page == pageIndex, "waves-effect": page != pageIndex}' ng-repeat='page in filterEquipmentItem().pages' ng-click='selectPage(page)' ng-if="(page>(pageIndex-4)&&page<(pageIndex+4)) || page==1 || page==filterEquipmentItem().pageCount")
+                                    a(href='')
+                                        | {{( (page>(pageIndex-3)&&page<(pageIndex+3)) || page==1 || page==filterEquipmentItem().pageCount ) ? page : ".."}}
+
+                                li.last.page-button(ng-class='{disabled: pageIndex >= filterEquipmentItem().pageCount, "waves-effect": pageIndex < filterEquipmentItem().pageCount}' ng-click='pageIndex<filterEquipmentItem().pageCount?(pageIndex = pageIndex + 1):0')
+                                    a(href='', ng-class="{'choose-text': pageIndex < filterEquipmentItem().pageCount}")
+                                        i.material-icons chevron_right
+                    div(style='flex:1;')
+
+
+#door-people-modal.modal(md-modal)
+    .modal-content
+        .row.no-margin.door-people
+            .col.l12.nav-top
+                nav
+                    .nav-flex-grow.left
+                        a.waves-effect.waves-light.btn(href='' ng-click='closeModal()' title='收起')
+                            .left
+                                img(ng-src="{{closeImg}}")
+                            span 收起
+                    .nav-flex-grow.right
+                        a.waves-effect.waves-light.btn(href='' ng-click='refreshData()' title='重置' style="margin-right: 0;")
+                            .left
+                                img(ng-src="{{refreshImg}}")
+                            span 重置
+                    .nav-flex-grow.right
+                        a.waves-effect.waves-light.btn(href='' ng-click='saveEquipment()' title='保存')
+                            .left
+                                img(ng-src="{{saveImg}}")
+                            span 保存
+            .col.l12.nav-img
+                .img-title 请上传图片
+                .img-uploader
+                    .img-image.img-preview(ng-show='!showLink || !currentPeople.peopleImg')
+                        img.people-img(ng-if="currentPeople.peopleImg" ng-src='{{dir + "/" + currentPeople.peopleImg}}')
+                        .img-none(ng-if="!currentPeople.peopleImg")
+                            img(ng-src="{{uploadImg}}")
+                    input(type='file' name='uploadInput' accept='{{accept}}' style="display: none;")
+                    textarea.img-text-area(ng-show='currentPeople.peopleImg && showLink' disabled ng-model="currentPeople.peopleImg")
+                    .img-btn
+                        .btn-flex
+                            .nav-flex-grow
+                                a.waves-effect.waves-light.btn(href='' title='删除' ng-click='delete()')
+                                    .left
+                                        img(ng-src="{{deleteImg}}")
+                                    span 删除
+                            .nav-flex-grow
+                                a.waves-effect.waves-light.btn(href='' title='显示图片链接' ng-click='showLink = !showLink')
+                                    .left
+                                        img(ng-src="{{linkImg}}")
+                                    span 链接
+                            .nav-flex-grow
+                                a.waves-effect.waves-light.btn(title='下载' ng-href='{{dir}}/{{currentPeople.peopleImg}}' target='_blank')
+                                    .left
+                                        img(ng-src="{{downImg}}")
+                                    span 下载
+
+            .col.l12.nav-item
+                .col.l6(style="margin-top: .75rem;")
+                    label 员工工号
+                    .input-field
+                        input.validate(type='text' ng-model='currentPeople.peopleId' disabled)
+                .col.l6(style="margin-top: .75rem;")
+                    label 姓名
+                    .input-field
+                        input.validate(type='text' ng-model='currentPeople.peopleName',maxlength="16")
+                .col.l6(style="margin-top: .75rem;")
+                    label 员工性别
+                    .input-field
+                        select(ng-model='currentPeople.peopleSex' md-select)
+                            option(ng-repeat="map in findProperty('people-sex').model.format.split(',')" value="{{map.split(':')[0]}}" ng-selected="property.value==map.split(':')[0]") {{map.split(':')[1]}}
+                .col.l6(style="margin-top: .75rem;")
+                    label 手机号码
+                    .input-field
+                        input.validate(type='text' ng-model='currentPeople.peopleMobile',maxlength="11")
+                .col.l6(style="margin-top: .75rem;")
+                    label 邮件地址
+                    .input-field
+                        input.validate(type='text' ng-model='currentPeople.peopleEmail',maxlength="24")
+                .col.l6(style="margin-top: .75rem;")
+                    label 员工类型
+                    .input-field
+                        select(ng-model='currentPeople.peoplePosition' md-select)
+                            option(ng-repeat="map in findProperty('people-position').model.format.split(',')" value="{{map.split(':')[0]}}" ng-selected="property.value==map.split(':')[0]") {{map.split(':')[1]}}
+                .col.l6(style="margin-top: .75rem;")
+                    label 员工部门
+                    .input-field
+                        select(ng-model='currentPeople.peopleGroup' md-select )
+                            option(ng-repeat="map in findProperty('people-group').model.format.split(',')" value="{{map.split(':')[0]}}" ng-selected="property.value==map.split(':')[0]") {{map.split(':')[1]}}
+                .col.l6(style="margin-top: .75rem;")
+                    label 员工职称
+                    .input-field
+                        select(ng-model='currentPeople.peopleTitle' md-select)
+                            option(ng-repeat="map in findProperty('people-title').model.format.split(',')" value="{{map.split(':')[0]}}" ng-selected="property.value==map.split(':')[0]") {{map.split(':')[1]}}
+                .col.l6(style="margin-top: .75rem;")
+                    label 固定电话
+                    .input-field
+                        input.validate(type='text' ng-model='currentPeople.peopleTelephone',maxlength="14")
+                .col.l6(style="margin-top: .75rem;")
+                    label 设备厂商
+                    .input-field
+                        select(ng-model='currentPeople.vendor' md-select)
+                            option(value='0') 请选择
+                            option(ng-repeat="man in manufactorArr" value="{{man.vendor}}" ng-selected="currentPeople.vendor == man.vendor") {{man.name}}
+                .col.l6(style="margin-top: .75rem;")
+                    label 备注
+                    .input-field
+                        input.validate(type='text' ng-model='currentPeople.peopleDescribe',maxlength="24")
+                .col.l6(style="margin-top: .75rem;")
+                    label 所属站点
+                    .input-field
+                        select(ng-model='currentPeople.station' md-select)
+                            option(value='0') 请选择
+                            option(ng-repeat="station in stations" value="{{station.model.station}}" ng-selected="currentPeople.station == station.model.station") {{station.model.name}}
+
+
+

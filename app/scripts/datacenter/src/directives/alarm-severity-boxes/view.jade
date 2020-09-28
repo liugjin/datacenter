@@ -1,0 +1,12 @@
+.flex(style="width: 50%;margin: auto;")
+    .box(ng-repeat="(key,severity) in severities")
+        .box-info
+            .left-part
+                .middle
+            a.middle-part(ng-href="#/event-manager/{{project.model.user}}/{{project.model.project}}?station={{station.model.station}}")
+                .content
+                    p.number(ng-style="{color:severity.color}") {{severity.value>=10?severity.value:'0'+(severity.value||0)}}
+                    p.name {{severity.name}}
+            .right-part
+                .middle.toright
+

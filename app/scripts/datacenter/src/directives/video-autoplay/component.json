@@ -1,0 +1,25 @@
+{
+  "id": "video-autoplay",
+  "name": "VideoAutoplay控件",
+  "type": "VideoAutoplayDirective",
+  "desc": {
+    "author": "",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.1": ["自定义组件--region"],
+        "0.0.2": ["优化加载高度和延迟--region"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+    {"id": "station", "type": "string", "value": ""},
+    {"id": "equipment", "type": "string", "value": ""}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.2"
+}

@@ -1,0 +1,151 @@
+
+.row.nav-top
+    .col.l2
+        span 人员管理
+    .col.l10
+        nav
+            .nav-wrapper
+                ul.right
+                    li
+                    .btn.modal-trigger(href='#door-people-modal',  ng-click='addPeople()')
+                            span.material-icons.left.icon add
+                            span 增加人员
+.row.margin-top-20
+    .col.s12.m12.l12
+        .card.item-list
+            table.responsive-table.highlight
+                thead
+                    tr
+                        th.center
+                            .col-header(ng-click='sortBy("people-id")')
+                                span 工号
+                                span.pull-right(ng-show='predicate == "people-id"') {{reverse && "▽" || "△"}}
+
+                        th.center
+                            .col-header(ng-click='sortBy("people-name")')
+                                span 姓名
+                                span.pull-right(ng-show='predicate == "people-name"') {{reverse && "▽" || "△"}}
+                        th.center
+                            .col-header(ng-click='sortBy("people-mobile")')
+                                span 手机号码
+                                span.pull-right(ng-show='predicate == "people-mobile"') {{reverse && "▽" || "△"}}
+
+                        th.center
+                            .col-header(ng-click='sortBy("people-sex")')
+                                span 性别
+                                span.pull-right(ng-show='predicate == "people-sex"') {{reverse && "▽" || "△"}}
+
+                        th.center
+                            .col-header(ng-click='sortBy("people-position")')
+                                span 类型
+                                span.pull-right(ng-show='predicate == "people-position"') {{reverse && "▽" || "△"}}
+                        th.center
+                            .col-header(ng-click='sortBy("people-group")')
+                                span 部门
+                                span.pull-right(ng-show='predicate == "people-group"') {{reverse && "▽" || "△"}}
+
+                        th.center
+                            .col-header(ng-click='sortBy("people-title")')
+                                span 职称
+                                span.pull-right(ng-show='predicate == "people-title"') {{reverse && "▽" || "△"}}
+
+                        th.center
+                            .col-header(ng-click='sortBy("people-email")')
+                                span 邮件地址
+                                span.pull-right(ng-show='predicate == "people-email"') {{reverse && "▽" || "△"}}
+                        th.center
+                            .col-header
+                                span 操作
+                tbody
+                    tr(ng-repeat='people in peoples | orderBy: peoples.predicate: peoples.reverse | limitTo: peoples.pageItems : peoples.pageItems* (peoples.page-1)')
+                        td.center(style="padding:10px 5px") {{people.getPropertyValue('people-id')}}
+                        td.center(style="padding:10px 5px") {{people.getPropertyValue('people-name')}}
+                        td.center(style="padding:10px 5px") {{people.getPropertyValue('people-mobile')}}
+                        td.center(style="padding:10px 5px") {{peoplesex[people.getPropertyValue('people-sex')].name}}
+                        td.center(style="padding:10px 5px") {{peopleposition[people.getPropertyValue('people-position')].name}}
+                        td.center(style="padding:10px 5px") {{peoplegroup[people.getPropertyValue('people-group')].name}}
+                        td.center(style="padding:10px 5px") {{peopletitle[people.getPropertyValue('people-title')].name}}
+                        td.center(style="padding:10px 5px") {{people.getPropertyValue('people-email')}}
+                        td.center
+                            a.btn-flat.waves-effect.waves-light.modal-trigger(href='', data-target='door-people-modal', ng-click='selectPeople(people);', title='修改员工信息')
+                                i.material-icons.small edit
+            span.left(style="padding:1rem 1rem", ng-show="peoples.items  > 0") 记录数：{{peoples.items }}
+            ul.pagination.right(ng-show='filterStationEvents().pageCount > 1', ng-cloak)
+                li(ng-class='{disabled: peoples.page <= 1, "waves-effect": peoples.page > 1}', ng-click='peoples.page>1?(peoples.page = vpeoples.page - 1):0')
+                    a(href='', ng-class="{'black-text':peoples.page > 1}")
+                        i.material-icons chevron_left
+
+                li(ng-class='{active: page == peoples.page, "waves-effect": page != peoples.page}', ng-repeat='page in filterStationEvents().pages', ng-click='peoples.page=page' ng-if="(page>(peoples.page-4)&&page<(peoples.page+4))||page==1||page==filterStationEvents().pageCount")
+                    a(style="color:#00a856;",href='')
+                        | {{((page>(peoples.page-3)&&page<(peoples.page+3))||page==1||page==filterStationEvents().pageCount) ? page:".."}}
+
+                li(ng-class='{disabled: peoples.page >= filterStationEvents().pageCount, "waves-effect": peoples.page < filterStationEvents().pageCount}', ng-click='peoples.page<filterStationEvents().pageCount?(peoples.page = peoples.page + 1):0')
+                    a(href='', ng-class="{'black-text':peoples.page < filterStationEvents().pageCount}")
+                        i.material-icons chevron_right
+
+
+#door-people-modal.modal.modal-fixed-footer(md-modal)
+    .modal-content
+        .row
+            .input-field.col.s12.m6.l6
+                input.validate(type='text', ng-model='currentpeople.peopleid', ng-disabled='currentpeople._id')
+                label(ng-class='{active:currentpeople.peopleid}') ID
+
+            .input-field.col.s12.m6.l6
+                input.validate(type='text', ng-model='currentpeople.peoplename')
+                label(ng-class='{active:currentpeople.peoplename}') 姓名
+
+            .input-field.col.s12.m6.l6
+                label.active 员工性别
+                select(md-select, ng-model='currentpeople.peoplesex', ng-change='', ng-options='sex.type as sex.name for sex in peoplesex')
+
+            .col.s12.m6.l6
+                label 头像
+                .img-uploader.model-img-upload
+                    image-uploader(ng-model='currentpeople.peopleimgsrc', dir='{{options.uploadUrl}}')
+
+            .input-field.col.s12.m6.l6
+                input.validate(type='text', ng-model='currentpeople.peoplemobile')
+                label(ng-class='{active: currentpeople.peoplemobile}') 手机号码
+            .input-field.col.s12.m6.l6
+                input.validate(type='text', ng-model='currentpeople.peopleemail')
+                label(ng-class='{active:urrentpeople.peopleemail}') 邮件地址
+
+            .input-field.col.s12.m6.l6
+                label.active 员工类型
+                select(md-select, ng-model='currentpeople.peopleposition', ng-change='', ng-options='pos.type as pos.name for pos in peopleposition')
+
+            .input-field.col.s12.m6.l6
+                label.active 员工部门
+                select(md-select, ng-model='currentpeople.peoplegroup', ng-change='', ng-options='group.type as group.name for group in peoplegroup')
+
+            .input-field.col.s12.m6.l6
+                label.active 员工职称
+                select(md-select, ng-model='currentpeople.peopletitle', ng-change='', ng-options='title.type as title.name for title in peopletitle')
+
+            .input-field.col.s12.m6.l6
+                input.validate(type='text', ng-model='currentpeople.peopletelephone')
+                label(ng-class='{active: currentpeople.peopletelephone}') 固定电话
+            .input-field.col.s12.m6.l6
+                textarea.validate.materialize-textarea(type='text', ng-model='currentpeople.peopledescribe')
+                label(ng-class='{active:currentpeople.peopledescribe}') 备注
+
+
+    .modal-footer.modal-nav
+        nav
+            .nav-wrapper
+                ul
+
+                    li
+                        a(ng-click='saveEquipment()')
+                            i.material-icons.left save
+                            span.hide-on-med-and-down 保存
+                    li(ng-show='currentpeople.peopleSelected == true')
+                        a(ng-click='removeEquipment()')
+                            i.material-icons.left delete
+                            span.hide-on-med-and-down 删除
+                    ul.left
+                        li
+                            a.modal-action.modal-close(href='')
+                                i.material-icons.left close
+                                span.hide-on-med-and-down 关闭

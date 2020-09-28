@@ -1,0 +1,16 @@
+list-breadcrumbs .content {
+  height: 60px; }
+  list-breadcrumbs .content .col {
+    padding: 18px 18px 18px 0; }
+  list-breadcrumbs .content span {
+    margin-left: 18px;
+    color: white; }
+
+list-breadcrumbs .dropdown-content {
+  width: auto !important;
+  background-color: rgba(26, 69, 162, 0.6); }
+  list-breadcrumbs .dropdown-content li a {
+    color: #e2edf2; }
+
+list-breadcrumbs .dropdown-content li:hover, list-breadcrumbs .dropdown-content li.active {
+  background-color: #1a45a2 !important; }

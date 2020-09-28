@@ -1,0 +1,4 @@
+.row.page-list(ng-show="pages.page.length > 1")
+    .page-item( ng-repeat="n in pages.page track by $index" ng-click="update(n)" )
+        .btn( ng-show="n > 0" ng-style="{'background': pages.current == n ? '#00bcd4cc' : '#1a45a266'}") {{n}}
+        div(ng-show="n <= 0" style="height: 36px; line-height: 3; cursor: pointer;" title="点击切换页数") ...

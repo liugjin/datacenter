@@ -1,0 +1,39 @@
+.row(style="height:56vh;margin:1vh 0 0 1vw;")
+    .col.l4.m4.s12
+        p.info-title 性能信息
+        .list-view(style="height:50vh !important;overflow:auto;")
+            table.responsive-table.centered.highlight
+                thead
+                    tr
+                        th(style="width:40%")
+                            span 名称
+                        th(style="width:40%")
+                            span 数据值
+                        th(style="width:20%")
+                            span 单位
+
+                tbody
+                    tr(ng-style="{ 'background-color': selectSignalObj.signal == signal.signal ? 'rgba(16, 235, 244, 0.6)' : 'transparent' }"
+                        ng-repeat='signal in showSignals | orderBy: sort.predicate:sort.reverse '
+                        ng-click="selectSignal(signal)" onmousedown="" style="cursor: pointer" title="切换信号为{{signal.name}}")
+                        td.left {{signal.name}}
+                        td {{signal.value}}
+                        td {{signal.unitName}}
+    .col.l8.m8.s12
+        p.info-title {{selectedSig}}趋势信息
+        p.center
+            .col.l1.m1.s2(style="border-right: 1px solid white; margin-bottom: 5px; text-align: center")
+                a.info-title2(title="查看实时内存" ng-click='selectStatisticMode("now")'
+                    ng-style="{ 'color': selectMode != 'day' && selectMode != 'month' ? '#10EBF4' : 'white' }") 实时
+            .col.l1.m1.s2(style="border-right: 1px solid white; margin-bottom: 5px; text-align: center")
+                a.info-title2(title="查看今日历史内存" ng-click='selectStatisticMode("day")'
+                    ng-style="{ 'color': selectMode == 'day' ? '#10EBF4' : 'white' }") 日
+            .col.l1.m1.s2(style="border-right: 1px solid white; margin-bottom: 5px; text-align: center")
+                a.info-title2(title="查看本月历史内存" ng-click='selectStatisticMode("month")'
+                    ng-style="{ 'color': selectMode == 'month' ? '#10EBF4' : 'white' }") 月
+            .col.s12.m12.l12
+                .my-chart.cool-card(style="width:100%;height:460px;")
+
+
+
+

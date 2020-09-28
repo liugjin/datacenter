@@ -1,0 +1,92 @@
+signal-configuration-hmu2500 .btn-style.active {
+  background-color: rgba(0, 188, 212, 0.7); }
+
+signal-configuration-hmu2500 .nav-top .btn-style.active {
+  background-color: rgba(0, 188, 212, 0.7); }
+
+signal-configuration-hmu2500 .nav-top .btn-style {
+  margin-right: 0.75rem; }
+  signal-configuration-hmu2500 .nav-top .btn-style .btn-sample, signal-configuration-hmu2500 .nav-top .btn-style .btn-alarm, signal-configuration-hmu2500 .nav-top .btn-style .btn-status {
+    margin-right: 5px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background-size: contain;
+    background-repeat: no-repeat; }
+  signal-configuration-hmu2500 .nav-top .btn-style .btn-sample {
+    background-image: url("~image/sample.svg~"); }
+  signal-configuration-hmu2500 .nav-top .btn-style .btn-alarm {
+    background-image: url("~image/alarm.svg~"); }
+  signal-configuration-hmu2500 .nav-top .btn-style .btn-status {
+    background-image: url("~image/status.svg~"); }
+
+signal-configuration-hmu2500 .configuration-left {
+  width: 17%; }
+  signal-configuration-hmu2500 .configuration-left device-tree-single {
+    width: 100%; }
+    signal-configuration-hmu2500 .configuration-left device-tree-single .tree {
+      height: 78.3vh !important; }
+
+signal-configuration-hmu2500 .configuration-right {
+  width: 83%;
+  height: 84.5vh;
+  padding: 0.75rem !important;
+  background-color: rgba(26, 69, 162, 0.4); }
+  signal-configuration-hmu2500 .configuration-right .configuration-header .search-wrapper {
+    display: inline-block;
+    position: relative; }
+    signal-configuration-hmu2500 .configuration-right .configuration-header .search-wrapper i {
+      position: absolute;
+      font-size: 1.2rem;
+      left: 8px;
+      line-height: 38px;
+      color: #a2caf8; }
+    signal-configuration-hmu2500 .configuration-right .configuration-header .search-wrapper .search-input {
+      display: block;
+      margin: 0;
+      padding: 0 0 0 32px;
+      width: 80%;
+      height: 34px;
+      font-size: 14px;
+      color: #a2caf8;
+      line-height: 34px; }
+  signal-configuration-hmu2500 .configuration-right .configuration-header .text-position {
+    position: relative;
+    bottom: 4px;
+    padding-right: 4px; }
+  signal-configuration-hmu2500 .configuration-right .configuration-main {
+    position: relative;
+    margin-top: 10px;
+    overflow: auto;
+    height: 78.5vh;
+    padding-top: 1vh; }
+    signal-configuration-hmu2500 .configuration-right .configuration-main table.table-sample {
+      min-width: 1570px; }
+    signal-configuration-hmu2500 .configuration-right .configuration-main table.table-status {
+      min-width: 1092px; }
+    signal-configuration-hmu2500 .configuration-right .configuration-main table thead {
+      background: rgba(75, 165, 248, 0.5); }
+      signal-configuration-hmu2500 .configuration-right .configuration-main table thead th {
+        text-align: center; }
+    signal-configuration-hmu2500 .configuration-right .configuration-main table td {
+      text-align: center; }
+    signal-configuration-hmu2500 .configuration-right .configuration-main table tbody tr:nth-child(2n) {
+      background-color: rgba(37, 70, 156, 0.4); }
+    signal-configuration-hmu2500 .configuration-right .configuration-main table tbody tr:hover {
+      background-color: rgba(3, 166, 255, 0.3); }
+    signal-configuration-hmu2500 .configuration-right .configuration-main table tbody tr .label-checkbox-style {
+      position: relative;
+      top: 5px; }
+    signal-configuration-hmu2500 .configuration-right .configuration-main table input {
+      width: 75%;
+      text-indent: 0.75rem; }
+    signal-configuration-hmu2500 .configuration-right .configuration-main table [type="checkbox"] + span:not(.lever) {
+      margin-left: 0.75rem; }
+    signal-configuration-hmu2500 .configuration-right .configuration-main table [type="checkbox"].filled-in:not(:checked) + span:not(.lever):after {
+      border: 2px solid #ffffff; }
+    signal-configuration-hmu2500 .configuration-right .configuration-main table .select-dropdown {
+      margin: 0 auto 8px auto;
+      width: 60%; }
+    signal-configuration-hmu2500 .configuration-right .configuration-main table .caret {
+      right: 25%; }

@@ -1,0 +1,103 @@
+.row.nav-top
+    .col.s2
+        span {{ parameters.headerName || "用户管理"}}
+
+.user-manage-main
+    .user-manage-left
+        .left-header 用户列表
+        .user-manage-table
+            table
+                thead
+                    tr
+                        th 序号
+                        th 用户名
+                        th 角色
+                        th 姓名
+                        th 手机号
+                        th 邮箱
+                        th(ng-show="user=='admin'") 维护操作
+                tbody
+                    tr(ng-repeat="item in users" ng-class="{active: $index == index}" ng-click='editUser(item, $index)')
+                        td {{$index + 1}}
+                        td {{item.user}}
+                        td {{item.authName}}
+                        td {{item.name}}
+                        td {{item.phone}}
+                        td {{item.email}}
+                        td
+                            i.material-icons.icon(ng-show="user == 'admin'", ng-click="deleteUser(item,$event)", title="删除",style="margin:0 0.6rem") delete
+                            //i.material-icons.icon(ng-click="editUser(item, $index)", title="编辑",style="margin:0 0.6rem") mode_edit
+        .btn.btn-style.btn-add(ng-click="addUser()" ng-if="user == 'admin'")
+            span 新增用户
+            i.material-icons.icon add
+    .user-manage-right
+        .right-header {{addUserShow ? "新增用户" : "编辑用户"}}
+        .right-main
+            .input-box(ng-if="!addUserShow")
+                span.property 用户名
+                input(type="text" ng-model="selectUser.user" disabled)
+            .input-box(ng-if="addUserShow")
+                span.property 用户名
+                input.validate(type="text" ng-model="selectUser.user", required)
+            .input-box
+                span.property 姓名
+                input.validate(type="text" ng-model="selectUser.name", required)
+            .input-box(ng-if="user == 'admin'")
+                span.property 角色
+                select(md-select, ng-model="selectUser.auth", data="selectRefresh")
+                    option(ng-repeat="item in roles",value="{{item.role}}") {{item.name}}
+            .input-box
+                span.property 邮箱
+                input.validate(type="text", ng-model="selectUser.email", pattern="^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$", required)
+            .input-box
+                span.property 手机号
+                input.validate(type="text" ng-model="selectUser.phone" ng-pattern="/^1[3|5|6|7|8|9][0-9][0-9]{8,8}$/", required)
+            .input-box(ng-if="addUserShow")
+                span.property 请输入密码
+                input.validate(type="password", autocomplete="new-password", ng-model="selectUser.password", required)
+            .input-box(ng-if="addUserShow")
+                span.property 请确认密码
+                input.validate(type="password", autocomplete="new-password", ng-model="selectUser.confirmPassword", required)
+            .input-box(ng-if="!addUserShow")
+                span.property 验证码
+                .verification
+                    input.verification-input(type="text", ng-model="selectUser.verificateCode", required)
+                    .btn.verification-btn(ng-click="getVerificationCode()")
+                        span 获取验证码
+                        i.material-icons settings_phone
+        .right-footer
+            .btn.btn-style(ng-show="!addUserShow", ng-click="saveUser()")
+                span 保存
+                i.material-icons save
+            .btn.btn-style.modal-trigger(data-target="user-manage-change-prompt-modal", ng-show="!addUserShow")
+                span 修改密码
+                i.material-icons mode_edit
+            .btn.btn-style(ng-show="addUserShow", ng-click="registerUser()")
+                span 确定
+                i.material-icons save
+
+#user-manage-change-prompt-modal.modal(md-modal)
+    .modal-content
+        .input-box
+            span.property 请输入旧密码
+            input.validate(type="password", ng-model="selectUser.oldPassword", autocomplete="new-password")
+        .input-box
+            span.property 请输入新密码
+            input.validate(type="password", ng-model="selectUser.password", autocomplete="new-password")
+        .input-box
+            span.property 请确认新密码
+            input.validate(type="password", ng-model="selectUser.confirmPassword",autocomplete="new-password")
+        .input-box
+            span.property 验证码
+            .verification
+                input.verification-input(type="text", ng-model="selectUser.passwordVerificateCode")
+                .btn.verification-btn(ng-click="getVerificationCode()")
+                    span 获取验证码
+                    i.material-icons settings_phone
+    .modal-footer
+        .modal-confirm.modal-action.right(ng-click='changePassword()')
+            i.material-icons done
+            span 确认
+        .modal-cancel.modal-action.right.modal-close
+            i.material-icons close
+            span 取消

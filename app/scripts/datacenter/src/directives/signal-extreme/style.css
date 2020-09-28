@@ -1,0 +1,91 @@
+signal-extreme .line-col {
+  position: absolute;
+  width: calc(100% - 1px);
+  margin-top: 20px;
+  height: calc(100% - 40px);
+  border: 1px solid #082268;
+  border-top: none;
+  border-bottom: none; }
+
+signal-extreme .line-row {
+  position: absolute;
+  height: 100%;
+  margin-left: 20px;
+  width: calc(100% - 40px);
+  border: 1px solid #082268;
+  border-left: none;
+  border-right: none; }
+
+signal-extreme .box-hexagon {
+  position: relative;
+  width: 100%;
+  height: 24vh;
+  overflow: hidden; }
+
+signal-extreme .height-43 {
+  height: 42vh; }
+
+signal-extreme .height-32 {
+  height: 32vh; }
+
+signal-extreme .pad-left {
+  padding-left: 0 !important; }
+
+signal-extreme .box-border-top {
+  height: 20px; }
+
+signal-extreme .box-content {
+  padding: 1rem;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  color: #e2edf2;
+  background: url("~image/left-on.png~") 0 0 no-repeat, url("~image/left-under.png~") 0 100% no-repeat, url("~image/right-on.png~") calc(100% - 1px) 0 no-repeat, url("~image/right-under.png~") calc(100% - 1px) 100% no-repeat; }
+  signal-extreme .box-content .title {
+    background: url("~image/title-img.png~") center no-repeat;
+    text-align: center;
+    color: #2a89ee;
+    font-size: 1.2rem; }
+  signal-extreme .box-content .subtitle {
+    position: absolute;
+    color: #2a89ee;
+    font-size: .5rem;
+    right: 25px;
+    top: 8px; }
+  signal-extreme .box-content .content {
+    padding-top: .5vh;
+    flex-direction: row;
+    justify-content: space-evenly; }
+  signal-extreme .box-content .content {
+    padding-top: .5vh;
+    height: 18vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; }
+    signal-extreme .box-content .content .environment {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap; }
+      signal-extreme .box-content .content .environment .font {
+        width: 100%;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        padding-top: 1.5vh;
+        font-size: 14px; }
+        signal-extreme .box-content .content .environment .font:first-of-type {
+          padding-top: 0; }
+        signal-extreme .box-content .content .environment .font .img {
+          text-align: center; }
+          signal-extreme .box-content .content .environment .font .img img {
+            height: 4vh; }
+        signal-extreme .box-content .content .environment .font .font-value .left {
+          color: #ffffff; }
+        signal-extreme .box-content .content .environment .font .font-value .right {
+          color: #10ebf4; }
+        signal-extreme .box-content .content .environment .font .font-name {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap; }

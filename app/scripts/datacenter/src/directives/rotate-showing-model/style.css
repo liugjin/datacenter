@@ -1,0 +1,10 @@
+rotate-showing-model .flex {
+  display: flex; }
+
+rotate-showing-model .btn {
+  color: #A2CAF8;
+  font-size: 14px; }
+
+rotate-showing-model .little-box-highlight {
+  color: white;
+  background: #10ecf4b3; }

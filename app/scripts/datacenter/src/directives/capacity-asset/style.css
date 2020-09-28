@@ -1,0 +1,93 @@
+capacity-asset .big-box {
+  position: relative;
+  height: 51vh; }
+  capacity-asset .big-box .line-col {
+    position: absolute;
+    width: calc(100% - 1px);
+    margin-top: 20px;
+    height: calc(100% - 40px);
+    border-top: none;
+    border-bottom: none; }
+  capacity-asset .big-box .line-row {
+    position: absolute;
+    height: 100%;
+    margin-left: 20px;
+    width: calc(100% - 40px);
+    border-left: none;
+    border-right: none; }
+  capacity-asset .big-box .title-line {
+    width: 4px;
+    height: 20px;
+    background: #01a6ff;
+    float: left;
+    margin-top: 0.3rem; }
+  capacity-asset .big-box .subtitle {
+    position: absolute;
+    color: white;
+    right: 25px;
+    top: 2vh;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 8px;
+    background-color: rgba(1, 166, 255, 0.4); }
+  capacity-asset .big-box .box {
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    color: #e2edf2; }
+    capacity-asset .big-box .box .title-h2 {
+      font-size: 12px;
+      font-weight: 400;
+      margin-left: 0.5rem; }
+    capacity-asset .big-box .box .title {
+      display: inline;
+      text-align: left;
+      margin-left: 0.5rem;
+      color: white;
+      font-size: 20px;
+      font-weight: 600; }
+    capacity-asset .big-box .box .content {
+      height: 40vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around; }
+      capacity-asset .big-box .box .content .content-info {
+        display: block;
+        position: absolute;
+        left: 5vw; }
+      capacity-asset .big-box .box .content .content-logo {
+        position: absolute;
+        display: block;
+        width: 4vw;
+        text-align: center; }
+        capacity-asset .big-box .box .content .content-logo img {
+          width: 80%; }
+      capacity-asset .big-box .box .content .signal-name {
+        color: #2a89ee;
+        font-size: 12px; }
+      capacity-asset .big-box .box .content .signal-value {
+        color: #e2edf2;
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-top: 5px; }
+      capacity-asset .big-box .box .content .signal-unit {
+        font-size: .75rem; }
+      capacity-asset .big-box .box .content .progress {
+        position: relative;
+        height: 8px;
+        display: block;
+        width: 10vw;
+        background-color: #1A45A2;
+        border-radius: 0;
+        margin: .3rem 0 0 0;
+        overflow: hidden; }
+        capacity-asset .big-box .box .content .progress .determinate {
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          background: linear-gradient(90deg, #5597fc 0%, #7edfd7 100%);
+          -webkit-transition: width .3s linear;
+          transition: width .3s linear; }

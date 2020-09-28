@@ -1,0 +1,30 @@
+{
+  "id": "discovery-management",
+  "name": "设备自动发现管理组件",
+  "type": "DiscoveryManagementDirective",
+  "desc": {
+    "author": "David",
+    "comment": "根据模板定义匹配底端网关送上来的mu和su的id，匹配成功则提示发现新设备，可手动添加该设备进平台",
+    "version": {
+      "0.0.1": [
+        "通过filter参数指定组件要发现的具体设备类型、模板等范围内的设备，通过link参数指定点击设备详情时要跳转到的目标页面，不传时默认跳到monitoring页面",
+        "组件使用示例：discovery-mananger(controller='vm', parameters='{filter:{type:\"mv\"}}')"
+      ],
+      "0.0.2": [
+        "修复发现的采集单元设备状态呈现bug，采集单元的状态有监控单元和采集单元的状态共同决定"
+      ]
+    }
+  },
+  "group": "框架组件",
+  "parameters": [
+    {"id":"filter", "type":"json", "value":{}},
+    {"id":"link", "type":"string", "value":""}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.2"
+}

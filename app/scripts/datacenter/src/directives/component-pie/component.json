@@ -1,0 +1,38 @@
+{
+  "id": "component-pie",
+  "name": "ComponentPie控件",
+  "type": "ComponentPieDirective",
+  "desc": {
+    "author": "James",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.1": [
+        ],
+      "0.0.2": [
+        "增加饼图颜色参数----James"
+      ],
+      "0.0.3": [
+        "修改饼图数据标签样式,增加图例名称参数以及单击事件----James"
+      ],
+      "0.0.4": [
+        "调整饼图悬浮样式----James"
+      ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+    {"id":"centertitle","type":"String","value":"中心主题"},
+    {"id":"title","type":"String","value":"图例主题"},
+    {"id":"chartHeight","type":"String","value":"18vh"},
+    {"id":"piecolors","type":"Array","value":[]},
+    {"id":"chartValue","type":"Array","value":[]},
+    {"id":"legendNames","type":"Array","value":[]}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.4"
+}

@@ -1,0 +1,706 @@
+inventory-manage
+  a:focus
+    outline: none !important
+  .page-button
+    border: 1px solid rgba(0, 102, 255, 1)
+    border-radius: 0
+
+    i
+      margin-top: 6px
+  .text-align-left
+    text-align: left !important
+  .table-th-padding
+    padding-left: 0.75rem
+  .btn
+
+    font-size: 14px
+    height: 34px
+    line-height: 34px
+    border: 1px solid #10EBF4
+    border-radius: 0
+    background: rgba(26, 69, 162, 0.4) !important
+    color: #ffffff
+  .bgColo
+    background-color: rgba(26, 69, 162, 0.4) !important
+  .nav-top
+    display: block
+    .nav-li
+      list-style: none
+      font-size: 1rem
+      a
+        font-size: 1rem
+    .no-bg-color
+      background-color: transparent
+    .breadcrumb:before
+      color: #bdbdbd
+    .active-menu
+      border-bottom: 0 solid white
+  .eventpagination
+    position: absolute
+    bottom: 0.1rem
+    width: 100%
+    .pagination
+
+      li
+        height: 36px
+        border: 1px solid #0066ff
+        border-radius: 0
+      li.active
+        background-color: rgba(0, 102, 255, 0.4)
+        border: 1px solid #00d5ff
+      li a
+        color: white
+      i.material-icons
+        color: #00d5ff
+  .inventory
+    font-size: 14px
+    .pad-control
+      padding-right: 10px
+    .card
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.14)
+
+    .material-icons
+      font-family: "Material Icons", serif
+      font-weight: normal
+      font-style: normal
+      font-size: 24px
+      display: inline-block
+      line-height: 1
+      text-transform: none
+      letter-spacing: normal
+      word-wrap: normal
+      white-space: nowrap
+      direction: ltr
+      -webkit-font-smoothing: antialiased
+      text-rendering: optimizeLegibility
+      -moz-osx-font-smoothing: grayscale
+      font-feature-settings: "liga"
+    .nav-flex-grow
+      flex-grow: 1
+      a
+        box-shadow: none
+        padding: 0 1.1rem
+        margin-right: 1rem
+      img
+        width: 1.2rem
+        margin: 0 1rem .27rem 0
+        vertical-align: middle
+    .search-wrapper
+      display: inline-block
+      position: relative
+      width: 20%
+    .search-wrapper > i
+      position: absolute
+      font-size: 24px
+      top: 6px
+      left: 4px
+      color: rgba(187,215,242,1)
+    .search-wrapper .search-input
+      display: block
+      margin: 0
+      padding: 0 0 0 32px
+      width: 80%
+      height: 34px
+      line-height: 34px
+      font-size: 14px
+      border: 1px solid rgba(0,80,160,1) !important
+      color: rgba(187,215,242,1) !important
+    .search-wrapper input
+      border: 1px solid #0652a2
+      height: 18px
+    .search-input:focus
+      border: 1px solid #10ebf4
+      box-shadow: none
+    td
+      color: #ffffff
+    th input, td input
+      height: 2rem !important
+      margin: 0 !important
+      //border-bottom: 0 !important
+      text-align: center
+    th span
+      color: #e2edf2
+      font-weight: bold !important
+    .select-wrapper input.select-dropdown
+      margin: 0 auto
+      border-bottom: 0 solid #9e9e9e
+      text-align: center
+      height: 2rem
+      font-size: 14px
+    .select-wrapper .caret
+      fill: rgba(256, 256, 256, 1)
+    table
+      color: #ffffff
+      thead
+        tr
+          border: 0 !important
+          background-color: rgba(75,165,248,0.5) !important
+          height: 50px !important
+          line-height: 50px !important
+          th
+            font-size: 16px
+            color: rgba(226,237,242,1)
+            text-align: left !important
+            padding: 0 0 0 1rem
+            border-radius: 0 !important
+      tbody
+        tr:hover
+          background-color: rgba(75,165,248,0.4) !important
+        tr
+          padding: 0 !important
+          height: 50px !important
+          line-height: 50px !important
+          border: none !important
+        td
+          font-size: 14px
+          text-align: left !important
+          padding: 0 0 0 1rem
+          border-radius: 0 !important
+    .select-dropdown.dropdown-content li.selected
+      background-color: rgba(1, 166, 255, 0.65)
+
+    .invent-type
+      height: 84vh
+      background-color: rgba(26,69,162,0.4)
+      overflow: auto
+      .btn:hover
+        box-shadow: none !important
+      .type
+        margin-bottom: .6rem
+        background-color: rgba(26, 69, 162, .4)
+        height: 46px
+        border: none
+        a
+          color: #FFFFFF
+          line-height: 46px
+          text-align: left
+
+          .type-img
+            float: left
+            margin-right: .75rem
+
+            .img-bing
+              width: 25px
+              height: 46px
+              background-repeat: no-repeat
+
+            .img-type
+              //background-position: -123px -16px
+              background-position: -183px -16px
+            .img-type-active
+              background-position: -183px -16px
+
+          .type-count
+            color: #fff
+      .current-type
+        background-color: rgba(75,166,248,0.4) !important
+        //border: 1px solid #00E7EE
+        transition: .6s
+        border-radius: 0
+    .inventory-nav
+      padding: .75rem 0
+    .silver-line
+      height: 1px
+      background: #dbdee0
+    .invent-list
+      //border: 1px solid rgba(0,231,238,1)
+      background-color: rgba(26, 69, 162, 0.4)
+      height: 84vh
+      position: relative
+      .list-view
+        img
+          width: 1rem
+          text-align: center
+          margin: 0 0.5rem
+      .list-card
+        //padding: 0 8px 0 0
+        position: relative
+        .pad-left
+          padding-left: 0 !important
+        .pad-right
+          padding-right: 0 !important
+        .card
+          margin: 0
+          .card-image
+            .card-img-placeholder
+              height: 200px
+
+              .responsive-img
+                width: auto
+                margin: 0 auto
+              .default-img
+                width: auto
+                height: 100%
+                margin: 0 auto
+                background-position: center
+                background-repeat: no-repeat
+
+          .card-content
+            background-color: rgba(26, 69, 162, 0.4)
+            padding: 14px 20px 10px
+            .font-bold
+              font-weight: bold
+            .font-12
+              font-size: 12px
+            img
+              width: 1rem
+              text-align: center
+              margin: 0 0.5rem
+            span
+              text-align: center
+              font-size: 14px
+          .card-img-placeholder
+            background-color: transparent
+          .no-margin
+            margin: 0 !important
+          .card-padding
+            padding: 0 0 .75rem .75rem !important
+
+    .invent-detail
+      height: 77vh
+      overflow: auto
+      .invent-detail-body
+        .card-img-container
+          background-color: rgba(26,69,162,.4)
+          width: 342px
+          margin-right: 1rem
+      .m-icon-style
+        color: rgba(81,177,229,1)
+        font-size: 11px
+      .reference-img
+        border: 0
+        max-height: 260px
+        width: auto
+        margin: 0 auto
+      .basic-text
+        margin-left: 5px
+        font-size: 16px
+
+      .other-text
+        margin-left: 5px
+        font-size: 16px
+      .basic-bottom-line
+        width: 100%
+        height: 1px
+        margin-top: 10px
+        background: linear-gradient(90deg,rgba(0,80,160,1) 0%,rgba(0,80,160,1) 100%)
+    .inventory-edit-add
+      padding: 0 .75rem
+      background: rgba(26, 69, 162, 0.4)
+      height: 84vh
+      label
+        color: #e2edf2
+        font-size: 14px
+      .inventory-img
+        //height: 180px
+        height: 25vh
+        width: 340px
+        margin-right: 5rem
+        float: right
+        .img-uploader
+          height: 135px !important
+          width: 100% !important
+          border: 0
+          margin-top: 0.75rem
+          .nav-img
+            //padding: 0 25px
+            .img-title
+              line-height: 18px
+              margin-bottom: 10px
+            .img-uploader
+              display: block
+              width: 100%
+              height: 150px
+              border: 1px solid #0652a2
+              margin: 0
+              padding: 15px 0 15px 15px
+              .img-image
+                display: inline-block
+                width: 35%
+                height: 100%
+                border-right: 1px solid #0652a2
+                text-align: center
+                .img-none
+                  margin: 28px auto
+                  cursor: pointer
+                  img
+                    display: block
+                    width: 3rem
+                    height: 3rem
+                    margin: auto
+              .img-text-area
+                display: inline-block
+                width: 35%
+                height: 100%
+                border: 1px solid #0652a2
+                color: #e2edf2
+                resize: none
+
+              .img-btn
+                display: inline-block
+                width: 65%
+                height: 100%
+                vertical-align: top
+                .btn-flex
+                  margin: 33px auto
+                  text-align: center
+
+                  .nav-flex-grow
+                    display: inline-block
+
+                    a.btn
+                      margin: 0 .5rem
+                      padding: 0 0.5rem
+                      img
+                        margin: 0 0.5rem 0.27rem 0
+
+                    a.btn:focus
+                      background: rgba(8, 34, 104, 0.6)
+
+        .critical-model
+          height: 480px
+          margin: 1rem 0 0 0
+          .input-field
+            //border: 1px solid #e0e0e0
+            //border-radius: 5px
+            margin-top: 5px
+            .validate
+              height: 2rem
+              width: 100%
+              border-bottom: 0
+              text-align: center
+              margin: 0
+              font-size: 14px
+            .desc
+              background-color: transparent
+              border: none
+              outline: none
+              height: 34px
+
+      .inventory-right
+        padding: 0 0 0 .5rem
+        margin: 1rem 0 0 0
+
+        .inventory-right-pro
+          height: 675px
+          width: 100%
+
+          .inventory-right-table
+            height: 650px
+            overflow: auto
+            margin-top: 10px
+
+.label-fixed-icon
+  color: red
+.centered.machine-basic-infos
+  label
+    font-size: 14px
+  .label-text
+    text-align: left !important
+    padding-left: 1rem
+
+  .input-new-css
+    height: 40px !important
+    //padding-left: 15px !important
+    background-color: transparent !important
+    border: 1px solid rgba(0,80,160,1) !important
+    width: 21.25rem
+    float: left
+  input.valid:not([type]), input.valid:not([type]):focus, input.valid[type=text]:not(.browser-default), input.valid[type=text]:not(.browser-default):focus, input.valid[type=password]:not(.browser-default), input.valid[type=password]:not(.browser-default):focus, input.valid[type=email]:not(.browser-default), input.valid[type=email]:not(.browser-default):focus, input.valid[type=url]:not(.browser-default), input.valid[type=url]:not(.browser-default):focus, input.valid[type=time]:not(.browser-default), input.valid[type=time]:not(.browser-default):focus, input.valid[type=date]:not(.browser-default), input.valid[type=date]:not(.browser-default):focus, input.valid[type=datetime]:not(.browser-default), input.valid[type=datetime]:not(.browser-default):focus, input.valid[type=datetime-local]:not(.browser-default), input.valid[type=datetime-local]:not(.browser-default):focus, input.valid[type=tel]:not(.browser-default), input.valid[type=tel]:not(.browser-default):focus, input.valid[type=number]:not(.browser-default), input.valid[type=number]:not(.browser-default):focus, input.valid[type=search]:not(.browser-default), input.valid[type=search]:not(.browser-default):focus, textarea.materialize-textarea.valid, textarea.materialize-textarea.valid:focus, .select-wrapper.valid>input.select-dropdown
+    box-shadow: none !important
+    outline: none !important
+  tr
+    border: none !important
+  tbody
+    tr:hover
+      background-color: transparent !important
+    td
+      padding-top: 10px !important
+      padding-bottom: 0px !important
+      input
+        height: 40px !important
+        width: 21.25rem !important
+    .float-right-td
+      float: right
+      margin-right: 5rem
+    .float-left-td
+
+.equip-type-display
+  margin-top: 8px
+.other-right-table-basic
+  width: 44%
+  float: right
+  margin-right: 10.2rem
+.machine-basic-infos
+  .other-tbody-td-pad
+    padding-left: 28px
+  .input-new-css:focus
+    outline: none
+  .input-field
+    margin: 0
+    input
+      height: 40px !important
+      width: 21.25rem
+.left-table-width
+  width: 43%
+  float: left
+
+.right-table-width
+  width: 43.1%
+.table-margin-location
+  margin-left: 10px
+@media screen and (max-width: 1400px)
+  inventory-manage
+    .btn
+      font-size: 12px
+    .inventory .invent-type
+      height: 78vh
+      .type
+        overflow: hidden
+        height: 30px
+        a
+          line-height: 30px
+          .type-count
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+          .type-img
+            height: 30px
+            .img-type-active
+              background-position: -183px -23px
+            .img-type
+              background-position: -183px -23px
+    .inventory
+      table tbody td
+        font-size: 12px !important
+      .inventory-edit-add
+        height: 78vh
+        //overflow: auto
+      .inventory-edit-add .inventory-img
+        width: 280px
+        height: 20vh
+        margin-right: 0rem !important
+      .search-wrapper .search-input
+        padding-left: 24px
+      .invent-list
+        height: 78vh
+        .inventory-lists
+          overflow: auto
+        .list-card .card .card-image .card-img-placeholder
+          height: 140px
+          .responsive-img
+            top: 1.2rem
+      .invent-detail
+        height: 68vh
+        .invent-detail-body
+          .card-img-container
+            width: 259px
+            height: 135px
+        .left-table-width
+          width: 48% !important
+          tbody
+            tr td
+              padding-left: 4px !important
+          margin-right: 0 !important
+        .right-table-width
+          width: 42%
+        .other-right-table-basic
+          width: 49%
+          margin-right: 1.3rem
+          tbody
+            tr td
+              padding-left: 4px !important
+        .centered.machine-basic-infos
+          label
+            font-size: 12px
+          .other-tbody-td-pad
+            padding-left: 5px
+          .label-text
+            font-size: 12px
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+          thead
+            tr
+              line-height: 32px !important
+              height: 32px !important
+              th
+                overflow: hidden
+                text-overflow: ellipsis
+                white-space: nowrap
+                font-size: 12px !important
+                padding-left: 5px
+                //padding: 0 !important
+          tbody
+            .float-right-td
+              margin-right: 0px !important
+            tr
+              line-height: 32px !important
+              td
+                padding: 0
+
+                input
+                  width: 13.5rem !important
+                  height: 32px !important
+                  font-size: 12px !important
+      .right-basic-infos-table
+        margin-left: 2.3rem
+        tbody
+          .label-text
+            padding-left: 1rem !important
+            width: 23%
+      .list-view
+        .responsive-table
+          width: 150%
+          thead tr
+            height: 32px !important
+            line-height: 32px !important
+            th
+              font-size: 12px
+          tbody
+            tr
+              height: 32px !important
+              line-height: 32px !important
+              td
+                font-size: 12px
+
+    .eventpagination .pagination li
+      height: 32px
+      border: 1px solid #0066ff
+
+@media screen and (max-width: 1080px)
+  inventory-manage
+    .truncate
+      display: flex
+    .btn
+      font-size: 12px
+    .inventory .invent-type
+      height: 78vh
+      .type
+        overflow: hidden
+        height: 30px
+        a
+          line-height: 30px
+          .type-count
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+          .type-img
+            height: 30px
+            .img-type-active
+              background-position: -183px -23px
+            .img-type
+              background-position: -183px -23px
+    .inventory
+      table tbody td
+        font-size: 12px !important
+      .inventory-edit-add
+        height: 78vh
+        //overflow: auto
+      .inventory-edit-add .inventory-img
+        width: 280px
+        height: 20vh
+        margin-right: 0rem !important
+      .search-wrapper .search-input
+        padding-left: 24px
+      .invent-list
+        height: 78vh
+        .inventory-lists
+          overflow: auto
+        .list-card .card .card-image .card-img-placeholder
+          height: 140px
+          .responsive-img
+            top: 1.2rem
+      .invent-detail
+        height: 68vh
+        .invent-detail-body
+          .card-img-container
+            width: 259px
+            height: 135px
+        .left-table-width
+          width: 48% !important
+          tbody
+            tr td
+              padding-left: 4px !important
+          margin-right: 0 !important
+        .right-table-width
+          width: 42%
+        .other-right-table-basic
+          width: 49%
+          margin-right: 1.3rem
+          tbody
+            tr td
+              padding-left: 4px !important
+        .centered.machine-basic-infos
+          label
+            font-size: 12px
+          .other-tbody-td-pad
+            padding-left: 5px
+          .label-text
+            font-size: 12px
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+          thead
+            tr
+              line-height: 32px !important
+              height: 32px !important
+              th
+                overflow: hidden
+                text-overflow: ellipsis
+                white-space: nowrap
+                font-size: 12px !important
+                padding-left: 5px
+                //padding: 0 !important
+          tbody
+            .float-right-td
+              margin-right: 0px !important
+            tr
+              line-height: 32px !important
+              td
+                padding: 0
+
+                input
+                  width: 13.5rem !important
+                  height: 32px !important
+                  font-size: 12px !important
+      .right-basic-infos-table
+        margin-left: 2.3rem
+        tbody
+          .label-text
+            padding-left: 1rem !important
+            width: 23%
+      .list-view
+        .responsive-table
+          width: 150%
+          thead tr
+            height: 32px !important
+            line-height: 32px !important
+            th
+              font-size: 12px
+          tbody
+            tr
+              height: 32px !important
+              line-height: 32px !important
+              td
+                font-size: 12px
+
+    .eventpagination .pagination li
+      height: 32px
+      border: 1px solid #0066ff
+
+@media screen and (max-height: 900px)
+  inventory-manage .inventory .invent-list
+    height: 750px
+  inventory-manage .inventory .pad-control .invent-type
+    height: 750px
+  inventory-manage .inventory .invent-lists
+    height: calc(100% - 50px)
+
+@media screen and (max-height: 700px)
+  inventory-manage .inventory .invent-list
+    height: 640px
+  inventory-manage .inventory .pad-control .invent-type
+    height: 640px
+  inventory-manage .inventory .invent-lists
+    height: calc(100% - 50px)

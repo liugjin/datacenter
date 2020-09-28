@@ -1,0 +1,27 @@
+{
+  "id": "alarm-link",
+  "name": "告警通知控件",
+  "type": "AlarmLinkDirective",
+  "desc": {
+    "author": "Hardy",
+    "comment": "告警联动",
+    "version": {
+      "0.0.3": ["修复大量BUG以及样式调整"],
+      "0.0.4": ["[Billy]调整样式"],
+      "0.0.5": ["[Billy]调整样式"],
+      "0.0.6": ["[region]修改signal to string"],
+      "0.0.7": ["region-为选中对象新增是否存在判断"],
+      "0.0.8": ["region-save() 注释processors"],
+      "0.0.9": ["解决联动管理--新增，信息输入完整后，点击“保存”，会弹出“输入完成信息”弹窗的问题,为点击当前行增加背景色","@Albert"],
+      "0.0.10": ["解决联动管理--新增/编辑，搜索框显示不清楚的问题","@Albert"]
+    }
+  },
+  "group": "模块组件",
+  "parameters": [],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "css": ".col.l12",
+  "version": "0.0.10"
+}

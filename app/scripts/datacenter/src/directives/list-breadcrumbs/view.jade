@@ -1,0 +1,12 @@
+.row.col.s12.content
+    .col(ng-repeat="(index, item) in groupName")
+        a.dropdown-trigger(
+            data-target="{{ 'list' + index }}"
+            data-hover='true' 
+            md-dropdown 
+            title='切换'
+        ) {{item}}
+        span(ng-show="groupList[index + 1]") >
+        ul.dropdown-content(id="{{'list' + index}}")
+            li(ng-repeat="(index2, item2) in groupList[index]")
+                a(ng-click="change(item2, index)") {{item2.title}}

@@ -1,0 +1,8 @@
+.row(style="background-color: rgba(26, 69, 162, 0.4); padding-left: 24px; height: 64px")
+  list-breadcrumbs(controller="vm" parameters='{"data": treeData, "needChild":"true", "key": "station", stationId}')
+.row(style="background-color: rgba(26, 69, 162, 0.4); height: calc(100vh - 148px); width: calc(100% - 20px); margin: 10px;")
+  graphic-box(
+    style='width:100%; height: 100%;'
+    controller='vm'
+    parameters='{"templateId":station.model.graphic,"templateParameters":{"station":station.model.station},"noBorderStyle": true}'
+  ) 

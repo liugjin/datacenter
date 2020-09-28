@@ -1,0 +1,28 @@
+{
+  "id": "server-performanceinfo",
+  "name": "ServerPerformanceinfo控件",
+  "type": "ServerPerformanceinfoDirective",
+  "desc": {
+    "author": "James",
+    "comment": "服务器性能信息展示以及数据曲线趋势图",
+    "version": {
+      "0.0.1": ["创建"],
+      "0.0.2": ["更新列表字体样式"],
+      "0.0.3": ["css调整:右侧趋势图: 修改了tabs", "@youge"],
+      "0.0.4": ["css调整2:左侧信号列表: 增加了选中效果", "@youge"],
+      "0.0.5": ["增加信号切换时根据实际条件过滤、增加站点和设备", "@James"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+    {"id":"station","type":"string","value":"room"},
+    {"id":"equipment","type":"string","value":"server1"}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.5"
+}

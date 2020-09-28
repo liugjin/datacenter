@@ -1,0 +1,77 @@
+style.
+    video-reliable-dahua .btn-menu .button.active {
+        border:1px solid #00ff00;
+    }
+    video-reliable-dahua .video-list.active{
+        cursor: default !important;
+    }
+script(type='text/javascript', src='/lib/timebar/WebVideoCtrlDAHUA.js')
+
+.row(style="margin-bottom:0;height:93vh;")
+    .row.no-margin.whitesmoke-bg(style="margin-bottom:0;")
+        .col.s12(style="padding-right:0;padding-left:0")
+            nav.no-box-shadow(style='background-color: rgba(26, 69, 162, 0.4) !important;')
+                .nav-wrapper
+                    ul
+                        li(style="white-space:nowrap;width:auto;min-width:250px;")
+                            a.dropdown-trigger.grey-text-5(href='', data-target='datacenters', data-cover-trigger='false', data-hover='true', data-constrain-width='false', md-dropdown, title='{{datacenter.model.name}}' style="white-space:nowrap;width:auto;min-width:200px;")
+                                span {{datacenter.model.name}}
+                                i.material-icons.right-2 arrow_drop_down
+                        li
+                            span.grey-text-8 /
+                        li
+                            a.dropdown-trigger.grey-text-5(href='', data-target='stations', data-cover-trigger='false', data-hover='true', data-constrain-width='false', md-dropdown, title='{{station.model.name}}' style="min-width:200px;")
+                                i.material-icons.right-2 arrow_drop_down
+                                | {{station.model.name}}
+                    .right.btn-menu()
+                        .button.btn(ng-click="changeLayout(1)" title="1X1" ng-class="{'active': g_iWndNum==1}" style="background-color:transparent;")
+                            i.icon-wnd-1
+                        .button.btn(ng-click="changeLayout(4)" title="2X2" ng-class="{'active': g_iWndNum==4}" style="background-color:transparent;")
+                            i.icon-wnd-2
+                        .button.btn(ng-click="changeLayout(9)" title="3X3" ng-class="{'active': g_iWndNum==9}" style="background-color:transparent;")
+                            i.icon-wnd-3
+                        .button.btn(ng-click="changeLayout(16)" title="4X4" ng-class="{'active': g_iWndNum==16}" style="background-color:transparent;")
+                            i.icon-wnd-4
+            ul#datacenters.dropdown-content
+                li(ng-repeat='station in datacenters', ng-class='{active: station.key == station.key}')
+                    a(ng-href='', ng-click='selectDatacenter(station)')
+                        span {{station.model.name}}
+            div#stations.dropdown-content(style="overflow-y:hidden;overflow-x:hidden;width: auto;height:90vh; z-index:999999")
+                ul
+                    li
+                        a(ng-href='', ng-click='selectStation(datacenter)' )
+                            span {{datacenter.model.name}}
+                    li(ng-repeat='station in datacenter.stations.items')
+                        a(ng-href='', ng-click='selectStation(station)')
+                            span {{station.model.name}}
+                iframe(id="iframe1" scrolling="no" src="about:blank" frameBorder="0" marginHeight="0" marginWidth="0" style="position:absolute; visibility:inherit; top:0px;left:0px;width:auto; height:90vh;z-index:-1; filter:alpha(opacity=0);")
+    //        hik3-video(options='vm.gridOptions', controller='vm')
+    .row(style="height:86vh;")
+        // 摄像头列表 摄像头控制
+        .col.s12.m12.l2.ptz(style="height:86vh;padding:0;")
+            div(style="height:86vh;background-color:rgba(26, 69, 162, 0.4);")
+                div(style="width:100%;height:100%;padding:8px;")
+                    .search-box(title='搜索摄像头' style="padding: .75rem")
+                        input(type='search', ng-model='search', placeholder='摄像头名称', required)
+                        i.material-icons.search-icon search
+                        i.material-icons.close-icon(ng-click='search = ""', ng-show='search') close
+                    div.valign-wrapper.white-text
+                        img.modal-trigger(ng-src="{{videospng}}", style="width:30px;height:30px;margin-right:10px;")
+                        span(style="font-size:1rem;") 请选择摄像头
+
+                        //i.material-icons.right.modal-trigger(href="#video-modal", ng-click="createVideo()", title="新增摄像头", style="cursor:pointer") add
+                        //i.right.material-icons.modal-trigger(ng-show="nums[flag].model", href="#video-modal", ng-click="editVideo()", title="编辑摄像头", style="cursor:pointer") edit
+
+                    hr(style="border:none;border-top:1px solid #014C9A;height:0;margin-left:5px; margin-right:5px;")
+                    .list(style="height:72vh;overflow:auto").white-text
+                        div.video-list(ng-repeat='v in videos|filter:filterVideo', ng-click="viewstatus.indexOf(v)>=0 ? '': selectVideo(v, $index)", ng-class='{"active": viewstatus.indexOf(v)>=0}', style="padding:6px 10px;cursor:pointer;")
+                            .valign-wrapper
+                                img(ng-src="{{videopng}}", style="width:15px;height:20px;margin-right:10px;")
+                                span(style="font-size:0.9rem;font-family:Microsoft Yahei;",ng-style="{color: v.onlineflag ? '#e2edf2':'gray'}") {{v.model.name}}
+                                label(style="margin-left:20px;color:#0bbdca !important;" ng-if="viewstatus.indexOf(v)>=0") 播放中
+
+
+        .col.s12.m12.l10.videos#contentdiv(style="z-index:1;height:86vh;display:block;padding:0 !important;background-color:rgba(52,52,52,1);background-color:rgba(26, 69, 162, 0.4);max-height:820px !important;overflow:hidden;")
+
+            div.divPlugin.plugin(id='divPlugin' style="z-index:1 !important;background: rgba(0, 0, 0, 0.02);width:100vw;height:100vh;")
+

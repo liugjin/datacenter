@@ -1,0 +1,86 @@
+@import "/lib/jquery.fancytree/dist/skin-win8/ui.fancytree.css"
+ul.fancytree-container
+  border: 0 !important
+  padding: 10px
+
+  .fancytree-node
+    margin-top: 5px
+
+station-tree-with-count
+  .fancytree-container:focus
+    outline: none !important
+  .pad-control
+    padding-right: 10px !important
+  input
+    border: 1px solid transparent !important
+  input:not([type]):focus:not([readonly])
+
+    box-shadow: none
+  .fancytree-title
+    color: #fff !important
+    font-size: 14px
+  .filter
+    input
+      width: calc(100% - 38px)
+      margin: 0 !important
+      padding-left: 36px
+      font-size: 14px
+      color: #a2caf8
+station-tree-with-count .tree
+  margin-top: 0.65rem
+station-tree-with-count .icon
+  width: 1em
+  height: 1em
+  vertical-align: -.125em
+
+station-tree-with-count .filter
+  margin: 0
+  background-color: rgba(26, 69, 162, 0.4)
+  //margin-bottom: 2px
+  position: relative
+
+station-tree-with-count .filter>i
+  position: absolute
+  top: 2px
+  left: 0
+  font-size: 1.2rem
+  color: rgba(170,201,244,1)
+  height: 48px
+  line-height: 50px
+  padding-left: 10px
+
+
+station-tree-with-count
+  .filter>.delete
+    cursor: pointer
+    position: absolute
+    top: 0
+    right: 0px
+    padding: 0
+    width: 40px
+    font-size: 18px
+    height: 46px
+    line-height: 46px
+    color: #ef5350
+    font-size: 24px
+  .tree-style
+    margin-bottom: .75rem
+
+@media screen and (width: 1024px)
+  station-tree-with-count
+      //.ui-fancytree
+      //  ul
+      //    overflow: hidden !important
+    ul.fancytree-container
+      font-size: 12px
+    ul.fancytree-container ul
+      padding: 0
+    .fancytree-exp-el span.fancytree-expander
+      background-position: -36px -96px
+    span.fancytree-custom-icon
+      margin-left: -6px
+    span.fancytree-title
+      padding: 0
+      margin: 0
+      font-size: 12px
+

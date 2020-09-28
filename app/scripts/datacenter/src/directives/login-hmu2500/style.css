@@ -1,0 +1,139 @@
+body {
+  background-image: url("~img/bg.png~");
+  background-position-y: -48px; }
+
+login-hmu2500 .no-margin-bottom {
+  margin-bottom: 0;
+  padding: 0 20%; }
+
+login-hmu2500 .side-title {
+  text-align: center;
+  font-size: 30px;
+  color: #9ddfff;
+  margin-bottom: 2.7rem !important; }
+
+login-hmu2500 .cool-input {
+  color: #9ddfff;
+  border: 1px solid #9ddfff !important;
+  margin-bottom: 2.7rem !important;
+  width: calc(100% - 60px - 1.5rem) !important;
+  border-radius: 3px !important; }
+
+login-hmu2500 label {
+  color: #9ddfff; }
+
+login-hmu2500 input {
+  color: #9ddfff;
+  border: 1px solid #9ddfff !important;
+  padding: 0 0.75rem !important;
+  margin-bottom: 0 !important;
+  box-shadow: none !important;
+  height: 60px !important;
+  line-height: 60px !important; }
+
+login-hmu2500 .switch label .lever {
+  background-color: #1a45a2; }
+
+login-hmu2500 .switch label input[type=checkbox]:checked + .lever {
+  background-color: #1a45a2; }
+
+login-hmu2500 .switch label input[type=checkbox]:checked + .lever:after {
+  background-color: #01a6ff; }
+
+login-hmu2500 .bg-circle {
+  background-image: url("~img/circle.png~");
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%; }
+
+login-hmu2500 .container-footer {
+  width: 100%;
+  position: absolute;
+  bottom: 1vh;
+  color: #9ddfff;
+  font-size: 16px; }
+
+login-hmu2500 .login-button {
+  background-image: url("~img/login.png~");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  text-align: center;
+  height: 4rem;
+  line-height: 4rem;
+  cursor: pointer;
+  margin-bottom: 1rem; }
+
+login-hmu2500 .name-logo, login-hmu2500 .psw-logo {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #9ddfff;
+  margin-right: .75rem;
+  box-sizing: content-box; }
+
+login-hmu2500 .name-logo {
+  background-image: url("~img/name.png~");
+  background-repeat: no-repeat;
+  background-position: center; }
+
+login-hmu2500 .psw-logo {
+  background-image: url("~img/psw.png~");
+  background-repeat: no-repeat;
+  background-position: center; }
+
+login-hmu2500 .flex {
+  display: flex; }
+
+login-hmu2500 #tip-reset-password-modal {
+  width: 40%;
+  position: fixed;
+  top: 30% !important;
+  background-color: rgba(4, 18, 57, 0.9);
+  border: 1px solid #3573b6;
+  border-radius: 5px;
+  padding-top: 35px; }
+
+login-hmu2500 #forget-password-modal {
+  width: 40%;
+  position: fixed;
+  top: 30% !important;
+  background-color: rgba(4, 18, 57, 0.9);
+  border: 1px solid #3573b6;
+  border-radius: 5px;
+  padding-top: 47px; }
+  login-hmu2500 #forget-password-modal .input-user {
+    width: 70%;
+    margin: 0 auto; }
+    login-hmu2500 #forget-password-modal .input-user .user-tips {
+      font-size: 14px;
+      color: #AAC6DF;
+      padding-bottom: 55px; }
+    login-hmu2500 #forget-password-modal .input-user .user-text {
+      font-size: 16px;
+      padding-bottom: 20px; }
+    login-hmu2500 #forget-password-modal .input-user input {
+      color: #9ddfff;
+      border-radius: 3px;
+      height: 43px !important;
+      line-height: 43px !important;
+      margin-bottom: 20px !important; }
+  login-hmu2500 #forget-password-modal .modal-footer {
+    background-color: #0D2564;
+    padding: 0px;
+    font-size: 14px; }
+    login-hmu2500 #forget-password-modal .modal-footer .modal-confirm, login-hmu2500 #forget-password-modal .modal-footer .modal-cancel {
+      cursor: pointer; }
+    login-hmu2500 #forget-password-modal .modal-footer .icon-resetPassword, login-hmu2500 #forget-password-modal .modal-footer .icon-return {
+      display: inline-block;
+      margin-right: 5px;
+      width: 26px;
+      height: 26px;
+      background-repeat: no-repeat;
+      background-size: contain; }
+    login-hmu2500 #forget-password-modal .modal-footer .icon-resetPassword {
+      background-image: url("~img/resetPassword.svg~"); }
+    login-hmu2500 #forget-password-modal .modal-footer .icon-return {
+      background-image: url("~img/return.svg~"); }

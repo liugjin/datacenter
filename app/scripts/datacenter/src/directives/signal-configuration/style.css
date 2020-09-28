@@ -1,0 +1,85 @@
+signal-configuration .nav-top .btn-style.active {
+  background-color: rgba(0, 188, 212, 0.7); }
+
+signal-configuration .nav-top .btn-style {
+  margin-right: 0.75rem; }
+  signal-configuration .nav-top .btn-style .btn-sample, signal-configuration .nav-top .btn-style .btn-alarm, signal-configuration .nav-top .btn-style .btn-status {
+    margin-right: 5px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background-size: contain;
+    background-repeat: no-repeat; }
+  signal-configuration .nav-top .btn-style .btn-sample {
+    background-image: url("~image/sample.svg~"); }
+  signal-configuration .nav-top .btn-style .btn-alarm {
+    background-image: url("~image/alarm.svg~"); }
+  signal-configuration .nav-top .btn-style .btn-status {
+    background-image: url("~image/status.svg~"); }
+
+signal-configuration .configuration-left {
+  width: 17%; }
+  signal-configuration .configuration-left device-tree-single {
+    width: 100%; }
+    signal-configuration .configuration-left device-tree-single .tree {
+      height: 78.3vh !important; }
+
+signal-configuration .configuration-right {
+  width: 83%;
+  height: 84.5vh;
+  padding: 0.75rem !important;
+  background-color: rgba(26, 69, 162, 0.4); }
+  signal-configuration .configuration-right .configuration-header .search-wrapper {
+    display: inline-block;
+    position: relative; }
+    signal-configuration .configuration-right .configuration-header .search-wrapper i {
+      position: absolute;
+      font-size: 1.2rem;
+      left: 8px;
+      line-height: 38px;
+      color: #a2caf8; }
+    signal-configuration .configuration-right .configuration-header .search-wrapper .search-input {
+      display: block;
+      margin: 0;
+      padding: 0 0 0 32px;
+      width: 80%;
+      height: 34px;
+      font-size: 14px;
+      color: #a2caf8;
+      line-height: 34px; }
+  signal-configuration .configuration-right .configuration-header .text-position {
+    position: relative;
+    bottom: 4px;
+    padding-right: 4px; }
+  signal-configuration .configuration-right .configuration-main {
+    position: relative;
+    overflow: auto;
+    height: 79.5vh;
+    padding-top: 1vh; }
+    signal-configuration .configuration-right .configuration-main table.table-sample {
+      min-width: 1570px; }
+    signal-configuration .configuration-right .configuration-main table.table-status {
+      min-width: 1092px; }
+    signal-configuration .configuration-right .configuration-main table thead {
+      background: rgba(75, 165, 248, 0.5); }
+      signal-configuration .configuration-right .configuration-main table thead th {
+        text-align: center; }
+    signal-configuration .configuration-right .configuration-main table td {
+      text-align: center; }
+    signal-configuration .configuration-right .configuration-main table tbody tr:nth-child(2n) {
+      background-color: rgba(37, 70, 156, 0.4); }
+    signal-configuration .configuration-right .configuration-main table tbody tr:hover {
+      background-color: rgba(3, 166, 255, 0.3); }
+    signal-configuration .configuration-right .configuration-main table input {
+      width: 75%;
+      text-indent: 0.75rem; }
+    signal-configuration .configuration-right .configuration-main table [type="checkbox"] + span:not(.lever) {
+      margin-left: 0.75rem; }
+    signal-configuration .configuration-right .configuration-main table [type="checkbox"].filled-in:not(:checked) + span:not(.lever):after {
+      border: 2px solid #ffffff; }
+    signal-configuration .configuration-right .configuration-main table .select-dropdown {
+      margin: 0 auto 8px auto;
+      width: 60%; }
+    signal-configuration .configuration-right .configuration-main table .caret {
+      right: 25%; }

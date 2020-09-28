@@ -1,0 +1,142 @@
+
+notification
+  .btn
+    margin-left: .75rem
+    font-size: 14px
+    height: 34px
+    line-height: 34px
+    border: 1px solid #10EBF4
+    border-radius: 0px
+    background: rgba(26,69,162,0.4) !important
+    color: #ffffff
+
+  label
+    color: #ffffff !important
+
+  .row
+    margin-bottom: 0 !important
+
+  [type="checkbox"]+span:not(.lever)
+    font-size: 14px
+
+  [type="checkbox"]:checked+span:not(.lever):before
+    border-right: 2px solid #03a8ff
+    border-bottom: 2px solid #03a8ff
+
+  [type="checkbox"]+span:not(.lever):before, [type="checkbox"]:not(.filled-in)+span:not(.lever):after
+    border: 2px solid #00d5ff
+
+  [type="radio"]:not(:checked)+span:before, [type="radio"]:not(:checked)+span:after
+    border: 2px solid #CDD2D4
+
+  [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after
+    border: 2px solid #00ac4c
+
+  [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:after
+    background-color: #00AC4C
+
+  [type="checkbox"].filled-in:not(:checked)+span:not(.lever):after
+    border: 2px solid rgba(205,210,212,1)
+    top: 2px
+
+  [type="checkbox"].filled-in:checked+span:not(.lever):after
+    background: rgba(0,172,76,1)
+    border: 2px solid rgba(0,172,76,1)
+    top: 2px
+
+  [type="checkbox"].filled-in:checked+span:not(.lever):before
+    top: 2px
+
+  //[type="checkbox"]+span:not(.lever):before, [type="checkbox"]:not(.filled-in)+span:not(.lever):after
+  //  width: 20px
+  //  height: 20px
+  //[type="checkbox"].filled-in:checked+span:not(.lever):after
+  //  background-color: #03a8ff
+  //  border: 2px solid #03a8ff
+
+  .cool-title
+    background-color: rgba(1,166,255,0.65)
+    color: #ffffff
+    padding: 10px
+    margin-top: 10px
+
+    label span
+      padding-left: 25px !important
+
+  .cool-content
+    height: 220px
+    overflow-y: auto
+    //margin-top: 10px
+    padding: 0 10px
+    background: rgba(26, 69, 162, 0.4)
+    //border: 1px solid #00d5ff
+    //box-shadow: 0 0 10px #00d5ff inset , 0 0 10px #00d5ff
+    p
+      margin: 15px 10px
+    p label span
+      color: #ffffff !important
+
+  .cool-content-inside
+    background-color: rgba(26, 69, 162, 0.4)
+
+  .type-style
+    //background-color: rgba(26, 69, 162, 0.8) !important
+    background-color: rgba(26, 69, 162, 0.4) !important
+
+  .nav
+    margin-top: 10px
+    background-color: #26a69a
+
+  .cardMiddle
+    height: 280px
+    overflow-y: auto
+
+  .cardRight
+    height: 280px
+    overflow-y: auto
+
+  .card
+    height: 220px
+    margin: 0 !important
+
+  .card-panel
+    height: 280px
+    overflow-y: auto
+    background-color: rgba(26, 69, 162, 0.4) !important
+    padding: 0 !important
+
+    p
+      padding: 0 10px
+
+    label
+      color: #ffffff !important
+
+  .card-image
+    height: 160px !important
+
+    img
+      width: 60px !important
+      margin: 0 auto !important
+      padding-top: 45px !important
+
+
+  .card-action
+    text-align: center !important
+    background-color: transparent !important
+
+    label
+      span
+        color: #ffffff !important
+
+  .card .card-action
+    border-top: none !important
+    padding: 0 !important
+
+@media screen and (width: 1024px)
+  notification
+    .card
+      height: 174px
+    .cool-content
+      height: 174px
+    .card-image
+      height: 140px !important

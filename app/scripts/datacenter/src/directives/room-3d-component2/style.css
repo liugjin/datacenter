@@ -1,0 +1,89 @@
+room-3d-component2 .canvas-div {
+  width: 100%;
+  height: 100%; }
+
+room-3d-component2 .tooltip {
+  position: absolute;
+  z-index: 10;
+  border: 1px solid skyblue;
+  padding: 2px 5px;
+  background-color: rgba(26, 69, 162, 0.4);
+  font-size: 14px; }
+
+room-3d-component2 .rotate-icon {
+  width: 32px;
+  height: 15px;
+  float: right;
+  z-index: 99;
+  position: absolute;
+  bottom: 10px;
+  right: 24px;
+  cursor: pointer; }
+
+room-3d-component2 .tip-process {
+  top: -50vh;
+  position: relative; }
+  room-3d-component2 .tip-process .loading-css {
+    z-index: 100;
+    position: relative;
+    height: 0;
+    width: 260px;
+    left: calc(50% - 130px);
+    top: calc(50% - 1rem); }
+    room-3d-component2 .tip-process .loading-css .loading-border {
+      height: calc(2rem + 2px);
+      width: 360px;
+      padding: 0.3rem 1px;
+      border: 2px solid #00bfff;
+      border-radius: 1rem;
+      position: relative;
+      overflow: hidden; }
+      room-3d-component2 .tip-process .loading-css .loading-border .loading-process {
+        left: -100%;
+        position: relative;
+        background: repeating-linear-gradient(-60deg, transparent, transparent 0.5rem, #aaf7ff 0, #aaf7ff 1rem);
+        height: calc(1.4rem - 3px);
+        border-radius: 1rem;
+        color: #aaf7ff; }
+
+room-3d-component2 .box-signal {
+  position: absolute;
+  z-index: 8;
+  font-size: 12px;
+  border: 1px solid skyblue;
+  padding: 2px;
+  background-color: rgba(26, 69, 162, 0.8); }
+  room-3d-component2 .box-signal .content {
+    display: flex; }
+    room-3d-component2 .box-signal .content .name::after {
+      content: ":"; }
+
+room-3d-component2 .detail-signal {
+  position: absolute;
+  z-index: 10;
+  width: 180px;
+  font-size: 14px; }
+  room-3d-component2 .detail-signal .title {
+    padding: 5px;
+    background-color: rgba(26, 69, 162, 0.8); }
+    room-3d-component2 .detail-signal .title span {
+      cursor: pointer;
+      float: right;
+      margin-right: 12px; }
+    room-3d-component2 .detail-signal .title span::after {
+      content: "X"; }
+  room-3d-component2 .detail-signal .content {
+    max-height: 155px;
+    overflow-y: auto;
+    overflow-x: hidden; }
+    room-3d-component2 .detail-signal .content .content-item {
+      display: flex;
+      padding: 5px;
+      background-color: rgba(26, 69, 162, 0.4); }
+      room-3d-component2 .detail-signal .content .content-item .name {
+        width: 100px; }
+      room-3d-component2 .detail-signal .content .content-item .name::after {
+        content: ":"; }
+      room-3d-component2 .detail-signal .content .content-item .value {
+        width: 70px;
+        cursor: pointer; }

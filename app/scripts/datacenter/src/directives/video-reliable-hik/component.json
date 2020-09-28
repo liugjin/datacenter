@@ -1,0 +1,27 @@
+{
+  "id": "video-reliable-hik",
+  "name": "VideoReliableHik控件",
+  "type": "VideoReliableHikDirective",
+  "desc": {
+    "author": "",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.1": ["region--初始化"],
+        "0.0.2": ["region--重构播放逻辑控制模块"],
+        "0.0.3": ["region--加入search框"],
+        "0.0.4": ["region--解决object挡住站点菜单"],
+        "0.0.5": ["region--华为摄像头不做在线与否判断"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.5"
+}

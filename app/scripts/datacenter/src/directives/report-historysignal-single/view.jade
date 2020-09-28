@@ -1,0 +1,61 @@
+.row.nav-top
+    .col.l2.header-left
+        span 历史数据
+        .show-mode
+            .btn.show-mode-list(ng-click="switchView(false)") 列表
+            .btn.show-mode(ng-click="switchView(true)") 图表
+    .col.l10
+        nav
+            .col.nav-wrapper.nav-wrap-container
+                ul.left
+                    li(ng-show='signals.length')
+                        .custom-checkout-box( data-hover='true',ng-mouseenter="signalShow=true",ng-mouseleave="signalShow=false", title='切换信号')
+                            .checkout-name 信号选择
+                            .checkout-triangle ▼
+                    li(ng-hide="signals.length")
+                        a.img-box(title='选设备切换数据点')
+                            img(ng-src="{{getComponentPath('img/list.png')}}")
+                            | 数据列表
+                    ul.signal-box(ng-show="signalShow",ng-mouseenter="signalShow=true",ng-mouseleave="signalShow=false")
+                        li.signal-list.repeat-label(ng-repeat='sig in signals')
+                            md-checkbox(
+                                id='role-{{sig.key}}',
+                                label='{{sig.model.name}}',
+                                ng-model='sig.checked',
+                                ng-change="selectSignal(sig)"
+                                with-gap=false,
+                                filled-in=true
+                            )
+
+            .col.right
+              report-query-time-single.report-query-time.left(controller='controller',parameters='{}')
+              .right-wrapper-box.left
+                  ul
+                      li(style="margin-right:10px;")
+                          .btn.standard-report-btn(ng-click='queryReport()', title='查询')
+                              span.hide-on-med-and-down 查询
+                      li
+                          .btn.standard-report-btn(ng-click='exportReport(headers,garddatas,reportName)', title='导出')
+                              span.hide-on-med-and-down 导出
+
+.row
+    device-tree-single.col.tree-style.device-tree(controller='controller',parameters='{"checkbox":false,"filter":true,"reportName":"历史数据"}')
+    .col.grid-table-contaner
+        .row(ng-show="view", style="min-width:900px")
+            bar-or-line-single.bar(controller='controller', parameters='{barlinevalue:barlinevalue,"height":"78.8vh","title":"","type":"barLB","xname":"（时间轴）","mutilcolorflag":false,"hidxaxislineshow":true,"hidyaxislineshow":true,"hidxaxislabel":false,"hidyaxislabel":false,"leghidflag":true,"graphcolor":"#fff"}')
+        .row(ng-show='!view' style="min-width:900px")
+            grid-table.grid-table( controller='controller',parameters='{header:headers,data:garddatas}')
+            .col.l12.eventpagination
+                .valign-wrapper
+                    div(style="margin: 0 auto;")
+                        ul.pagination.center(ng-show='pagination.pageCount > 1')
+                            li.page-button(ng-class='{disabled: pagination.page <= 1, "waves-effect": pagination.page > 1}', ng-click='queryPage(selectedPage - 1)')
+                                a(href='')
+                                    img(ng-src="{{getComponentPath('img/left.svg')}}",width="14px",height="14px")
+                            li.page-button(ng-class='{active: selectedPage == page, "waves-effect": page != pagination.page}', ng-repeat='page in pagination.pages', ng-click='queryPage(page)')
+                                a(href='')
+                                    | {{(($index == 1 && pagination.page > 4)||($index == pagination.pages.length-2 && pagination.page < pagination.pageCount-3)) ? "..":page}}
+                            li.last.page-button(ng-class='{disabled: pagination.page >= pagination.pageCount, "waves-effect": pagination.page < pagination.pageCount}', ng-click='queryPage(selectedPage + 1)')
+                                a(href='')
+                                    img(ng-src="{{getComponentPath('img/right.svg')}}",width="14px",height="14px")
+

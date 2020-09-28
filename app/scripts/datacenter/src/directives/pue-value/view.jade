@@ -1,0 +1,4 @@
+div
+    p.gray-text(style="font-size:0.8em;margin:0;") 单日PUE
+    div.flex
+        div.box.white-text.din-font(ng-repeat="num in parameters.value.split('') track by $index",ng-style="num=='.'?{padding:0}:{'background-color':parameters.backgroundColor}") {{num}}

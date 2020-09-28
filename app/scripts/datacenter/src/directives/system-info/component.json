@@ -1,0 +1,26 @@
+{
+  "id": "system-info",
+  "name": "Hmu2500系统信息组件",
+  "type": "SystemInfoDirective",
+  "desc": {
+    "author": "murray",
+    "comment": "实现了显示系统信息，升级日志，本地页面升级，依赖于服务升级",
+    "version": {
+      "0.0.1": ["实现了显示系统信息，升级日志，本地页面升级，依赖于服务升级@Murray"],
+      "0.0.2": ["修改去掉告警通知的bug"],
+      "0.0.3": ["修改bug，整加升级提示"]
+    }
+  },
+  "keywords":"系统信息,升级日志,本地页面升级",
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.3"
+}

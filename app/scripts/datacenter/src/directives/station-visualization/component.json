@@ -1,0 +1,31 @@
+{
+  "id": "station-visualization",
+  "name": "StationVisualization控件",
+  "type": "StationVisualizationDirective",
+  "desc": {
+    "author":"Billy",
+    "desc":"管网图组件",
+    "version":{
+      "0.0.1":[
+        "根据项目菜单配置生成左侧菜单，菜单显示项根据当前用户的模块访问权限确定"
+      ],
+      "0.0.2":[
+        "页面集成","@Billy"
+      ],
+      "0.0.3":[
+        "修改deps@Billy"
+      ]
+    }
+  },
+  "group": "页面组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": ["selectStation"]
+  },
+  "deps":["visualization-tree","graphic-box"],
+  "css": "",
+  "version": "0.0.3"
+}

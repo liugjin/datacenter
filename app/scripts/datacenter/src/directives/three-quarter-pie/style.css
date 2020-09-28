@@ -1,0 +1,7 @@
+three-quarter-pie {
+  display: block; }
+  three-quarter-pie .pie-charts {
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+    height: 31.7vh; }

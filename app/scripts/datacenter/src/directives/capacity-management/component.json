@@ -1,0 +1,40 @@
+{
+  "id": "capacity-management",
+  "name": "容量管理控件",
+  "type": "CapacityManagementDirective",
+  "desc": {
+    "author":"Billy",
+    "desc":"艾特容量管理组件",
+    "version": {
+      "0.0.1": [
+        "[Billy]发布组件,根据不同的信号展示相关资产容量信息"
+      ],
+      "0.0.2": [
+        "[Billy]修复没有信息的bug,增加默认状态"
+      ],
+      "0.0.3": [
+        "[Billy]默认高度"
+      ],
+      "0.0.4": [
+        "[Billy]修改取值逻辑，减少耦合"
+      ],
+      "0.0.5": [
+        "[Billy]切换站点时置空订阅"
+      ],
+      "0.0.6":["[hardy]切换站点时清除旧数据"],
+      "0.0.7": [
+        "[Hardy]解决订阅空对象导致的性能问题"
+      ]
+    }
+  },
+  "group": "站点组件",
+  "parameters": [
+    {"id":"stationId","type":"string","value":"host-room"}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "css": "",
+  "version": "0.0.7"
+}

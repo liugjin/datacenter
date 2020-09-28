@@ -1,0 +1,24 @@
+{
+  "id": "finish-alarm",
+  "name": "FinishAlarm控件",
+  "type": "FinishAlarmDirective",
+  "desc": {
+    "author": "Mackie",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.1": ["查询告警记录表告警记录,可传单个和多个, 单个=> type:confirm, 多个=> type:confirm start "],
+        "0.0.2": ["去除打印"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.2"
+}

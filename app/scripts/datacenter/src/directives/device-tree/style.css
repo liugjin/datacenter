@@ -1,0 +1,60 @@
+@import url(/lib/jquery.fancytree/dist/skin-win8/ui.fancytree.css);
+ul.fancytree-container {
+  border: 0 !important;
+  padding: 10px; }
+  ul.fancytree-container .fancytree-node {
+    margin-top: 5px; }
+
+device-tree input:not([type]):focus:not([readonly]) {
+  box-shadow: none; }
+
+device-tree .fancytree-container:focus {
+  outline: none !important; }
+
+device-tree .fancytree-title {
+  color: #fff !important;
+  font-size: 14px; }
+
+device-tree .filter input {
+  width: calc(100% - 38px);
+  margin: 0 !important;
+  padding-left: 36px;
+  font-size: 14px;
+  color: #a2caf8 !important; }
+
+device-tree .icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -.125em; }
+
+device-tree .filter {
+  margin: 0;
+  background-color: rgba(26, 69, 162, 0.4);
+  margin-bottom: 2px;
+  position: relative; }
+
+device-tree .filter > i {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  color: #aac9f4 !important;
+  font-size: 1.2rem;
+  height: 48px;
+  line-height: 50px;
+  padding-left: 10px; }
+
+device-tree .filter > .delete {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0px;
+  padding: 0;
+  width: 40px;
+  font-size: 18px;
+  height: 46px;
+  line-height: 46px;
+  color: #ef5350;
+  font-size: 24px; }
+
+device-tree .tree-style {
+  margin-bottom: .75rem; }

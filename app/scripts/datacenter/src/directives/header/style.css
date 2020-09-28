@@ -1,0 +1,43 @@
+header .cool-header {
+  position: fixed;
+  background-color: #0a1c41 !important;
+  border-bottom: 1px solid;
+  border-image: linear-gradient(to right, transparent, #00e7ef, transparent) 10 100 10;
+  z-index: 9999; }
+
+header .logo-img2 {
+  max-width: 150px;
+  height: 46px;
+  margin-top: 9px; }
+
+header .notify {
+  position: absolute;
+  display: inline;
+  left: 45%;
+  top: 32%;
+  z-index: 9999;
+  background: rgba(26, 69, 162, 0.9);
+  width: auto;
+  padding: 20px 65px;
+  margin: 3% 12px;
+  border: 1px solid #1f292d; }
+  header .notify .title {
+    text-align: center; }
+    header .notify .title .text-content {
+      font-size: 16px;
+      font-family: PingFang SC;
+      font-weight: 600;
+      color: #e84968;
+      width: calc(100% - 24px);
+      float: left; }
+    header .notify .title .text-icon {
+      cursor: pointer;
+      width: 24px;
+      float: left; }
+  header .notify .list-item:frist {
+    text-align: center;
+    height: 64px; }
+  header .notify .list-item {
+    font-size: 14px;
+    font-family: PingFang SC;
+    font-weight: 400; }

@@ -1,0 +1,439 @@
+.asset-detail-box
+    //- ****************************************设备详情****************************************
+    .asset-detail-info(ng-show="detailShow")
+        //- 搜索栏
+        .col.s12.m12.l12.asset-detail-nav
+            .assets-detail-btn(ng-click="publishBack()")
+                i.icon-back
+                span 返回
+            .assets-detail-btn(ng-click="editData(equipment)")
+                i.icon-edit
+                span 编辑
+            .right.asset-detail-search
+                i.material-icons.zoom search
+                input.search-input(type="text" placeholder="搜索" ng-model="searchDetail" required)
+                i.material-icons.empty(ng-click="searchDetail = '';" ng-show='searchDetail') close
+
+        .col.s10.m10.l10.asset-detail-list
+            .asset-list-header.col.s12.m12.l12(tabindex="300" anchor="基本信息")
+                i.icon-circle
+                span 基本信息
+            .asset-list-main.col.s12.m12.l12
+                ul.col.s12.m12.l12
+                    li.col.s6.m6.l6.asset-list
+                        .card-image.col.s9.m9.l9.no-padding
+                            .card-img-placeholder
+                                img.reference-img(ng-if='equipment.model.image', ng-src='{{setting.urls.uploadUrl}}/{{equipment.model.image}}')
+                    li.col.s6.m6.l6.asset-list
+                        .asset-list-text.col.s3.m3.l3 设备类型:
+                        .asset-list-info.col.s9.m9.l9 {{equipment.model.typeName}}
+                    li.col.s6.m6.l6.asset-list
+                        .asset-list-text.col.s3.m3.l3 设备厂商:
+                        .asset-list-info.col.s9.m9.l9 {{equipment.model.vendorName}}
+                    li.col.s6.m6.l6.asset-list
+                        .asset-list-text.col.s3.m3.l3 设备模板:
+                        .asset-list-info.col.s9.m9.l9 {{equipment.model.templateName}}
+                    li.col.s6.m6.l6.asset-list
+                        .asset-list-text.col.s3.m3.l3 设备名称:
+                        .asset-list-info.col.s9.m9.l9 {{equipment.model.name}}
+                    li.col.s6.m6.l6.asset-list
+                        .asset-list-text.col.s3.m3.l3 资产状态:
+                        .asset-list-info.col.s9.m9.l9 {{equipment.model.enable ? "有效" : "无效"}}
+                    li.col.s6.m6.l6.asset-list
+                        .asset-list-text.col.s3.m3.l3 资产编号:
+                        .asset-list-info.col.s9.m9.l9 {{equipment.model.tag}}
+                    li.col.s6.m6.l6.asset-list
+                        .asset-list-text.col.s3.m3.l3 负责人:
+                        .asset-list-info.col.s9.m9.l9 {{equipment.model.owner}}
+                    li.col.s6.m6.l6.asset-list
+                        .asset-list-text.col.s3.m3.l3 上级设备:
+                        .asset-list-info.col.s9.m9.l9 {{equipment.model.parent}}
+                    li.col.s6.m6.l6.asset-list(ng-repeat="sampleunit in equipment.sampleUnits")
+                        .asset-list-text.col.s3.m3.l3 {{sampleunit.name}}
+                        .asset-list-info.col.s9.m9.l9 {{sampleunit.value || '--'}}
+            .asset-list-header.col.s12.m12.l12(tabindex="301" anchor="位置信息" ng-show="sizeInfo.length>0")
+                i.icon-circle
+                span 位置信息
+            .asset-list-main.col.s12.m12.l12(ng-show="sizeInfo.length>0")
+                ul.col.s12.m12.l12
+                    li.col.s6.m6.l6.asset-list
+                        .asset-list-text.col.s3.m3.l3 所在机房:
+                        .asset-list-info.col.s9.m9.l9 {{equipment.model.stationName}}
+                    li.col.s6.m6.l6.asset-list(ng-repeat="item in sizeInfo | filter: filterProperties() | orderBy: equipment.properties.predicate:true" ng-switch="item.model.dataType")
+                        .asset-list-text.col.s3.m3.l3 {{item.model.name}}:
+                        .card-image.col.s9.m9.l9.no-padding(ng-switch-when="image")
+                            .card-img-placeholder
+                                img.reference-img(ng-if='item.value', ng-src='{{setting.urls.uploadUrl}}/{{item.value}}')
+                        .asset-list-info.col.s9.m9.l9(ng-switch-when="enum") {{item.model.value}}
+                        .asset-list-info.col.s9.m9.l9(ng-switch-when='date') {{item.value | date: 'yyyy-MM-dd'}}
+                        .asset-list-info.col.s9.m9.l9(ng-switch-default) {{item.value}}
+
+            .asset-list-header.col.s12.m12.l12(tabindex="302" anchor="维保信息" ng-show="maintenanceInfo.length>0")
+                i.icon-circle
+                span 维保信息
+            .asset-list-main.col.s12.m12.l12(ng-show="maintenanceInfo.length>0")
+                ul.col.s12.m12.l12
+                    li.col.s6.m6.l6.asset-list(ng-repeat="item in maintenanceInfo | filter: filterProperties() | orderBy: equipment.properties.predicate:true" ng-switch="item.model.dataType")
+                        .asset-list-text.col.s3.m3.l3 {{item.model.name}}:
+                        .card-image.col.s9.m9.l9.no-padding(ng-switch-when="image")
+                            .card-img-placeholder
+                                img.reference-img(ng-if='item.value', ng-src='{{setting.urls.uploadUrl}}/{{item.value}}')
+                        .asset-list-info.col.s9.m9.l9(ng-switch-when="enum") {{item.model.value}}
+                        .asset-list-info.col.s9.m9.l9(ng-switch-when='date') {{item.value | date: 'yyyy-MM-dd'}}
+                        .asset-list-info.col.s9.m9.l9(ng-switch-default) {{item.value}}
+            .asset-list-header.col.s12.m12.l12(tabindex="303" anchor="使用信息" ng-show="useInfo.length>0")
+                i.icon-circle
+                span 使用信息
+            .asset-list-main.col.s12.m12.l12(ng-show="useInfo.length>0")
+                ul.col.s12.m12.l12
+                    li.col.s6.m6.l6.asset-list(ng-repeat="item in useInfo | filter: filterProperties() | orderBy: equipment.properties.predicate:true" ng-switch="item.model.dataType")
+                        .asset-list-text.col.s3.m3.l3 {{item.model.name}}:
+                        .card-image.col.s9.m9.l9.no-padding(ng-switch-when="image")
+                            .card-img-placeholder
+                                img.reference-img(ng-if='item.value', ng-src='{{setting.urls.uploadUrl}}/{{item.value}}')
+                        .asset-list-info.col.s9.m9.l9(ng-switch-when="enum") {{item.model.value}}
+                        .asset-list-info.col.s9.m9.l9(ng-switch-when='date') {{item.value | date: 'yyyy-MM-dd'}}
+                        .asset-list-info.col.s9.m9.l9(ng-switch-default) {{item.value}}
+            .asset-list-header.col.s12.m12.l12(tabindex="304" anchor="其他信息" ng-show="otherInfo.length>0")
+                i.icon-circle
+                span 其他信息
+            .asset-list-main.col.s12.m12.l12(ng-show="otherInfo.length>0")
+                ul.col.s12.m12.l12
+                    li.col.s6.m6.l6.asset-list(ng-repeat="item in otherInfo | filter: filterProperties() | orderBy: equipment.properties.predicate:true" ng-switch="item.model.dataType")
+                        .asset-list-text.col.s3.m3.l3 {{item.model.name}}:
+                        .card-image.col.s9.m9.l9.no-padding(ng-switch-when="image")
+                            .card-img-placeholder
+                                img.reference-img(ng-if='item.value', ng-src='{{setting.urls.uploadUrl}}/{{item.value}}')
+                        .asset-list-info.col.s9.m9.l9(ng-switch-when="enum") {{item.model.value}}
+                        .asset-list-info.col.s9.m9.l9(ng-switch-when='date') {{item.value | date: 'yyyy-MM-dd'}}
+                        .asset-list-info.col.s9.m9.l9(ng-switch-default) {{item.value}}
+    //- ****************************************编辑页面****************************************
+    .asset-detail-edit(ng-show="editShow")
+        .col.s12.m12.l12.asset-detail-nav
+            .assets-detail-btn(ng-click="publishBack()")
+                i.icon-back
+                span 返回
+            .assets-detail-btn(ng-click="lookData()")
+                i.icon-look
+                span 查看
+            .right.asset-detail-search
+                i.material-icons.zoom search
+                input.search-input(type="text" placeholder="搜索" ng-model="searchEdit" required)
+                i.material-icons.empty(ng-click="searchEdit = '';" ng-show='searchEdit') close
+
+        .col.s10.m10.l10.asset-detail-list
+            .asset-list-header.col.s12.m12.l12(tabindex="300" anchor="基本信息")
+                i.icon-circle
+                | 基本信息
+            .asset-list-main.col.s12.m12.l12
+                ul.col.s12.m12.l12
+                    li.col.s6.m6.l6.asset-list
+                        .img-uploader.model-img-upload.col.s9.m9.l9.no-padding.right
+                            image-uploader(ng-model="equipment.model.image" dir="{{setting.urls.uploadUrl}}")
+                    li.col.s6.m6.l6.asset-list
+                        .asset-list-text.col.s3.m3.l3 设备类型:
+                        .asset-list-info.col.s9.m9.l9 {{equipment.model.typeName}}
+                    li.col.s6.m6.l6.asset-list
+                        .asset-list-text.col.s3.m3.l3 设备厂商:
+                        .asset-list-info.col.s9.m9.l9 {{equipment.model.vendorName}}
+                    li.col.s6.m6.l6.asset-list
+                        .asset-list-text.col.s3.m3.l3 设备模板:
+                        .asset-list-info.col.s9.m9.l9 {{equipment.model.templateName}}
+                    li.col.s6.m6.l6.asset-list
+                        .asset-list-text.col.s3.m3.l3 设备名称:
+                            span *
+                        .input-field.col.s9.m9.l9.no-padding.no-margin
+                            input.validate(type='text' ng-model='equipment.model.name' ng-focus='saveValue(equipment.model.name)' ng-blur='checkValue(equipment.model.name)')
+                    li.col.s6.m6.l6.asset-list
+                        .asset-list-text.col.s3.m3.l3 资产状态:
+                            span *
+                        .input-field.col.s9.m9.l9.no-padding.no-margin
+                            md-switch(ng-model='equipment.model.enable', label-off='无效', label-on='有效',style="margin-left:10px;"  ng-change='saveEquipment(equipment)')
+                    li.col.s6.m6.l6.asset-list
+                        .asset-list-text.col.s3.m3.l3 资产编号:
+                            span *
+                        .input-field.col.s9.m9.l9.no-padding.no-margin
+                            input.validate(type='text' ng-model='equipment.model.tag' ng-focus='saveValue(equipment.model.tag)' ng-blur='checkValue(equipment.model.tag)')
+                    li.col.s6.m6.l6.asset-list
+                        .asset-list-text.col.s3.m3.l3 负责人:
+                            span *
+                        .input-field.col.s9.m9.l9.no-padding.no-margin
+                            select(ng-model='equipment.model.owner' md-select data='equipment.model' ng-change='saveEquipment()')
+                                option(value='') 未知责任人
+                                option(ng-repeat='user in userMsg', value='{{user.user}}', ng-selected="equipment.model.owner == user.user") {{user.name}}
+                    li.col.s6.m6.l6.asset-list
+                        .asset-list-text.col.s3.m3.l3 上级设备:
+                        .asset-list-info.col.s9.m9.l9 {{equipment.model.parent}}
+                    li.col.s6.m6.l6.asset-list(ng-repeat="sampleunit in equipment.sampleUnits")
+                        .asset-list-text.col.s3.m3.l3 {{sampleunit.name}}:
+                            span *
+                        .input-field.col.s9.m9.l9.no-padding.no-margin
+                            input.validate(type='text' ng-model='sampleunit.value' ng-focus='saveValue(sampleunit.value)' ng-blur='checkValue(sampleunit)')
+            .asset-list-header.col.s12.m12.l12(tabindex="301" anchor="位置信息" ng-show="sizeInfo.length>0")
+                i.icon-circle
+                span 位置信息
+            .asset-list-main.col.s12.m12.l12(ng-show="sizeInfo.length>0")
+                ul.col.s12.m12.l12
+                    li.col.s6.m6.l6.asset-list.no-margin
+                        .asset-list-text.col.s3.m3.l3 所在机房:
+                            span *
+                        .input-field.col.s9.m9.l9.no-padding.no-margin
+                            select(ng-model='equipment.model.station' md-select data='equipment.model' ng-change='stationCheck()')
+                                option(ng-repeat='station in project.stations.items' value='{{station.model.station}}' ng-selected='equipment.model.station == station.model.station') {{station.model.name}}
+                    li.col.s6.m6.l6.asset-list(ng-repeat="item in sizeInfo | filter: filterEditItems() | orderBy: equipment.properties.predicate:true" ng-switch="item.model.dataType")
+                        .asset-list-text.col.s3.m3.l3 {{item.model.name}}:
+                            span *
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when="enum")
+                            select(ng-model='item.value', md-select, data='item.model.dataType' ng-change='saveEquipment()')
+                                option(ng-repeat="map in item.model.format.split(',')" value="{{map.split(':')[0]}}" ng-selected="item.value==map.split(':')[0]") {{map.split(':')[1]}}
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when="int")
+                            input.validate(type='number', ng-model='item.value', min='{{item.model._format.min}}', max='{{item.model._format.max}}', step='any' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='float')
+                            input.validate(ng-if="item.model.property !== 'runday' && item.model.property !== 'runvalue'" type='number', ng-model='item.value', min='{{item.model._format.min}}', max='{{item.model._format.max}}', step='any' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                            input.validate(ng-if="item.model.property == 'runday'" type='number', ng-model='item.value', min=0, max=24, step='any' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                            input.validate(ng-if="item.model.property == 'runvalue'" type='number', ng-model='item.value', min=0, step='any' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='color')
+                            input.validate(type='color', ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='password')
+                           input.validate(type='password', ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='date')
+                            input.validate(type='date', input-format, ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='time')
+                            input.validate(type='time', ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='datetime')
+                            input.validate(type='datetime-local' input-format ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='bool')
+                            input(type='checkbox', ng-model='item.value' id='cbc-{{item.model.property}}' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.image-height.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='image')
+                            .img-uploader.s12.m12.l2
+                                image-uploader(ng-model='item.value' dir='{{setting.urls.uploadUrl}}' ng-blur="checkValue(item)")
+                        .input-field.file-height.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='file')
+                            .file-uploader
+                                file-uploader(ng-model='item.value' dir='{{setting.urls.uploadUrl}}' ng-blur="checkValue(item)")
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-default)
+                            input.validate(type='text' ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+
+            .asset-list-header.col.s12.m12.l12(tabindex="302" anchor="维保信息" ng-show="maintenanceInfo.length>0")
+                i.icon-circle
+                span 维保信息
+            .asset-list-main.col.s12.m12.l12(ng-show="maintenanceInfo.length>0")
+                ul.col.s12.m12.l12
+                    li.col.s6.m6.l6.asset-list(ng-repeat="item in maintenanceInfo | filter: filterEditItems() | orderBy: equipment.properties.predicate:true" ng-switch="item.model.dataType")
+                        .asset-list-text.col.s3.m3.l3 {{item.model.name}}:
+                            span *
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when="enum")
+                            select(ng-model='item.value', md-select, data='item.model.dataType' ng-change='saveEquipment()')
+                                option(ng-repeat="map in item.model.format.split(',')" value="{{map.split(':')[0]}}" ng-selected="item.value==map.split(':')[0]") {{map.split(':')[1]}}
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when="int")
+                            input.validate(type='number', ng-model='item.value', min='{{item.model._format.min}}', max='{{item.model._format.max}}', step='any' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='float')
+                            input.validate(ng-if="item.model.property !== 'runday' && item.model.property !== 'runvalue'" type='number', ng-model='item.value', min='{{item.model._format.min}}', max='{{item.model._format.max}}', step='any' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                            input.validate(ng-if="item.model.property == 'runday'" type='number', ng-model='item.value', min=0, max=24, step='any' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                            input.validate(ng-if="item.model.property == 'runvalue'" type='number', ng-model='item.value', min=0, step='any' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='color')
+                            input.validate(type='color', ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='password')
+                           input.validate(type='password', ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='date')
+                            input.validate(type='date', input-format, ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='time')
+                            input.validate(type='time', ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='datetime')
+                            input.validate(type='datetime-local' input-format ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='bool')
+                            input(type='checkbox', ng-model='item.value' id='cbc-{{item.model.property}}' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.image-height.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='image')
+                            .img-uploader.s12.m12.l2
+                                image-uploader(ng-model='item.value' dir='{{setting.urls.uploadUrl}}' ng-blur="checkValue(item)")
+                        .input-field.file-height.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='file')
+                            .file-uploader
+                                file-uploader(ng-model='item.value' dir='{{setting.urls.uploadUrl}}' ng-blur="checkValue(item)")
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-default)
+                            input.validate(type='text' ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+            .asset-list-header.col.s12.m12.l12(tabindex="303" anchor="使用信息" ng-show="useInfo.length>0")
+                i.icon-circle
+                span 使用信息
+            .asset-list-main.col.s12.m12.l12(ng-show="useInfo.length>0")
+                ul.col.s12.m12.l12
+                    li.col.s6.m6.l6.asset-list(ng-repeat="item in useInfo | filter: filterEditItems() | orderBy: equipment.properties.predicate:true" ng-switch="item.model.dataType")
+                        .asset-list-text.col.s3.m3.l3 {{item.model.name}}:
+                            span *
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when="enum")
+                            select(ng-model='item.value', md-select, data='item.model.dataType' ng-change='saveEquipment()')
+                                option(ng-repeat="map in item.model.format.split(',')" value="{{map.split(':')[0]}}" ng-selected="item.value==map.split(':')[0]") {{map.split(':')[1]}}
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when="int")
+                            input.validate(type='number', ng-model='item.value', min='{{item.model._format.min}}', max='{{item.model._format.max}}', step='any' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='float')
+                            input.validate(ng-if="item.model.property !== 'runday' && item.model.property !== 'runvalue'" type='number', ng-model='item.value', min='{{item.model._format.min}}', max='{{item.model._format.max}}', step='any' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                            input.validate(ng-if="item.model.property == 'runday'" type='number', ng-model='item.value', min=0, max=24, step='any' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                            input.validate(ng-if="item.model.property == 'runvalue'" type='number', ng-model='item.value', min=0, step='any' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='color')
+                            input.validate(type='color', ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='password')
+                           input.validate(type='password', ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='date')
+                            input.validate(type='date', input-format, ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='time')
+                            input.validate(type='time', ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='datetime')
+                            input.validate(type='datetime-local' input-format ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='bool')
+                            input(type='checkbox', ng-model='item.value' id='cbc-{{item.model.property}}' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.image-height.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='image')
+                            .img-uploader.s12.m12.l2
+                                image-uploader(ng-model='item.value' dir='{{setting.urls.uploadUrl}}' ng-blur="checkValue(item)")
+                        .input-field.file-height.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='file')
+                            .file-uploader
+                                file-uploader(ng-model='item.value' dir='{{setting.urls.uploadUrl}}' ng-blur="checkValue(item)")
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-default)
+                            input.validate(type='text' ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+            .asset-list-header.col.s12.m12.l12(tabindex="304" anchor="其他信息" ng-show="otherInfo.length>0")
+                i.icon-circle
+                span 其他信息
+            .asset-list-main.col.s12.m12.l12(ng-show="otherInfo.length>0")
+                ul.col.s12.m12.l12
+                    li.col.s6.m6.l6.asset-list(ng-repeat="item in otherInfo | filter: filterEditItems() | orderBy: equipment.properties.predicate:true" ng-switch="item.model.dataType")
+                        .asset-list-text.col.s3.m3.l3 {{item.model.name}}:
+                            span *
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when="enum")
+                            select(ng-model='item.value', md-select, data='item.model.dataType' ng-change='saveEquipment()')
+                                option(ng-repeat="map in item.model.format.split(',')" value="{{map.split(':')[0]}}" ng-selected="item.value==map.split(':')[0]") {{map.split(':')[1]}}
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when="int")
+                            input.validate(type='number', ng-model='item.value', min='{{item.model._format.min}}', max='{{item.model._format.max}}', step='any' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='float')
+                            input.validate(ng-if="item.model.property !== 'runday' && item.model.property !== 'runvalue'" type='number', ng-model='item.value', min='{{item.model._format.min}}', max='{{item.model._format.max}}', step='any' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                            input.validate(ng-if="item.model.property == 'runday'" type='number', ng-model='item.value', min=0, max=24, step='any' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                            input.validate(ng-if="item.model.property == 'runvalue'" type='number', ng-model='item.value', min=0, step='any' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='color')
+                            input.validate(type='color', ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='password')
+                           input.validate(type='password', ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='date')
+                            input.validate(type='date', input-format, ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='time')
+                            input.validate(type='time', ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='datetime')
+                            input.validate(type='datetime-local' input-format ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='bool')
+                            input(type='checkbox', ng-model='item.value' id='cbc-{{item.model.property}}' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+                        .input-field.image-height.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='image')
+                            .img-uploader.s12.m12.l2
+                                image-uploader(ng-model='item.value' dir='{{setting.urls.uploadUrl}}' ng-blur="checkValue(item)")
+                        .input-field.file-height.col.s9.m9.l9.no-padding.no-margin(ng-switch-when='file')
+                            .file-uploader
+                                file-uploader(ng-model='item.value' dir='{{setting.urls.uploadUrl}}' ng-blur="checkValue(item)")
+                        .input-field.col.s9.m9.l9.no-padding.no-margin(ng-switch-default)
+                            input.validate(type='text' ng-model='item.value' ng-focus='saveValue(item.value)' ng-blur='checkValue(item)')
+
+    //- 右侧目录
+    .col.s2.m2.l2.asset-detail-jumpItem
+        ul
+            li(ng-class='{active: anchor=="基本信息"}' ng-click="goAnchor('基本信息')")
+                i.icon-circle
+                | 基本信息
+            li(ng-class='{active: anchor=="位置信息"}' ng-click="goAnchor('位置信息')" ng-show="sizeInfo.length>0")
+                i.icon-circle
+                | 位置信息
+            li(ng-class='{active: anchor=="维保信息"}' ng-click="goAnchor('维保信息')" ng-show="maintenanceInfo.length>0")
+                i.icon-circle
+                | 维保信息
+            li(ng-class='{active: anchor=="使用信息"}' ng-click="goAnchor('使用信息')" ng-show="useInfo.length>0")
+                i.icon-circle
+                | 使用信息
+            li(ng-class='{active: anchor=="其他信息"}' ng-click="goAnchor('其他信息')" ng-show="otherInfo.length>0")
+                i.icon-circle
+                | 其他信息
+        .popout-collection.col.s12.m12.l12.no-padding
+            .popout-btn(ng-click="popoutOperate('port')") 端口列表信息
+            .popout-btn(ng-click="popoutOperate('repair')") 设备维修记录
+            .popout-btn(ng-click="popoutOperate('ops')") 设备运维信息
+    .popout-masking(ng-show="popoutShow")
+        .popout-box
+            .popout-left(ng-style="{width: popoutLeftWidth}")
+                .popout-header
+                    .popout-title {{popoutTitle}}
+                    i.icon-close(ng-click="closePopout()")
+                .popout-main(ng-show="popoutTypeShow == 'port'")
+                    table.highlight.centered.striped.responsive-table
+                        thead
+                            tr
+                                th 序号
+                                th 端口名称
+                                th 型号
+                                th 链路设备
+                                th 链路端口
+                                th 使用状态
+                                th 操作
+                        tbody
+                            tr(ng-repeat="port in equipment.ports.items")
+                                td {{$index + 1}}
+                                td {{port.model.name}}
+                                td {{port.model.portType}}
+                                td {{port.model.linkPort.equipmentName || "无"}}
+                                td {{port.model.linkPort.portName || "无"}}
+                                td
+                                    .status(ng-class="{statusUsed: port.model.linkPort.port}") {{port.model.linkPort.port ? "使用": "未使用"}}
+                                td
+                                    .btn(ng-click="showOperate(port)")
+                                        i.icon-operate
+                                        span 操作
+                //- 设备维修记录
+                .popout-main(ng-show="popoutTypeShow == 'repair'")
+                    table.highlight.centered.striped.responsive-table
+                        thead
+                            tr
+                                th 维修时间
+                                th 维保原因
+                                th 维修内容
+                                th 维修人
+                        tbody
+                            tr(ng-repeat="item in repairRecords")
+                                td {{item.time | date: 'yyyy-MM-dd HH:mm:ss'}}
+                                td {{item.cause}}
+                                td {{item.content}}
+                                td {{item.repairer}}
+                //- 设备运维信息
+                .popout-main(ng-show="popoutTypeShow == 'ops'")
+                    table.highlight.centered.striped.responsive-table
+                        thead
+                            tr
+                                th 单号
+                                th 工单名称
+                                th 工单类型
+                                th 开始时间
+                                th 结束时间
+                                th 创建人
+                                th 处理人
+                                th 优先级
+                                th 当前状态
+                        tbody
+                            tr(ng-repeat="item in deviceWorkOrder")
+                                td {{item.task}}
+                                td {{item.name}}
+                                td {{item.processName}}
+                                td {{item.createtime | date: 'yyyy-MM-dd HH:mm:ss'}}
+                                td {{item.updatetime | date: 'yyyy-MM-dd HH:mm:ss'}}
+                                td {{item.creator.id}}
+                                td {{item.nodes[0].manager.name || '-'}}
+                                td
+                                    .status(ng-style="{backgroundColor: item.priorityColor}") {{item.priority}}
+                                td
+                                    .status(ng-style="{backgroundColor: item.statusColor}")
+                                        {{item.status}}
+            .popout-right(ng-if="operateShow")
+                .popout-main
+                    .input-field.col.s8.offset-s2
+                        //- .popout-opearate
+                        p 当前操作的设备:{{equipment.model.name}}
+                        p 当前操作的端口:{{devicePortInfo.model.name}}
+                        p 需要链路的设备:
+                        select(md-select ng-model="linkDeviceId" ng-change="slecetLinkDevice(linkDeviceId)")
+                            option(ng-repeat='option in stationHasDevice' station="{{option.model.station}}" value="{{option.model.equipment}}") {{option.model.name}}
+                        div(ng-show="linkDeviceInfo.ports.items.length > 0")
+                            p 需要链路的端口:
+                            select.select-port(md-select ng-model="linkDevicePortId" ng-change="slecetLinkPort(linkDevicePortId)" data="selectRefresh")
+                                option(ng-repeat='option in linkDeviceInfo.ports.items' value="{{option.model.port}}") {{option.model.name}}
+                        p(ng-show="linkDeviceInfo.ports.items.length == 0") 该链路设备无端口
+                .popout-footer
+                    .btn(ng-click="confirmOperate()") 确定
+                    .btn(ng-click="cancelOperate()") 取消

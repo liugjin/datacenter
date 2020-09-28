@@ -1,0 +1,7 @@
+signal-gauge {
+  display: block;
+  height: 250px; }
+  signal-gauge .signal-gauge {
+    margin-top: 80px;
+    height: 100%;
+    width: 100%; }

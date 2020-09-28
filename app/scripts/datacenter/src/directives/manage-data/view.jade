@@ -1,0 +1,29 @@
+.row
+    .nav-top.col.s12 {{ parameters.headerName || "数据管理"}}
+.manage-data-main
+    .manage-data-left
+        .manage-data-title 数据储存策略
+        .radio-box
+            md-radio(name="method", ng-model="storeModel", value="28800000", label="长时模式")
+            md-radio(name="method", ng-model="storeModel", value="14400000", label="均衡模式")
+            md-radio(name="method", ng-model="storeModel", value="1800000", label="精细模式")
+        .btn.btn-style(ng-click="confitmRadioMethod()")
+            span 确定
+            i.material-icons save
+    .manage-data-right
+        .manage-data-title 数据备份
+        .store-data
+            span 数据网络转存地址：
+            input.validate.store-data-text(type="text", ng-model="ftpInfo.host", placeholder="格式：192.168.1.1", required)
+        .store-data
+            span 数据网络转存端口：
+            input.validate.store-data-text(type="text", ng-model="ftpInfo.port", placeholder="格式：数字（默认为21）", required)
+        .store-data
+            span 数据网络转存用户名：
+            input.validate.store-data-text(type="text", ng-model="ftpInfo.user", required)
+        .store-data
+            span 数据网络转存密码：
+            input.validate.store-data-text(type="password", ng-model="ftpInfo.password", autocomplete="new-password", required)
+        .btn.btn-style(ng-click="changeStoreInfo()")
+            span 确认转存
+            i.material-icons present_to_all

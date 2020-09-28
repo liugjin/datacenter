@@ -1,0 +1,9 @@
+
+.row.nav-top
+    .col.s2
+        span 配电图
+.row
+    .col(style="width: 20%;padding-right: 0;")
+        visualization-tree(controller='vm', parameters='{"checkbox":false,"filter":true}',style="height: 85%;")
+    .col(style="width: 80%")
+        graphic-box.graphic-height5(style='width:100%;height:80vh', controller='controller', parameters='{templateId:visualizationId}')

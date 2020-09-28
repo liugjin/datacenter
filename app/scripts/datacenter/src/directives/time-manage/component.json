@@ -1,0 +1,24 @@
+{
+  "id": "time-manage",
+  "name": "TimeManage控件",
+  "type": "TimeManageDirective",
+  "desc": {
+    "author": "foam",
+    "comment": "能使服务器的时间与浏览器时间进行同步,也可以让服务器时间和通过ntp方式进行时间同步",
+    "version": {
+      "0.0.1": ["本功能实现需要配置服务端,服务端的代码请看clc.datacenter脚手架的hmu2500分支,timeManage-service.coffee"]
+    }
+  },
+  "keywords":"时间,ntp,同步",
+  "group": "模块组件",
+  "parameters": [
+    {"id":"headerName", "type": "string", "value": "时间管理", "desc": "页面标题,默认为时间管理"}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": ".col.s12",
+  "version": "0.0.1"
+}

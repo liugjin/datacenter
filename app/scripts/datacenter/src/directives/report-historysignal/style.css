@@ -1,0 +1,70 @@
+report-historysignal device-tree .tree {
+  height: 78.7vh; }
+
+report-historysignal .nav-top {
+  height: auto; }
+  report-historysignal .nav-top span {
+    font-size: 14px; }
+  report-historysignal .nav-top report-query-time .report-time li.report-li:nth-of-type(2) {
+    margin: 0 4px; }
+
+report-historysignal .nav-wrapper ul li {
+  margin-right: 4px; }
+
+report-historysignal .nav-wrapper .right-wrapper-box {
+  float: right;
+  display: flex; }
+
+report-historysignal .input-field1 {
+  margin-right: 1rem; }
+
+report-historysignal .standard-report-btn {
+  width: 94px !important;
+  height: 30px !important;
+  float: right;
+  margin-top: 18px;
+  line-height: 30px !important; }
+
+report-historysignal .report-query-time {
+  margin: 0 10px; }
+
+report-historysignal .grid-table {
+  width: calc( 100% - 0.75rem);
+  height: 84.9vh;
+  display: block;
+  background-color: rgba(26, 69, 162, 0.4) !important; }
+  report-historysignal .grid-table .ag-header {
+    height: 50px !important; }
+  report-historysignal .grid-table .ag-blue .ag-ltr .ag-header-cell {
+    border-right: 0 !important; }
+  report-historysignal .grid-table .ag-blue .ag-cell {
+    padding-left: 1.2rem; }
+  report-historysignal .grid-table .no-box-shadow {
+    box-shadow: none; }
+
+report-historysignal .paging-select-box {
+  margin-left: 20%;
+  background-color: rgba(26, 69, 162, 0.4) !important;
+  height: 5.9vh;
+  width: calc( 80% - 0.75rem); }
+
+report-historysignal .page-button {
+  border: 1px solid #0066ff;
+  border-radius: 0; }
+
+report-historysignal .device-tree {
+  width: 20%;
+  height: 85%; }
+
+report-historysignal .grid-table-contaner {
+  width: 80%;
+  overflow: auto; }
+
+report-historysignal ul.fancytree-container ul {
+  padding-left: 10px; }
+
+@media screen and (max-width: 1300px) {
+  report-historysignal .device-tree {
+    width: 200px !important; }
+  report-historysignal .grid-table-contaner {
+    width: calc(100% - 200px) !important; } }

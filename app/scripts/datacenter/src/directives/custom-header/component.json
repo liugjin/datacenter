@@ -1,0 +1,25 @@
+{
+  "id": "custom-header",
+  "name": "头部标题组件",
+  "type": "CustomHeaderDirective",
+  "desc": {
+    "author": "David",
+    "comment": "Dashboard头部标题组件",
+    "version": {
+        "0.0.1": [
+        ]
+    }
+  },
+  "group": "框架组件",
+  "parameters": [
+    {"id":"name", "type": "string", "value":""},
+    {"id":"subtitle", "type": "string", "value":""}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.1"
+}

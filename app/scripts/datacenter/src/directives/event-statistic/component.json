@@ -1,0 +1,46 @@
+{
+  "id": "event-statistic",
+  "name": "事件统计控件",
+  "type": "EventStatisticDirective",
+  "desc": {
+    "author":"hardy",
+    "desc":"显示事件统计数",
+    "version":{
+      "0.0.1":[
+        "显示事件统计数"
+      ],
+      "0.0.3":[
+        "修改样式，增加交互","@Billy"
+      ],
+      "0.0.4":[
+        "20190506管理页面 样式调整","@Hardy"
+      ],
+      "0.1.0":[
+        "显示数据增加活动告警数量","@David"
+      ],
+      "0.1.1":[
+        "更新页面标准化样式，以及显示内容","@Albert"
+      ],
+      "0.1.2":[
+        "适配1024x768分辨率","@Albert"
+      ],
+      "0.1.3":[
+        "调字体距离2边的间距","@Murray"
+      ],
+      "0.1.4":[
+        "活动告警数取值修改成active","@region"
+      ]
+    }
+  },
+  "group": "站点组件",
+  "parameters": [
+    {"id":"stationId","type":"string","value":"shenzhen"},
+    {"id":"statisticValue","type":"number","value":10}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "css": ".col.l4",
+  "version": "0.1.4"
+}

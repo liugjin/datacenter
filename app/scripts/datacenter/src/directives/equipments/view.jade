@@ -1,0 +1,256 @@
+.row.nav-top
+    .col.s2
+        span 设备管理
+    .col.s10
+        nav
+            .nav-wrapper
+                ul.right
+                    li
+                        a.btn.modal-trigger.edit-btn(href='#device-modal', ng-click="createDevice(1)" title="新增设备")
+                            span 设备添加
+                    li
+                        a.btn.modal-trigger.edit-btn(href='#modal2', ng-click="createDevice(2)" title="设备库安装/卸载")
+                            span 设备库安装/卸载
+.row.content
+    .col.l12.cool-content
+        .new-table
+            table
+                thead
+                    tr
+                        th
+                            .col-header.text-align-left(ng-click='station.equipments.sortBy("model.equipment")')
+                                span 设备ID
+                                span.right(ng-show='station.equipments.predicate == "model.equipment"') {{station.equipments.reverse && "▽" || "△"}}
+                        th
+                            .col-header.text-align-left.table-th-padding(ng-click='station.equipments.sortBy("model.name")')
+                                span 设备名称
+                                span.right(ng-show='station.equipments.predicate == "model.name"') {{station.equipments.reverse && "▽" || "△"}}
+                        th
+                            .col-header
+                                span 设备类型
+                                span.right(ng-show='station.equipments.predicate == "model.owner"') {{station.equipments.reverse && "▽" || "△"}}
+                        th
+                            .col-header(ng-click='station.equipments.sortBy("model.owner")')
+                                span 设备地址
+                                span.right(ng-show='station.equipments.predicate == "model.owner"') {{station.equipments.reverse && "▽" || "△"}}
+                        th
+                            .col-header(ng-click='station.equipments.sortBy("model.owner")')
+                                span 端口号
+                                span.right(ng-show='station.equipments.predicate == "model.owner"') {{station.equipments.reverse && "▽" || "△"}}
+                        th
+                            .col-header(ng-click='station.equipments.sortBy("model.owner")')
+                                span 通讯参数
+                                span.right(ng-show='station.equipments.predicate == "model.owner"') {{station.equipments.reverse && "▽" || "△"}}
+                        th
+                            .col-header
+                                span 设备条码
+                                span.right(ng-show='station.equipments.predicate == "model.owner"') {{station.equipments.reverse && "▽" || "△"}}
+                    
+                        th
+                            .col-header.text-align-left(ng-click='station.equipments.sortBy("model.templateName")')
+                                span 型号
+                                span.right(ng-show='station.equipments.predicate == "model.templateName"') {{station.equipments.reverse && "▽" || "△"}}
+                        th
+                            .col-header
+                                span 设备库版本
+                                span.right(ng-show='station.equipments.predicate == "model.templateName"') {{station.equipments.reverse && "▽" || "△"}}
+                        th
+                            .col-header.text-align-left(ng-click='station.equipments.sortBy("model.vendorName")')
+                                span 厂商
+                                span.right(ng-show='station.equipments.predicate == "model.vendorName"') {{station.equipments.reverse && "▽" || "△"}}
+                        th
+                            .col-header.text-align-left(ng-click='station.equipments.sortBy("model.stationName")')
+                                span 所属站点
+                                span.right(ng-show='station.equipments.predicate == "model.stationName"') {{station.equipments.reverse && "▽" || "△"}}
+                        th
+                            .col-header
+                                span 过保日期
+                                span.right(ng-show='station.equipments.predicate == "model.owner"') {{station.equipments.reverse && "▽" || "△"}}
+                        th
+                            .col-header(ng-click='station.equipments.sortBy("model.createtime")')
+                                span 启用日期
+                                span.right(ng-show='station.equipments.predicate == "model.createtime"') {{station.equipments.reverse && "▽" || "△"}}
+                        th(ng-show="project.model._role.isAdmin || project.model._role.operations[0]=='_all' || project.model._role.operations.indexOf('asset-manager-edit')>=0")
+                            .col-header
+                                span 操作
+                tbody
+                    tr(ng-repeat='equip in equipments | limitTo: pageItems * pageIndex | limitTo: limitToEquipment()' ng-class="{active: equipment.key == equip.key}")
+                        td {{equip.model.equipment}}
+                        td {{equip.model.name}}
+                        td {{equip.model.typeName}}
+                        td {{equip.model.address}}
+                        td {{equip.model.newport}}
+                        td {{equip.model.parameters}}
+                        td {{equip.model.tag}}
+                        td {{equip.model.templateName}}
+                        td {{equip.model.libraryVersion}}
+                        td {{equip.model.vendorName}}
+                        td {{equip.model.stationName}}
+                        td {{equip.model.expiryDate}}
+                        td {{equip.model.createtime | date: 'yyyy-MM-dd'}}
+                        td(style="padding: 0;", ng-show="project.model._role.isAdmin || project.model._role.operations[0]=='_all' || project.model._role.operations.indexOf('asset-manager-edit')>=0")
+                            a.waves-effect.waves-light.modal-trigger(href='#device-modal' ng-click='editDevice(equip);' title='编辑设备')
+                                img.icon(ng-src="{{getComponentPath('image/edit-green.svg')}}")
+                            a.waves-effect.waves-light(href='' ng-click='deleteDevice(equip); $event.stopPropagation();' title='删除设备')
+                                img.icon(ng-src="{{getComponentPath('image/delete-green.svg')}}")
+
+    .col.l12(style="position:relative")
+        .eventpagination
+            div(style="flex:1;")
+            .valign-wrapper(style='flex:2;')
+                div(style="margin: 0 auto;")
+                    ul.pagination(ng-show='filterEquipmentItem().pageCount > 1', ng-cloak)
+                        li.page-button(ng-class='{disabled: pageIndex <= 1, "waves-effect": pageIndex > 1}', ng-click='pageIndex>1?(pageIndex = pageIndex - 1):0')
+                            a(href='', ng-class="{'black-text': pageIndex > 1}")
+                                i.material-icons chevron_left
+
+                        li.page-button(ng-class='{active: page == pageIndex, "waves-effect": page != pageIndex}' ng-repeat='page in filterEquipmentItem().pages' ng-click='selectPage(page)' ng-if="(page>(pageIndex-4)&&page<(pageIndex+4))||page==1||page==filterEquipmentItem().pageCount")
+                            a(href='')
+                                | {{((page>(pageIndex-3)&&page<(pageIndex+3))||page==1||page==filterEquipmentItem().pageCount) ? page:".."}}
+
+                        li.last.page-button(ng-class='{disabled: pageIndex >= filterEquipmentItem().pageCount, "waves-effect": pageIndex < filterEquipmentItem().pageCount}', ng-click='pageIndex<filterEquipmentItem().pageCount?(pageIndex = pageIndex + 1):0')
+                            a(href='', ng-class="{'black-text': pageIndex < filterEquipmentItem().pageCount}")
+                                i.material-icons chevron_right
+            div(style='flex:1;')
+
+.modal.bottom-sheet.modal-fixed-footer(md-modal, id="device-modal")
+    .row.nav-top
+        .col.s2
+            span(style="font-size: 18px") {{equipment.model.name?"编辑":"新增"}}设备
+    .modal-content
+        .row
+            .col.l12(style="display: flex;flex-wrap:wrap;justify-content:space-between;padding: 0 2%")
+                .selection-box
+                    .label
+                        span 设备名称：
+                        img(src="{{getComponentPath('image/bixutian.svg')}}", alt="", width="12px", height="12px")
+                    .select
+                        input.validate.input-new-css(type='text' ng-model='equipment.model.name')
+
+                .selection-box
+                    .label
+                        span 设备类型：
+                        img(src="{{getComponentPath('image/bixutian.svg')}}", alt="", width="12px", height="12px")
+                    .select
+                        select(ng-model='equipment.model.type', md-select, data='equipment.model', ng-change="equipTypeChange()")
+                            //- option(value='') 未知设备类型
+                            option(ng-repeat='type in project.typeModels.equipmenttypes.items | filter: filterTypes()' value='{{type.model.type}}' ng-selected='equipment.model.type == type.model.type') {{type.model.name}}
+                
+                .selection-box
+                    .label
+                        span 设备型号：
+                        img(src="{{getComponentPath('image/bixutian.svg')}}", alt="", width="12px", height="12px")
+                    .select
+                        select(ng-model='equipment.model.template' md-select data='equipment.model.type + "." + equipment.model.vendor' ng-change='equipTemplateChange()')
+                            //- option(value='') 未知设备型号
+                            option(ng-repeat='template in project.equipmentTemplates.items | filter: filterTemplates()' value='{{template.model.template}}', ng-selected='equipment.model.template == template.model.template') {{template.model.name}}
+                
+                .selection-box
+                    .label
+                        span 端口号：
+                        img(src="{{getComponentPath('image/bixutian.svg')}}", alt="", width="12px", height="12px")
+                    .select
+                        select(ng-model='equipment.model.port' md-select data='equipment.model' ng-change="portChange()")
+                            option(ng-repeat='port in ports' value='{{port.value}}' ng-selected='equipment.model.port == port.value') {{port.name}}
+
+                .selection-box(ng-show="equipment.model.port.substr(0,1)!='d'")
+                    .label
+                        span 设备地址：
+                        img(src="{{getComponentPath('image/bixutian.svg')}}", alt="", width="12px", height="12px")
+                    .select
+                        input.validate.input-new-css(type='text' ng-model='equipment.model.address')
+
+
+                .selection-box(ng-show="equipment.model.port.substr(0,1)!='d'&&equipment.model.port!='ip'")
+                    .label
+                        span 通讯参数：
+                        img(src="{{getComponentPath('image/bixutian.svg')}}", alt="", width="12px", height="12px")
+                    .select
+                        input.validate.input-new-css(type='text' ng-model='equipment.model.parameters')
+
+                .selection-box
+                    .label
+                        span 所属站点：
+                        img(src="{{getComponentPath('image/bixutian.svg')}}", alt="", width="12px", height="12px")
+                    .select
+                        select(ng-model='equipment.model.station' md-select data='equipment.model' ng-change="stationChange()")
+                            option(ng-repeat='station in project.stations.items' value='{{station.model.station}}' ng-selected='equipment.model.station == station.model.station') {{station.model.name}}
+
+                .selection-box(ng-show="equipment.model.port=='ip'")
+                    .label
+                        span 模块地址
+                        img(src="{{getComponentPath('image/bixutian.svg')}}", alt="", width="12px", height="12px")
+                    .select
+                        input.validate.input-new-css(type='text' ng-model='equipment.model.addr')
+                .selection-box
+                    .label
+                        span 设备条码：
+                    .select
+                        input.validate.input-new-css(type='text' ng-model='equipment.model.tag')            
+                .selection-box
+                    .label
+                        span 过保日期：
+                    .select
+                        input.validate.input-new-css(type='text' ng-model='equipment.model.expiryDate') 
+
+    .modal-footer.modal-nav
+        nav
+            .nav-wrapper
+                ul
+                    li
+                        a.modal-action(href='', ng-click='saveDevice()', title='确定')
+                            i.material-icons.left save
+                            span.hide-on-med-and-down 保存
+
+
+                    li.right
+                        a.modal-action.modal-close(href='')
+                            i.material-icons.right close
+                            span.hide-on-med-and-down 关闭
+
+
+#modal2.modal.bottom-sheet.modal-fixed-footer(md-modal)
+    .row.nav-top
+        .col.s12.m12.l12.upload
+            .choiceLabel
+                span 选择设备库:
+            .choiceRoute
+                input#upload.file(type="file" accept=".zip" style="display: none;")
+                input(name="fileName" value="{{fileNameStr}}" readonly)
+                #file.browseBtn(ng-click="file()") ...
+            .confirmUpload.btn(ng-click="confirmSha()")
+                span 安装  
+    .modal-content
+        .row
+            .col.s12.m12.l12.form
+                table
+                    thead
+                        tr
+                            th(style="width:10%")
+                                .col-header
+                                    span 序号
+                            th
+                                .col-header
+                                    span 设备类型
+                            th
+                                .col-header
+                                    span 设备模板
+                            th
+                                .col-header
+                                    span 版本
+                            th
+                                .col-header
+                                    span 描述
+                            th
+                                .col-header
+                                    span 卸载设备库
+                    tbody
+                        tr(ng-repeat='(index,equip) in elementsArr')
+                            td(style="width:10%") {{index + 1}}
+                            td {{equip.model.typeName}}
+                            td {{equip.model.name}}
+                            td {{equip.model.libraryVersion? equip.model.libraryVersion:"--"}}
+                            td {{equip.model.description? equip.model.description:"--"}}
+                            td 
+                                .uninstall.btn(ng-click="uninstall(equip)")
+                                    span 卸载

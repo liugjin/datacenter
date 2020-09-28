@@ -1,0 +1,26 @@
+{
+  "id": "equipment-air",
+  "name": "EquipmentAir控件",
+  "type": "EquipmentAirDirective",
+  "desc": {
+    "author": "vera",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.1": [],
+        "0.0.2": ["region--去掉alert"],
+        "0.0.3": ["代码重构,让其数据显示正确,并且默认显示第一个空调设备, @foam"],
+        "0.0.4": ["让组件更具有兼容性", "@foam"]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.4"
+}

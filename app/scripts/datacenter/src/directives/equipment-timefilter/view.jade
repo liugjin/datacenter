@@ -1,0 +1,82 @@
+link(rel='stylesheet', href='/lib/gl-datepicker/styles/glDatePicker.default.css')
+
+.card.z-depth-0(style="width:100%;background-color: transparent;margin:0;")
+    .card-content(style="padding:0;background-color: transparent;")
+        .row
+            .input-field.col.s12.center(style="")
+                .select-mode-btns-box
+                    .btn.standard-div-btn.date-week-mouth(
+                        ng-repeat="tab in tabs"
+                        title="{{tab.desc}}"
+                        ng-click='selectMode(tab.key)'
+                        ng-class="mode==tab.key?'active-ebtn':''") {{tab.title}}
+
+
+            .input-field.col.s12.center(ng-show="mode=='now'")
+                .select-time-box.equip-classify
+                    input.time-select-input-box.left-equip-box(
+                        readonly="readonly"
+                        type="text"
+                        ng-model="formatTime"
+                        style="")
+                    span.right-equip-box(ng-click="refreshTime(0)" style="")
+                        i.material-icons refresh
+
+            .input-field.col.s12.center(ng-show="mode=='day' || mode=='week'" style=)
+                .select-time-box.equip-classify
+                    span.right-equip-box(ng-click="refreshTime(-1)" style="")
+                        i.material-icons keyboard_arrow_left
+                    input.datepicker.date-select-input-box.left-s-equip-box(
+                        readonly="readonly"
+                        type="text"
+                        ng-model="formatTime"
+                        ng-change="selectDate()"
+                        ng-click="showSelect()"
+                        style="")
+                    span.right-equip-box(ng-click="refreshTime(1)" style="")
+                        i.material-icons keyboard_arrow_right
+
+            .input-field.col.s12.center(ng-show="mode=='month'" style="margin: 0;")
+                .select-time-box.equip-classify
+                    span.right-equip-box(ng-click="refreshTime(-1)")
+                        i.material-icons keyboard_arrow_left
+                    input.input-select.date-select-input-box.left-s-equip-box(
+                        readonly="readonly"
+                        type="select"
+                        ng-model="formatTime"
+                        ng-change="selectDate()")
+                    span.right-equip-box(ng-click="refreshTime(1)")
+                        i.material-icons keyboard_arrow_right
+
+            //.input-field.col.s12.center(ng-if="mode=='now'" style="margin: 0;")
+            //    input(
+            //        readonly="readonly"
+            //        type="text"
+            //        ng-model="formatTime"
+            //        style="color:#9e9e9e;height: 36px;border-radius: 5px;border: 1px solid rgb(220, 220, 222);text-align: center;padding: 0 10px;width: 150px;")
+            //    a.waves-effect.waves-light.btn.blue-1(ng-click="refreshTime(0)" style="margin-left: 5px;margin-bottom: 5px;")
+            //        i.material-icons refresh
+            //
+            //.input-field.col.s12.center(ng-if="mode=='day' || mode=='week'" style="margin: 0;height: 46px;")
+            //    a.waves-effect.waves-light.btn.blue-1(ng-click="refreshTime(-1)" style="margin-right: 5px;margin-bottom: 5px;")
+            //        i.material-icons keyboard_arrow_left
+            //    input.datepicker.z-depth-0(
+            //        readonly="readonly"
+            //        type="text"
+            //        ng-model="formatTime"
+            //        ng-change="selectDate()"
+            //        ng-click="showSelect()"
+            //        style="color:#9e9e9e;border-radius: 5px;margin-bottom: 0px;border: 1px solid rgb(220, 220, 222);padding: 0 10px;width: 150px;")
+            //    a.waves-effect.waves-light.btn.blue-1(ng-click="refreshTime(1)" style="margin-left: 5px;margin-bottom: 5px;")
+            //        i.material-icons keyboard_arrow_right
+            //
+            //.input-field.col.s12.center(ng-if="mode=='month'" style="margin: 0;")
+            //    a.waves-effect.waves-light.btn.blue-1(ng-click="refreshTime(-1)" style="margin-right: 5px;margin-bottom: 5px;")
+            //        i.material-icons keyboard_arrow_left
+            //    input.input-select(
+            //        readonly="readonly"
+            //        type="select"
+            //        ng-model="formatTime"
+            //        ng-change="selectDate()")
+            //    a.waves-effect.waves-light.btn.blue-1(ng-click="refreshTime(1)" style="margin-left: 5px;margin-bottom: 5px;")
+            //        i.material-icons keyboard_arrow_right

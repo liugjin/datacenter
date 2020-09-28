@@ -1,0 +1,42 @@
+.row.nav-top
+    //- .col.s12.m6.l8
+    //-     span
+    //-         .nav-wrapper
+    //-             a.breadcrumb.dropdown-trigger.grey-text-5(ng-repeat="parent in parents track by $index",href="" data-hover='true' data-constrain-width='false' data-cover-trigger="false"  md-dropdown title='{{parent.model.name}}' ng-click="selectParent(parent)" ng-if="station !== parent")
+    //-                 span {{parent.model.name}} （{{alarms[parent.model.station].count || '0'}}）
+    //-             a.breadcrumb.dropdown-trigger.grey-text-5(href="" data-target='stations' data-hover='true' data-constrain-width='false' data-cover-trigger="false"  md-dropdown title='{{station.model.name}}')
+    //-                 span {{station.model.name}} （{{alarms[station.model.station].count || '0'}}）
+    //-             a.breadcrumb.dropdown-trigger(href='' data-target='children' data-hover='true' data-constrain-width='false' data-cover-trigger="false" md-dropdown ng-if="station.stations.length>0")
+    //-                 span.active-menu 查看下级
+
+
+    .col.s3.offset-s9
+        search-input(controller="controller",parameters="{}")
+.row
+    .col.l4
+        event-statistic-hmu2500(controller="controller",parameters="{alarmFlag:false,stationId:station.model.station,statisticValue:alarms[station.model.station].count,activeValue:alarms[station.model.station].starts+alarms[station.model.station].confirms}")
+        .card-panel
+            event-analysis-chart.event-analysis-chart(controller="controller",parameters="{statistic:alarms[station.model.station].statistic}")
+
+        .card-panel.card-panel-container
+            span(ng-click='selectEquipmentType("all")')
+                .btn.standard-alarms-span-btn(ng-style='{"background-color": types.length == 0?"rgb(59,135,237)":"rgba(26,69,162,0.4) !important"}' title='显示所有设备类型告警')
+                    span 所有类型
+            span(ng-repeat='(key, type) in alarms[station.model.station].types', ng-click='selectEquipmentType(key)')
+                .btn.standard-alarms-span-btn(ng-style='{"background-color": types.indexOf(key)>=0?"rgb(59,135,237)":"rgba(26,69,162,0.4) !important"}' title='按设备类型过滤')
+                    span {{type.name}}: {{type.value}}
+    .col.l8.card-panel.event-list-container
+        event-startlist-hmu2500(controller="controller",parameters="{stationId:station.model.station,pageItem:10}")
+
+
+ul#stations.dropdown-content
+    li(ng-repeat='sta in stations | filter:{key: "!="+station.key} | orderBy:"model.index":true' ng-class='{active: sta.key == station.key}')
+        a(ng-href='' ng-click='selectStation(sta)')
+            span {{sta.model.name}}
+            span.badge.right.new(data-badge-caption=" ", ng-style='{"background-color": getEventColor(alarms[sta.model.station].severity) || "#0faa57"}') {{alarms[sta.model.station].count || '0'}}
+
+ul#children.dropdown-content(ng-if="station.stations.length>0")
+    li(ng-repeat='sta in station.stations | orderBy:"model.index":true')
+        a(ng-href='' ng-click='selectChild(sta)')
+            span {{sta.model.name}}
+            span.badge.right.new(data-badge-caption=" ", ng-style='{"background-color": getEventColor(alarms[sta.model.station].severity) || "#0faa57"}') {{alarms[sta.model.station].count || '0'}}

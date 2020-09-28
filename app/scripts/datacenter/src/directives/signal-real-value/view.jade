@@ -1,0 +1,4 @@
+div.block
+    .title {{parameters.title || signal.model.name}}
+    .value(style="color:#f3f3f5;font-size: 2em;position: absolute;top: 104%;right: 0;font-family: Palatino;") {{signal.data.formatValue}}
+    .unit {{project.typeModels.signaltypes.getItem(signal.model.unit).model.unit}}

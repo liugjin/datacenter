@@ -1,0 +1,36 @@
+{
+  "id": "station-tree-with-count",
+  "name": "含设备数量的站点树组件",
+  "type": "StationTreeWithCountDirective",
+  "desc": {
+    "author": "david",
+    "comment": "以树形式展现项目站点逻辑，同时站点信息中包含站点下设备数量信息",
+    "version": {
+      "0.0.1": [
+        "实现站点树功能，同时站点名称上显示站点下设备总数"
+      ],
+      "0.1.0": [
+        "新增了filterType参数，用来控制是否过滤掉类型为不可见的设备，默认为不过滤"
+      ],
+      "0.0.4": [
+        "页面标准化","@Albert"
+      ],
+      "0.0.5": [
+        "更新标准化样式,并适配1024*768分辨率","@vera"
+      ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+    {"id":"filter", "type":"bool", "value": true},
+    {"id":"checkbox", "type":"bool", "value": false},
+    {"id":"filterType", "type":"bool", "value": false}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.5"
+}

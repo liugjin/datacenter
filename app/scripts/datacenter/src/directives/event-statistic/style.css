@@ -1,0 +1,47 @@
+event-statistic .box-hexagon {
+  margin-top: .75rem;
+  width: 100%; }
+  event-statistic .box-hexagon .box-content {
+    height: auto;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 1rem;
+    background-color: rgba(26, 69, 162, 0.4); }
+  event-statistic .box-hexagon .box-border-top {
+    background-image: url("~image/big.png~");
+    background-repeat: no-repeat;
+    border-right: 1px solid #00e7ee;
+    height: 20px; }
+  event-statistic .box-hexagon .box-border-bottom {
+    background-image: url("~image/big.png~");
+    background-repeat: no-repeat;
+    border-right: 1px solid #00e7ee;
+    height: 20px;
+    transform: rotateY(180deg) rotateX(180deg); }
+
+event-statistic .all-events-type-lbtn:focus {
+  outline: none !important; }
+
+event-statistic .title-content-container {
+  margin-bottom: 22px;
+  margin-top: 22px; }
+
+event-statistic .left-title-box {
+  float: left; }
+  event-statistic .left-title-box .left-first-title {
+    margin: 0 10px;
+    font-size: 14px; }
+  event-statistic .left-title-box span {
+    font-size: 30px; }
+
+event-statistic .right-select-box {
+  margin-top: 1.2rem; }
+
+@media screen and (width: 1024px) {
+  event-statistic .title-content-container {
+    margin-top: 0.2rem;
+    height: 11vh; }
+    event-statistic .title-content-container a span {
+      font-size: 12px; }
+  event-statistic .left-title-box .left-first-title {
+    margin: 0 !important; } }

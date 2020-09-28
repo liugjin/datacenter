@@ -1,0 +1,47 @@
+{
+  "id": "equip-door",
+  "name": "门管理门设备列表",
+  "type": "EquipDoorDirective",
+  "desc": {
+    "author": "bingo",
+    "comment": "门管理中的门设备列表，展示站点下的门设备",
+    "version": {
+      "0.0.1": [
+        "初始化",
+        "展示站点下的门设备"
+      ],
+      "0.0.2": [
+        "更新样式"
+      ],
+      "0.0.3": [
+        "20190508修改样式", "@hardy"
+      ],
+      "0.0.4": [
+        "远程开门加上确认弹窗", "@bingo"
+      ],
+      "0.0.5": [
+        "修改门禁图片", "@James"
+      ],
+      "0.0.6": [
+        "替换门禁图片", "@James"
+      ],
+      "0.0.7": [
+        "更新页面标准化样式", "@Albert"
+      ],
+      "0.0.8": [
+        "适配1024*768分辨率", "@vera"
+      ]
+    }
+  },
+  "group": "站点组件",
+  "parameters": [
+    {"id": "station", "type": "string", "value": ""}
+  ],
+  "interact": {
+    "pubs": ["equipDoorId"],
+    "subs": ["stationId"]
+  },
+  "deps": [],
+  "css": "style='color: #aebdd3; background: rgba(26, 69, 162, 0.4)'",
+  "version": "0.0.8"
+}

@@ -1,0 +1,63 @@
+{
+  "id": "monitoring",
+  "name": "实时监控页面组件",
+  "type": "MonitoringDirective",
+  "desc": {
+    "author": "david",
+    "comment": "实时监控页面组件",
+    "version": {
+      "0.0.1": [
+      ],
+      "0.0.2": [
+        "修复了一些显示bug"
+      ],
+      "0.0.3": [
+        "修复设备图片显示bug"
+      ],
+      "0.0.4": [
+        "修复通过设备跳转进来后切换站点的显示bug"
+      ],
+      "0.0.5": [
+        "修复切换页面后，类型统计数据错误的bug", "修复多切换几次页面后部分设备图片不显示的bug"
+      ],
+      "0.0.6": [
+        "修复进入设备详情后，返回时设备图片消失的bug"
+      ],
+      "0.0.8": [
+        "修复站点树组件，在站点上增加显示设备数量"
+      ],
+      "0.0.9": [
+        "修复多级站点时，分类统计数据出错的bug"
+      ],
+      "0.1.0": [
+        "新增了filterType参数，用来控制是否过滤掉类型为不可见的设备，默认为不过滤"
+      ],
+      "0.1.1": [
+        "设备类型增加了按显示索引顺序呈现的逻辑，index值越大，显示越靠前"
+      ],
+      "0.1.2": [
+        "station.loadStatisticByEquipmentTypes这个方法不能使用缓存，否则会造成统计加倍，region"
+      ],
+      "0.1.3": [
+        "更新页面标准化样式","@Albert"
+      ],
+      "0.1.4": [
+        "更新页面标准化样式,并适配1024*768分辨率","@vera"
+      ],
+      "0.1.5": [
+        "将低分辨率下nav-wrapper的滚动条切换成横轴显示","@Albert"
+      ]
+    }
+  },
+  "group": "模块组件",
+  "parameters": [
+    {"id":"filterType", "type":"bool", "value": false, "desc": "用来设置是否过滤掉设备类型的visible为false的设备"}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": ["station-tree-with-count", "component-devicemonitor","equipment-property"],
+  "css": "",
+  "version": "0.1.5"
+}

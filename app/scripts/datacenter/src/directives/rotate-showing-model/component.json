@@ -1,0 +1,32 @@
+{
+	"id": "rotate-showing-model",
+	"name": "3D显示模式轮转控件",
+	"type": "RotateShowingModelDirective",
+	"desc": {
+		"author": "Hardy",
+		"comment": "显示模式轮转，作用于room-3d-component。",
+		"version": {
+			"0.0.1": [],
+			"0.0.2": ["增加参数传递: 1. rotate 是否旋转, 默认true; 2. time 间隔切换时间, 默认 10000 毫秒", "@youge"],
+			"0.0.3": ["修复bug", "@youge"],
+			"0.0.4": ["为了性能显示，默认禁止切换模式", "@region"]
+		}
+	},
+	"group": "功能组件",
+	"parameters": [{
+		"id": "time",
+		"type": "number",
+		"value": "5000"
+  }, {
+    "id": "rotate",
+		"type": "boolean",
+		"value": "true"
+  }],
+	"interact": {
+		"pubs": ["changeShowModel"],
+		"subs": []
+	},
+	"deps": [],
+	"css": "width:90%;",
+	"version": "0.0.4"
+}

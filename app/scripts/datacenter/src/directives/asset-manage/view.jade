@@ -1,0 +1,301 @@
+//- 页头
+.row.nav-top
+    .col.s2
+        span 资产管理
+    .col.l10
+        station-breadcrumbs(controller="controller" parameters="{}")
+.row.asset-type
+    //- 左边的部分(独立组件)
+    .col.s2.m2.l2.invent-type
+        .type.btn(ng-repeat="type in equipTypes | filter: filterTypes() | orderBy: 'index': false" ng-class="{'current-type': type.type == currentType.type}" ng-click="selectEquipType(type)")
+          .type-img
+              .img-bing(style="background-image: url('{{setting.urls.uploadUrl}}/{{type.image}}');" ng-if='type.image' ng-class="{'img-type': type.type != currentType.type, 'img-type-active': type.type == currentType.type}")
+
+          .type-count
+            .left {{type.name}}
+            .right ({{type.count}})
+    //- *************************一进去就显示的部分,分为列表模式和视图模式(独立组件)*************************
+    
+    .col.s10.m10.l10.invent-box
+        .asset-lists(ng-show="deviceShow")
+            //- 上面的搜索栏
+            .col.s12.m12.l12.asset-nav
+                .nav-flex-grow.left
+                    a.waves-effect.waves-light.btn(href='' ng-click='addEquipment()' title='新增设备')
+                        .left
+                            img(ng-src="{{addImg}}")
+                        span 新增
+
+                .nav-flex-grow.left
+                    a.waves-effect.waves-light.btn(href='' ng-click='switchView()' title='切换列表/视图')
+                        .left
+                            img(ng-src="{{viewImg}}")
+                        span {{viewName}}
+                .nav-flex-grow.left
+                    a.waves-effect.waves-light.btn(href='' ng-click='importAssets()' title='通过EXCEL表导入资产')
+                        .left
+                            img(ng-src="{{viewImg}}")
+                        span 资产导入
+
+                .right.search-wrapper()
+                    i.material-icons search
+                    input.search-input(type="text" placeholder="搜索" ng-model="searchLists" required)
+                    i.material-icons(style="left: 225px;" ng-click="searchLists = ''; pageIndex = 1;" ng-show='searchLists') close
+
+
+            //- 列表视图
+            .col.s12.m12.l12.list-view(ng-show="listShow")
+                .col.s12.m12.l12(style="height:65vh;overflow:auto;")
+                    table.responsive-table.centered.highlight
+                        thead
+                            tr
+                                th
+                                    .col-header(ng-click='station.equipments.sortBy("model.name")')
+                                        span 名称
+                                        span.right(ng-show='station.equipments.predicate == "model.name"') {{station.equipments.reverse && "▽" || "△"}}
+                                //- th
+                                //-     .col-header(ng-click='station.equipments.sortBy("model.equipment")')
+                                //-         span 资产编号
+                                //-         span.right(ng-show='station.equipments.predicate == "model.equipment"') {{station.equipments.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='station.equipments.sortBy("model.equipment")')
+                                        span 设备ID
+                                        span.right(ng-show='station.equipments.predicate == "model.equipment"') {{station.equipments.reverse && "▽" || "△"}}
+                                th
+                                    .col-header()
+                                        span 资产编号
+                                        span.right(ng-show='station.equipments.predicate == "model.tag"') {{station.equipments.reverse && "▽" || "△"}}
+                                //- th
+                                //-     .col-header()
+                                //-         span 序列号
+                                //-         span.right(ng-show='station.equipments.predicate == "propertyValues.serial-number"') {{station.equipments.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='station.equipments.sortBy("model.typeName")')
+                                        span 类型
+                                        span.right(ng-show='station.equipments.predicate == "model.typeName"') {{station.equipments.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='station.equipments.sortBy("model.templateName")')
+                                        span 型号
+                                        span.right(ng-show='station.equipments.predicate == "model.templateName"') {{station.equipments.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='station.equipments.sortBy("model.vendorName")')
+                                        span 厂商
+                                        span.right(ng-show='station.equipments.predicate == "model.vendorName"') {{station.equipments.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='station.equipments.sortBy("model.stationName")')
+                                        span 站点区域
+                                        span.right(ng-show='station.equipments.predicate == "model.stationName"') {{station.equipments.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='station.equipments.sortBy("model.createtime")')
+                                        span 登记时间
+                                        span.right(ng-show='station.equipments.predicate == "model.createtime"') {{station.equipments.reverse && "▽" || "△"}}
+                                th
+                                    .col-header(ng-click='station.equipments.sortBy("model.owner")')
+                                        span 责任人
+                                        span.right(ng-show='station.equipments.predicate == "model.owner"') {{station.equipments.reverse && "▽" || "△"}}
+                                th
+                                    .col-header
+                                        span 操作
+                        tbody
+                            tr(ng-repeat='equip in equipments | filter: filterEquipment() | orderBy: station.equipments.predicate:station.equipments.reverse | limitTo: pageItems * pageIndex | limitTo: limitToEquipment()' ng-class="{active: equipment.key == equip.key}")
+                                td(ng-click="lookData(equip)") {{equip.model.name}}
+                                td(ng-click="lookData(equip)") {{equip.model.equipment}}
+                                td(ng-click="lookData(equip)") {{equip.model.tag || '-'}}
+                                td(ng-click="lookData(equip)") {{equip.model.typeName}}
+                                td(ng-click="lookData(equip)") {{equip.model.templateName}}
+                                td(ng-click="lookData(equip)") {{equip.model.vendorName}}
+                                td(ng-click="lookData(equip)") {{equip.model.stationName}}
+                                td(ng-click="lookData(equip)") {{equip.model.createtime | date: 'yyyy-MM-dd'}}
+                                td(ng-click="lookData(equip)") {{equip.model.owner}}
+                                td(style="padding: 0;")
+                                    a.waves-effect.waves-light(ng-click="lookData(equip);$event.stopPropagation();" title='查看设备详情')
+                                        img(ng-src="{{detailGreenImg}}")
+                                    a.waves-effect.waves-light(href='' ng-click='editData(equip);$event.stopPropagation();' title='编辑设备')
+                                        img(ng-src="{{editGreenImg}}")
+                                    a.waves-effect.waves-light(href='' ng-click='deleteEquip(equip); $event.stopPropagation();' title='删除设备')
+                                        img(ng-src="{{deleteGreenImg}}")
+                                    //- a.waves-effect.waves-light(href='' ng-click='copyEquipment(equip); $event.stopPropagation();' title='复制设备')
+                                    //-     img(ng-src="{{copyGreenImg}}")
+
+            //-  卡片视图
+            .col.s12.m12.l12.list-card(ng-show="!listShow")
+                .col.s12.m4.l3(ng-repeat='equip in equipments | filter: filterEquipment() | orderBy: station.equipments.predicate:station.equipments.reverse | limitTo: pageItems * pageIndex | limitTo: limitToEquipment()' ng-class="{'pad-left': $index%4==0}" style="padding: 0 0 .75rem .75rem;")
+                    .card.hoverable
+                        .card-image(ng-click="lookData(equip)")
+                            a(ng-href='', title='访问设备')
+                                .card-img-placeholder
+                                    img.responsive-img(style="cursor:pointer" ng-if='equip.equipmentTemplate.model.image', ng-src='{{setting.urls.uploadUrl}}/{{equip.equipmentTemplate.model.image}}')
+                                    //img.responsive-img(ng-if='equip.image' ng-src='{{setting.urls.uploadUrl}}/{{equip.image}}')
+                                    //.default-img(ng-style="{'background-image': imgString(equip.model.template)}")
+                        .card-content
+                            span(title='{{equip.model.name}}' style="font-weight:bold; color: #1d2123;" ng-click="lookData(equip)")
+                                .truncate.font-bold {{equip.model.name}}
+                            span(title='{{equip.model.type}} / {{equip.model.vendor}} / {{equip.model.template}}' style="color: #a2aab6;" ng-click="lookData(equip)")
+                                .truncate.font-12 {{equip.model.typeName}} / {{equip.model.vendorName}} / {{equip.model.templateName}}
+                            span
+                                .truncate(style="margin-top: 5px;")
+                                    a.waves-effect.waves-light.right(href="" ng-click="copyEquipment(equip);$event.stopPropagation();" title="复制设备")
+                                        img(ng-src="{{copyGreenImg}}")
+                                    a.waves-effect.waves-light.right(href="" ng-click="deleteEquip(equip);$event.stopPropagation();" title="删除设备")
+                                        img(ng-src="{{deleteGreenImg}}")
+                                    a.waves-effect.waves-light.right(href='' ng-click="editData(equip);$event.stopPropagation();" title='编辑设备')
+                                        img(ng-src="{{editGreenImg}}")
+                                    //- a.waves-effect.waves-light.right(href="" ng-click="lookData(equip);$event.stopPropagation();" title='查看设备详情')
+                                    //-     img(ng-src="{{detailGreenImg}}")
+            //- 页码
+            .col.s12.m12.l12.eventpagination
+                div(style="flex:1;")
+                .valign-wrapper(style='flex:2;')
+                    div(style="margin: 0 auto;")
+                        ul.pagination(ng-show='filterEquipmentItem().pageCount > 1', ng-cloak)
+                            li(ng-class='{disabled: pageIndex <= 1, "waves-effect": pageIndex > 1}', ng-click='pageIndex>1?(pageIndex = pageIndex - 1):0')
+                                a(href='', ng-class="{'black-text': pageIndex > 1}")
+                                    i.material-icons chevron_left
+
+                            li(ng-class='{active: page == pageIndex, "waves-effect": page != pageIndex}' ng-repeat='page in filterEquipmentItem().pages' ng-click='selectPage(page)' ng-if="(page>(pageIndex-4)&&page<(pageIndex+4))||page==1||page==filterEquipmentItem().pageCount")
+                                a(href='')
+                                    | {{((page>(pageIndex-3)&&page<(pageIndex+3))||page==1||page==filterEquipmentItem().pageCount) ? page:".."}}
+
+                            li.last(ng-class='{disabled: pageIndex >= filterEquipmentItem().pageCount, "waves-effect": pageIndex < filterEquipmentItem().pageCount}', ng-click='pageIndex<filterEquipmentItem().pageCount?(pageIndex = pageIndex + 1):0')
+                                a(href='', ng-class="{'black-text': pageIndex < filterEquipmentItem().pageCount}")
+                                    i.material-icons chevron_right
+                div(style='flex:1;')
+
+        asset-detail(controller="controller" parameters="{}" ng-show="detailShow")
+
+        //- *************************点击新增后出现的页面,建议删除(独立组件)*************************
+        .asset-add(ng-show="addShow")
+            //- 搜索栏
+            .col.s12.m12.l12.asset-nav
+                .nav-flex-grow.left
+                    a.waves-effect.waves-light.btn(href='' title='返回' ng-click='backList();')
+                        .left
+                            img(ng-src="{{backImg}}" style="height: 1.5rem;")
+                        span 返回
+                .nav-flex-grow.left
+                    a.waves-effect.waves-light.btn(href='' title='保存' ng-click="saveEquipmentGroups()" ng-show="equipment.model.name || equipment.model.desc")
+                        .left
+                            img(ng-src="{{saveImg}}")
+                        span 保存
+                .right.search-wrapper
+                    i.material-icons search
+                    input.search-input(type="text" placeholder="搜索" ng-model="searchEdit" required)
+                    i.material-icons(style="left: 225px;" ng-click="searchEdit = '';" ng-show='searchEdit') close
+            //- 点击新增后左边部分
+            .col.l5.asset-left
+                .col.l12.asset-img
+                    .row.no-margin
+                        .img-uploader.model-img-upload
+                            image-uploader(ng-model="equipment.model.image" dir="{{setting.urls.uploadUrl}}")
+
+                .col.l12.critical-model
+                    .col.l6.no-padding
+                        .col.l12(style="margin-top: 1rem;")
+                            label 设备站点
+                            .input-field
+                                select(ng-model='equipment.model.station' md-select data='equipment.model' ng-change="stationChange()")
+                                    option(ng-repeat='station in project.stations.items' value='{{station.model.station}}' ng-selected='equipment.model.station == station.model.station') {{station.model.name}}
+                        .col.l12(style="")
+                            label 设备类型
+                            .input-field
+                                select(ng-model='equipment.model.type', md-select data='equipment.model' ng-change="equipTypeChange()")
+                                    option(value='') 未知设备类型
+                                    option(ng-repeat='type in project.typeModels.equipmenttypes.items' value='{{type.model.type}}' ng-selected='equipment.model.type == type.model.type') {{type.model.name}}
+                        .col.l12(style="")
+                            label 设备厂商
+                            .input-field
+                                select(ng-model='equipment.model.vendor' md-select data='equipment.model' ng-change="equipVendorChange()")
+                                    option(value='') 未知设备厂商
+                                    option(ng-repeat='vendor in project.typeModels.vendors.items' value='{{vendor.model.vendor}}' ng-selected='equipment.model.vendor == vendor.model.vendor') {{vendor.model.name}}
+                        .col.l12(style="")
+                            label 设备型号
+                            .input-field
+                                select(ng-model='equipment.model.template' md-select data='equipment.model.type + "." + equipment.model.vendor' ng-change='equipTemplateChange()')
+                                    option(value='') 未知设备型号
+                                    option(ng-repeat='template in project.equipmentTemplates.items | filter: filterEquipmentTemplate()' value='{{template.model.template}}', ng-selected='equipment.model.template == template.model.template') {{template.model.name}}
+                        .col.l12(style="")
+                            label 责任人
+                            .input-field
+                                select(ng-model='equipment.model.owner' md-select data='equipment.model')
+                                    option(value='') 未知责任人
+                                    option(ng-repeat='user in userMsg' value='{{user.user}}' ng-selected="equipment.model.owner == user.user") {{user.name}}
+                    .col.l6.no-padding
+                        .col.l12(style="margin-top: 1rem;")
+                            label 设备ID
+                            .input-field
+                                input.validate(type='text' ng-model='equipment.model.equipment' disabled)
+                        .col.l12(style="")
+                            label 设备名称
+                            .input-field
+                                input.validate(type='text' ng-model='equipment.model.name')
+                        .col.l12(style="")
+                            label 描述
+                            .input-field
+                                input.validate.desc(type='textarea' ng-model='equipment.model.desc', style="")
+                        .col.l12(style="" ng-repeat="property in equipment._properties | filter: filterEditItems1() | orderBy: 'model.group':true")
+                            label {{property.model.name}}
+                            .input-field(ng-switch='property.model.dataType' title='{{property.value}}')
+                                input.validate(ng-switch-default type='text' ng-model="property.value")
+                                input.validate(ng-switch-when='date' type='date' ng-model="property.value")
+            //- 点击新增后出现的右边部分
+            .col.l7.asset-right
+                .col.l12.no-padding.asset-right-pro
+                    .col.l12.asset-right-table
+                        table.responsive-table.centered
+                            span 采集单元设置
+                            thead
+                                tr
+                                    th(style="width: 20%;")
+                                        span 名称
+                                    th
+                                        span 绑定值
+                            tbody
+                                tr(ng-repeat="sampleunit in equipment._sampleUnits| orderBy: 'name': true")
+                                    td(style="color: #a2aab6;") {{sampleunit.name}}
+                                    td
+                                        .col.s12
+                                            input.validate(type='text', ng-model='sampleunit.value')
+                        table.responsive-table.centered
+                            span 扩展属性
+                            thead
+                                tr
+                                    th(style="width: 20%;")
+                                        span 名称
+                                    th
+                                        span 赋值
+                                    th(style="width: 15%;")
+                                        span 单位
+                            tbody
+                                tr(ng-repeat="property in equipment._properties | filter: filterEditItems2() | orderBy: 'model.index': false")
+                                    td(style="color: #a2aab6;") {{property.model.name}}
+                                    td(ng-switch='property.model.dataType')
+                                        .col.s12(ng-switch-default)
+                                            input.validate(type='text', ng-model='property.model.value')
+                                        .col.s12(ng-switch-when='enum')
+                                            select(ng-model='property.model.value', md-select, data='property.model.dataType')
+                                                option(ng-repeat="map in property.model.format.split(',')" value="{{map.split(':')[0]}}" ng-selected="property.model.value==map.split(':')[0]") {{map.split(':')[1]}}
+                                        .col.s12(ng-switch-when='int')
+                                            input.validate(type='number', ng-model='property.model.value', min='{{property.model._format.min}}', max='{{property.model._format.max}}', step='any')
+                                        .col.s12(ng-switch-when='float')
+                                            input.validate(type='number', ng-model='property.model.value', min='{{property.model._format.min}}', max='{{property.model._format.max}}', step='any')
+                                        .col.s12(ng-switch-when='color')
+                                            input.validate(type='color', ng-model='property.model.value')
+                                        .col.s12(ng-switch-when='password')
+                                            input.validate(type='password', ng-model='property.model.value')
+                                        .col.s12(ng-switch-when='date')
+                                            input.validate(type='date', input-format, ng-model='property.model.value')
+                                        .col.s12(ng-switch-when='time')
+                                            input.validate(type='time', ng-model='property.model.value')
+                                        .col.s12(ng-switch-when='datetime')
+                                            input.validate(type='datetime-local' input-format ng-model='property.model.value')
+                                        .col.s12.property-checkbox(ng-switch-when='bool')
+                                            input(type='checkbox', ng-model='property.model.value' id='cb-{{property.model.property}}')
+                                        .col.s12(ng-switch-when='image')
+                                            .img-uploader(style="margin: 0 auto;")
+                                                image-uploader(ng-model='property.model.value' dir='{{setting.urls.uploadUrl}}')
+                                        .col.s12(ng-switch-when='file')
+                                            .file-uploader
+                                                file-uploader(ng-model='property.model.value' dir='{{setting.urls.uploadUrl}}')
+                                    td(style="color: #a2aab6;") {{project.typeModels.units.getItem(property.model.unit).model.abbr || property.model.unit}}
+        //- *************************资产导入组件*************************
+        import-assets(controller="controller" parameters="{}" ng-show="importShow")

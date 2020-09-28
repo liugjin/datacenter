@@ -1,0 +1,134 @@
+component-rolesrights .station-panel {
+  overflow-y: hidden; }
+
+component-rolesrights .switch {
+  margin-bottom: .5rem; }
+
+component-rolesrights .repeat-label {
+  margin-bottom: .5rem; }
+
+component-rolesrights label {
+  color: #ffffff !important;
+  font-size: 14px; }
+
+component-rolesrights .switch label .lever {
+  background-color: #1a45a2; }
+
+component-rolesrights .switch label input[type=checkbox]:checked + .lever {
+  background-color: #1a45a2; }
+
+component-rolesrights .switch label input[type=checkbox]:checked + .lever:after {
+  background-color: #01a6ff; }
+
+component-rolesrights .modal {
+  background-color: transparent !important; }
+  component-rolesrights .modal .modal-footer.modal-nav {
+    background-color: transparent !important; }
+  component-rolesrights .modal .modal-content {
+    overflow-y: hidden !important;
+    height: calc(100% - 64px) !important;
+    background-color: rgba(17, 50, 122, 0.9) !important; }
+    component-rolesrights .modal .modal-content label {
+      color: #ffffff !important; }
+    component-rolesrights .modal .modal-content input {
+      color: #ffffff !important;
+      border-bottom: 1px solid #ffffff; }
+    component-rolesrights .modal .modal-content input:disabled {
+      border-bottom: 1px dotted #ffffff; }
+    component-rolesrights .modal .modal-content input:focus {
+      border-bottom: 1px solid #00e7ee; }
+
+component-rolesrights span {
+  color: #ffffff !important; }
+
+component-rolesrights .no-margin-bottom {
+  margin-bottom: 0; }
+
+component-rolesrights .btn {
+  font-size: 14px; }
+
+component-rolesrights [type="checkbox"] + span:not(.lever) {
+  font-size: 14px; }
+
+component-rolesrights [type="checkbox"]:not(:checked):disabled + span:not(.lever):before {
+  border: 2px solid #cdd2d4; }
+
+component-rolesrights [type="checkbox"] + span:not(.lever):before, component-rolesrights [type="checkbox"]:not(.filled-in) + span:not(.lever):after {
+  border: 2px solid #cdd2d4; }
+
+component-rolesrights [type="checkbox"].filled-in:not(:checked) + span:not(.lever):after {
+  border: 2px solid #cdd2d4;
+  top: 2px; }
+
+component-rolesrights [type="checkbox"].filled-in:checked + span:not(.lever):after {
+  background: #00ac4c;
+  border: 2px solid #00ac4c;
+  top: 2px; }
+
+component-rolesrights [type="checkbox"].filled-in:checked + span:not(.lever):before {
+  top: 2px; }
+
+component-rolesrights [type="checkbox"].filled-in:disabled:not(:checked) + span:not(.lever):after {
+  border-color: transparent;
+  background-color: rgba(26, 69, 162, 0.4); }
+
+component-rolesrights .pad-left-0 {
+  padding-left: 0 !important; }
+
+component-rolesrights .cool-title {
+  background-color: rgba(1, 166, 255, 0.65);
+  color: #ffffff;
+  padding: .75rem; }
+
+component-rolesrights .cool-content {
+  background-color: rgba(26, 69, 162, 0.4);
+  height: 230px;
+  overflow-y: auto;
+  margin: .75rem 0;
+  padding: .75rem;
+  border: 1px solid #00d5ff;
+  box-shadow: 0 0 10px #00d5ff inset , 0 0 10px #00d5ff; }
+  component-rolesrights .cool-content p {
+    margin: 15px 10px; }
+  component-rolesrights .cool-content p label span {
+    color: #ffffff !important; }
+
+component-rolesrights .cool-content-inside {
+  background-color: rgba(26, 69, 162, 0.4); }
+
+component-rolesrights .collection {
+  margin: 0;
+  border: none;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative; }
+  component-rolesrights .collection li {
+    color: #ffffff !important; }
+  component-rolesrights .collection .collection-item {
+    border-bottom: none;
+    color: #ffffff !important;
+    background-color: transparent; }
+  component-rolesrights .collection .collection-item.active {
+    background-color: rgba(1, 166, 255, 0.65) !important; }
+  component-rolesrights .collection .collection-item:not(.active):hover {
+    background-color: rgba(26, 69, 162, 0.4) !important; }
+
+component-rolesrights .circle {
+  border-radius: 50%; }
+
+component-rolesrights .secondary-content {
+  position: absolute;
+  top: 16px;
+  right: 16px; }
+
+component-rolesrights .collection-item.active {
+  background-color: #26a69a;
+  color: #eafaf9; }
+
+@media only screen and (width: 1024px) and (min-width: 993px) {
+  component-rolesrights .row .col.l3 {
+    width: 33% !important; }
+  component-rolesrights .spare1 {
+    padding-left: 0.75rem !important; }
+  component-rolesrights .spare2 {
+    padding-left: 0 !important; } }

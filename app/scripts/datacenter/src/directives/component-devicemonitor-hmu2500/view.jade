@@ -1,0 +1,45 @@
+.row
+    .s12.m12.l12
+        .nav-wrapper#equipment-tabs.tabs-fixed-width.tab-menu
+            span
+                .btn.standard-span-btn(ng-href='#overview', ng-click='setTab("overview")' ng-style='{"background-color": tapFlag=="overview"?"rgba(3,166,255,0.5)":""}')
+                    span 设备概览
+            span
+                .btn.standard-span-btn(ng-href='#signals', ng-click='setTab("signals")' ng-style='{"background-color": tapFlag=="signals"?"rgba(3,166,255,0.5)":""}')
+                    span 实时数据
+            span
+                .btn.standard-span-btn(ng-href='#events', ng-click='setTab("events")' ng-style='{"background-color": tapFlag=="events"?"rgba(3,166,255,0.5)":""}')
+                    span 事件告警
+            span
+                .btn.standard-span-btn(ng-href='#commands', ng-click='setTab("commands")' ng-style='{"background-color": tapFlag=="commands"?"rgba(3,166,255,0.5)":""}')
+                    span 控制命令
+            span
+                .btn.standard-span-btn(ng-href='#chart', ng-click='setTab("chart")' ng-style='{"background-color": tapFlag=="chart"?"rgba(3,166,255,0.5)":""}')
+                    span 图表分析
+
+
+
+        #overview(style="position: relative;" ng-show="tapFlag=='overview'")
+
+            graphicparamter-box.graphic-height-equipment(controller='controller', parameters='{"templateId":currEquipment.equipmentTemplate.model.graphic,"templateParameters":{"station":currEquipment.model.station,"equipment":currEquipment.model.equipment},"noBorderStyle": true}')
+            .fullscreen(style="right: 1.45rem;bottom: 1.25rem;")
+                a(ng-click='fullscreen("#graphicparamter")', title='全屏')
+                    img(src="res/svg/fullscreen.svg")
+        #signals(ng-show="tapFlag == 'signals'")
+            include ./equipment-plan/equipment-signals.html.jade
+
+        #events(ng-show="tapFlag == 'events'")
+            include ./equipment-plan/equipment-events.html.jade
+
+        #commands(ng-show="tapFlag == 'commands'")
+            include ./equipment-plan/equipment-commands.html.jade
+
+        #chart(ng-show="tapFlag== 'chart'")
+            equip-lineorbar-hmu2500(controller='controller', parameters='{"station":currEquipment.model.station,"equipment":currEquipment.model.equipment, width: "52vw"}')
+
+
+include ./modals/equipment-modal.html.jade
+include ./modals/signal-modal.html.jade
+include ./modals/event-modal.html.jade
+include ./modals/command-modal.html.jade
+include ./modals/command-execution-modal.html.jade

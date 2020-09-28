@@ -1,0 +1,25 @@
+{
+  "id": "signal-gauge",
+  "name": "信号仪表盘控件",
+  "type": "SignalGaugeDirective",
+  "desc": {
+    "author": "David",
+    "comment": "用仪表盘形式呈现信号实时数据",
+    "version": {
+        "0.0.1": [
+        ]
+    }
+  },
+  "group": "数据点组件",
+  "parameters": [
+    {"id":"equipment", "type": "string", "value":"_station_management"},
+    {"id":"signal", "type": "string", "value":""}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.1"
+}

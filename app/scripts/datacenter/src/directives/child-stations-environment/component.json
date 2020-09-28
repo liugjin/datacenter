@@ -1,0 +1,30 @@
+{
+  "id": "child-stations-environment",
+  "name": "ChildStationsEnvironment控件",
+  "type": "ChildStationsEnvironmentDirective",
+  "desc": {
+    "author": "david",
+    "comment": "显示当前站点下子站点的环境设备（包括温湿度、水浸、烟感）的信息",
+    "version": {
+        "0.0.1": [
+        ],
+        "0.0.2": [
+           "更新页面标准化样式","@Albert"
+        ],
+        "0.0.3": [
+          "更新适配1024x768样式","@Albert"
+        ]
+    }
+  },
+  "group": "站点组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.3"
+}

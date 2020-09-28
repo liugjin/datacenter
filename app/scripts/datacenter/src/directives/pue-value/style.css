@@ -1,0 +1,14 @@
+pue-value .flex {
+  display: flex; }
+
+pue-value .white-text {
+  color: white; }
+
+pue-value .box {
+  font-size: 2em;
+  margin: 0.2vw;
+  padding: 0 0.5vw;
+  font-family: Palatino; }
+
+pue-value .gray-text {
+  color: #ccc; }

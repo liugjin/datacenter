@@ -1,0 +1,78 @@
+//.box-hexagon.environment
+//    .box-border-top
+//    .box-content
+//        .title
+//            span 环境
+//            //span.subtitle Environmental information
+//            span.subtitle.right.dropdown-trigger(ng-show='tempHumi || water || smoke' data-target='selectEquip' data-hover='true' data-constrain-width='false' md-dropdown) 选择设备
+//        .content
+//            .environment
+//                .font
+//                    span.valuecolor {{tempHumi.temperature.data.formatValue || "-"}} ℃
+//                    div {{tempHumi.temperature.equipment.model.name || "温度"}}
+//
+//                .font
+//                    span.valuecolor {{tempHumi.humidity.data.formatValue || "-"}} %
+//                    div {{tempHumi.humidity.equipment.model.name || "湿度"}}
+//
+//                .font
+//                    .img
+//                        img(ng-show="water.data.value == 1" ng-src="{{getComponentPath('image/water-error.png')}}")
+//                        img(ng-show="water.data.value == 0 || !water.data.value" ng-src="{{getComponentPath('image/water-normal.png')}}")
+//                    span {{water.equipment.model.name || "漏水"}}：
+//                    span.valuecolor(ng-class="water.data.value == 0 ? water:'abnormalcolor'") {{water.data.formatValue || "-"}}
+//
+//                .font
+//                    .img
+//                        img(ng-show="smoke.data.value == 1" ng-src="{{getComponentPath('image/smoke-error.png')}}")
+//                        img(ng-show="smoke.data.value == 0 || !smoke.data.value" ng-src="{{getComponentPath('image/smoke-normal.png')}}")
+//                    span {{smoke.equipment.model.name || "烟感"}}：
+//                    span.valuecolor(ng-class="smoke.data.value == 0 ? smoke:'abnormalcolor'") {{smoke.data.formatValue || "-"}}
+//
+//    .box-border-bottom
+//
+//ul#selectEquip.dropdown-content(style="width: auto;")
+//    li(ng-repeat='equip in selectEquip' ng-class='{active: parent.key == station.key}')
+//        a(ng-href='', ng-click='selectEquipment(equip)')
+//            span {{equip.model.name}}
+
+.box-hexagon
+    .line-col
+    .line-row
+    .box-content
+        div
+            .title 环境
+            .subtitle.right.dropdown-trigger(
+                ng-show='tempHumi || water || smoke'
+                data-target='selectEquip'
+                data-hover='true'
+                data-constrain-width='false'
+                md-dropdown) 选择设备
+        .content
+            .row(style="margin-bottom:0;width: 100%;box-sizing:border-box;padding: 0px 12px;")
+                .environment
+                    .font
+                        span.valuecolor {{tempHumi.temperature.data.formatValue || "-"}} ℃
+                        div {{tempHumi.temperature.equipment.model.name || "温度"}}
+
+                    .font
+                        span.valuecolor {{tempHumi.humidity.data.formatValue || "-"}} %
+                        div {{tempHumi.humidity.equipment.model.name || "湿度"}}
+
+                    .font
+                        .img
+                            img(ng-show="water.data.value == 1" ng-src="{{getComponentPath('image/water-error.png')}}")
+                            img(ng-show="water.data.value == 0 || !water.data.value" ng-src="{{getComponentPath('image/water-normal.png')}}")
+                        span {{water.equipment.model.name || "漏水"}}：
+                        span.valuecolor(ng-class="water.data.value == 0 ? water:'abnormalcolor'") {{water.data.formatValue || "-"}}
+
+                    .font
+                        .img
+                            img(ng-show="smoke.data.value == 1" ng-src="{{getComponentPath('image/smoke-error.png')}}")
+                            img(ng-show="smoke.data.value == 0 || !smoke.data.value" ng-src="{{getComponentPath('image/smoke-normal.png')}}")
+                        span {{smoke.equipment.model.name || "烟感"}}：
+                        span.valuecolor(ng-class="smoke.data.value == 0 ? smoke:'abnormalcolor'") {{smoke.data.formatValue || "-"}}
+ul#selectEquip.dropdown-content(style="width: auto;")
+    li(ng-repeat='equip in selectEquip' ng-class='{active: parent.key == station.key}')
+        a(ng-href='', ng-click='selectEquipment(equip)')
+            span {{equip.model.name}}

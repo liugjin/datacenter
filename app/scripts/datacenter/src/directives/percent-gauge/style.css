@@ -1,0 +1,9 @@
+percent-gauge {
+  display: block; }
+  percent-gauge .percent-gauge {
+    margin-top: 5px;
+    height: 90%;
+    width: 100%; }
+  percent-gauge .name {
+    font-size: 0.875rem;
+    color: #ffffff; }

@@ -1,0 +1,717 @@
+@font-face {
+  font-family: 'hyiocnfont';
+  src:  url('fonts/hyiocnfont.eot?zfd1yc');
+  src:  url('fonts/hyiocnfont.eot?zfd1yc#iefix') format('embedded-opentype'),
+    url('fonts/hyiocnfont.ttf?zfd1yc') format('truetype'),
+    url('fonts/hyiocnfont.woff?zfd1yc') format('woff'),
+    url('fonts/hyiocnfont.svg?zfd1yc#hyiocnfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="hyicon-"], [class*=" hyicon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'hyiocnfont' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.hyicon-current:before {
+  content: "\e900";
+}
+.hyicon-hy-add:before {
+  content: "\e901";
+}
+.hyicon-hy-add-person:before {
+  content: "\e902";
+}
+.hyicon-hy-admin:before {
+  content: "\e903";
+}
+.hyicon-hy-alarmequips:before {
+  content: "\e904";
+}
+.hyicon-hy-allevents:before {
+  content: "\e905";
+}
+.hyicon-hy-authority:before {
+  content: "\e906";
+}
+.hyicon-hy-back:before {
+  content: "\e907";
+}
+.hyicon-hy-bearing:before {
+  content: "\e908";
+}
+.hyicon-hy-bearing-oil:before {
+  content: "\e909";
+}
+.hyicon-hy-buscapacitance:before {
+  content: "\e90a";
+}
+.hyicon-hy-calendar:before {
+  content: "\e90b";
+}
+.hyicon-hy-cancel:before {
+  content: "\e90c";
+}
+.hyicon-hy-card:before {
+  content: "\e90d";
+}
+.hyicon-hy-carrental:before {
+  content: "\e90e";
+}
+.hyicon-hy-carstate:before {
+  content: "\e90f";
+}
+.hyicon-hy-change-password:before {
+  content: "\e910";
+}
+.hyicon-hy-chargpile:before {
+  content: "\e911";
+}
+.hyicon-hy-click:before {
+  content: "\e912";
+}
+.hyicon-hy-client:before {
+  content: "\e913";
+}
+.hyicon-hy-cloud-update:before {
+  content: "\e914";
+}
+.hyicon-hy-command:before {
+  content: "\e915";
+}
+.hyicon-hy-connectionstate:before {
+  content: "\e916";
+}
+.hyicon-hy-copy:before {
+  content: "\e917";
+}
+.hyicon-hy-countdown:before {
+  content: "\e918";
+}
+.hyicon-hy-CPU:before {
+  content: "\e919";
+}
+.hyicon-hy-datapage:before {
+  content: "\e91a";
+}
+.hyicon-hy-datarise:before {
+  content: "\e91b";
+}
+.hyicon-hy-delete:before {
+  content: "\e91c";
+}
+.hyicon-hy-detailinfo:before {
+  content: "\e91d";
+}
+.hyicon-hy-display-screen:before {
+  content: "\e91e";
+}
+.hyicon-hy-download:before {
+  content: "\e91f";
+}
+.hyicon-hy-download-plugin:before {
+  content: "\e920";
+}
+.hyicon-hy-drywater:before {
+  content: "\e921";
+}
+.hyicon-hy-edit:before {
+  content: "\e922";
+}
+.hyicon-hy-email:before {
+  content: "\e923";
+}
+.hyicon-hy-enable-time:before {
+  content: "\e924";
+}
+.hyicon-hy-energy:before {
+  content: "\e925";
+}
+.hyicon-hy-equipsignals:before {
+  content: "\e926";
+}
+.hyicon-hy-Excel:before {
+  content: "\e927";
+}
+.hyicon-hy-export:before {
+  content: "\e928";
+}
+.hyicon-hy-fastforward:before {
+  content: "\e929";
+}
+.hyicon-hy-file-manage:before {
+  content: "\e92a";
+}
+.hyicon-hy-fire-alarm:before {
+  content: "\e92b";
+}
+.hyicon-hy-fire-spraybooth:before {
+  content: "\e92c";
+}
+.hyicon-hy-fullscreen:before {
+  content: "\e92d";
+}
+.hyicon-hy-healthdiagnosis:before {
+  content: "\e92e";
+}
+.hyicon-hy-heating:before {
+  content: "\e92f";
+}
+.hyicon-hy-historyvideo:before {
+  content: "\e930";
+}
+.hyicon-hy-information-query:before {
+  content: "\e931";
+}
+.hyicon-hy-interface:before {
+  content: "\e932";
+}
+.hyicon-hy-language:before {
+  content: "\e933";
+}
+.hyicon-hy-link:before {
+  content: "\e934";
+}
+.hyicon-hy-list:before {
+  content: "\e935";
+}
+.hyicon-hy-location-search:before {
+  content: "\e936";
+}
+.hyicon-hy-maintenance:before {
+  content: "\e937";
+}
+.hyicon-hy-modelblasted:before {
+  content: "\e938";
+}
+.hyicon-hy-modellines:before {
+  content: "\e939";
+}
+.hyicon-hy-motorbase:before {
+  content: "\e93a";
+}
+.hyicon-hy-motorwinding:before {
+  content: "\e93b";
+}
+.hyicon-hy-mute:before {
+  content: "\e93c";
+}
+.hyicon-hy-nocamera:before {
+  content: "\e93d";
+}
+.hyicon-hy-normal-state:before {
+  content: "\e93e";
+}
+.hyicon-hy-offline:before {
+  content: "\e93f";
+}
+.hyicon-hy-online:before {
+  content: "\e940";
+}
+.hyicon-hy-online-equips:before {
+  content: "\e941";
+}
+.hyicon-hy-operations-manage:before {
+  content: "\e942";
+}
+.hyicon-hy-overhaul:before {
+  content: "\e943";
+}
+.hyicon-hy-permeator:before {
+  content: "\e944";
+}
+.hyicon-hy-phone:before {
+  content: "\e945";
+}
+.hyicon-hy-play:before {
+  content: "\e946";
+}
+.hyicon-hy-PPT:before {
+  content: "\e947";
+}
+.hyicon-hy-praise:before {
+  content: "\e948";
+}
+.hyicon-hy-printer:before {
+  content: "\e949";
+}
+.hyicon-hy-refrigeration:before {
+  content: "\e94a";
+}
+.hyicon-hy-replay:before {
+  content: "\e94b";
+}
+.hyicon-hy-reset:before {
+  content: "\e94c";
+}
+.hyicon-hy-restart:before {
+  content: "\e94d";
+}
+.hyicon-hy-rotate:before {
+  content: "\e94e";
+}
+.hyicon-hy-rotor-bar:before {
+  content: "\e94f";
+}
+.hyicon-hy-runing-status:before {
+  content: "\e950";
+}
+.hyicon-hy-save:before {
+  content: "\e951";
+}
+.hyicon-hy-screenshot:before {
+  content: "\e952";
+}
+.hyicon-hy-select:before {
+  content: "\e953";
+}
+.hyicon-hy-selftest:before {
+  content: "\e954";
+}
+.hyicon-hy-setting:before {
+  content: "\e955";
+}
+.hyicon-hy-share:before {
+  content: "\e956";
+}
+.hyicon-hy-shield:before {
+  content: "\e957";
+}
+.hyicon-hy-shock:before {
+  content: "\e958";
+}
+.hyicon-hy-speaker-add:before {
+  content: "\e959";
+}
+.hyicon-hy-speaker-level1:before {
+  content: "\e95a";
+}
+.hyicon-hy-speaker-level2:before {
+  content: "\e95b";
+}
+.hyicon-hy-speaker-level3:before {
+  content: "\e95c";
+}
+.hyicon-hy-speaker-reduce:before {
+  content: "\e95d";
+}
+.hyicon-hy-statorcoil:before {
+  content: "\e95e";
+}
+.hyicon-hy-stop:before {
+  content: "\e95f";
+}
+.hyicon-hy-switchstate:before {
+  content: "\e960";
+}
+.hyicon-hy-system-monitor:before {
+  content: "\e961";
+}
+.hyicon-hy-temperature:before {
+  content: "\e962";
+}
+.hyicon-hy-terminals:before {
+  content: "\e963";
+}
+.hyicon-hy-triprecords:before {
+  content: "\e964";
+}
+.hyicon-hy-upgrade:before {
+  content: "\e965";
+}
+.hyicon-hy-uploadimage:before {
+  content: "\e966";
+}
+.hyicon-hy-userID:before {
+  content: "\e967";
+}
+.hyicon-hy-video:before {
+  content: "\e968";
+}
+.hyicon-hy-view1:before {
+  content: "\e969";
+}
+.hyicon-hy-view4:before {
+  content: "\e96a";
+}
+.hyicon-hy-view9:before {
+  content: "\e96b";
+}
+.hyicon-hy-visualization:before {
+  content: "\e96c";
+}
+.hyicon-hy-wechat:before {
+  content: "\e96d";
+}
+.hyicon-hy-Word:before {
+  content: "\e96e";
+}
+.hyicon-Di:before {
+  content: "\e96f";
+}
+.hyicon-bianpinqi:before {
+  content: "\e970";
+}
+.hyicon-bianyaqi:before {
+  content: "\e971";
+}
+.hyicon-changfangkongtiao:before {
+  content: "\e972";
+}
+.hyicon-dianbiao:before {
+  content: "\e973";
+}
+.hyicon-dianchibao:before {
+  content: "\e974";
+}
+.hyicon-dianxiang:before {
+  content: "\e975";
+}
+.hyicon-dianyuankaiguan:before {
+  content: "\e976";
+}
+.hyicon-dianzisuo:before {
+  content: "\e977";
+}
+.hyicon-diyapeidian:before {
+  content: "\e978";
+}
+.hyicon-duanluqi:before {
+  content: "\e979";
+}
+.hyicon-fadianji:before {
+  content: "\e97a";
+}
+.hyicon-fangleiqi:before {
+  content: "\e97b";
+}
+.hyicon-fuwuqi:before {
+  content: "\e97c";
+}
+.hyicon-fuwuqi2:before {
+  content: "\e97d";
+}
+.hyicon-gaosuETC:before {
+  content: "\e97e";
+}
+.hyicon-HMU1000:before {
+  content: "\e97f";
+}
+.hyicon-HMU2000:before {
+  content: "\e980";
+}
+.hyicon-hongwaichuanganqi:before {
+  content: "\e981";
+}
+.hyicon-jiansudianji:before {
+  content: "\e982";
+}
+.hyicon-jifangkongtiao:before {
+  content: "\e983";
+}
+.hyicon-jigui:before {
+  content: "\e984";
+}
+.hyicon-kongqiyasuoji:before {
+  content: "\e985";
+}
+.hyicon-kongqizhilianjiance:before {
+  content: "\e986";
+}
+.hyicon-lianganglu:before {
+  content: "\e987";
+}
+.hyicon-loudianjiance:before {
+  content: "\e988";
+}
+.hyicon-menjin:before {
+  content: "\e989";
+}
+.hyicon-menjin2:before {
+  content: "\e98a";
+}
+.hyicon-nibianqi:before {
+  content: "\e98b";
+}
+.hyicon-PDU:before {
+  content: "\e98c";
+}
+.hyicon-peidiangui:before {
+  content: "\e98d";
+}
+.hyicon-qingqichuanganqi:before {
+  content: "\e98e";
+}
+.hyicon-RDU:before {
+  content: "\e98f";
+}
+.hyicon-shengguanbaojingqi:before {
+  content: "\e990";
+}
+.hyicon-shepingshebei:before {
+  content: "\e991";
+}
+.hyicon-shexiangtou:before {
+  content: "\e992";
+}
+.hyicon-shuijin:before {
+  content: "\e993";
+}
+.hyicon-shuijinchuanganqi:before {
+  content: "\e994";
+}
+.hyicon-shukongjichuang:before {
+  content: "\e995";
+}
+.hyicon-STS:before {
+  content: "\e996";
+}
+.hyicon-UPS:before {
+  content: "\e997";
+}
+.hyicon-wenshidu:before {
+  content: "\e998";
+}
+.hyicon-yangan:before {
+  content: "\e999";
+}
+.hyicon-zhenglimokuai:before {
+  content: "\e99a";
+}
+.hyicon-zhenkongbang:before {
+  content: "\e99b";
+}
+.hyicon-Drongliangguanli:before {
+  content: "\e99c";
+}
+.hyicon-Dxuanzhuan:before {
+  content: "\e99d";
+}
+.hyicon-anfangguanli:before {
+  content: "\e99e";
+}
+.hyicon-baobiaofenxi:before {
+  content: "\e99f";
+}
+.hyicon-caozuorizhi:before {
+  content: "\e9a0";
+}
+.hyicon-chubufenlei:before {
+  content: "\e9a1";
+}
+.hyicon-chubuhuizong:before {
+  content: "\e9a2";
+}
+.hyicon-chubujilu:before {
+  content: "\e9a3";
+}
+.hyicon-dangqiangaojing:before {
+  content: "\e9a4";
+}
+.hyicon-dengkongguanli:before {
+  content: "\e9a5";
+}
+.hyicon-donghuanguanli:before {
+  content: "\e9a6";
+}
+.hyicon-gaojingguanli:before {
+  content: "\e9a7";
+}
+.hyicon-gaojinghuizong:before {
+  content: "\e9a8";
+}
+.hyicon-gaojingjilu:before {
+  content: "\e9a9";
+}
+.hyicon-gaojingshezhi:before {
+  content: "\e9aa";
+}
+.hyicon-gaojingtongzhi:before {
+  content: "\e9ab";
+}
+.hyicon-gonggaolanweihu:before {
+  content: "\e9ac";
+}
+.hyicon-gongnengcaidan:before {
+  content: "\e9ad";
+}
+.hyicon-gongyiliuchengtu:before {
+  content: "\e9ae";
+}
+.hyicon-guanwangtu:before {
+  content: "\e9af";
+}
+.hyicon-guzhangjiluchaxun:before {
+  content: "\e9b0";
+}
+.hyicon-huwaihuijudian:before {
+  content: "\e9b1";
+}
+.hyicon-jiankongguanli:before {
+  content: "\e9b2";
+}
+.hyicon-jiankongxiang:before {
+  content: "\e9b3";
+}
+.hyicon-jifangdonghuan:before {
+  content: "\e9b4";
+}
+.hyicon-kaguanli:before {
+  content: "\e9b5";
+}
+.hyicon-liandongguanli:before {
+  content: "\e9b6";
+}
+.hyicon-lishichaxun:before {
+  content: "\e9b7";
+}
+.hyicon-lishishuju:before {
+  content: "\e9b8";
+}
+.hyicon-louceng:before {
+  content: "\e9b9";
+}
+.hyicon-lukouyongdianguanli:before {
+  content: "\e9ba";
+}
+.hyicon-menjinguanli:before {
+  content: "\e9bb";
+}
+.hyicon-nenghaoguanli:before {
+  content: "\e9bc";
+}
+.hyicon-nengxiaoguanli:before {
+  content: "\e9bd";
+}
+.hyicon-peidianguanli:before {
+  content: "\e9be";
+}
+.hyicon-peizhiguanli:before {
+  content: "\e9bf";
+}
+.hyicon-renyuanguanli:before {
+  content: "\e9c0";
+}
+.hyicon-shebeiguanli:before {
+  content: "\e9c1";
+}
+.hyicon-shebeijiankong:before {
+  content: "\e9c2";
+}
+.hyicon-shebeiqingdan:before {
+  content: "\e9c3";
+}
+.hyicon-shijianguzhangchaxun:before {
+  content: "\e9c4";
+}
+.hyicon-shipinguanli:before {
+  content: "\e9c5";
+}
+.hyicon-shouyegailan:before {
+  content: "\e9c6";
+}
+.hyicon-shujuchaxun:before {
+  content: "\e9c7";
+}
+.hyicon-shujuzhongxin:before {
+  content: "\e9c8";
+}
+.hyicon-shukajilu:before {
+  content: "\e9c9";
+}
+.hyicon-tongjibaobiao:before {
+  content: "\e9ca";
+}
+.hyicon-tongjifenxi:before {
+  content: "\e9cb";
+}
+.hyicon-tongjishuju:before {
+  content: "\e9cc";
+}
+.hyicon-tongxunshebei:before {
+  content: "\e9cd";
+}
+.hyicon-tupoguanli:before {
+  content: "\e9ce";
+}
+.hyicon-tupozhongxin:before {
+  content: "\e9cf";
+}
+.hyicon-wenduyunchang:before {
+  content: "\e9d0";
+}
+.hyicon-wulianwang:before {
+  content: "\e9d1";
+}
+.hyicon-xinxigonggao:before {
+  content: "\e9d2";
+}
+.hyicon-xitongguanli:before {
+  content: "\e9d3";
+}
+.hyicon-xitongrizhi:before {
+  content: "\e9d4";
+}
+.hyicon-xitongxinxi:before {
+  content: "\e9d5";
+}
+.hyicon-yidongduan:before {
+  content: "\e9d6";
+}
+.hyicon-yonghuquanxian:before {
+  content: "\e9d7";
+}
+.hyicon-yonghuxinxi:before {
+  content: "\e9d8";
+}
+.hyicon-yundongshuju:before {
+  content: "\e9d9";
+}
+.hyicon-yunweiguanli:before {
+  content: "\e9da";
+}
+.hyicon-zhandianditu:before {
+  content: "\e9db";
+}
+.hyicon-zhandianguanli:before {
+  content: "\e9dc";
+}
+.hyicon-zhihuilouyu:before {
+  content: "\e9dd";
+}
+.hyicon-zhinengfaxian:before {
+  content: "\e9de";
+}
+.hyicon-zhishikuguanli:before {
+  content: "\e9df";
+}
+.hyicon-zichanchaxun:before {
+  content: "\e9e0";
+}
+.hyicon-zichandingwei:before {
+  content: "\e9e1";
+}
+.hyicon-zichanguanli:before {
+  content: "\e9e2";
+}
+.hyicon-zichanliyongchaxun:before {
+  content: "\e9e3";
+}
+.hyicon-zichansunhaochaxun:before {
+  content: "\e9e4";
+}
+.hyicon-zichantongji:before {
+  content: "\e9e5";
+}

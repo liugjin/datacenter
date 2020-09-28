@@ -1,0 +1,16 @@
+.big-box
+    .line-col
+    .line-row
+    .box
+        span(style="width: 4px;height: 20px;background: #01a6ff;float: left;margin-top: 0.3rem;").title-line
+
+        a(ng-href='#/energy/{{project.model.user}}/{{project.model.project}}')
+            .title 能耗管理
+            .content
+                .ratio-pie(style="height: 70%;width: 100%;")
+                .content-num
+                    .signal-info(ng-repeat="signal in showSignal")
+                        .signal
+                            .signal-value {{signal.value | number: 2 || "-"}}
+                            img(ng-src="{{getComponentPath('images/bg.png')}}")
+                        .signal-name {{signal.name || "暂无信息"}}

@@ -1,0 +1,101 @@
+heatfield-cloud .select-item {
+  display: inline;
+  height: 36px;
+  background: transparent;
+  color: white;
+  border: 1px solid #0652a2;
+  cursor: pointer; }
+  heatfield-cloud .select-item option {
+    color: white;
+    background: rgba(26, 69, 162, 0.7);
+    line-height: 20px; }
+
+heatfield-cloud .filter-header {
+  height: 60px;
+  margin: 5px;
+  width: calc(100% - 10px); }
+  heatfield-cloud .filter-header .filter-list {
+    display: flex; }
+    heatfield-cloud .filter-header .filter-list .filter-title {
+      margin: 0 12px;
+      font-size: 14px; }
+    heatfield-cloud .filter-header .filter-list .w-60 {
+      width: 60px; }
+    heatfield-cloud .filter-header .filter-list .w-120 {
+      width: 120px; }
+    heatfield-cloud .filter-header .filter-list input {
+      height: 36px;
+      text-align: center; }
+    heatfield-cloud .filter-header .filter-list .btn {
+      margin: 12px; }
+
+heatfield-cloud .color-desc {
+  width: 256px;
+  position: relative;
+  z-index: 9999;
+  left: 25px;
+  top: 320px; }
+  heatfield-cloud .color-desc .color-item {
+    width: 50%;
+    float: left; }
+
+heatfield-cloud .u-controller {
+  width: 120px;
+  height: 80vh;
+  position: absolute;
+  z-index: 9999;
+  right: 0;
+  display: flex;
+  padding-top: 2vh; }
+  heatfield-cloud .u-controller .u-list {
+    width: 20px; }
+  heatfield-cloud .u-controller .u-item {
+    width: 10px;
+    height: 1.8vh;
+    border: 1px solid #0652a2;
+    background: rgba(0, 255, 255, 0.1);
+    cursor: pointer; }
+  heatfield-cloud .u-controller .u-item:hover {
+    border: 1px solid #10EBF4;
+    box-shadow: 0px 0px 13px 4px #00b4ff; }
+  heatfield-cloud .u-controller .u-item-select {
+    background: rgba(0, 255, 255, 0.6); }
+  heatfield-cloud .u-controller .u-text {
+    position: relative;
+    right: 20px;
+    font-size: 14px;
+    color: #10EBF4;
+    text-align: center; }
+  heatfield-cloud .u-controller .u-tip {
+    position: relative;
+    width: 100px;
+    height: 36px;
+    background-color: rgba(3, 75, 136, 0.9);
+    color: #48cfff;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 1;
+    line-height: 1; }
+    heatfield-cloud .u-controller .u-tip .u-tip-inner {
+      width: 10px;
+      height: 10px;
+      position: relative;
+      transform: rotate(45deg);
+      top: 12px;
+      left: -4px;
+      background-color: rgba(3, 75, 136, 0.9);
+      border-width: 0; }
+    heatfield-cloud .u-controller .u-tip .u-tip-point {
+      width: 10px;
+      height: 10px;
+      position: relative;
+      float: left;
+      top: 3px;
+      border-radius: 10px;
+      left: 12px; }
+
+heatfield-cloud .timeline-select {
+  height: 0;
+  width: 100%;
+  position: relative;
+  top: calc(81vh - 320px); }

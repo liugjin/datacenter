@@ -1,0 +1,54 @@
+.loading
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%,-50%)
+log-system
+  .grid-table
+    height: 78vh
+    display: block
+  grid-table
+    .ag-body-viewport-wrapper
+      .ag-body-viewport > div > div.ag-row-odd
+        background: rgba(75, 165, 248, 0.5) !important
+        .ag-cell-no-focus
+          background-color: rgba(26, 69, 162, 1) !important
+
+  //.standard-report-btn
+  //  margin-top: 0.7rem !important
+  .nav-top
+    ul > li
+      margin-right: .75rem
+  .paging-select-box
+
+    width: 100%
+  .btn
+    font-size: 14px
+  .nav-left-container
+    width: 12% !important
+  .middle-select-box
+    width: 120px
+    margin-right: 50px
+    text-align: center
+    background-color: rgba(26,69,162,0.4)
+  .report-container
+    height: 84vh
+    background: rgba(26, 69, 162, 0.4)
+  .pagination
+    li
+      height: 36px
+      line-height: 36px
+      i
+        margin-top: 1px
+@media screen and (width: 1024px)
+  report-operations
+    .middle-select-box
+      margin-right: 10px !important
+      width: 100px !important
+    .grid-table
+      height: 80vh
+      #grid
+        width: 100% !important
+
+    .report-container
+      height: 81vh

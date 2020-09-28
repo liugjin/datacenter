@@ -1,0 +1,32 @@
+battery-alarm .cowContainer {
+  position: relative;
+  background-color: rgba(26, 69, 162, 0.4); }
+  battery-alarm .cowContainer grid-table {
+    display: block;
+    overflow: hidden;
+    height: 90%; }
+    battery-alarm .cowContainer grid-table .ag-blue .ag-ltr .ag-header-cell {
+      border-right: 0 !important; }
+    battery-alarm .cowContainer grid-table .ag-blue .ag-cell, battery-alarm .cowContainer grid-table .ag-blue .ag-header-group-cell-label {
+      text-align: left; }
+    battery-alarm .cowContainer grid-table .ag-blue .ag-header {
+      background-color: #616161;
+      font-size: 15px; }
+    battery-alarm .cowContainer grid-table .ag-blue .ag-body {
+      background-color: white;
+      font-size: 14px; }
+    battery-alarm .cowContainer grid-table .ag-blue .ag-root {
+      border: 0px solid #e0e0e0; }
+  battery-alarm .cowContainer .pageIcon {
+    position: absolute;
+    bottom: .8rem;
+    overflow: hidden;
+    left: 0;
+    right: 0; }
+    battery-alarm .cowContainer .pageIcon .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      battery-alarm .cowContainer .pageIcon .pagination li {
+        width: 30px;
+        line-height: 30px; }

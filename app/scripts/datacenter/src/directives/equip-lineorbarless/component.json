@@ -1,0 +1,24 @@
+{
+  "id": "equip-lineorbarless",
+  "name": "EquipLineorbarless控件",
+  "type": "EquipLineorbarlessDirective",
+  "desc": {
+    "author": "",
+    "comment": "自定义组件",
+    "version": {
+        "0.0.1": [
+        ]
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": ["equipment-timefilter", "component-line"],
+  "css": "",
+  "version": "0.0.1"
+}

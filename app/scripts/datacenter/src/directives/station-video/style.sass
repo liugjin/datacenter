@@ -1,0 +1,87 @@
+station-video
+  display: block
+  //background-color: rgba(7,27,85,0.5)
+  .big-box
+    position: relative
+    height: 28vh
+    .line-col
+      position: absolute
+      width: calc(100% - 1px)
+      margin-top: 20px
+      height: calc(100% - 40px)
+      //border: 1px solid #082268
+      border-top: none
+      border-bottom: none
+
+    .line-row
+      position: absolute
+      height: 100%
+      margin-left: 20px
+      width: calc(100% - 40px)
+      //border: 1px solid #082268
+      border-left: none
+      border-right: none
+
+    .box
+      padding: 1rem
+      position: absolute
+      top: 0
+      height: 100%
+      width: 100%
+      color: #e2edf2
+      //background: url("~images/left-on.png~") 0 0 no-repeat,url("~images/left-under.png~") 0 100% no-repeat,url("~images/right-on.png~") calc(100% - 1px) 0 no-repeat,url("~images/right-under.png~") calc(100% - 1px) 100% no-repeat
+      .select-slogo
+        background: url("~images/triangle.svg~")
+        width: 14px
+        height: 10px
+        display: block
+        float: right
+        margin-top: 1px
+
+      .subtitle
+        position: absolute
+        color: white
+        right: 25px
+        top: 2vh
+        font-size: 12px
+        font-weight: 600
+        padding: 2px 8px
+        background-color: rgba(1, 166, 255, 0.4)
+      .title-line
+        width: 4px
+        height: 20px
+        background: #01a6ff
+        float: left
+        margin-top: 0.3rem
+      .title-h2
+        font-size: 12px
+        font-weight: 400
+        margin-left: 0.5rem
+
+      .title
+        //background: url("~images/title-img.png~") center no-repeat
+        display: inline
+        text-align: left
+        margin-left: 0.5rem
+        color: white
+        font-size: 20px
+        font-weight: 600
+      .content
+        padding-top: .5vh
+        height: 21vh
+        display: flex
+        flex-direction: column
+        justify-content: space-evenly
+        .content-logo
+          margin: 0 2rem
+          text-align: center
+          img
+            width: 80%
+        .signal-name
+          color: #fff
+          font-size: .75rem
+        .signal-value
+          color: #2a89ee
+          font-size: 1.25rem
+        .signal-unit
+          font-size: .75rem

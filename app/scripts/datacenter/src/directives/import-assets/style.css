@@ -1,0 +1,63 @@
+import-assets .modal-footer .btn-flat {
+  color: #fff; }
+
+import-assets .import-assets {
+  height: 84vh;
+  background-color: rgba(26, 69, 162, 0.4); }
+  import-assets .import-assets .import-assets-header {
+    position: relative;
+    padding: 0.75rem; }
+    import-assets .import-assets .import-assets-header .back-btn, import-assets .import-assets .import-assets-header .import-assets-btn {
+      margin-right: 1.5rem;
+      cursor: pointer;
+      font-size: 14px;
+      height: 34px;
+      line-height: 34px;
+      border: 1px solid #10EBF4;
+      background-color: rgba(26, 69, 162, 0.4);
+      color: #ffffff;
+      display: inline-block;
+      padding: 0 1.5rem; }
+      import-assets .import-assets .import-assets-header .back-btn .icon-back, import-assets .import-assets .import-assets-header .back-btn .icon-import, import-assets .import-assets .import-assets-header .back-btn .icon-download, import-assets .import-assets .import-assets-header .import-assets-btn .icon-back, import-assets .import-assets .import-assets-header .import-assets-btn .icon-import, import-assets .import-assets .import-assets-header .import-assets-btn .icon-download {
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-right: 0.5rem;
+        background-position-y: center;
+        height: 20px;
+        vertical-align: middle; }
+      import-assets .import-assets .import-assets-header .back-btn .icon-back, import-assets .import-assets .import-assets-header .import-assets-btn .icon-back {
+        width: 15px;
+        background-image: url("~img/back.svg~"); }
+      import-assets .import-assets .import-assets-header .back-btn .icon-import, import-assets .import-assets .import-assets-header .import-assets-btn .icon-import {
+        width: 20px;
+        background-image: url("~img/add.svg~"); }
+      import-assets .import-assets .import-assets-header .back-btn .icon-download, import-assets .import-assets .import-assets-header .import-assets-btn .icon-download {
+        width: 20px;
+        background-image: url("~img/download.svg~"); }
+    import-assets .import-assets .import-assets-header .confirm-btn {
+      position: absolute;
+      right: 0.75rem; }
+    import-assets .import-assets .import-assets-header .import-file {
+      display: none; }
+    import-assets .import-assets .import-assets-header .progress-value {
+      padding-right: 1rem; }
+    import-assets .import-assets .import-assets-header .import-progress {
+      width: 50%;
+      vertical-align: middle;
+      display: inline-block; }
+  import-assets .import-assets .import-assets-main {
+    height: 78vh;
+    overflow-y: auto; }
+    import-assets .import-assets .import-assets-main .iserror {
+      background-color: #e9b943; }
+
+import-assets ::-webkit-scrollbar {
+  width: 4px;
+  height: 8px; }
+
+import-assets ::-webkit-scrollbar-track {
+  background-color: rgba(26, 69, 162, 0.4); }
+
+import-assets ::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 231, 238, 0.4); }

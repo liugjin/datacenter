@@ -1,0 +1,26 @@
+{
+  "id": "equipment-statistic",
+  "name": "设备类型数量统计组件",
+  "type": "EquipmentStatisticDirective",
+  "desc": {
+    "author": "david",
+    "comment": "按指定设备类型过滤显示符合相应条件的设备数量信息",
+    "version": {
+      "0.0.1": ["初始化组件"],
+      "0.0.2": ["修复类型设备统计数据bug"],
+      "0.0.3": ["样式标准版，region"]
+
+    }
+  },
+  "group": "功能组件",
+  "parameters": [
+    {"id":"types", "type":"json", "value":[{"name":"UPS", "type":"ups"},{"name":"空调", "type":"aircondition"}, {"name":"传感器", "type":"environmental"}]}
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": [],
+  "css": "",
+  "version": "0.0.3"
+}

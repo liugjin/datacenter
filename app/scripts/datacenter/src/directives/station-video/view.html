@@ -1,0 +1,14 @@
+<div class="big-box"><div class="line-col"></div><div class="line-row"></div><div class="box"><span class="title-line"></span><div class="title">视频</div><!--span.title-h2 Video Quantity--><div ng-show="videos.length &gt; 1" data-target="videos" data-hover="true" data-alignment="right" data-constrain-width="false" md-dropdown="md-dropdown" class="subtitle right dropdown-trigger">选择摄像头<span class="select-slogo"><ul id="videos" style="overflow: overlay" class="dropdown-content"><li ng-repeat="equip in videos" ng-class="{active: equip.isSelect}"><a ng-href="" ng-click="playVideo(equip)"><span>{{equip.model.name}}</span></a></li></ul></span></div><div class="content"><div style="margin-bottom:0;height:100%" class="row"><div style="box-sizing:border-box; height:100%" class="col m12"><div style="display:block;height:100%" class="video"><div style="height:100%;overflow:hidden;"><div id="player" style="width:100% !important;height:100% !important;margin:0px;border:0px;background:rgba(52,52,52,1);box-shadow:none" class="vxgplayer"></div></div></div></div></div></div><div class="box-border-bottom"></div></div></div><!--#tip-modal.modal.modal-fixed-footer(md-modal,style="width: 34%;height:312px;border:1px solid #00e7ee;visibility:hidden;box-shadow: 0px 1px 22px #5d6f98 inset;").modal-content(style="height:100%;")
+    .closepart(style="position:absolute;right:5px;top:5px;")
+        div(style="width:30px;height:30px;line-height:30px;display:block;text-align:center;cursor:pointer;" ng-click="hideModal()")
+            span.white-text(style="font-size:22px;" ng-click="hideModal()") ×
+    .row
+        .col.s12
+            h5.center.white-text(style="font-size:18px;") 提示信息
+    .row
+        .col.s12(style="min-height:64px")
+            h5.center.white-text(style="font-size:18px;") 请检查是否已安装（或启用）vxgplayer插件
+    .row
+        .col.s12
+            .btn-group.center
+                a.waves-effect.waves-light.btn-large(href="res/vxgplayer.rar",title="下载视频播放控件" ng-click="hideModal()" style="background-color:#0387fe;width:102px;height:42px;line-height:42px;font-size:18px;") 安装-->

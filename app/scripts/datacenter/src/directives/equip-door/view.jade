@@ -1,0 +1,37 @@
+
+.equip-list
+    .col.l4.item(ng-repeat="equip in doorEquips | limitTo: pageItems * pageIndex | limitTo: limitToEquipment()" ng-class="{'pad-left': $index%3==0}")
+        .list(ng-class="{'bg-color': equip.model.equipment == equipment.model.equipment}")
+            .equip-img(ng-if='equip.model.image' ng-style="{'background-image': imgString(equip.model.image)}" ng-click="selectEquip(equip)")
+            .equip-img(ng-if='!equip.model.image' ng-style="{'background-image': imgString()}" ng-click="selectEquip(equip)")
+            .command-btn(ng-click="executeCommand(equip)") 远程开门
+            h6
+                //a {{equip.model.name}}
+                a(ng-href='#/door-plan/{{equip.model.user}}/{{equip.model.project}}?station={{equip.model.station}}&equipment={{equip.model.equipment}}') {{equip.model.name}}
+
+    .col.s12.m12.l12.eventpagination(style="margin-top: 0.75rem;")
+        div(style="flex:1;")
+        .valign-wrapper(style='flex:2;')
+            div(style="margin: 0 auto;")
+                ul.pagination.center(ng-show='filterEquipmentItem().pageCount > 1' ng-cloak)
+                    li.page-button(ng-class='{disabled: pageIndex <= 1, "waves-effect": pageIndex > 1}' ng-click='pageIndex>1?(pageIndex = pageIndex - 1):0')
+                        a(href='', ng-class="{'choose-text': pageIndex > 1}")
+                            i.material-icons chevron_left
+
+                    li.page-button(ng-class='{active: page == pageIndex, "waves-effect": page != pageIndex}' ng-repeat='page in filterEquipmentItem().pages' ng-click='selectPage(page)' ng-if="(page>(pageIndex-4)&&page<(pageIndex+4)) || page==1 || page==filterEquipmentItem().pageCount")
+                        a(href='')
+                            | {{( (page>(pageIndex-3)&&page<(pageIndex+3)) || page==1 || page==filterEquipmentItem().pageCount ) ? page : ".."}}
+
+                    li.page-button.last(ng-class='{disabled: pageIndex >= filterEquipmentItem().pageCount, "waves-effect": pageIndex < filterEquipmentItem().pageCount}' ng-click='pageIndex<filterEquipmentItem().pageCount?(pageIndex = pageIndex + 1):0')
+                        a(href='', ng-class="{'choose-text': pageIndex < filterEquipmentItem().pageCount}")
+                            i.material-icons chevron_right
+        div(style='flex:1;')
+
+
+
+
+
+
+
+
+

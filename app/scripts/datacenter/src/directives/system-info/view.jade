@@ -1,0 +1,122 @@
+.row.nav-top
+    .col.l2
+        span(style="font-size:14px") 系统信息
+    .col.l10
+.row
+    .col.l6
+        .card-panel.no-margin-bottom.card-panel-left
+            .title 系统LOGO
+            .card-panel-center
+                .img-box
+                    .img-uploader
+                        image-uploader(ng-model='setting.logo', dir='{{controller.options.uploadUrl}}')
+            .input-field
+                .title(ng-class='{active: setting.name}',style="margin-top: 0") 系统名称
+                input(type='text', ng-model='setting.name',maxlength="36")
+
+            .input-field
+                .title(ng-class='{active: setting.desc}') 系统简介
+                textarea.materialize-textarea(ng-model='setting.desc',style="background-color: transparent")
+
+            .input-field
+                .title(ng-class='{active: setting.copyright}') 版权信息
+                input(type='text', ng-model='setting.copyright')
+
+            .input-field
+                .title(ng-class='{active: parameters.version}') 版本号
+                input(type='text', ng-model='parameters.version', disabled)
+
+            //- .input-field
+            //-   .title(ng-class='{active: setting.defaultFlag}') 是否关闭告警通知
+            //-   md-switch(ng-model="setting.defaultFlag",label-off='否',label-on='是', ng-change="switchEvent(setting.defaultFlag)" style="margin-left:.75rem;" )   
+    
+
+            .btn-group.getstarted-button.btn-save
+                a.btn.waves-effect.waves-light.green-1(ng-href='', ng-click='saveSetting()', ng-show="project.model._role.isAdmin || project.model._role.operations[0]=='_all' || project.model._role.operations.indexOf('setting')>=0")
+                    | 保存配置
+    .col.l6(style="padding-left: 0")
+        .card-panel.no-margin-bottom.card-panel-right
+            .version(style="margin-bottom: 1rem")
+                .title 版本信息
+                .new-table
+                     table
+                        thead
+                            tr
+                                th
+                                    .col-header
+                                        span 序号
+                                th
+                                    .col-header
+                                        span 版本号
+                                th
+                                    .col-header
+                                        span 升级时间
+                        tbody
+                            tr(ng-repeat='(index,infor) in versionInformation' ng-show="versionInformation !='暂无升级记录'")
+                                td {{index + 1}}
+                                td {{infor.version}}
+                                td {{infor.updateTime}}
+                            tr(ng-show="versionInformation =='暂无升级记录'")
+                                td {{versionInformation}}
+                .upgrade
+                    .title 系统升级
+                    .row(style="height:64%;margin: 0.75rem 0")
+                        .col.s12.m12.l12.upload
+                            .choiceLabel
+                                span 请选择升级包:
+                            .choiceRoute
+                                input#upload.file(type="file" accept=".zip" style="display: none;")
+                                input(name="fileName" value="{{fileNameStr}}" readonly)
+                                #file.browseBtn(ng-click="file()") ...
+                            .confirmUpload.btn(ng-click="confirmSha()")
+                                span 执行升级
+                        .col.s12.m12.l12(style="display: flex;justify-content:center;align-items:center;width: 100%;height: 50%;font-size: 18px;")
+                            span(ng-if="upgrade") 正在升级页面请勿刷新页面或者进行其他操作
+            //- .license-information
+            //-     .title 许可信息
+            //-     .new-table
+            //-          table
+            //-             thead
+            //-                 tr
+            //-                     th
+            //-                         .col-header
+            //-                             span 序号
+            //-                     th
+            //-                         .col-header
+            //-                             span 许可序列号
+            //-                     th
+            //-                         .col-header
+            //-                             span 许可内容
+            //-                     th
+            //-                         .col-header
+            //-                             span 加载时间
+            //-             tbody
+            //-                 tr
+            //-                     td 1
+            //-                     td v186
+            //-                     td SNMP北向接口
+            //-                     td 2020-02-09
+            //-                 tr
+            //-                     td 2
+            //-                     td v186
+            //-                     td SNMP北向接口
+            //-                     td 2020-02-09
+            //-                 tr
+            //-                     td 3
+            //-                     td v186
+            //-                     td SNMP北向接口
+            //-                     td 2020-02-09
+            //-     .upgrade
+            //-         .title 许可增加
+            //-         .row(style="height:64%;margin: 0.75rem 0")
+            //-             .col.s12.m12.l12.upload
+            //-                 .choiceLabel
+            //-                     span 请选择许可文件:
+            //-                 .choiceRoute
+            //-                     input#upload.file(type="file" accept=".zip" style="display: none;")
+            //-                     input(name="fileName" value="{{fileNameStr}}" readonly)
+            //-                     #file.browseBtn(ng-click="file()") ...
+            //-                 .confirmUpload.btn(ng-click="confirmSha()")
+            //-                     span 执行授权  
+
+          

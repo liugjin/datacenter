@@ -1,0 +1,92 @@
+.row.nav-top
+    .col.l2
+        span 已监管{{name}}清单({{stations.length}}个)
+    .col.l10
+        nav
+            .nav-wrapper
+                //ul.right
+                //    li(ng-show="project.model._role.isAdmin || project.model._role.operations[0]=='_all' || project.model._role.operations.indexOf('station-manager-add')>=0" )
+                //        .btn(data-target='station-new-modal', ng-click='createStation()', title='新建站点')
+                //            span 新建
+
+.row.content
+    .col.s12
+        .card.item-list(style="padding: 0 0.75rem;")
+            table.responsive-table.highlight
+                thead
+                    tr
+                        th ID
+                        th 名称
+                        th 上级站点
+                        th 接入时间
+                        th 当前状态
+                        th 操作
+                tbody
+                    tr(ng-repeat='station in stations')
+                        td {{station.model.station}}
+                        td {{station.model.name}}
+                        td {{getStationParentName(station.model.parent) || '-'}}
+                        td {{station.model.createtime | date:'yyyy-MM-dd HH:mm:ss'}}
+                        td {{status[station.model.station]}}
+                        td
+                            a.btn(ng-href='#/monitoring/{{station.model.user}}/{{station.model.project}}?station={{station.model.station}}') 查看详情
+
+.row.nav-top
+    .col.l2
+        span 待监管{{name}}清单({{list.length}}个)
+    .col.l10
+        nav
+            .nav-wrapper
+.row
+    .col.s12
+        .card.item-list(style="padding: 0 0.75rem;")
+            table.responsive-table.highlight
+                thead
+                    tr
+                        th ID
+                        th 名称
+                        th 当前状态
+                        th 操作
+                tbody
+                    tr(ng-repeat='item in list')
+                        td {{item.mu}}
+                        td {{item.template.name+item.mu}}
+                        td {{status[item.mu]}}
+                        td
+                            a.btn(ng-click="addStationItem(item)") 加入监管
+
+#add-station-modal.modal.modal-fixed-footer(md-modal, dismissible="false")
+    .modal-content
+        .row
+            .col.s12
+                h5 新增ID为{{station.model.station}}的{{element.template.name}}
+                .col.s12
+                    .input-field.col.s12
+                        span.input-label ID
+                        input#equipment.validate(type='text', ng-model='station.model.station', disabled)
+                        //label(for='equipment', class="active" ng-class='{active: equipment.model.equipment}') 设备ID
+
+                    .input-field.col.s12
+                        span.input-label 名称
+                        input#name.validate(type='text', ng-model='station.model.name')
+                        //label(for='name' class="active" ng-class='{active: equipment.model.name}') 设备名称
+
+                    .input-field.col.s12
+                        span.input-label 上级站点
+                        select(ng-model='station.model.parent', md-select, data='project.stations.items')
+                            option(ng-repeat='sta in project.stations.items', value='{{sta.model.station}}', ng-selected='sta.model.station == station.model.parent') {{sta.model.name}}
+
+    .modal-footer.modal-nav
+        nav
+            .nav-wrapper
+                ul
+                    li
+                        a(href='', ng-click='saveStation()', title='保存')
+                            i.material-icons.left save
+                            span.hide-on-med-and-down 确认
+
+                    ul.right
+                        li
+                            a.modal-action.modal-close(href='', ng-click="cancel()")
+                                i.material-icons.right close
+                                span.hide-on-med-and-down 取消

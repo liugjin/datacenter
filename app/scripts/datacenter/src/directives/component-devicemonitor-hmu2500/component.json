@@ -1,0 +1,25 @@
+{
+  "id": "component-devicemonitor-hmu2500",
+  "name": "设备监控组件",
+  "type": "ComponentDevicemonitorHmu2500Directive",
+  "desc": {
+    "author": "foam",
+    "comment": "设备监控组件hmu2500",
+    "version": {
+      "0.0.1": [],
+      "0.0.2": ["修改组态及其他数据无法显示的bug"]
+    }
+  },
+  "keywords":"数据,图表,设备,控制,告警",
+  "group": "功能组件",
+  "parameters": [
+
+  ],
+  "interact": {
+    "pubs": [],
+    "subs": []
+  },
+  "deps": ["graphicparamter-box","equip-lineorbar-hmu2500"],
+  "css": "",
+  "version": "0.0.2"
+}

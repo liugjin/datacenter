@@ -1,0 +1,5 @@
+link(rel='stylesheet', href='/lib/gl-datepicker/styles/glDatePicker.default.css')
+ul.report-time
+    li
+        .input-field(style="position:relative;top:-50px;left:-4px;visibility:hidden;")
+            input#datevalue.datepicker(type='text' ng-model="time.timedate" ng-change="formatDate('datevalue')" )

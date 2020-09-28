@@ -1,0 +1,148 @@
+.row.nav-top
+    .col.s2
+        span {{ parameters.headerName ||"信号配置"}}
+    .col.s10
+        .btn.btn-style(ng-click="btnActive = 'sample'", ng-class="{active: btnActive =='sample'}")
+            i.btn-sample
+            span 采集信号配置
+        .btn.btn-style(ng-click="btnActive = 'alarm'", ng-class="{active: btnActive =='alarm'}")
+            i.btn-alarm
+            span 告警信号配置
+        .btn.btn-style(ng-click="btnActive = 'status'", ng-class="{active: btnActive =='status'}")
+            i.btn-status
+            span 状态信号配置
+.row
+    .col.configuration-left
+        device-tree-single.tree-style(controller='controller',parameters='{"checkbox":false,"filter":true,"reportName": parameters.headerName ||"信号配置"}')
+    .col.configuration-right
+        .configuration-header
+            .search-wrapper
+                i.material-icons search
+                input.search-input(type="text" placeholder="搜索" ng-model="searchLists" required)
+                i.material-icons(style="left: 158px;top: 0;cursor:pointer" ng-click="searchLists = ''; pageIndex = 1;" ng-show='searchLists') close
+            .btn.right(ng-click="save()")
+                span.text-position 保存
+                i.material-icons save
+        .configuration-main(ng-show="btnActive=='sample'")
+            table.table-sample
+                thead
+                    tr
+                        th
+                        th 序号
+                        th 采集信号名称
+                        th 新采集信号名称
+                        th 超限阈值
+                        th 新超限阈值
+                        th 超限告警等级
+                        th 新超限告警等级
+                        th 低限阈值
+                        th 新低限阈值
+                        th 低限告警等级
+                        th 新低限告警等级
+                tbody
+                    tr(ng-repeat="event in sampleEvents | filter: filterEvent()")
+                        td
+                            label
+                                input.filled-in(type="checkbox", ng-model="event.eventInfo.checked",checked="event.eventInfo.checked", value="")
+                                span
+                        td {{$index + 1}}
+                        td {{event.model.name}}
+                            //- 采集信号名称
+                        td
+                            //- 新采集信号名称
+                            input(type="text" ng-model="event.eventInfo.name", ng-change="tickCheckBox(event)")
+                        td {{event.eventInfo.overLimit}}
+                            //- 超限阈值
+                        td
+                            input(type="text" ng-model="event.eventInfo.inputOverLimit", ng-change="tickCheckBox(event)")
+                            //- 新超限阈值
+                        td {{event.eventInfo.overEventName}}
+                            //- 超限告警等级
+                        td
+                            select(md-select, ng-model="event.eventInfo.overSeverity", ng-change="tickCheckBox(event)")
+                                option(value="")
+                                option(ng-repeat="option in selectEventseverities", value="{{option.model.severity}}" ng-selected="option.model.severity == event.eventInfo.overSeverity") {{option.model.name}}
+                            //- 新超限告警等级
+                        td {{event.eventInfo.lowLimit}}
+                            //- 低限阈值
+                        td
+                            input(type="text" ng-model="event.eventInfo.inputLowLimit", ng-change="tickCheckBox(event)")
+                            //- 新低限阈值
+                        td {{event.eventInfo.lowEventName}}
+                            //- 低限告警等级
+                        td
+                            select(md-select, ng-model="event.eventInfo.lowSeverity", ng-change="tickCheckBox(event)")
+                                option(value="")
+                                option(ng-repeat="option in selectEventseverities", value="{{option.model.severity}}") {{option.model.name}}
+                            //- 新低限告警等级
+        .configuration-main(ng-show="btnActive=='alarm'")
+            table
+                thead
+                    tr
+                        th
+                        th 序号
+                        th 告警信号名称
+                        th 新告警信号名称
+                        th 当前告警等级
+                        th 新告警等级
+                tbody
+                    tr(ng-repeat="event in alarmEvents | filter: filterEvent()")
+                        td
+                            label
+                                input.filled-in(type="checkbox", ng-model="event.eventInfo.checked", checked="event.eventInfo.checked", value="")
+                                span
+                        td {{$index + 1}}
+                        td {{event.model.name}}
+                        td
+                            input(type="text", ng-model="event.eventInfo.name", ng-change="tickCheckBox(event)")
+                        td {{event.eventInfo.eventName}}
+                        td
+                            select(md-select, ng-model="event.eventInfo.severity", ng-change="tickCheckBox(event)")
+                                option(value="")
+                                option(ng-repeat="option in selectEventseverities", value="{{option.model.severity}}") {{option.model.name}}
+        .configuration-main(ng-show="btnActive=='status'")
+            table.table-status
+                thead
+                    tr
+                        th
+                        th 序号
+                        th 状态信号名称
+                        th 新状态信号名称
+                        th 是否设为告警
+                        th 告警条件
+                        th 新告警条件
+                        th 当前告警等级
+                        th 新告警等级
+                tbody
+                    tr(ng-repeat="event in statusEvents | filter: filterEvent()")
+                        td
+                            label
+                                input.filled-in(type="checkbox", ng-model="event.eventInfo.checked",checked="event.eventInfo.checked", value="")
+                                span
+                        td {{$index + 1}}
+                        td {{event.model.name}}
+                            //- 状态信号名称
+                        td
+                            input(type="text", ng-model="event.eventInfo.name", ng-change="tickCheckBox(event)")
+                            //- 新状态信号名称
+                        td
+                            select(md-select, ng-model="event.model.enable")
+                                option(ng-value="{{true}}") 是
+                                option(ng-value="{{false}}") 否
+                            //- 是否设为告警
+                        td {{event.eventInfo.condition.name}}
+                            //- 告警条件
+                        td
+                            span {{event.model.rules[0].condition.values}} {{event.equipmentInfo.conditions}}
+                            select(md-select, ng-model="event.model.rules[0].start.condition.values", ng-change="tickCheckBox(event)")
+                                option(ng-repeat="option in event.eventInfo.formatSelect", value="{{option.id}}") {{option.name}}
+                                //- option 打开
+                                //- option 关闭
+                            //- 新告警条件
+                        td {{event.eventInfo.eventName}}
+                            //- 当前告警等级
+                        td
+                            select(md-select, ng-model="event.eventInfo.severity", ng-change="tickCheckBox(event)")
+                                option(value="")
+                                option(ng-repeat="option in selectEventseverities", value="{{option.model.severity}}") {{option.model.name}}
+                            //- 新告警等级

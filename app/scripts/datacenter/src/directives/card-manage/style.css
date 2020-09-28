@@ -1,0 +1,4 @@
+card-manage table > tbody.highlight > .highlight {
+  background-color: transparent; }
+  card-manage table > tbody.highlight > .highlight:hover {
+    background-color: rgba(16, 235, 244, 0.2) !important; }
